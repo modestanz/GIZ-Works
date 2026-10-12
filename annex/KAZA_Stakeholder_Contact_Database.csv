@@ -1,0 +1,70 @@
+ID,Country,Category,Organisation,Role for the facility,KAZA hub or office,Suggested contact point,Official website
+R01,Regional,Government / TFCA,KAZA TFCA Secretariat,Facility host; IC member; Supply Chain Compact convenor,Kasane (BW),Executive Director; Tourism and Enterprise Programme Officer,kavangozambezi.org
+R02,Regional,Development partner,GIZ (R-NBT Joint Action in KAZA),Implementer; IC member; TA lead,Gaborone / Kasane (BW),R-NBT Project Lead,giz.de
+R03,Regional,Development partner,Delegation of the European Union to Botswana and SADC,Co-funder; IC observer,Gaborone (BW),Programme Manager Green Economy / Tourism,eeas.europa.eu
+R04,Regional,DFI,KfW Development Bank,KAZA financial cooperation; co-financing of de-risking layer,Frankfurt / regional office,Portfolio Manager Biodiversity / SADC TFCAs,kfw.de
+R05,Regional,Guarantee,African Guarantee Fund (AGF),Counter-guarantee for national tourism windows; women's guarantees,Regional (Nairobi HQ; Southern Africa coverage),Head of Partnerships Southern Africa,africanguaranteefund.com
+R06,Regional,DFI,African Development Bank – AFAWA,Women's risk-sharing (up to 75%); TA to lenders,Regional (Abidjan HQ; Southern Africa hub Pretoria),AFAWA Programme Coordinator,afdb.org
+R07,Regional,DFI,International Finance Corporation (IFC),Risk-sharing facilities; collateral registry TA (BW),Johannesburg / Lusaka,SME Banking and Gender Lead Southern Africa,ifc.org
+R08,Regional,DFI,World Bank,Zambia GREAT tourism project (matching grants); Findex/Enterprise Survey data,Lusaka / Washington,Task Team Leader P180337,worldbank.org
+R09,Regional,NGO,Peace Parks Foundation,Community enterprise outreach (Simalaha and others),Stellenbosch / KAZA field offices,KAZA Programme Manager,peaceparks.org
+R10,Regional,NGO,WWF (Namibia / Zambia / Zimbabwe / KAZA),Wildlife Credits; CBNRM enterprise support,Windhoek / Lusaka / Harare,KAZA Landscape Lead,wwf.panda.org
+R11,Regional,NGO,African Wildlife Foundation (AWF),Community conservation enterprises (Kazungula landscape),Nairobi / Zimbabwe field office,Conservation Enterprise Lead,awf.org
+R12,Regional,NGO,Conservation International,KAZA conservation finance,Botswana / Zambia,Southern Africa Programme Director,conservation.org
+R13,Regional,Industry association,Adventure Travel Trade Association (ATTA),Market access; regenerative tourism standards,Global,Africa Regional Director,atta.travel
+B01,Botswana,DFI / empowerment,Citizen Entrepreneurial Development Agency (CEDA),Tourism window; co-financing Window C; candidate guarantee host,Maun / Kasane branches,Head of Tourism Lending; Branch Managers,ceda.co.bw
+B02,Botswana,BSO,Local Enterprise Authority (LEA),Delivery partner: pipeline; coaching; Wilderness supplier MoU,Maun / Kasane,Chief Executive Officer; Regional Manager North,lea.co.bw
+B03,Botswana,DFI,National Development Bank (NDB),SME lending; candidate guarantee host,Maun,Head of SME,ndb.bw
+B04,Botswana,Commercial bank,Stanbic Bank Botswana,Supplier finance (Wilderness model); partner lender,Maun / Kasane / Gaborone,Head of Business and Commercial Banking,stanbicbank.co.bw
+B05,Botswana,Commercial bank,Absa Bank Botswana,Partner lender; women's banking,Maun / Kasane,Head of SME / Women in Business,absa.co.bw
+B06,Botswana,Commercial bank,First National Bank Botswana,Partner lender,Maun / Kasane,Head of Small Business,fnbbotswana.co.bw
+B07,Botswana,MFI,Letshego Botswana,Micro and payroll-linked lending,Maun,Head of MSE Lending,letshego.com
+B08,Botswana,Tourism board,Botswana Tourism Organisation (BTO),Hub roundtable chair; grading and certification,Maun / Kasane,Product Development and Ecotourism Certification Manager,botswanatourism.co.bw
+B09,Botswana,Industry association,Hospitality and Tourism Association of Botswana (HATAB),Operator mobilisation; Supply Chain Compact,Maun,Chief Executive Officer,hatab.bw
+B10,Botswana,Large operator,Wilderness,Anchor; supplier finance pilot; Compact signatory,Maun,Head of Sustainability / Procurement,wildernessdestinations.com
+B11,Botswana,CBNRM,Botswana Community Based Organisations Network (BOCOBONET),Community trusts outreach; community guarantee fund,Maun,Coordinator,to be confirmed
+B12,Botswana,Government,Ministry of Youth / Youth Development Fund,Youth window co-financing,Gaborone / district offices,Youth Development Fund Coordinator,gov.bw
+B13,Botswana,Regulator,Bank of Botswana / Ministry of Finance (Collateral Registry),Movable collateral registry commencement,Gaborone,Financial Inclusion / Collateral Registry Lead,bankofbotswana.bw
+N01,Namibia,DFI,Development Bank of Namibia (DBN),Tourism window; CGS administrator; partner lender,Katima Mulilo / Rundu / Windhoek,Head of SME Finance; CGS Manager,dbn.com.na
+N02,Namibia,Green fund,Environmental Investment Fund of Namibia (EIF),Green asset finance; conservancy grants,Windhoek,Head of Programmes / Green Finance,eif.org.na
+N03,Namibia,CBNRM,Namibian Association of CBNRM Support Organisations (NACSO),Conservancy outreach; model JV clauses; data,Windhoek / Katima Mulilo,Director,nacso.org.na
+N04,Namibia,Community fund,Community Conservation Fund of Namibia (CCFN),Wildlife Credits; community guarantee fund management,Windhoek,Executive Director,ccfn.org.na
+N05,Namibia,Government,Ministry of Environment Forestry and Tourism (MEFT),Concessions; conservancy policy; KAZA NCU,Windhoek / Katima Mulilo,KAZA National Coordinator,meft.gov.na
+N06,Namibia,Tourism board,Namibia Tourism Board (NTB),Licensing simplification; hub roundtable,Windhoek / Katima Mulilo,Industry Services Manager,namibiatourism.com.na
+N07,Namibia,Industry association,Federation of Namibian Tourism Associations (FENATA),Operator mobilisation; Compact,Windhoek,Chief Executive Officer,to be confirmed
+N08,Namibia,Commercial bank,Bank Windhoek,Partner lender (CGS participant),Katima Mulilo / Rundu,Head of SME Banking,bankwindhoek.com.na
+N09,Namibia,Commercial bank,First National Bank Namibia,Partner lender (CGS participant),Katima Mulilo / Rundu,Head of Small Business,fnbnamibia.com.na
+N10,Namibia,Guarantee / insurer,Namibia Special Risks Insurance Association (NASRIA),CGS risk partner,Windhoek,Credit Guarantee Manager,nasria.com.na
+N11,Namibia,Large operator,Gondwana Collection,Anchor; local procurement,Windhoek / Zambezi lodges,Sustainability Manager,gondwana-collection.com
+Z01,Zambia,DFI / empowerment,Citizens Economic Empowerment Commission (CEEC),Co-financing; vehicle loans; delivery partner,Livingstone / Mongu,Director General; Provincial Officers,ceec.org.zm
+Z02,Zambia,Guarantee,Zambia Credit Guarantee Scheme (ZCGS),Tourism window with women and youth uplift,Lusaka,Chief Executive Officer,to be confirmed
+Z03,Zambia,Regulator,Bank of Zambia (SBGI pilot guarantee; NFIS II),Policy; guarantee pilot; disaggregated reporting,Lusaka / Livingstone office,Director Financial Inclusion,boz.zm
+Z04,Zambia,Commercial bank,FNB Zambia,Partner lender (ZCGS K100m partnership; women and youth focus),Livingstone,Head of Business Banking,fnbzambia.co.zm
+Z05,Zambia,Commercial bank,Absa Bank Zambia,Partner lender (CEEC facility),Livingstone,Head of SME,absa.co.zm
+Z06,Zambia,Commercial bank,Stanbic Bank Zambia,Supplier finance replication,Livingstone,Head of Business Banking,stanbicbank.co.zm
+Z07,Zambia,MFI,FINCA Zambia,Micro lending; women and youth (prior UNCDF guarantee),Livingstone,Chief Executive Officer,finca.org
+Z08,Zambia,Government,Ministry of Tourism / GREAT project PIU,Matching grants co-ordination; KAZA NCU,Lusaka / Livingstone,Project Coordinator; KAZA National Coordinator,mot.gov.zm
+Z09,Zambia,Tourism board,Zambia Tourism Agency,Hub roundtable; licensing,Livingstone,Director Product Development,zambia.travel
+Z10,Zambia,BSO,Zambia Development Agency (ZDA),MSME development; pipeline,Lusaka / Livingstone,Director MSME Development,zda.org.zm
+Z11,Zambia,Industry association,Tourism Council of Zambia / Livingstone Tourism Association,Operator mobilisation; Compact,Livingstone,Chair,to be confirmed
+Z12,Zambia,Community,Simalaha Community Conservancy (with Peace Parks),Community enterprise pilot,Kazungula / Sesheke,Conservancy Manager,peaceparks.org
+W01,Zimbabwe,DFI / BSO,Small and Medium Enterprises Development Corporation (SMEDCO),Delivery partner; on-lending,Victoria Falls / Hwange / Bulawayo,Provincial Manager Matabeleland North,smedco.co.zw
+W02,Zimbabwe,Guarantee,Export Credit Guarantee Corporation (ECGC) – MSME Credit Guarantee Scheme,Tourism window; USD guarantees,Harare / Bulawayo,Managing Director,ecgc.co.zw
+W03,Zimbabwe,MFI / women's bank,Zimbabwe Women's Microfinance Bank,Women's lending; seasonal product pilot,Victoria Falls / Bulawayo,Chief Executive Officer,womensbank.co.zw
+W04,Zimbabwe,Commercial bank,CBZ Bank,Partner lender,Victoria Falls,Head of SME Banking,cbz.co.zw
+W05,Zimbabwe,Commercial bank,Stanbic Bank Zimbabwe,Supplier finance replication,Victoria Falls,Head of Business Banking,stanbicbank.co.zw
+W06,Zimbabwe,DFI,Infrastructure Development Bank of Zimbabwe (IDBZ),Green finance (GCF accredited),Harare,Head of Climate Finance,idbz.co.zw
+W07,Zimbabwe,Tourism board,Zimbabwe Tourism Authority (ZTA),Hub roundtable; licence rationalisation,Victoria Falls,Regional Manager,zimbabwetourism.net
+W08,Zimbabwe,Government,Zimbabwe Parks and Wildlife Management Authority (ZimParks),Concessions; KAZA NCU,Harare / Hwange / Victoria Falls,KAZA National Coordinator,zimparks.org.zw
+W09,Zimbabwe,CBNRM,CAMPFIRE Association,Ward enterprises; community guarantee fund,Harare / Hwange and Binga RDCs,Director,to be confirmed
+W10,Zimbabwe,Large operator,Wild Horizons,Anchor; supplier finance,Victoria Falls,Operations / Procurement Director,wildhorizons.co.za
+W11,Zimbabwe,Large operator,Africa Albida Tourism,Anchor; local procurement,Victoria Falls,Sustainability / Community Lead,africaalbidatourism.com
+W12,Zimbabwe,Industry association,Tourism Business Council of Zimbabwe (TBCZ),Operator mobilisation; Compact,Harare / Victoria Falls chapter,Chief Executive Officer,to be confirmed
+A01,Angola,Guarantee,Fundo de Garantia de Crédito (FGC),KAZA guarantee window (Diversifica Mais model),Luanda,Conselho de Administração / Director Comercial,to be confirmed
+A02,Angola,DFI,Banco de Desenvolvimento de Angola (BDA),On-lending lines,Luanda,Director de Crédito às PME,bda.ao
+A03,Angola,BSO,Instituto Nacional de Apoio às MPME (INAPEM),Delivery partner; MSME certification,Luanda / Menongue,Director Provincial Cubango,to be confirmed
+A04,Angola,MFI,KixiCrédito,Micro lending; group loans,Menongue,Director Geral,to be confirmed
+A05,Angola,Government,Ministério do Turismo (MINTUR) / Okavango Tourism Pole,Tourism policy; licensing,Luanda / Menongue,Director Nacional de Turismo,to be confirmed
+A06,Angola,Government,INBAC / Ministry of Environment,Conservation areas; KAZA NCU,Luanda / Menongue,KAZA National Coordinator,to be confirmed
+A07,Angola,Commercial bank,Banco Sol / Banco BPC,Partner lender with provincial footprint,Menongue,Director de Banca de Pequenos Negócios,to be confirmed
+A08,Angola,NGO,The HALO Trust,Access and community engagement in Cuando and Cubango,Menongue,Angola Programme Manager,halotrust.org

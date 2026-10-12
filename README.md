@@ -13,3 +13,11 @@ python3 src/update_toc.py "$PWD/pass1.docx" "$PWD/KAZA_Financial_Landscape_Analy
 ```
 
 `build.js` uses the `docx` npm package. `update_toc.py` uses LibreOffice to fill in the table of contents. Run it twice so the page numbers settle.
+
+## Tourism MSME Financial Barriers and Opportunities Report
+
+The follow-on report is a living Claude Doc: https://claude.ai/code/artifact/5f53edc0-bfca-42f6-8f54-3de8ce96dcc3
+
+It covers gender- and age-disaggregated barriers, alternative collateral, seasonal debt products, supply chain finance, matching contributions and the design of the grant facility.
+
+`annex/KAZA_Stakeholder_Contact_Database.csv` holds Annex A, the stakeholder contact database: 69 institutions, each with its role, hub and suggested contact point. Named contacts are not included and should be added once confirmed.
