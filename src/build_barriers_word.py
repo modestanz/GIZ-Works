@@ -63,22 +63,63 @@ for el in list(toc_p):
     if el.tag != qn('w:pPr'): toc_p.remove(el)
 tp.paragraph_format.space_before = Pt(0)
 fld(tp, 'TOC \\o "1-2" \\h \\z \\u', 'Right-click and choose Update Field to build the table of contents.')
-brk = copy.deepcopy(toc_p); toc_p.addnext(brk)
+lot_head = copy.deepcopy(toc_head); toc_p.addnext(lot_head)
+lh = docx.text.paragraph.Paragraph(lot_head, byline._parent)
+for r in lh.runs: r.text = ''
+lh.runs[0].text = 'List of tables'
+lot_p = copy.deepcopy(toc_head); lot_head.addnext(lot_p)
+lp = docx.text.paragraph.Paragraph(lot_p, byline._parent)
+for el in list(lot_p):
+    if el.tag != qn('w:pPr'): lot_p.remove(el)
+lp.paragraph_format.space_before = Pt(0)
+fld(lp, 'TOC \\h \\z \\c "Table"', 'Right-click and choose Update Field to build the list of tables.')
+brk = copy.deepcopy(lot_p); lot_p.addnext(brk)
 bp = docx.text.paragraph.Paragraph(brk, byline._parent)
 for el in list(brk):
     if el.tag != qn('w:pPr'): brk.remove(el)
 bp.add_run().add_break(WD_BREAK.PAGE)
 
+# 3b. Numbered captions: "Table N: title" paragraphs from the doc become SEQ-field captions
+import re
+CAP = re.compile(r'^Table (\d+): (.+)$')
+ncap = 0
+for t in d.tables:
+    prev = t._tbl.getprevious()
+    if prev is None or prev.tag != qn('w:p'): continue
+    cp = docx.text.paragraph.Paragraph(prev, t._parent)
+    m = CAP.match(cp.text.strip())
+    if not m: continue
+    for el in list(prev):
+        if el.tag != qn('w:pPr'): prev.remove(el)
+    a = cp.add_run('Table ')
+    fld(cp, 'SEQ Table \\* ARABIC', m.group(1))
+    cp.add_run(': ' + m.group(2))
+    for r_el in prev.iter(qn('w:r')):
+        r = docx.text.run.Run(r_el, cp); r.bold = True; r.font.size = Pt(10)
+        r.font.color.rgb = RGBColor(0x1F, 0x3A, 0x5F)
+    pf = cp.paragraph_format; pf.keep_with_next = True; pf.space_before = Pt(6); pf.space_after = Pt(4)
+    narr = prev.getprevious()
+    if narr is not None and narr.tag == qn('w:p'):
+        docx.text.paragraph.Paragraph(narr, t._parent).paragraph_format.keep_with_next = True
+    ncap += 1
+print('captions', ncap)
+
 # 4. Wide tables: fixed widths sized to content, smaller font, repeating header rows
-def set_widths(tbl, total):
+def set_widths(tbl, total, font_pt=11):
+    # each column gets at least its longest word (so no word breaks); the rest is shared by text length
     n = len(tbl.columns); rows = tbl.rows
     word = [0]*n; tot = [0]*n
     for r in rows:
         for i, c in enumerate(r.cells[:n]):
             ws = [len(w) for w in c.text.split()] or [0]
-            word[i] = max(word[i], min(max(ws), 18)); tot[i] += min(len(c.text), 90)
-    lens = [max(word[i] + 2, (tot[i] / len(rows)) ** 0.85) for i in range(n)]
-    w = [int(total * l / sum(lens)) for l in lens]
+            word[i] = max(word[i], min(max(ws), 22)); tot[i] += min(len(c.text), 90)
+    emu_pt = 12700
+    floor = [int((word[i] * 0.56 * font_pt + 14) * emu_pt) for i in range(n)]
+    spare = max(total - sum(floor), 0)
+    share = [(tot[i] / len(rows)) ** 0.85 for i in range(n)]
+    w = [floor[i] + int(spare * share[i] / sum(share)) for i in range(n)]
+    if sum(floor) > total:  # too many long words: scale down evenly
+        w = [int(total * f / sum(floor)) for f in floor]
     tblPr = tbl._tbl.tblPr
     lay = OxmlElement('w:tblLayout'); lay.set(qn('w:type'), 'fixed'); tblPr.append(lay)
     tw = tblPr.find(qn('w:tblW'))
@@ -107,9 +148,9 @@ def in_annex(el):
 portrait_text, land_text = pw - lm - rm, ph - lm - rm
 for t in d.tables:
     n = len(t.columns)
-    if in_annex(t._tbl): small(t, 8); set_widths(t, land_text)
-    elif n >= 6: small(t, 8.5); set_widths(t, portrait_text)
-    elif n >= 4: small(t, 9.5); set_widths(t, portrait_text)
+    if in_annex(t._tbl): small(t, 8); set_widths(t, land_text, 8)
+    elif n >= 6: small(t, 8.5); set_widths(t, portrait_text, 8.5)
+    elif n >= 4: small(t, 9.5); set_widths(t, portrait_text, 9.5)
     else: set_widths(t, portrait_text)
     for c in t.rows[0].cells:
         tcPr = c._tc.get_or_add_tcPr(); shd = OxmlElement('w:shd')

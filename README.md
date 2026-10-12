@@ -18,14 +18,15 @@ python3 src/update_toc.py "$PWD/pass1.docx" "$PWD/KAZA_Financial_Landscape_Analy
 
 The follow-on report is a living Claude Doc: https://claude.ai/code/artifact/5f53edc0-bfca-42f6-8f54-3de8ce96dcc3
 
-`KAZA_MSME_Financial_Barriers_and_Opportunities_Report.docx` (with a `.pdf` copy) is the Word version of that doc. It is A4, with a cover block, a contents page with page numbers, page-numbered footers and Annex A in landscape. To rebuild it after the doc changes, export the doc to `.docx`, then run:
+`KAZA_MSME_Financial_Barriers_and_Opportunities_Report.docx` (with a `.pdf` copy) is the Word version of that doc. It is A4, with a cover block, a contents page and a list of tables (both with page numbers), numbered table captions, page-numbered footers and Annex A in landscape. To rebuild it after the doc changes, export the doc to `.docx`, then run:
 
 ```bash
 python3 src/build_barriers_word.py export.docx stage1.docx
-python3 src/update_toc.py "$PWD/stage1.docx" "$PWD/KAZA_MSME_Financial_Barriers_and_Opportunities_Report.docx"
+python3 src/update_toc.py "$PWD/stage1.docx" "$PWD/pass1.docx"
+python3 src/update_toc.py "$PWD/pass1.docx" "$PWD/KAZA_MSME_Financial_Barriers_and_Opportunities_Report.docx"
 ```
 
-`update_toc.py` fills in the contents page numbers and also writes the PDF.
+`update_toc.py` fills in the contents and list-of-tables page numbers and also writes the PDF. Run it twice so the page numbers settle. Table captions come from the doc's bold `Table N: title` lines, which the build script turns into Word caption fields.
 
 It covers gender- and age-disaggregated barriers, alternative collateral, seasonal debt products, supply chain finance, matching contributions and the design of the grant facility.
 
