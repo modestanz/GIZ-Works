@@ -18,10 +18,18 @@ python3 src/update_toc.py "$PWD/pass1.docx" "$PWD/KAZA_Financial_Landscape_Analy
 
 `KAZA_MSME_Investment_Readiness_Assessment.docx` assesses the investment readiness of R-NBT MSMEs in the KAZA priority value chains: business models, financial practices and informality; capacity gaps of MSMEs, BSOs and financial institutions; the enabling environment (including Doing Business 2020 country data, market access and the main BSOs in each Partner State); readiness for financial products; and recommended interventions.
 
-To regenerate it, edit the content in `src/ira_*.js`, then run:
+`KAZA_MSME_Investment_Readiness_Assessment_Narrative.docx` is the narrative edition of the same report, in which every table is written out as prose. Both editions are built from the same content in `src/ira_*.js`: each table has a `narr` block holding its prose version.
+
+To regenerate them, edit the content in `src/ira_*.js`, then run:
 
 ```bash
+# Edition with tables
 node src/build_ira.js raw.docx
 python3 src/update_toc.py "$PWD/raw.docx" "$PWD/pass1.docx"
 python3 src/update_toc.py "$PWD/pass1.docx" "$PWD/KAZA_MSME_Investment_Readiness_Assessment.docx"
+
+# Narrative edition (no tables)
+node src/build_ira.js raw_n.docx --narrative
+python3 src/update_toc.py "$PWD/raw_n.docx" "$PWD/pass1_n.docx"
+python3 src/update_toc.py "$PWD/pass1_n.docx" "$PWD/KAZA_MSME_Investment_Readiness_Assessment_Narrative.docx"
 ```

@@ -4,12 +4,18 @@ const path = require("path");
 const {
   Document, Packer, Paragraph, TextRun, HeadingLevel, AlignmentType, Table, TableRow, TableCell,
   WidthType, ShadingType, BorderStyle, LevelFormat, TableOfContents, Footer, Header, PageNumber,
-  PageBreak,
+  PageBreak, TabStopType,
 } = require("docx");
 
 const { acronyms, front } = require("./ira_front");
 const enabling = require("./ira_enabling");
 const { back, references } = require("./ira_back");
+
+// Usage: node build_ira.js [out.docx] [--narrative]
+// --narrative replaces every table with its prose version (the `narr` blocks in the content files).
+const args = process.argv.slice(2);
+const NARRATIVE = args.includes("--narrative");
+const outArg = args.find((a) => !a.startsWith("--"));
 
 const FONT = "Calibri";
 const GREEN = "1F5135";
@@ -17,13 +23,13 @@ const ACCENT = "C8A951";
 const LIGHT = "E8F0EA";
 const TABLE_W = 9026; // A4 with 1" margins
 
-// Parse **bold** markup into runs
+// Parse **bold** and *italic* markup into runs
 function runs(text, opts = {}) {
-  return text.split(/(\*\*[^*]+\*\*)/).filter(Boolean).map((s) =>
-    s.startsWith("**")
-      ? new TextRun({ text: s.slice(2, -2), bold: true, ...opts })
-      : new TextRun({ text: s, ...opts })
-  );
+  return text.split(/(\*\*[^*]+\*\*|\*[^*]+\*)/).filter(Boolean).map((s) => {
+    if (s.startsWith("**")) return new TextRun({ text: s.slice(2, -2), bold: true, ...opts });
+    if (s.startsWith("*") && s.endsWith("*") && s.length > 2) return new TextRun({ text: s.slice(1, -1), italics: true, ...opts });
+    return new TextRun({ text: s, ...opts });
+  });
 }
 
 const border = { style: BorderStyle.SINGLE, size: 4, color: "B7C4BB" };
@@ -91,7 +97,12 @@ function render(blocks) {
     } else if (b.b) {
       b.b.forEach((item) => out.push(new Paragraph({ numbering: { reference: "bullets", level: 0 }, children: runs(item) })));
     } else if (b.tbl) {
-      out.push(...table(b.tbl));
+      if (NARRATIVE) {
+        if (!b.narr) throw new Error(`Table "${b.tbl.caption}" has no narrative version`);
+        out.push(...render(b.narr));
+      } else {
+        out.push(...table(b.tbl));
+      }
     } else if (b.note) {
       out.push(note(b.note));
     }
@@ -110,7 +121,7 @@ const titlePage = [
   new Paragraph({ spacing: { after: 200 }, children: [new TextRun({ text: "Priority Value Chains for Regenerative Nature-Based Tourism (R-NBT) in the Kavango Zambezi Transfrontier Conservation Area (KAZA TFCA)", size: 30, color: "333333" })] }),
   new Paragraph({ spacing: { after: 1200 }, children: [new TextRun({ text: "Angola · Botswana · Namibia · Zambia · Zimbabwe", size: 26, color: GREEN, bold: true })] }),
   new Paragraph({ children: [new TextRun({ text: "MSME business models, financial practices, record-keeping and informality by gender, age and value chain node; capacity gaps and capacity-building needs of MSMEs, BSOs and financial institutions; enabling environment, market access and business support organisations in the five Partner States; readiness for financial products; recommended interventions and financing pathways", size: 20, color: "555555", italics: true })] }),
-  new Paragraph({ spacing: { before: 1600 }, children: [new TextRun({ text: "Draft for Discussion (Version 3)", bold: true, size: 22 })] }),
+  new Paragraph({ spacing: { before: 1600 }, children: [new TextRun({ text: NARRATIVE ? "Draft for Discussion (Version 4, narrative edition)" : "Draft for Discussion (Version 3)", bold: true, size: 22 })] }),
   new Paragraph({ children: [new TextRun({ text: "October 2026", size: 22 })] }),
   new Paragraph({ children: [new PageBreak()] }),
 ];
@@ -120,8 +131,16 @@ const tocPage = [
   new TableOfContents("Table of Contents", { hyperlink: true, headingStyleRange: "1-2" }),
 ];
 
-const acronymPage = [
-  new Paragraph({ pageBreakBefore: true, spacing: { after: 240 }, children: [new TextRun({ text: "Acronyms and Abbreviations", bold: true, size: 32, color: GREEN })] }),
+const acronymTitle = new Paragraph({ pageBreakBefore: true, spacing: { after: 240 }, children: [new TextRun({ text: "Acronyms and Abbreviations", bold: true, size: 32, color: GREEN })] });
+const acronymPage = NARRATIVE ? [
+  acronymTitle,
+  ...acronyms.map(([a, m]) => new Paragraph({
+    indent: { left: 1700, hanging: 1700 }, spacing: { after: 60 },
+    children: [new TextRun({ text: a, bold: true }), new TextRun({ text: "\t" + m })],
+    tabStops: [{ type: TabStopType.LEFT, position: 1700 }],
+  })),
+] : [
+  acronymTitle,
   new Table({
     width: { size: TABLE_W, type: WidthType.DXA }, columnWidths: [2000, 7026],
     rows: [new TableRow({ tableHeader: true, children: [cell("Acronym", 2000, true), cell("Meaning", 7026, true)] }),
@@ -133,7 +152,7 @@ const body = [...render(front), ...render(enabling), ...render(back)];
 
 const refs = [
   new Paragraph({ heading: HeadingLevel.HEADING_1, pageBreakBefore: true, children: [new TextRun("References")] }),
-  new Paragraph({ spacing: { after: 160 }, children: [new TextRun({ text: "Web sources were accessed in October 2026. Secondary figures were taken from published summaries, agency and company reports and press coverage, and should be checked against the full source documents before publication.", italics: true, size: 20, color: "555555" })] }),
+  new Paragraph({ spacing: { after: 160 }, children: [new TextRun({ text: "Each web source below was checked in October 2026 to confirm that it exists at the address given and contains the information attributed to it. Figures reported by companies, agencies and the press are attributed to those sources in the text. Unpublished project documents are marked as such.", italics: true, size: 20, color: "555555" })] }),
   ...[...references].sort((a, b) => a.localeCompare(b)).map((r) => new Paragraph({
     indent: { left: 567, hanging: 567 }, spacing: { after: 100 },
     children: [new TextRun({ text: r, size: 20 })],
@@ -176,5 +195,7 @@ const doc = new Document({
   ],
 });
 
-const out = process.argv[2] || path.join(__dirname, "..", "KAZA_MSME_Investment_Readiness_Assessment.docx");
-Packer.toBuffer(doc).then((buf) => { fs.writeFileSync(out, buf); console.log("Wrote", out, "tables:", tableNo); });
+const out = outArg || path.join(__dirname, "..", NARRATIVE
+  ? "KAZA_MSME_Investment_Readiness_Assessment_Narrative.docx"
+  : "KAZA_MSME_Investment_Readiness_Assessment.docx");
+Packer.toBuffer(doc).then((buf) => { fs.writeFileSync(out, buf); console.log("Wrote", out, NARRATIVE ? "(narrative edition)" : "tables: " + tableNo); });
