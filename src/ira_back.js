@@ -162,7 +162,7 @@ const back = [
     "**Map BSO services in each country** and publish a directory and referral system, so that MSMEs and BSOs know who offers what and overlapping mandates can be reduced (Section 6.2).",
     "Strengthen **associations' advocacy capacity**, including sector or KAZA desks in chambers and apex bodies, so that MSME issues such as payment terms and the cost of compliance reach government and anchor buyers.",
   ] },
-  { p: "The programme should work through existing BSOs rather than create new ones. A lead BSO and a first strengthening focus are proposed for each country, based on Section 7.3." },
+  { p: "The programme should work through existing BSOs rather than create new ones. A lead BSO and a first strengthening focus are proposed for each country, based on Section 7.3. Section 6.4 sets out, country by country, the tourism MSME needs that these BSOs should address, the recommended interventions and the partner BSOs for each." },
   { tbl: {
     caption: "Proposed lead BSOs and strengthening focus by country",
     cols: [1200, 2500, 2800, 2526],
