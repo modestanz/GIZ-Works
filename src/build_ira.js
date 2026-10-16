@@ -152,7 +152,7 @@ const body = [...render(front), ...render(enabling), ...render(back)];
 
 const refs = [
   new Paragraph({ heading: HeadingLevel.HEADING_1, pageBreakBefore: true, children: [new TextRun("References")] }),
-  new Paragraph({ spacing: { after: 160 }, children: [new TextRun({ text: "Each web source below was checked in October 2026 to confirm that it exists at the address given and contains the information attributed to it. Figures reported by companies, agencies and the press are attributed to those sources in the text. Unpublished project documents are marked as such.", italics: true, size: 20, color: "555555" })] }),
+  new Paragraph({ spacing: { after: 160 }, children: [new TextRun({ text: "Except where marked \"to verify\", each web source below was checked in October 2026 to confirm that it exists at the address given and contains the information attributed to it. Sources marked \"to verify\" (used in Section 6.5) could not be opened for this draft; their details come from search summaries and should be checked before the report is finalised. Figures reported by companies, agencies and the press are attributed to those sources in the text. Unpublished project documents are marked as such.", italics: true, size: 20, color: "555555" })] }),
   ...[...references].sort((a, b) => a.localeCompare(b)).map((r) => new Paragraph({
     indent: { left: 567, hanging: 567 }, spacing: { after: 100 },
     children: [new TextRun({ text: r, size: 20 })],
