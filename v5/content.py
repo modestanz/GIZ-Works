@@ -552,3 +552,66 @@ ANNEX_B = [
       ["Consent", "Consent to use anonymised quotes; no personal contact details in the shared report"]],
      [2800, 6226]),
 ]
+
+# ---------------------------------------------------------------- Country barriers and enablers as narrative
+# Replaces the V4 bullet lists under the "Barriers" and "Enablers" headings in each x.5 section.
+NARRATIVE = {
+"Angola": {
+"Barriers": [
+    "**Cost and currency.** High policy and lending rates, together with repeated kwanza depreciation, make long-term local-currency loans expensive and USD loans risky for businesses that earn in kwanza. Even where an MSME qualifies, the price of credit undermines the case for borrowing to invest in a tourism market that is still emerging.",
+    "**Formality and land.** Formal registration, tax compliance and INAPEM certification are prerequisites for public credit lines, but they are costly and slow to obtain in remote provinces. Most micro-enterprises in the corridor are informal (about 92% of self-employed businesses nationally), so they cannot meet these requirements at all. Rural land rights are largely customary or state-held, and surface-right titles (direitos de superfície) take a long time to obtain, which leaves enterprises with little to offer as security.",
+    "**Access and institutions.** Limited road and air connectivity, landmine contamination and seasonal access restrict how quickly a tourism market, and therefore MSME revenue, can develop. The administrative transition to the new Cuando and Cubango provinces creates temporary uncertainty about which authority is responsible for land, licensing and investment. Language is a further barrier: most KAZA tourism, finance and marketing materials are in English, which limits Angolan operators’ access to regional programmes and buyers.",
+],
+"Enablers": [
+    "Angola’s strongest enabler is political commitment. Economic diversification and MSME development are national priorities backed by dedicated instruments: PRODESI, the FGC, which now runs a nationwide credit guarantee scheme for MSMEs, and the development bank BDA. The BNA has widened its special credit regime to include tourism and restaurants, which brings tourism businesses into lines previously reserved for production sectors. The licensing in February 2022 of the first private credit bureau, the Bureau Central Privada de Informação de Crédito, gives lenders a better basis for judging small borrowers.",
+    "The tourism case is also improving. Visa liberalisation and the designation of the Okavango Tourism Development Pole signal government intent, and the presidential order of 2023 for an airport at Mavinga would transform access to the eastern parks. Demining progress and the new provincial administrations open space for investment planning, while the growth of digital payments through Multicaixa Express and mobile money offers a way to reach operators that bank branches do not.",
+],
+},
+"Botswana": {
+"Barriers": [
+    "**Security and collateral.** Concessions and tribal-land leases are not readily accepted as bankable collateral, and their tenures may be shorter than the life of a loan. Many lenders therefore still require fixed property that enterprises on communal land cannot provide. Botswana also has no operational national credit guarantee scheme for MSMEs to fill the gap.",
+    "**Who can get in.** Most MSMEs are informal (84%) and micro (91%), so few can meet CIPA registration, tax and collateral requirements, and commercial banks rate their appetite for micro and informal borrowers as Medium to Low. The high capital requirements of upmarket tourism products crowd out citizen entrants, and small citizen operators face high licensing and compliance costs relative to their turnover.",
+    "**Public finance under strain.** Public financiers face liquidity constraints and delays because of the fiscal stress caused by the downturn in diamond revenue. Governance concerns about CEDA lending, including requests in Parliament for a forensic audit report (Parliament of Botswana, 2025), have further stalled lending from the institution most important to citizen tourism businesses.",
+    "**Market linkages and shocks.** Lodge procurement is concentrated in suppliers based in Gaborone or South Africa, which limits the contracts available to local MSMEs. Human–wildlife conflict and drought affect rural livelihoods and the viability of enterprises in the corridor.",
+],
+"Enablers": [
+    "Botswana starts from a stable base. Its macroeconomic and banking sectors are stable relative to the region, with the Pula pegged to a basket of currencies, and its citizen-empowerment mandate is backed by dedicated institutions (CEDA, LEA and the Youth Development Fund). The Economic Inclusion Act 2021 adds a points-based procurement preference for youth, women and people with disabilities, which can help citizen MSMEs win contracts.",
+    "Several reforms make lending easier. The Movable Property (Security Interests) Act of 2022 widens the range of assets that can secure a loan (its commencement should be confirmed), and SADC payment rails now include a Botswana corridor through TCIB and First Capital Bank (March 2026), which lowers the cost of cross-border payments.",
+    "Botswana also has institutions that connect communities and businesses to the tourism market: mature CBNRM structures with revenue-generating Community Trusts, private-sector leadership on supplier development and conservation finance (the Wilderness–Stanbic and Wilderness–LEA arrangements), and the KAZA Secretariat in Kasane, together with a commitment to adopt the Univisa.",
+],
+},
+"Namibia": {
+"Barriers": [
+    "**Land and governance.** Communal land cannot be held in freehold, and leaseholds are slow to register and rarely accepted as collateral. In some areas conservancy governance and benefit distribution are weak, and joint-venture agreements vary in quality, which makes community income a less reliable basis for finance.",
+    "**Distance and a thin market.** The Zambezi and Kavango regions are far from decision centres in Windhoek, and branch-level credit authority is limited. The population is sparse and local participation in tourism is limited, so the market for MSME finance is small. Microlending is costly, and financial literacy is low among rural MSMEs; in the areas where the five countries meet, language barriers further limit people’s awareness of financial products.",
+    "**Formality and costs.** Most micro-enterprises are informal and not registered with the authorities or councils, and NTB registration and grading costs are high relative to their turnover. Policy uncertainty about the proposed empowerment legislation (NEEEF) affects investors’ decisions, while human–wildlife conflict and climate shocks such as the 2024 drought add to the risk lenders perceive.",
+],
+"Enablers": [
+    "Namibia’s enablers are institutional. It has an operational national Credit Guarantee Scheme with seven participating lenders, a development bank tourism window that explicitly recognises conservancy partnerships, and national green-finance infrastructure in which both the EIF and DBN are accredited to the Green Climate Fund. Its mature CBNRM system and NACSO’s data on conservancy returns can support credit and impact assessment.",
+    "Monetary stability is a further advantage. Membership of the Common Monetary Area and the Namibian dollar’s peg to the rand reduce currency risk compared with Angola, Zambia and Zimbabwe, which makes longer-term lending easier to price.",
+],
+},
+"Zambia": {
+"Barriers": [
+    "**Cost of credit.** High interest rates and short tenors are the binding constraint, and kwacha volatility affects tourism businesses whose revenue is in US dollars but whose costs are in kwacha. Energy insecurity after the 2024 drought, with load-shedding, raised operating costs and squeezed the margins from which loans are repaid.",
+    "**Land and concessions.** MSMEs in Game Management Areas operate on customary land with limited title, and concessions are allocated through DNPW processes oriented to larger investors. Customary tenure and GMA arrangements therefore limit both collateral and investor security.",
+    "**Formality and compliance.** About 96% of enterprises are not registered with PACRA, which excludes them from bank, guarantee-backed and most CEEC products. Those that are formal face multiple licences and fees (tourism licences, DNPW concession fees and council levies), which raise compliance costs.",
+    "**Community and public funds.** Revenue-sharing to Community Resource Boards has historically been delayed, weakening the finance available to community enterprises, and weak repayment discipline in some public empowerment funds erodes the capital that should revolve to new borrowers.",
+],
+"Enablers": [
+    "Zambia has the building blocks of a guarantee-led approach. Its credit guarantee infrastructure is active and expanding (ZCGS and the Bank of Zambia’s Small Business Growth Initiative pilot), and its functioning movable-collateral registry allows equipment and receivables to secure loans.",
+    "The tourism market is also strong. Livingstone is a mature destination with good connections through the Kazungula one-stop border post, the KAZA Univisa with Zimbabwe and visa waivers for many source markets. Large-scale World Bank tourism investment and growing budget allocations support the sector; for example, the Livingstone Town Centre Development Programme, launched in September 2025 with World Bank support, aims to make Livingstone a 24-hour tourism hub. Very high savings-group penetration in rural areas provides a base for reaching community enterprises.",
+],
+},
+"Zimbabwe": {
+"Barriers": [
+    "**Currency and cost.** Currency instability and changing exchange-control rules undermine long-term planning and make local-currency facilities unattractive. Real interest rates are high and tenors very short, because the banking system has little long-term funding, and sovereign arrears limit concessional lending by multilateral development banks.",
+    "**Compliance and collateral.** Small operators face multiple overlapping licences, levies and fees (from ZTA, ZimParks, Rural District Councils, EMA and councils), which raise compliance costs. Communal land under RDC authority cannot be used as collateral, and the high informality of tourism operators and SMEs means that many cannot meet lenders’ requirements in the first place.",
+    "**Operating environment.** Electricity shortages remain a challenge and raise operating costs, which reduces the cash flow available to repay loans.",
+],
+"Enablers": [
+    "Zimbabwe’s main enabler is its market. Victoria Falls and Hwange host a strong, internationally connected tourism private sector, the Victoria Falls Special Economic Zone and the USD-denominated VFEX offer dollar instruments, and the KAZA Univisa is operational with Zambia.",
+    "The financial infrastructure is also in place. An operational MSME credit guarantee scheme (ECGC) can reduce collateral requirements, and the RBZ movable-collateral registry allows movable assets to secure loans. Reforms announced in May 2026 aim to cut banking costs to support MSME formalisation, and long CAMPFIRE experience with community revenue-sharing provides a channel to community enterprises.",
+],
+},
+}

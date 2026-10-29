@@ -292,6 +292,16 @@ for country, okey in COUNTRY_TABLE.items():
     prio = find_p(startswith(country + " priority"), ch)
     insert_after(prio, render(C.CLOSES[country]))
 
+# ---- country barriers and enablers: bullets -> narrative paragraphs
+for country, parts in C.NARRATIVE.items():
+    ch = find_p(heading(country, 1))
+    for sec, paras in parts.items():
+        h = find_p(lambda p, s=sec: style_of(p) == "Heading3" and text_of(p).strip() == s, ch)
+        k = h.getnext()
+        while k is not None and k.tag == q("p") and style_of(k) == "ListParagraph":
+            nxt = k.getnext(); k.getparent().remove(k); k = nxt
+        insert_after(h, [P("p", t) for t in paras])
+
 replace_text(find_p(startswith("Angola priority")), "grants and technical assistance for business formalization", "grants and technical assistance that support a formalisation pathway")
 replace_text(find_p(lambda p: "monetary policy rates near 19" in text_of(p)),
              "monetary policy rates near 19–20%", "a central bank policy rate that has been cut from 18.5% at the end of 2025 to 14.75% in September 2026 (Forbes África Lusófona, 2026b)")
