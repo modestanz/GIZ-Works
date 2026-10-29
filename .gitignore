@@ -1,2 +1,4 @@
 __pycache__/
 *.info.json
+drafts/*.pdf
+drafts/*.jpg
