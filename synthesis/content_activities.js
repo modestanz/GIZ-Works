@@ -1,0 +1,143 @@
+// Chapter 5: Recommendations by Output 1.2 activity (cross-cutting design)
+
+const ch5 = [
+  { h: 1, t: "Recommendations by Output 1.2 Activity" },
+  { p: "Chapter 4 set out what each value chain needs. This chapter sets out how each activity should be designed and delivered across the chains, mapped to the indicative key activities and deliverables in the Output 1.2 design." },
+
+  // ---------------- 1.2.1 ----------------
+  { h: 2, t: "Activity 1.2.1: Dialogue platforms and matchmaking" },
+  { p: "The Macro Diagnostic finds that KAZA already has buyers, lenders, conservation structures and support organizations; the constraint is weak connectivity between them (F2 §4.7). Activity 1.2.1 should therefore be a standing function with a defined pipeline output, not a series of one-off events. Matchmaking without de-risking produces the same rejections faster, so the platforms must be tied to the Activity 1.2.2 grants and Activity 1.2.3 risk-sharing from the start." },
+  { h: 3, t: "Structure" },
+  { b: [
+    "**One finance and market-linkage platform per intervention area:** Victoria Falls–Hwange and Livingstone (with joint cross-border sessions, since the two pilots share one market), Okavango–Maun with a Kasane link, and the Zambezi Region (Katima Mulilo) from 2027. Each is convened by the lead national BSO with the tourism association (Annex B) and supported by a national finance working group of lenders, the guarantee scheme and the development bank.",
+    "**A regional layer** hosted with the KAZA Secretariat: an annual R-NBT Finance Forum, the common readiness diagnostic, the standard supply MOU template and the indicator set (F2 §8; F4 §5).",
+    "**A quarterly cycle timed to the season:** low-season (November–April) sessions for clinics, training and asset-loan origination; a pre-season deal day (March–May) for working capital and supply MOUs; peak-season (June–October) sessions limited to anchors’ procurement reviews.",
+  ] },
+  { h: 3, t: "Formats" },
+  { tbl: {
+    caption: "Activity 1.2.1 formats mapped to the Output 1.2 key activities",
+    head: ["Format", "Purpose and content", "Output 1.2 key activity served"],
+    cols: [2000, 4526, 2500],
+    small: true,
+    rows: [
+      ["Common-understanding workshop", "What regenerative NBT means in practice (the progressive R-NBT checklist, not a certification gate); lenders’ and MSMEs’ views of risk; what lenders actually need", "Common understanding; perspectives on finance and perceived risks"],
+      ["Finance briefings and lender clinics", "Briefings on existing mechanisms (ECGC, NASRIA and BOSRIA, CEDA, NDB, DBN, FNB scored credit, CEEC, MSMED, SMEDCO); lender clinics at savings-group, conservancy and trust meetings; one-page ‘what we need’ sheets from each lender", "Promote existing mechanisms; clarify bankability criteria and readiness expectations"],
+      ["Women-only and youth-only sessions", "Safe space to raise barriers not mentioned in mixed rooms (collateral held by spouses, care responsibilities, mobility, data costs); run in local languages", "Perspectives on access and risk (inclusion)"],
+      ["Product co-design labs", "Lenders, guarantors and BSOs work through seasonal schedules, acceptable security, tourism windows and the residual-risk share above existing guarantees (the 80/20 or 70/30 structure proposed by NASRIA and CEDA)", "Explore adaptations of existing credit lines and public finance tools"],
+      ["Quarterly deal days", "Pipeline enterprises meet lenders with delegated authority; one-page profiles from the common diagnostic; indicative terms or referrals on the day", "Matchmaking between MSMEs, investors and financial institutions"],
+      ["Anchor procurement roundtables", "Lodges, hotel groups and DMCs agree staged localization targets, a standard supply MOU, prompt payment, mentoring, co-branding and shared infrastructure (cold storage, aggregation hubs); a Ministry of Finance representative on government payment delays", "Engage large tourism companies and investors"],
+    ],
+  } },
+  { h: 3, t: "Design requirements" },
+  { b: [
+    "**A shared pipeline and dashboard.** BSOs apply one readiness diagnostic and tag each enterprise as grant-ready, loan-ready with a guarantee or loan-ready on standard terms; every referral is tracked to approval or rejection, and each rejection carries a coded reason agreed with lenders in advance. Declined enterprises return to the pipeline with a named next step (F2 §4.8).",
+    "**A Supply Chain Compact** for anchors: written orders, payment within 30 days (15 days as the target for micro suppliers), notice and feedback before termination, and local, women and youth procurement targets. Late payment by large corporate and public buyers was raised independently by Agora Microfinance and GreenLoop and is not addressed by any mechanism yet designed (F5 §8).",
+    "**Language and access.** Materials and facilitation in Portuguese, Setswana, Silozi, Tonga, Ndebele and other local languages; agent-assisted digital onboarding; consent for data sharing obtained in a language the participant understands.",
+    "**Lender participation with authority.** Ask partner lenders to send staff who can decide or refer with delegated authority for guaranteed tourism portfolios in Kasane, Maun, Katima Mulilo, Livingstone and Victoria Falls.",
+    "**Coordination.** Align with OKACOM (CORB Fund), BURS’s green-taxonomy tax rebate in Botswana, the World Bank tourism programs, ITC’s Green Value Chain call and UNICEF GenU, so that parallel mechanisms do not duplicate or conflict (F5 §14).",
+  ] },
+  { h: 3, t: "Deliverables and success criteria" },
+  { p: "Beyond the event reports and the summary note foreseen in Output 1.2, each platform should maintain a **commitments log** recording MOUs, term sheets, product adaptations and supply MOUs agreed. Activity 1.2.1 succeeds if, by the end of the design phase, each intervention area has at least one lender, one guarantor and two anchors ready to sign pilot agreements, and a screened pipeline of at least three referrals for every enterprise the Activity 1.2.3 pilots aim to finance (the RTFF assumes about 150 referrals for about 50 loans)." },
+
+  // ---------------- 1.2.2 ----------------
+  { h: 2, t: "Activity 1.2.2: Grant facility" },
+  { p: "Grants are the only instrument that reaches Tier 0 and most of Tier 1, and the only one that can pay for public-interest outcomes. They also carry risks: dependency, crowding out lenders, and reaching the best-connected firms rather than those most in need; stakeholders warned against grant-reliant business models (F4 §3.1). The grant facility should therefore pay for what a loan cannot, and be designed so that each grant creates the record or contribution the next lender needs." },
+  { h: 3, t: "Lot design" },
+  { tbl: {
+    caption: "Recommended design of Lot 1 and Lot 2",
+    head: ["Parameter", "Lot 1: Small grant", "Lot 2: Medium grant"],
+    cols: [1800, 3600, 3626],
+    small: true,
+    rows: [
+      ["Ticket (Output 1.2)", "Up to EUR 10,000; typical EUR 500–5,000 for individual micro enterprises, up to EUR 10,000 for groups and community enterprises", "EUR 10,000–40,000"],
+      ["Target", "Tier 0–1: start-ups, micro enterprises, savings groups, cooperatives, recognised groups and licence- or permit-holders; women, youth and community first", "Tier 2 (registered or close to it, simple records, repeat orders), or Tier 1 with a buyer arrangement; community enterprises with governance rules"],
+      ["Contribution (Output 1.2 maximum)", "Up to 20%: 10% for Tier 0 and youth start-ups, 20% for Tier 1; at least half may be in kind (labor, materials, group savings); payable in instalments over the season", "Up to 50%: 30% for community enterprises (from community revenue) and 30–50% for MSMEs; the contribution may be an RTFF or partner-lender loan"],
+      ["Typical uses", "Equipment and inputs, safety gear, licensing and tax clearance, certification, digital presence, design and sample orders, group assets", "Cold storage, poultry housing, laundry and solar equipment, vehicle or boat deposits, facility upgrades to certification standards, new products and itineraries"],
+      ["Disbursement", "In kind where possible, staged against milestones (six months of records, first repeat order, registration)", "Tranches against milestones; co-disbursed with the loan where one is part of the financing plan"],
+      ["Link to finance", "Milestone records build a credit file; graduates referred to savings-linked micro-loans, Model C or RTFF Tier 1", "Conversion clause: grant can serve as borrower contribution, cash collateral or group-pool seed; referral to RTFF or a guarantee window"],
+      ["Priority", "Activity 1.1.1 participants; at least 60% of grants by number and value to women- or youth-led enterprises", "Activity 1.1.1 participants; cohort 1 value chains; same 60% inclusion target"],
+    ],
+  } },
+  { p: "F2 proposed a third ‘scale and leverage’ window of up to USD 150,000. This report does not recommend a third grant lot: enterprises at that stage should be served by guaranteed lending and first-loss cover under Activity 1.2.3, which is a more leveraged use of program funds." },
+  { h: 3, t: "Eligible investments by value chain" },
+  { p: "The call should invite proposals that strengthen existing tourism offers in line with the Output 1.2 list (eco-friendly and safety equipment, upgrades to certification standards, interpretation and digital platforms, new itineraries and concepts, biodiversity and cultural activities, circular practices, conservation projects and online marketing), with value-chain windows that give each priority chain its own entry point:" },
+  { tbl: {
+    caption: "Indicative eligible investments by priority value chain",
+    head: ["Value chain", "Lot 1 examples", "Lot 2 examples"],
+    cols: [2100, 3300, 3626],
+    small: true,
+    rows: [
+      ["Fresh produce, poultry, eggs, fish", "Seed, poultry starter units, drip kits, food-safety training (group grants)", "Shared cold storage, irrigation, poultry housing, delivery vehicle deposit"],
+      ["Guiding and activities", "Safety gear, mobility aids, mokoro kits, e-bikes, licensing, booking set-up", "Boats, engines, e-boats or vehicle deposits; new itineraries integrating culture and conservation"],
+      ["Transport and logistics", "Tax clearance, insurance, booking and fleet systems", "Efficient or electric vehicle deposits; workshop equipment"],
+      ["Crafts and décor to brief", "Product development and sample orders to a buyer’s brief; materials", "Workshop equipment, showroom, certification, e-commerce"],
+      ["Laundry, maintenance, solar", "Tools and starter kits for youth entrants", "Commercial laundry machines, solar installation kits, insurance"],
+      ["Conservation and coexistence, honey", "Beehives, monitoring equipment, citizen-science products", "Beehive fences, predator-proof corrals, honey certification and processing"],
+      ["Second wave", "Waste collection points; thatch-harvest tools", "Balers and sorting sheds; certification and packaging for processed foods"],
+    ],
+  } },
+  { h: 3, t: "Selection and administration" },
+  { b: [
+    "**Scoring:** market linkage, with a buyer letter of interest or order (25%); feasibility and readiness (20%); R-NBT contribution against the progressive checklist (20%); inclusion of women, youth, persons with disabilities and communities (20%); financing plan and leverage (15%). Add priority points for Activity 1.1.1 participants.",
+    "**Calls:** Lot 1 as a rolling call with two windows a year timed to the low season; Lot 2 as a competitive call linked to lender pre-screening, so that the financing plan is tested before award.",
+    "**Grant managers:** contract experienced BSOs, not-for-profit organizations or public development banks per intervention area under one manual, for example SMEDCO (Zimbabwe), ZDA and CEEC with MSMED alignment (Zambia), LEA with CEDA (Botswana) and NIPDB (Namibia). Keep the grantor role separate from the lender role to avoid follow-on loans being treated as grants.",
+    "**Safeguards:** no double financing of the same asset by grant and loan; published selection results; grievance channel; verification of R-NBT milestones by an independent party.",
+    "**Coordination:** align contribution ratios with MSMED and the World Bank’s GREAT-TDP in Zambia, the ITC Green Value Chain call and UNICEF GenU so that terms do not compete.",
+  ] },
+  { h: 3, t: "Indicative allocation" },
+  { p: "Pending confirmation of the envelope, the facility should allocate about 60–70% of grant value to the cohort 1 lead chains (fresh produce, guiding, transport, laundry and services) in PA1 and PA2, 15–20% to market-first and design-now chains (crafts to brief, conservation and coexistence), and 10–20% to second-wave chains and the phased pathway. By lot, roughly 40% of value to Lot 1 and 60% to Lot 2 keeps the grant-to-debt bridge funded while reaching micro and group enterprises. Lot 2 should be sized so that 30–60 grantees can enter the Activity 1.2.3 pilot." },
+
+  // ---------------- 1.2.3 ----------------
+  { h: 2, t: "Activity 1.2.3: Support and strengthen financing mechanisms" },
+  { p: "Activity 1.2.3 turns dialogue into finance. It should work only through institutions that will own and carry the mechanisms after the pilot, and test a small number of adapted products over two full tourism seasons, so that low-season performance is observed twice." },
+  { h: 3, t: "The Output 1.2 mechanism types against the evidence" },
+  { tbl: {
+    caption: "Mechanism types named in Output 1.2: assessment and recommendation",
+    head: ["Mechanism", "Evidence", "Recommendation"],
+    cols: [1900, 3626, 3500],
+    small: true,
+    rows: [
+      ["Loans with improved conditions (low interest, grace, flexible collateral)", "Viable now with product redesign; precedents at FNB Zambia (customer-proposed seasonal holidays), NDB (quarterly peak repayments) and SMEDCO (season-timed repayment, 36–48-month capex tenors with grace)", "**Pilot.** Seasonal schedules and low-season grace as standard; orders, invoices, movable assets and savings records as security; under guarantee windows with first loss (Model B)"],
+      ["Revolving funds", "Community funds capitalized from conservancy, trust and CAMPFIRE revenue are feasible where governance is sound; Zimbabwe’s USD 15m Tourism Revolving Fund was under-used because it lent in local currency", "**Pilot** community revolving funds managed by MFIs under community boards with women and youth seats; lend in the currency of revenue; avoid new public tourism revolving funds"],
+      ["Social or environmental bonds", "Cannot reach individual MSMEs at pilot scale; recent issuance by partner banks (ZANACO sustainability bond program, Bank Windhoek green bond) shows a funding route", "**Do not pilot.** Engage partner banks to fund green asset lines from bond proceeds once pilot loans have a track record"],
+      ["Savings groups and community finance", "Savings groups are the main financial institution for women; Women’s Microfinance Bank runs mukando-linked group lending; VSLA-to-MFI graduation works in Zambia", "**Pilot** a community guarantee pool (Model C) linked to MFIs, with graduation to individual loans after two clean cycles"],
+      ["Added by this synthesis: order-backed supply chain finance", "Most feasible mechanism in F4; Wilderness–Stanbic supplier finance precedent; answers late payment directly", "**Pilot** PO finance and invoice discounting against standard supply MOUs, with anchors confirming orders and paying into a controlled account"],
+      ["Added by this synthesis: asset and lease-to-own finance", "Answers the collateral and specialized-asset problems (18% NPL on boats); movable collateral registries in Zambia and Zimbabwe", "**Pilot** Model A with 15–20% first loss, re-leasing of repossessed assets and seasonal grace"],
+    ],
+  } },
+  { h: 3, t: "Partnership portfolio by intervention area" },
+  { tbl: {
+    caption: "Recommended first pilots and partners by intervention area",
+    head: ["Area", "First pilot (season one)", "Second pilot (season two)", "Candidate partners"],
+    cols: [1500, 2900, 2200, 2426],
+    small: true,
+    rows: [
+      ["PA1 Zimbabwe: Victoria Falls–Hwange", "Anchor-supplier package (food) and youth services package (guiding, transport) under an ECGC tourism window with first loss; RTFF cohort 1 candidate", "Model C with Women’s Microfinance Bank and CAMPFIRE ward groups; building-material bridging finance", "ECGC; SMEDCO; CBZ, Stanbic; Women’s Microfinance Bank; EmpowerBank; Africa’s Eden and Victoria Falls lodges"],
+      ["PA1 Zambia: Livingstone–Kalomo", "Risk-sharing pilot with FNB Zambia and ZANACO for order-backed produce supply and guiding; MSMED matching grants", "Model C with savings groups and MFIs; stopover-service grants around Sioma", "FNB Zambia; ZANACO; ZCGS; MSMED; CEEC; Agora, VisionFund; Livingstone hotels and DMCs"],
+      ["PA2 Botswana: Okavango–Maun", "Anchor-supplier package (food, laundry) with Okavango operators, Stanbic or CEDA and a BOSRIA window; women mokoro asset loans with NDB", "Model D and community revolving funds with Khwai, Mababe and Sankuyo trusts; CORB Fund", "CEDA; NDB; NASRIA/BOSRIA; Stanbic; Agora; LEA; Wilderness and Okavango operators; GreenLoop"],
+      ["Zambezi Region, Namibia (phased)", "NASRIA 80/20 women and youth tier with DBN For Her and NYDF (second cohort, about 2027–28)", "Model D with wildlife credits; conservancy revolving funds", "NASRIA; DBN; NYDF; CCFN; NACSO, IRDNC, WWF Namibia; JV lodges"],
+      ["Angola (readiness track)", "Grant-funded supply pilot for the safari camp (poultry first)", "Group savings and BDA microfinance once a pipeline exists", "BDA; FGC; INAPEM; ANAGERO; local organizations with cooperatives"],
+    ],
+  } },
+  { h: 3, t: "Lot 2 to finance: pilot design" },
+  { p: "Targeting Lot 2 grantees for debt and risk-sharing pilots is feasible for a screened subset: those at Tier 2, or with a buyer arrangement and at least one season of records. Among surveyed MSMEs, which skew to established firms, 30% hold a written contract or letter of intent; among Lot 2 grantees the share may be one in four or lower (F4 §10). The pilot should:" },
+  { b: [
+    "Screen all Lot 2 grantees with the common diagnostic, recording tier, value chain, buyer relationship and the sex, age and disability of owners and managers.",
+    "Select 30–60 grantees at Tier 2, or Tier 1 with a buyer, in the cohort 1 chains, and refer buyer-linked enterprises to the RTFF and the rest to national guarantee windows (ECGC, BOSRIA, NASRIA or a Zambian risk-sharing partner).",
+    "Separate roles: the program provides grants, technical assistance and first loss; the lender or RTFF makes the credit decision, owns the loan and collects.",
+    "Use the grant as the borrower’s contribution, cash collateral or Model C seed, or as a repayment incentive (for example a rebate of 10% of interest for on-time repayment over two seasons).",
+    "Run for two seasons (18–24 months) and open the products to non-grantees after the first season, so that they do not depend on program screening.",
+  ] },
+  { h: 3, t: "Concessional support and the RTFF" },
+  { b: [
+    "**First loss:** 10–15% of portfolio principal losses, 20% for women- and youth-led or first-cycle Tier 1 portfolios, sitting beneath national guarantee cover; on a target portfolio of EUR 0.5–1.5 million of new lending per priority-area pilot this implies about EUR 75,000–225,000 per pilot. Unused balances roll into the next cycle or convert to a loss reserve. If Output 1.2’s budget lines do not allow first loss under Activity 1.2.3, this is the main design gap to resolve.",
+    "**Guarantee fees:** cover the 2–5% ECGC premium and similar fees in the first cycle for new tourism borrowers.",
+    "**Tapering:** first loss falls from 15% to zero over three seasons as repayment data accumulate.",
+    "**RTFF:** refer screened, buyer-linked Tier 1–2 enterprises; ask the TUI Care Foundation to write seasonal schedules into loan agreements, raise the Tier 1 share, add a loss reserve and lend in the currency of revenue, extend eligibility to licence-holders and recognised groups, partner with a national institution for in-country monitoring and recovery, and agree the route to national lenders after two seasons.",
+    "**Lender capacity:** train credit officers on seasonal cash-flow lending, reading orders and contracts, and disaggregated portfolio reporting (F3 §10.6).",
+  ] },
+  { h: 3, t: "Agreements" },
+  { p: "The partnership agreements foreseen as deliverables should use standard templates across countries: a non-binding MOU with each lender, guarantor and anchor; a standard supply MOU between anchor and supplier; a tripartite supply chain finance agreement; a risk-sharing or first-loss agreement; a guarantee window agreement; an RTFF referral and co-financing protocol; grant agreements with conversion clauses; fund management agreements for community funds; results-based payment agreements; and performance-based BSO and coaching contracts that pay per enterprise graduating a tier or obtaining and repaying finance (F4 §12.1)." },
+];
+
+module.exports = { ch5 };

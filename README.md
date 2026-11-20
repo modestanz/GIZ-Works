@@ -27,3 +27,17 @@ python3 v5/build_v5.py V4.docx V5.docx pages.json
 ```
 
 Run the commands from inside `v5/` or set `PYTHONPATH=v5` so that `content.py` is found.
+
+## Output 1.2 Consolidated Synthesis Report (F6-D9, November 2026)
+
+`F6-D9_Consolidated_Synthesis_Report_Output_1.2_DRAFT_Nov2026.docx` (with a PDF copy) consolidates F1-D4 to F5-D8 into a strategic framework for Output 1.2, organized by priority value chain: recommendations for Activities 1.2.1 (dialogue platforms), 1.2.2 (grant facility) and 1.2.3 (financing mechanisms), a contribution to the M&E framework (indicators and baseline data) and an implementation roadmap. The body (executive summary to Chapter 7) is 29 pages; annexes follow.
+
+Content lives in `synthesis/content_*.js`; figures are HTML in `synthesis/figures/` rendered to PNG with `node synthesis/figures/shoot.js`. To rebuild:
+
+```bash
+node synthesis/build.js raw.docx
+python3 src/update_toc.py "$PWD/raw.docx" "$PWD/pass1.docx"
+python3 src/update_toc.py "$PWD/pass1.docx" "$PWD/F6-D9.docx"
+```
+
+`update_toc.py` may print a `DisposedException` after saving; the output files are still written.
