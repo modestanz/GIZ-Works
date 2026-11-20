@@ -28,6 +28,7 @@ const execSummary = [
     "Run one finance and market-linkage platform per delivery core (Livingstone–Victoria Falls with Hwange; Maun with the Delta community areas; the Zambezi Region if resourced), convened through associations, lodge impact officers and connector organizations, on a quarterly cycle timed to the tourism season. Start with a low-cost supplier directory and sector-specific buyer sessions rather than general marketplaces, which struggled in the past.",
     "Use five formats: common-understanding workshops on R-NBT and bankability; lender clinics at savings-group and conservancy meetings; women-only and youth-only sessions; quarterly deal days with one-page pipeline profiles; and anchor procurement roundtables that lead to a standard supply MOU (written orders, payment within 30 days, notice before termination).",
     "Brief MSMEs and lenders on existing mechanisms (ECGC, NASRIA and BOSRIA, CEDA, NDB, FNB Zambia scored credit, CEEC, MSMED), run product co-design labs that feed Activity 1.2.3, and track every referral with coded rejection reasons by sex, age and value chain.",
+    "Run a learning track for banks, MFIs, guarantee schemes and DFIs on tourism literacy, extended ESG and regenerative practice, showing how verified nature-positive practice (lower operating costs, access to premium buyers, outcome payments, green assets) can count positively in credit assessment, pricing and collateral.",
   ] },
   { p: "**Activity 1.2.2: Grant facility.**" },
   { b: [
