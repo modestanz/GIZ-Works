@@ -2,9 +2,9 @@
 
 const annexes = [
   { h: 1, t: "Annex A: Partner Institutions by Country", numbered: false },
-  { p: "Shortlist of financial institutions, guarantors and funders for Activity 1.2.3, drawn from F4 Tables 49–50, F5 and F1. ‘Interview signal’ means interest stated in a consultation; ‘inferred’ means interest inferred from products, partnerships or mandates. No institution has yet committed to a pilot role." },
+  { p: "Shortlist of financial institutions, guarantors and funders for Activity 1.2.3, drawn from F4 Tables 49–50, F5 and F1. ‘Interview signal’ means interest stated in a consultation; ‘inferred’ means interest inferred from products, partnerships or mandates. No institution has yet committed to a pilot role. {T:annexa} lists each institution with the evidence of its interest and its candidate role." },
   { tbl: {
-    caption: "Financial institutions and guarantors shortlisted for pilots",
+    id: "annexa", caption: "Financial institutions and guarantors shortlisted for pilots",
     head: ["Country", "Institution", "Evidence of interest", "Candidate role"],
     cols: [1100, 2300, 3326, 2300],
     small: true,
@@ -29,9 +29,9 @@ const annexes = [
   } },
 
   { h: 1, t: "Annex B: Platform Conveners, BSOs and Anchors by Area", numbered: false },
-  { p: "Proposed lead BSOs (F3 Table 19) and indicative anchors and networks (F4 Table 51) for the Activity 1.2.1 platforms and the Activity 1.2.3 anchor-supplier packages. Anchor participation is to be confirmed through supply MOUs." },
+  { p: "Proposed lead BSOs (F3 Table 19) and indicative anchors and networks (F4 Table 51) for the Activity 1.2.1 platforms and the Activity 1.2.3 anchor-supplier packages. Anchor participation is to be confirmed through supply MOUs. {T:annexb} lists them by area." },
   { tbl: {
-    caption: "Conveners, BSOs and anchors by intervention area",
+    id: "annexb", caption: "Conveners, BSOs and anchors by intervention area",
     head: ["Area", "Lead BSO and conveners", "Anchor buyers and market networks"],
     cols: [1700, 3326, 4000],
     small: true,
@@ -45,9 +45,9 @@ const annexes = [
   } },
 
   { h: 1, t: "Annex C: MSME Intake Baseline Fields", numbered: false },
-  { p: "Fields for the disaggregated MSME intake baseline (adapted from F3 Annex B, Table 21), to be collected for every enterprise entering the Activity 1.2.1 pipeline and the grant facility, and repeated at follow-up." },
+  { p: "Fields for the disaggregated MSME intake baseline (adapted from F3 Annex B, Table 21), to be collected for every enterprise entering the Activity 1.2.1 pipeline and the grant facility, and repeated at follow-up. {T:annexc} groups the fields by area." },
   { tbl: {
-    caption: "Proposed intake baseline fields",
+    id: "annexc", caption: "Proposed intake baseline fields",
     head: ["Area", "Fields"],
     cols: [2000, 7026],
     small: true,

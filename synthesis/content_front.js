@@ -27,8 +27,7 @@ const execSummary = [
   { b: [
     "Run one finance and market-linkage platform per delivery core (Livingstone–Victoria Falls with Hwange; Maun with the Delta community areas; the Zambezi Region if resourced), convened through associations, lodge impact officers and connector organizations, on a quarterly cycle timed to the tourism season. Start with a low-cost supplier directory and sector-specific buyer sessions rather than general marketplaces, which struggled in the past.",
     "Use five formats: common-understanding workshops on R-NBT and bankability; lender clinics at savings-group and conservancy meetings; women-only and youth-only sessions; quarterly deal days with one-page pipeline profiles; and anchor procurement roundtables that lead to a standard supply MOU (written orders, payment within 30 days, notice before termination).",
-    "Brief MSMEs and lenders on the mechanisms that already exist (ECGC, NASRIA and BOSRIA, CEDA, NDB, the FNB Zambia scored-credit product, CEEC, MSMED grants) and turn dialogue into product co-design labs that feed Activity 1.2.3.",
-    "Track every referral through a shared dashboard with coded rejection reasons, by sex, age and value chain, so that perceived risk can be replaced by measured risk.",
+    "Brief MSMEs and lenders on existing mechanisms (ECGC, NASRIA and BOSRIA, CEDA, NDB, FNB Zambia scored credit, CEEC, MSMED), run product co-design labs that feed Activity 1.2.3, and track every referral with coded rejection reasons by sex, age and value chain.",
   ] },
   { p: "**Activity 1.2.2: Grant facility.**" },
   { b: [
@@ -47,8 +46,9 @@ const execSummary = [
   ] },
 
   { h: 3, t: "By priority value chain" },
+  { p: "The recommendations are organized by the priority value chains of the Macro Diagnostic. {T:esvc} gives, for each chain, the lead action under each activity and when piloting should start; Chapter 4 sets out the detail." },
   { tbl: {
-    caption: "Summary of recommendations by priority value chain",
+    id: "esvc", caption: "Summary of recommendations by priority value chain",
     head: ["Value chain", "1.2.1 Connect", "1.2.2 Grant", "1.2.3 Finance", "Start"],
     cols: [1750, 1900, 1900, 2526, 950],
     small: true,
@@ -89,15 +89,16 @@ const ch1 = [
   { p: "The report does not repeat the analysis in the five source reports. It draws their findings together, resolves the points on which they differ, and turns them into recommendations that can be acted on. Detailed evidence, tables and references remain in the source reports, which are cited throughout by their codes (F1 to F5)." },
 
   { h: 2, t: "Output 1.2 and its three activities" },
+  { p: "The Output 1.2 activity description sets out three tentative activities, each with indicative key activities, instruments and deliverables. {T:activities} summarizes them; the recommendations in Chapters 4 and 5 are mapped to these key activities and deliverables." },
   { tbl: {
-    caption: "Output 1.2 activities as designed",
+    id: "activities", caption: "Output 1.2 activities as designed",
     head: ["Activity", "Purpose", "Indicative key activities", "Deliverables"],
     cols: [1600, 2300, 2826, 2300],
     small: true,
     rows: [
-      ["1.2.1 Dialogue platforms between MSMEs, private sector associations, financial institutions and large tourism companies or investors", "Close the disconnect between NBT MSMEs and financial institutions that lack tailored products or have low risk appetite", "Common understanding of R-NBT; perspectives on finance and risk; promotion of existing mechanisms; bankability criteria; adaptation of existing credit lines; matchmaking; engagement of DMCs and lodge chains on procurement, mentoring and shared infrastructure", "Dialogue and matchmaking event reports with agendas and participant lists; summary note on engagement outcomes of financial institutions and investors"],
-      ["1.2.2 Set-up of grant facilities", "Accelerate market readiness and stimulate regenerative product innovation; indirectly enable lenders to offer better terms to grantees", "Lot 1 small grants up to EUR 10,000 (seed stage, matching up to 20%); Lot 2 medium grants of EUR 10,000–40,000 (finance-ready MSMEs, matching up to 50%); eligibility and criteria; third-party implementers; call for proposals; pilot the facility", "Competition design package and call; list of awarded MSMEs and agreements; technical guidance and user protocols; summary report on outcomes and lessons"],
-      ["1.2.3 Support and strengthen new or existing financing mechanisms", "Adapt and test existing financing solutions with NBT MSMEs, primarily Lot 2 grantees, in three intervention areas", "Partnerships with lenders, development banks and foundations from 1.2.1; loans with improved conditions; revolving funds; social or environmental bonds; savings groups and community finance; MSME support through Activity 1.1.1", "Partnership agreements; pilot evaluation report with lessons and recommendations for scale-up"],
+      ["1.2.1 Dialogue platforms (MSMEs, associations, financial institutions, large tourism companies and investors)", "Close the disconnect between NBT MSMEs and lenders that lack tailored products or appetite", "Common understanding of R-NBT and risk; promote existing mechanisms; clarify bankability; adapt existing credit lines; matchmaking; engage DMCs and lodge chains", "Event reports with agendas and participant lists; note on lender and investor engagement outcomes"],
+      ["1.2.2 Grant facilities", "Accelerate market readiness and regenerative product innovation; help lenders offer better terms to grantees", "Lot 1 up to EUR 10,000 (match up to 20%); Lot 2 EUR 10,000–40,000 (up to 50%); criteria; third-party implementers; call for proposals; pilot", "Competition package and call; awards and agreements; guidance for MSMEs and finance partners; outcomes report"],
+      ["1.2.3 New or existing financing mechanisms", "Adapt and test existing financing solutions with NBT MSMEs, mainly Lot 2 grantees, in three areas", "Partnerships from 1.2.1; improved-condition loans; revolving funds; social or environmental bonds; savings groups; support via Activity 1.1.1", "Partnership agreements; pilot evaluation report with lessons for scale-up"],
     ],
   } },
 
@@ -133,29 +134,13 @@ const ch1 = [
 const ch2 = [
   { h: 1, t: "What the Evidence Shows" },
   { h: 2, t: "The core diagnosis" },
-  { p: "All five reports reach the same conclusion from different directions: the problem is the fit between finance and enterprises, not the volume of capital (F1, F2, F4, F5). Lenders and guarantors described the constraint in almost identical terms: collateral, track record and documentation, compounded by booking-based revenue that has no harvest-like settlement point (F5 §3). The demand-side evidence is consistent with this ({T:headline})." },
-  { tbl: {
-    id: "headline", caption: "Headline evidence on MSME finance in KAZA",
-    head: ["Finding", "Evidence", "Source"],
-    cols: [2600, 5126, 1300],
-    small: true,
-    rows: [
-      ["Finance is the most cited constraint, but many never apply", "82 of 106 surveyed MSMEs name finance as a top-three challenge; 46 sought outside finance (22 succeeded, 24 refused); 54 never tried; 6 did not know funding existed", "MD via F3, F4"],
-      ["A buyer is the strongest predictor of finance", "28% of enterprises with a buyer arrangement obtained outside finance, against 8% of those without; 32 of 106 hold a written contract or letter of intent", "MD via F4"],
-      ["Existing schemes barely reach tourism", "Tourism is about 4% of NASRIA guarantee reach (6 SMEs in FY2025-26) and under 10% of the ECGC portfolio; under 1% of bank lending in Zimbabwe", "F5, F4"],
-      ["Credit is scarce and expensive", "MSME credit access of 2.2% in Zambia; commercial rates of about 43.5% in Zimbabwe; Angola’s policy rate 19.5%; scored credit in Zambia above 20% a year", "F4, F5"],
-      ["Seasonality breaks standard loans", "In an illustrative guiding enterprise, a standard 24-month loan takes about 11% of peak-month revenue but 48% of low-season revenue", "F3 §8.1"],
-      ["Specialized assets are hard to lend against", "18% non-performing loans on boats and specialized assets at NDB Botswana; about 40% NPL at BDA Angola", "F5"],
-      ["Buyers pay late", "Public bodies and large operators pay 30–90 days late; suppliers finance their buyers", "F4, F5 §8"],
-      ["Records and formality are thin", "27 of 106 keep records in a notebook and 8 keep none; business planning scores 3.9 of 5; informality ranges from 47% (Botswana MSMEs) to 95.6% (Zambia, unregistered)", "F3 §4"],
-      ["Women and youth are present but under-served", "40% of surveyed MSMEs women-owned or -led and 17% youth; women hold 58% of full-time jobs; NASRIA beneficiaries 25% female-owned and 28% fully youth-owned", "MD via F3; F5"],
-    ],
-  } },
+  { p: "All five reports reach the same conclusion from different directions: the problem is the fit between finance and enterprises, not the volume of capital (F1, F2, F4, F5). Lenders and guarantors described the constraint in almost identical terms: collateral, track record and documentation, compounded by booking-based revenue that has no harvest-like settlement point (F5 §3). The demand-side evidence is consistent with this: {F:headline} brings together the figures that recur across the reports." },
+  { img: { id: "headline", file: "fig3_headline.png", w: 560, h: 201, caption: "Headline evidence on MSME finance in KAZA" } },
 
   { h: 2, t: "Five barriers and what they imply for design" },
-  { p: "Five barriers recur across all countries and value chains and reinforce one another (F2 §4; F4 §2.2). Women- and youth-led enterprises face each more acutely: women’s firms sit in low-asset segments on communal land, and young founders have neither assets nor credit history." },
+  { p: "Five barriers recur across all countries and value chains and reinforce one another (F2 §4; F4 §2.2). Women- and youth-led enterprises face each more acutely: women’s firms sit in low-asset segments on communal land, and young founders have neither assets nor credit history. {T:barriers} summarizes how each barrier shows up in KAZA and what it implies for the design of the three activities." },
   { tbl: {
-    caption: "Barriers and design implications",
+    id: "barriers", caption: "Barriers and design implications",
     head: ["Barrier", "How it shows up", "Design implication for Output 1.2"],
     cols: [1500, 3600, 3926],
     small: true,
@@ -169,50 +154,23 @@ const ch2 = [
   } },
 
   { h: 2, t: "What already exists to build on" },
-  { p: "The Macro Diagnostic’s message that KAZA does not mainly need another finance facility or institution (F2 §2.1) is borne out by the landscape: each state has institutions that can carry a pilot, although tourism is a marginal user of all of them. F1’s readiness scores rank how ready each state’s KAZA corridor is to pilot a tailored mechanism now." },
-  { tbl: {
-    caption: "Country starting points for Output 1.2",
-    head: ["Country (area)", "Readiness (F1, of 5)", "Strongest vehicles to build on", "Main constraint"],
-    cols: [1700, 1100, 3726, 2500],
-    small: true,
-    rows: [
-      ["Zambia (PA1: Livingstone, Kalomo)", "4.1 ready to pilot", "FNB Zambia collateral-free scored credit (would pay for risk sharing); ZCGS partial guarantees; ZANACO loan pilot; MSMED grants; CEEC; dense savings groups", "Cost of credit; local incorporation needed for leasing and factoring"],
-      ["Zimbabwe (PA1: Victoria Falls, Hwange)", "3.9 ready to pilot", "ECGC credit guarantee (75–85% by tenor; about 13–14 banks and 21–34 MFIs); SMEDCO; Women’s Microfinance Bank; strongest anchor cluster", "Currency and exchange-control rules; high rates; past fund design failures"],
-      ["Botswana (PA2: Okavango–Maun; Kasane)", "3.4 ready with adjustments", "CEDA; NDB; LEA; NASRIA/BOSRIA subsidiary (60%, from March 2026); Wilderness–Stanbic supplier finance; Agora Microfinance", "BOSRIA not yet known to lenders; citizen reservation; seasonality-linked NPLs"],
-      ["Namibia (phased: Zambezi Region)", "3.2 ready with adjustments", "NASRIA guarantee (60%, proposing 80/20 for women and youth); DBN and DBN For Her; NYDF; conservancy JV income; wildlife credits", "Instruments rarely reach the Zambezi Region; no tourism-specific funder"],
-      ["Angola (phased: Cubango–Okavango)", "1.4 emerging", "BDA microfinance; FGC; banks in Menongue and Calai; OKACOM CORB Fund", "Mostly unbanked; kwanza volatility; one anchor camp; no survey data"],
-    ],
-  } },
+  { p: "The Macro Diagnostic’s message that KAZA does not mainly need another finance facility or institution (F2 §2.1) is borne out by the landscape: each state has institutions that can carry a pilot, although tourism is a marginal user of all of them. F1 scores each state’s KAZA corridor on six weighted criteria (guarantee or development lender, lenders in the corridor, market depth, community finance, business support linked to finance and macroeconomic stability). {F:readiness} shows the scores, the readiness bands and, for each state, the strongest vehicles to build on and the main constraint: Zambia and Zimbabwe are ready to pilot now, Botswana and Namibia need adjustments, and Angola needs readiness work first." },
+  { img: { id: "readiness", file: "fig4_readiness.png", w: 560, h: 205, caption: "Country readiness to pilot an MSME finance mechanism, with the institutions to build on" } },
 
   { h: 2, t: "The market gap and the RTFF" },
   { p: "F4 defines a structural gap that no current provider serves on usable terms: **buyer-linked Tier 1–2 tourism MSMEs needing EUR 1,000–30,000 of working capital or a small asset, repaid over one or two seasons, with no land or fixed collateral.** Banks and development lenders require collateral, savings groups and microfinance lend below the ticket, impact funds lend far above it, and grants create no repayment record (F4 §2.5)." },
   { p: "The Regenerative Tourism Finance Facility (RTFF) proposed by the TUI Care Foundation with EU–German Cooperation is designed for this gap: collateral-free loans of EUR 1,000–10,000 (Tier 1) and EUR 10,000–30,000 (Tier 2) over 12–24 months, priced at 8% and stepping down to 2% against women’s leadership, youth employment, circular and nature milestones, for about 50 buyer-linked MSMEs from about 150 referrals, with about EUR 720,000 deployable. Consultations and the Finance Lab raised open issues that Output 1.2 must address: offshore administration and in-country loan recovery, which every lender consulted stressed (F5 §14); currency risk; the 82.5% share of capital allocated to Tier 2 while most enterprises are micro; exclusion of licence- and permit-holders; and fund sustainability after cohort 1 (F1 §10.2; F4 Table 8)." },
 
   { h: 2, t: "What the November working sessions add" },
-  { p: "The micro-diagnostics and the Victoria Falls and Maun working sessions tested the evidence at destination level. They confirm the core diagnosis but show two different starting points: an established, transport- and guiding-heavy corridor around Victoria Falls and Livingstone, and a smaller, more informal, women- and craft-heavy base around Maun ({T:destinations})." },
-  { tbl: {
-    id: "destinations",
-    caption: "Finance-relevant profile of the two priority areas (updated survey and November working sessions)",
-    head: ["Indicator or finding", "Hwange–Victoria Falls–Livingstone", "Okavango Delta–Maun"],
-    cols: [2600, 3213, 3213],
-    small: true,
-    rows: [
-      ["Survey respondents (Nov 2026 export)", "64, mostly Livingstone and Victoria Falls; 1 in Hwange", "40 (Maun and Boro, Panhandle, district, Boteti)"],
-      ["Finance in top three challenges; never applied; obtained finance", "81%; 47%; 20% (15 of 28 applicants refused, mostly for collateral)", "75%; 60%; 20% (18% refused)"],
-      ["Written contract or letter of intent", "42%; a further 36% informal; roundtable estimate that 68% of suppliers have no contract", "18%; a further 22% informal; 55% would like an agreement"],
-      ["Women-led; youth-led; women’s share of full-time jobs", "36%; 16%; 48% of 614", "48%; 15%; 70% of 411"],
-      ["Records in a notebook or none", "25% (over 85% without proper records, roundtable estimate)", "38%; 62% report turnover below BWP 200,000"],
-      ["Largest value-chain groups", "Guiding and activities 43; transport 30; food 15; crafts only 3", "Crafts and cultural 20; conservation and community 11; food 9; laundry and services 8; guiding 8"],
-      ["Payment terms", "Little discussed; buyers avoid contracts with small suppliers", "Produce and laundry: terms acceptable. Crafts: 30–90 days, unpaid consignment"],
-      ["What participants asked of finance", "Below-bank pricing (0–8% against about 28%), milestone tranches, seasonal repayment, leases as security, association guarantees, buyer-deducted repayment, 6–12 months of coaching first, trade-show finance", "Access before price: routes for unregistered groups (kgosi’s letter), Setswana and paper forms, mobile money and cash, repayment linked to sales, coaching before and after the loan, money for materials"],
-      ["RTFF status", "Strong cohort 1 candidate; legal and foreign-exchange route to confirm", "Conditional: Route A (Botswana RTFF phase) or Route B (coaching and market access with referral to national lenders)"],
-    ],
-  } },
+  { p: "The micro-diagnostics and the Victoria Falls and Maun working sessions tested the evidence at destination level. They confirm the core diagnosis but show two different starting points: an established, transport- and guiding-heavy corridor around Victoria Falls and Livingstone, and a smaller, more informal, women- and craft-heavy base around Maun. {F:destinations} compares the two on the survey indicators that matter most for finance: the same share has obtained finance, but Maun enterprises are less likely to hold a contract or keep records and more likely to be women-led." },
+  { img: { id: "destinations", file: "fig5_destinations.png", w: 560, h: 219, caption: "Finance-relevant profile of the two priority areas (updated survey, November 2026)" } },
+  { p: "The areas also differ in value-chain mix. Guiding (43 respondents) and transport (30) dominate the corridor, where only 3 respondents work in crafts; in Okavango–Maun crafts and cultural products are the largest group (20), followed by conservation and community enterprises (11), food (9) and laundry and services (8). Maun produce and laundry suppliers called payment terms acceptable, while craft producers reported 30–90-day payment and unpaid consignment. The RTFF treats the corridor as the strong cohort 1 candidate; in Botswana it is conditional on Route A (an RTFF Botswana phase), failing which Route B provides coaching and market access with referral to national lenders (MiD1–2; RT-MN)." },
   { p: "Four messages matter most for Output 1.2. First, **finance must come with coaching and buyer links**: participants in both sessions placed records, costing and compliance before money, and saw buyer links as what makes a business bankable at all. Second, **delivery design decides reach**: language, paper forms, cash channels and trusted intermediaries determine whether micro and community enterprises apply. Third, **the RTFF is now explicitly for established, trading businesses**, which leaves micro, start-up and unregistered enterprises to the grant facility, community funds and microfinance. Fourth, **one design will not fit all countries**: a Botswana participant doubted that peer guarantees would work there, while associations in Zimbabwe already bond their members (RT-VF)." },
 
   { h: 2, t: "Where the reports differ and how this synthesis resolves them" },
+  { p: "The source reports were prepared between October and November 2026 as evidence accumulated, so some figures and positions differ. {T:recon} records each difference and the position this synthesis takes, so that readers can trace how the recommendations treat it." },
   { tbl: {
-    caption: "Reconciliation of differences across the source reports",
+    id: "recon", caption: "Reconciliation of differences across the source reports",
     head: ["Issue", "What the reports say", "Position taken in this synthesis"],
     cols: [1700, 3826, 3500],
     small: true,

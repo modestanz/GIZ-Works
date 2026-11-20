@@ -5,7 +5,7 @@ const path = require("path");
 const {
   Document, Packer, Paragraph, TextRun, HeadingLevel, AlignmentType, Table, TableRow, TableCell,
   WidthType, ShadingType, BorderStyle, LevelFormat, TableOfContents, Footer, Header, PageNumber,
-  PageBreak, ImageRun, VerticalAlign, LineRuleType,
+  PageBreak, ImageRun, VerticalAlign, LineRuleType, SectionType,
 } = require("docx");
 
 const { execSummary, ch1, ch2 } = require("./content_front");
@@ -32,6 +32,14 @@ const tNum = {}, fNum = {};
     if (b.img) { f += 1; if (b.img.id) fNum[b.img.id] = f; }
   }
 }
+// Every table must be introduced by the paragraph directly before it, which must cite it.
+for (const blocks of allBlocks) blocks.forEach((b, i) => {
+  if (!b.tbl) return;
+  const prev = blocks[i - 1];
+  if (!b.tbl.id || !prev || !prev.p || !prev.p.includes(`{T:${b.tbl.id}}`)) {
+    throw new Error("Table without an introductory paragraph citing it: " + b.tbl.caption);
+  }
+});
 function resolve(text) {
   return text
     .replace(/\{T:([a-z0-9]+)\}/g, (_, id) => { if (!tNum[id]) throw new Error("Unknown table ref " + id); return `Table ${tNum[id]}`; })
@@ -83,9 +91,9 @@ function table(t) {
   t.rows.forEach((r) => {
     if (r.length === 1 && typeof r[0] === "object") {
       // section row spanning all columns
-      rows.push(new TableRow({ cantSplit: true, children: [cell(r[0].t, TABLE_W, false, size, { span: t.cols.length, fill: BAND, bold: true })] }));
+      rows.push(new TableRow({ cantSplit: false, children: [cell(r[0].t, TABLE_W, false, size, { span: t.cols.length, fill: BAND, bold: true })] }));
     } else {
-      rows.push(new TableRow({ cantSplit: true, children: r.map((c, i) => cell(c, t.cols[i], false, size, i === 0 ? { bold: false } : {})) }));
+      rows.push(new TableRow({ cantSplit: false, children: r.map((c, i) => cell(c, t.cols[i], false, size, i === 0 ? { bold: false } : {})) }));
     }
   });
   out.push(new Table({ width: { size: TABLE_W, type: WidthType.DXA }, columnWidths: t.cols, rows }));
@@ -98,9 +106,8 @@ function figure(f) {
   const data = fs.readFileSync(path.join(__dirname, "figures", f.file));
   return [
     caption("Figure", figNo, f.caption),
-    new Paragraph({ alignment: AlignmentType.CENTER, keepNext: true, spacing: { before: 0, after: 60, line: 240, lineRule: LineRuleType.AUTO },
+    new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 0, after: 140, line: 240, lineRule: LineRuleType.AUTO },
       children: [new ImageRun({ type: "png", data, transformation: { width: f.w, height: f.h } })] }),
-    new Paragraph({ spacing: { after: 160 }, children: [new TextRun({ text: "Source: this report, synthesizing F1–F5, MiD1–2 and the November 2026 roundtable reports.", italics: true, size: 17, color: "555555" })] }),
   ];
 }
 
@@ -121,7 +128,7 @@ function render(blocks) {
     if (b.h === 1) {
       let label = b.t;
       if (b.numbered !== false) { h1No += 1; h2No = 0; label = `${h1No}. ${b.t}`; }
-      out.push(new Paragraph({ heading: HeadingLevel.HEADING_1, pageBreakBefore: true, children: [new TextRun(label)] }));
+      out.push(new Paragraph({ heading: HeadingLevel.HEADING_1, keepNext: true, children: [new TextRun(label)] }));
     } else if (b.h === 2) {
       h2No += 1;
       out.push(new Paragraph({ heading: HeadingLevel.HEADING_2, children: [new TextRun(`${h1No}.${h2No} ${b.t}`)] }));
@@ -166,7 +173,7 @@ const tocPage = [
 ];
 
 const acronymPage = [
-  new Paragraph({ pageBreakBefore: true, spacing: { after: 200 }, children: [new TextRun({ text: "Acronyms and Abbreviations", bold: true, size: 32, color: GREEN })] }),
+  new Paragraph({ spacing: { before: 360, after: 160 }, keepNext: true, children: [new TextRun({ text: "Acronyms and Abbreviations", bold: true, size: 32, color: GREEN })] }),
   new Table({
     width: { size: TABLE_W, type: WidthType.DXA }, columnWidths: [1800, 7226],
     rows: [new TableRow({ tableHeader: true, children: [cell("Acronym", 1800, true, 18), cell("Meaning", 7226, true, 18)] }),
@@ -178,7 +185,7 @@ const acronymPage = [
 const body = [execSummary, ch1, ch2, ch3, ch4, ch5, ch6, ch7, annexes].flatMap(render);
 
 const refs = [
-  new Paragraph({ heading: HeadingLevel.HEADING_1, pageBreakBefore: true, children: [new TextRun("Annex D: References")] }),
+  new Paragraph({ heading: HeadingLevel.HEADING_1, keepNext: true, children: [new TextRun("Annex D: References")] }),
   ...[...references].map((r) => new Paragraph({
     indent: { left: 567, hanging: 567 }, spacing: { after: 100 },
     children: [new TextRun({ text: r, size: 20 })],
@@ -201,7 +208,7 @@ const doc = new Document({
     paragraphStyles: [
       { id: "Heading1", name: "Heading 1", basedOn: "Normal", next: "Normal", quickFormat: true,
         run: { size: 32, bold: true, color: GREEN, font: FONT },
-        paragraph: { spacing: { before: 0, after: 220 }, outlineLevel: 0,
+        paragraph: { spacing: { before: 360, after: 160 }, outlineLevel: 0, keepNext: true,
           border: { bottom: { style: BorderStyle.SINGLE, size: 8, color: ACCENT, space: 4 } } } },
       { id: "Heading2", name: "Heading 2", basedOn: "Normal", next: "Normal", quickFormat: true,
         run: { size: 25, bold: true, color: GREEN, font: FONT },
@@ -218,7 +225,7 @@ const doc = new Document({
   sections: [
     { properties: { ...pageProps, titlePage: true }, headers: { default: hdr(), first: new Header({ children: [] }) },
       footers: { default: ftr(), first: new Footer({ children: [] }) }, children: [...titlePage, ...tocPage, ...acronymPage] },
-    { properties: pageProps, headers: { default: hdr() }, footers: { default: ftr() }, children: [...body, ...refs] },
+    { properties: { ...pageProps, type: SectionType.CONTINUOUS }, headers: { default: hdr() }, footers: { default: ftr() }, children: [...body, ...refs] },
   ],
 });
 
