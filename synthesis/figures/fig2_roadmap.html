@@ -16,34 +16,36 @@ body{width:1200px;height:520px;font-family:Carlito,Calibri,"Liberation Sans",san
 </style></head><body><div id="c"></div>
 <script>
 const c=document.getElementById('c');
-const X0=250, X1=1185, M=38; // Nov 2026 .. Dec 2029 = 38 months
-const mw=(X1-X0)/M; const x=m=>X0+m*mw; // m=0 => Nov 2026
-const mi=(y,mo)=>(y-2026)*12+(mo-11); // month index
+const X0=250, X1=1185, M=32; // Nov 2026 .. Jun 2029
+const mw=(X1-X0)/M; const x=m=>X0+m*mw;
+const mi=(y,mo)=>(y-2026)*12+(mo-11);
 const add=(cls,st,html)=>{const d=document.createElement('div');d.className=cls;Object.assign(d.style,st);if(html)d.innerHTML=html;c.appendChild(d);return d};
 const TOP=58, ROW=33, rows=12, H=TOP+rows*ROW;
-// peak seasons Jun-Oct
-[2027,2028,2029].forEach(y=>add('peak',{left:x(mi(y,6))+'px',top:'28px',width:(5*mw)+'px',height:(H-28)+'px'}));
-// years and quarters
-[[2026,11,12],[2027,1,12],[2028,1,12],[2029,1,12]].forEach(([y,a,b])=>{const s=mi(y,a),e=mi(y,b)+1;add('yr',{left:x(s)+'px',width:(x(e)-x(s))+'px'},String(y));add('vl',{left:x(s)+'px',height:(H-28)+'px'});});
-for(let y=2027;y<=2029;y++)for(let q=0;q<4;q++){const s=mi(y,1+3*q);add('q',{left:x(s)+'px',width:(3*mw)+'px'},'Q'+(q+1));}
+[2027,2028].forEach(y=>add('peak',{left:x(mi(y,6))+'px',top:'28px',width:(5*mw)+'px',height:(H-28)+'px'}));
+// extension band
+add('peak',{left:x(mi(2029,1))+'px',top:'28px',width:(6*mw)+'px',height:(H-28)+'px',background:'repeating-linear-gradient(135deg,#eef1ef 0 8px,#ffffff 8px 16px)'});
+[[2026,11,12],[2027,1,12],[2028,1,12],[2029,1,6]].forEach(([y,a,b])=>{const s=mi(y,a),e=mi(y,b)+1;add('yr',{left:x(s)+'px',width:(x(e)-x(s))+'px'},String(y));add('vl',{left:x(s)+'px',height:(H-28)+'px'});});
+for(let y=2027;y<=2029;y++)for(let q=0;q<(y==2029?2:4);q++){const s=mi(y,1+3*q);add('q',{left:x(s)+'px',width:(3*mw)+'px'},'Q'+(q+1));}
 add('q',{left:x(0)+'px',width:(2*mw)+'px'},'Q4');
+// project end line
+add('vl',{left:(x(mi(2029,1))-1)+'px',height:(H-28)+'px',width:'3px',background:'#b03a2e'});
+add('gl',{left:(x(mi(2029,1))+6)+'px',top:(H-22)+'px'},'Current project end (Dec 2028)');
 const R=(i,label,g)=>add('lab'+(g?' g':''),{top:(TOP+i*ROW)+'px'},label);
-const B=(i,s,e,col,txt)=>add('bar',{top:(TOP+i*ROW+3)+'px',left:x(s)+'px',width:(x(e)-x(s)-2)+'px',background:col},txt||'');
+const B=(i,s,e,col,txt,op)=>{const d=add('bar',{top:(TOP+i*ROW+3)+'px',left:x(s)+'px',width:(x(e)-x(s)-2)+'px',background:col},txt||'');if(op)d.style.opacity=op;return d;};
 const G='#1F5135',G2='#3D6B50',Au='#a8892f',Gy='#6b7f74',Lg='#7fa58c';
 R(0,'Phases',true);
-B(0,0,mi(2027,2),Gy,'0 Set-up');B(0,mi(2027,2),mi(2027,5),Au,'1 Design');B(0,mi(2027,5),mi(2028,4),G,'2 Season one');B(0,mi(2028,4),mi(2029,4),G2,'3 Season two + review');B(0,mi(2029,7),M,Lg,'4 Scale');
-R(1,'1.2.1 Platforms PA1, PA2',true);B(1,mi(2027,1),M,G2,'Quarterly cycle: clinics, deal days, anchor roundtables');
-R(2,'1.2.1 Zambezi Region (NA)');B(2,mi(2027,7),M,Lg,'Platform and second-cohort preparation');
-R(3,'1.2.2 Lot 1 windows',true);B(3,mi(2027,4),mi(2027,7),Au,'Window 1');B(3,mi(2027,11),mi(2028,2),Au,'Window 2');B(3,mi(2028,11),mi(2029,2),Au,'Window 3');
+B(0,0,mi(2027,2),Gy,'0 Set-up');B(0,mi(2027,2),mi(2027,5),Au,'1 Design');B(0,mi(2027,5),mi(2028,4),G,'2 Season one');B(0,mi(2028,4),mi(2028,11),G2,'3 Season two + review');B(0,mi(2028,11),mi(2029,7),Lg,'4 Handover','0.85');
+R(1,'1.2.1 Platforms PA1, PA2',true);B(1,mi(2027,1),mi(2029,1),G2,'Quarterly cycle: directory, clinics, deal days, anchor roundtables');
+R(2,'1.2.1 Zambezi Region (NA)');B(2,mi(2027,7),mi(2029,1),Lg,'Preparation, only if resourced','0.75');
+R(3,'1.2.2 Lot 1 windows',true);B(3,mi(2027,4),mi(2027,7),Au,'Window 1');B(3,mi(2027,11),mi(2028,2),Au,'Window 2');
 R(4,'1.2.2 Lot 2 call and awards',true);B(4,mi(2027,5),mi(2027,10),Au,'Call and awards');B(4,mi(2028,2),mi(2028,6),Au,'Round 2');
 R(5,'1.2.3 Agreements',true);B(5,mi(2027,1),mi(2027,6),G,'Agreements signed');
-R(6,'1.2.3 Order-backed finance');B(6,mi(2027,5),mi(2029,4),G,'Pre-peak working capital, two seasons');
-R(7,'1.2.3 Asset finance (Model A)');B(7,mi(2027,11),mi(2029,4),G,'Low-season disbursement with grace');
-R(8,'1.2.3 Lot 2 to finance pilot');B(8,mi(2027,9),mi(2029,4),G2,'Screened grantees to RTFF and guarantee windows');
-R(9,'1.2.3 Models C and D');B(9,mi(2027,7),mi(2028,4),Gy,'Design');B(9,mi(2028,4),mi(2029,4),G2,'Pilot');
-R(10,'M&E',true);B(10,mi(2027,1),mi(2027,6),Gy,'Baselines');B(10,mi(2027,6),mi(2029,4),Lg,'Monitoring and dashboard');B(10,mi(2029,1),mi(2029,7),G,'Evaluation');
-R(11,'RTFF',true);B(11,mi(2027,4),mi(2029,4),'#5b6f9e','Cohort 1 (TUI Care Foundation)');
-// gates
-[[mi(2028,2),'Gate 1'],[mi(2029,2),'Gate 2'],[mi(2028,11),'RTFF future']].forEach(([m,t])=>{add('gate',{left:(x(m)-11)+'px',top:(H+2)+'px'});add('gl',{left:(x(m)-24)+'px',top:(H+22)+'px'},t);});
-const l=add('leg',{});l.innerHTML='<span><span class="sw" style="background:#f6f0dc;border:1px solid #d8c88f"></span>Peak tourism season (June–October)</span><span><span class="sw" style="background:#b03a2e"></span>Decision gate</span><span>Indicative; assumes Partner State decisions in November 2026</span>';
+R(6,'1.2.3 Order-backed finance');B(6,mi(2027,5),mi(2029,1),G,'Pre-peak working capital, two peaks');
+R(7,'1.2.3 Asset finance (Model A)');B(7,mi(2027,11),mi(2029,1),G,'Low-season disbursement with grace');
+R(8,'1.2.3 Lot 2 to finance pilot');B(8,mi(2027,9),mi(2029,1),G2,'Screened grantees to RTFF and guarantee windows');
+R(9,'1.2.3 Models C and D');B(9,mi(2027,7),mi(2028,4),Gy,'Design');B(9,mi(2028,4),mi(2029,1),G2,'Pilot');
+R(10,'M&E',true);B(10,mi(2027,1),mi(2027,6),Gy,'Baselines');B(10,mi(2027,6),mi(2028,9),Lg,'Monitoring and dashboard');B(10,mi(2028,9),mi(2029,1),G,'Review');B(10,mi(2029,1),mi(2029,7),G,'Full evaluation','0.6');
+R(11,'RTFF',true);B(11,mi(2027,2),mi(2029,1),'#5b6f9e','Cohort 1 (TUI Care Foundation), finance from Q1 2027');
+[[mi(2028,2),'Gate 1'],[mi(2028,9),'RTFF future'],[mi(2028,12),'Gate 2']].forEach(([m,t])=>{add('gate',{left:(x(m)-11)+'px',top:(H+2)+'px'});add('gl',{left:(x(m)-24)+'px',top:(H+22)+'px'},t);});
+const l=add('leg',{});l.innerHTML='<span><span class="sw" style="background:#f6f0dc;border:1px solid #d8c88f"></span>Peak season (June–October)</span><span><span class="sw" style="background:repeating-linear-gradient(135deg,#dfe5e1 0 4px,#fff 4px 8px);border:1px solid #bbb"></span>Extension to mid-2029 (sought)</span><span><span class="sw" style="background:#b03a2e"></span>Decision gate</span><span>Indicative</span>';
 </script></body></html>

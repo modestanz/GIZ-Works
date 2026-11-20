@@ -55,7 +55,7 @@ function cell(text, width, header, size, extra = {}) {
     borders,
     width: { size: width, type: WidthType.DXA },
     shading: header ? { fill: GREEN, type: ShadingType.CLEAR, color: "auto" } : (extra.fill ? { fill: extra.fill, type: ShadingType.CLEAR, color: "auto" } : undefined),
-    margins: { top: size <= 17 ? 30 : 50, bottom: size <= 17 ? 30 : 50, left: 90, right: 90 },
+    margins: { top: size <= 17 ? 20 : 40, bottom: size <= 17 ? 20 : 40, left: 80, right: 80 },
     columnSpan: extra.span,
     verticalAlign: VerticalAlign.TOP,
     children: [new Paragraph({
@@ -77,7 +77,7 @@ function caption(label, n, text) {
 
 function table(t) {
   tableNo += 1;
-  const size = t.small ? 17 : 19;
+  const size = t.small ? 16 : 18;
   const out = [caption("Table", tableNo, t.caption)];
   const rows = [new TableRow({ tableHeader: true, children: t.head.map((h, i) => cell(h, t.cols[i], true, size)) })];
   t.rows.forEach((r) => {
@@ -100,7 +100,7 @@ function figure(f) {
     caption("Figure", figNo, f.caption),
     new Paragraph({ alignment: AlignmentType.CENTER, keepNext: true, spacing: { before: 0, after: 60, line: 240, lineRule: LineRuleType.AUTO },
       children: [new ImageRun({ type: "png", data, transformation: { width: f.w, height: f.h } })] }),
-    new Paragraph({ spacing: { after: 160 }, children: [new TextRun({ text: "Source: this report, synthesizing F1–F5.", italics: true, size: 17, color: "555555" })] }),
+    new Paragraph({ spacing: { after: 160 }, children: [new TextRun({ text: "Source: this report, synthesizing F1–F5, MiD1–2 and the November 2026 roundtable reports.", italics: true, size: 17, color: "555555" })] }),
   ];
 }
 
@@ -153,9 +153,9 @@ const titlePage = [
   new Paragraph({ spacing: { after: 200 }, children: [new TextRun({ text: "Piloting Financial Mechanisms for R-NBT MSMEs under Output 1.2: Strategic Framework, Recommendations for Activities 1.2.1, 1.2.2 and 1.2.3, M&E Framework and Roadmap, Organized by Priority Value Chain", size: 30, color: "333333" })] }),
   new Paragraph({ spacing: { after: 900 }, children: [new TextRun({ text: "Kavango Zambezi Transfrontier Conservation Area: Angola · Botswana · Namibia · Zambia · Zimbabwe", size: 22, color: GREEN, bold: true })] }),
   new Paragraph({ children: [new TextRun({ text: "F6-D9: Consolidated Synthesis Report", bold: true, size: 24 })] }),
-  new Paragraph({ children: [new TextRun({ text: "Synthesizing F1-D4 Financial Landscape Analysis, F2-D5 Barriers and Opportunities Report, F3-D6 Investment Readiness and Enterprise Strengthening Assessment, F4-D7 Financing Mechanisms Assessment and F5-D8 Pre-Engagement Report and Synthesis", size: 20, color: "555555", italics: true })] }),
+  new Paragraph({ children: [new TextRun({ text: "Synthesizing F1-D4 Financial Landscape Analysis, F2-D5 Barriers and Opportunities Report, F3-D6 Investment Readiness and Enterprise Strengthening Assessment, F4-D7 Financing Mechanisms Assessment, F5-D8 Pre-Engagement and Roundtable Finance Segment Reports, and the GM3-D10 Micro Diagnostic Reports", size: 20, color: "555555", italics: true })] }),
   new Paragraph({ spacing: { before: 1000 }, children: [new TextRun({ text: "DRAFT FOR VALIDATION", bold: true, size: 22, color: "B03A2E" })] }),
-  new Paragraph({ children: [new TextRun({ text: "November 2026", size: 22 })] }),
+  new Paragraph({ children: [new TextRun({ text: "November 2026 (Version 2: incorporates the November 2026 destination working sessions)", size: 22 })] }),
   new Paragraph({ spacing: { before: 400 }, children: [new TextRun({ text: "Prepared by: Modesta Nyirenda", size: 22, italics: true })] }),
   new Paragraph({ children: [new PageBreak()] }),
 ];
@@ -170,9 +170,9 @@ const acronymPage = [
   new Table({
     width: { size: TABLE_W, type: WidthType.DXA }, columnWidths: [1800, 7226],
     rows: [new TableRow({ tableHeader: true, children: [cell("Acronym", 1800, true, 18), cell("Meaning", 7226, true, 18)] }),
-      ...acronyms.map(([a, m]) => new TableRow({ children: [cell(`**${a}**`, 1800, false, 17), cell(m, 7226, false, 17)] }))],
+      ...acronyms.map(([a, m]) => new TableRow({ children: [cell(`**${a}**`, 1800, false, 16), cell(m, 7226, false, 16)] }))],
   }),
-  new Paragraph({ spacing: { before: 200 }, children: [new TextRun({ text: "Source codes: F1 = F1-D4 Financial Landscape Analysis; F2 = F2-D5 Barriers and Opportunities Report; F3 = F3-D6 Investment Readiness and Enterprise Strengthening Assessment; F4 = F4-D7 Financing Mechanisms Assessment; F5 = F5-D8 Pre-Engagement Report and Synthesis; MD = Macro Diagnostic. Section references (§) point to sections of those reports.", italics: true, size: 19, color: "444444" })] }),
+  new Paragraph({ spacing: { before: 200 }, children: [new TextRun({ text: "Source codes: F1 = F1-D4 Financial Landscape Analysis; F2 = F2-D5 Barriers and Opportunities Report; F3 = F3-D6 Investment Readiness and Enterprise Strengthening Assessment; F4 = F4-D7 Financing Mechanisms Assessment; F5 = F5-D8 Pre-Engagement Report and Synthesis; MD = Macro Diagnostic; MiD1, MiD2 = GM3-D10 Micro Diagnostic Reports for Hwange–Victoria Falls–Livingstone and Okavango Delta–Maun; RT-VF, RT-MN = F5-D8 roundtable finance segment reports for Victoria Falls and Maun (November 2026). Section references (§) point to sections of those reports.", italics: true, size: 19, color: "444444" })] }),
 ];
 
 const body = [execSummary, ch1, ch2, ch3, ch4, ch5, ch6, ch7, annexes].flatMap(render);
@@ -197,7 +197,7 @@ const doc = new Document({
   description: "Strategic framework, recommendations for Activities 1.2.1–1.2.3, M&E framework and roadmap for piloting financial mechanisms for R-NBT MSMEs in KAZA",
   features: { updateFields: true },
   styles: {
-    default: { document: { run: { font: FONT, size: 21 }, paragraph: { spacing: { after: 110, line: 264, lineRule: LineRuleType.AUTO } } } },
+    default: { document: { run: { font: FONT, size: 20 }, paragraph: { spacing: { after: 90, line: 250, lineRule: LineRuleType.AUTO } } } },
     paragraphStyles: [
       { id: "Heading1", name: "Heading 1", basedOn: "Normal", next: "Normal", quickFormat: true,
         run: { size: 32, bold: true, color: GREEN, font: FONT },
@@ -205,7 +205,7 @@ const doc = new Document({
           border: { bottom: { style: BorderStyle.SINGLE, size: 8, color: ACCENT, space: 4 } } } },
       { id: "Heading2", name: "Heading 2", basedOn: "Normal", next: "Normal", quickFormat: true,
         run: { size: 25, bold: true, color: GREEN, font: FONT },
-        paragraph: { spacing: { before: 280, after: 120 }, outlineLevel: 1, keepNext: true } },
+        paragraph: { spacing: { before: 220, after: 100 }, outlineLevel: 1, keepNext: true } },
       { id: "Heading3", name: "Heading 3", basedOn: "Normal", next: "Normal", quickFormat: true,
         run: { size: 22, bold: true, color: "3D6B50", font: FONT },
         paragraph: { spacing: { before: 180, after: 80 }, outlineLevel: 2, keepNext: true } },
