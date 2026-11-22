@@ -1,0 +1,26 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../_base.css"><style>
+body{width:1200px;height:470px;padding:10px 14px}
+#c{position:relative;width:1172px;height:450px}
+.lab{position:absolute;left:0;width:330px;font-size:17px;line-height:1.15}
+.gl{position:absolute;width:1px;background:#DDE3DA}
+.ax{position:absolute;font-size:14px;color:#5a6660}
+.ln{position:absolute;height:3px;background:#D9C9A0}
+.d1{position:absolute;width:18px;height:18px;border-radius:50%;background:#7B6A10;box-shadow:0 0 0 2px #fff}
+.d2{position:absolute;width:17px;height:17px;background:#C98A2B;transform:rotate(45deg);box-shadow:0 0 0 2px #fff}
+.v{position:absolute;font-size:15px;font-weight:700;color:#1b2620}
+.leg{position:absolute;top:0;left:340px;font-size:16px;display:flex;gap:26px;align-items:center}
+.leg span{display:inline-flex;align-items:center;gap:8px}
+</style></head><body><div id="c"></div><script>
+const c=document.getElementById('c');const X0=360,W=780;const x=v=>X0+v/100*W;
+const add=(cl,st,h)=>{const d=document.createElement('div');d.className=cl;Object.assign(d.style,st);if(h!=null)d.innerHTML=h;c.appendChild(d);return d};
+const L=add('leg',{});L.innerHTML='<span><i style="display:inline-block;width:16px;height:16px;border-radius:50%;background:#7B6A10"></i>Hwange–Victoria Falls–Livingstone (n=64)</span><span><i style="display:inline-block;width:14px;height:14px;background:#C98A2B;transform:rotate(45deg)"></i>Okavango Delta–Maun (n=40)</span>';
+const T=40,R=52,rows=[['Finance is a top-three challenge',81,75],['Never applied for outside finance',47,60],['Obtained outside finance',20,20],['Hold a written contract or letter of intent',42,18],['Women-owned or -led',36,48],['Youth-owned or -led',16,15],['Records in a notebook or none',25,38]];
+const H=T+rows.length*R;
+for(let v=0;v<=100;v+=20){add('gl',{left:x(v)+'px',top:(T-6)+'px',height:(H-T+6)+'px'});add('ax',{left:(x(v)-10)+'px',top:(H+4)+'px'},v+'%');}
+add('ax',{left:x(0)+'px',top:(H+24)+'px'},'Share of survey respondents (November 2026 update, MiD1–2); self-selected, indicative');
+rows.forEach(([n,a,b],i)=>{const y=T+i*R+R/2;add('lab',{top:(y-11)+'px'},n);const lo=Math.min(a,b),hi=Math.max(a,b);add('ln',{left:x(lo)+'px',top:(y-1)+'px',width:(x(hi)-x(lo))+'px'});
+ if(a===b){add('d1',{left:(x(a)-9)+'px',top:(y-14)+'px'});add('d2',{left:(x(b)-8)+'px',top:(y+0)+'px'});add('v',{left:(x(a)+14)+'px',top:(y-9)+'px'},a+'% in both');}
+ else if(Math.abs(a-b)<4){add('d1',{left:(x(a)-9)+'px',top:(y-14)+'px'});add('d2',{left:(x(b)-8)+'px',top:(y+0)+'px'});add('v',{left:(x(hi)+14)+'px',top:(y-16)+'px',color:'#5E5218'},a+'%');add('v',{left:(x(hi)+14)+'px',top:(y+0)+'px',color:'#8A5A12'},b+'%');}
+ else{add('d1',{left:(x(a)-9)+'px',top:(y-9)+'px'});add('d2',{left:(x(b)-8)+'px',top:(y-8)+'px'});
+ const off=(v,o)=>v===hi?x(v)+14:x(v)-14-o;add('v',{left:off(a,36)+'px',top:(y-9)+'px',color:'#5E5218'},a+'%');add('v',{left:off(b,36)+'px',top:(y-9)+'px',color:'#8A5A12'},b+'%');}});
+</script></body></html>
