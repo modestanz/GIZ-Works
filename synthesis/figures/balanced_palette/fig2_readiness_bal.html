@@ -1,0 +1,30 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../_base.css"><style>
+body{width:1200px;height:440px;padding:10px 14px;position:relative}
+#c{position:relative;width:1172px;height:420px}
+.ax{position:absolute;font-size:14px;color:#5a6660}
+.row{position:absolute;left:0;height:58px;display:flex;align-items:center}
+.cn{position:absolute;left:0;width:150px;font-size:18px;font-weight:700}
+.cn small{display:block;font-weight:400;font-size:13.5px;color:#5a6660}
+.bar{position:absolute;height:26px;background:#3D5A44;border-radius:0 4px 4px 0}
+.val{position:absolute;font-size:17px;font-weight:700;color:#222222}
+.note{position:absolute;left:640px;width:530px;font-size:14.5px;line-height:1.25}
+.note b{color:#B8563E}
+.band{position:absolute;top:22px;height:330px}
+.bl{position:absolute;top:0;font-size:13.5px;font-weight:700;color:#5a6660;text-align:center}
+.gl{position:absolute;top:22px;width:1px;height:330px;background:#DDE3DA}
+</style></head><body><div id="c"></div><script>
+const c=document.getElementById('c');const X0=160,W=440,mx=5;const x=v=>X0+v/mx*W;
+const add=(cl,st,h)=>{const d=document.createElement('div');d.className=cl;Object.assign(d.style,st);if(h!=null)d.innerHTML=h;c.appendChild(d);return d};
+// bands
+add('band',{left:x(0)+'px',width:(x(2.5)-x(0))+'px',background:'#F7F8F6'});add('band',{left:x(2.5)+'px',width:(x(3.75)-x(2.5))+'px',background:'#EFEDE4'});add('band',{left:x(3.75)+'px',width:(x(5)-x(3.75))+'px',background:'#F3E3BF'});
+add('bl',{left:x(0)+'px',width:(x(2.5)-x(0))+'px'},'Emerging: readiness first');add('bl',{left:x(2.5)+'px',width:(x(3.75)-x(2.5))+'px'},'Ready with adjustments');add('bl',{left:x(3.75)+'px',width:(x(5)-x(3.75))+'px'},'Ready to pilot');
+for(let v=0;v<=5;v++){add('gl',{left:x(v)+'px'});add('ax',{left:(x(v)-4)+'px',top:'356px'},String(v));}
+add('ax',{left:x(0)+'px',top:'378px'},'Weighted readiness score (0–5), F1 §9.2');
+add('ax',{left:'640px',top:'0px',fontWeight:700,color:'#1b2620'},'Strongest vehicles to build on · main constraint');
+const D=[['Zambia','PA1: Livingstone, Kalomo',4.1,'<b>FNB scored credit</b> (would pay for risk sharing), ZCGS, ZANACO, MSMED grants, savings groups · cost of credit'],
+['Zimbabwe','PA1: Victoria Falls, Hwange',3.9,'<b>ECGC guarantee</b> (75–85% cover), SMEDCO, Women’s Microfinance Bank, anchor cluster · currency rules, rates'],
+['Botswana','PA2: Okavango–Maun',3.4,'<b>CEDA, NDB, BOSRIA</b> (60%, since 2026), Wilderness–Stanbic supplier finance · BOSRIA unknown to lenders'],
+['Namibia','Zambezi Region',3.2,'<b>NASRIA</b> (80/20 proposal for women and youth), DBN For Her, NYDF, conservancy income · reach in the region'],
+['Angola','Cubango–Okavango',1.4,'<b>BDA, FGC</b>, CORB Fund · mostly unbanked, one anchor camp, kwanza volatility']];
+D.forEach(([n,a,s,t],i)=>{const y=34+i*64;add('cn',{top:(y+4)+'px'},n+'<small>'+a+'</small>');add('bar',{left:x(0)+'px',top:(y+12)+'px',width:(x(s)-x(0))+'px'});add('val',{left:(x(s)+6)+'px',top:(y+14)+'px'},s.toFixed(1));add('note',{top:(y+8)+'px'},t);});
+</script></body></html>
