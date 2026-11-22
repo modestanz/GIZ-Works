@@ -154,7 +154,7 @@ const ch2 = [
     ],
   } },
 
-  { h: 2, t: "What already exists to build on" },
+  { h: 2, t: "Country starting points and readiness to pilot" },
   { p: "The Macro Diagnostic’s message that KAZA does not mainly need another finance facility or institution (F2 §2.1) is borne out by the landscape: each state has institutions that can carry a pilot, although tourism is a marginal user of all of them. F1 scores each state’s KAZA corridor on six weighted criteria (guarantee or development lender, lenders in the corridor, market depth, community finance, business support linked to finance and macroeconomic stability). {F:readiness} shows the scores, the readiness bands and, for each state, the strongest vehicles to build on and the main constraint: Zambia and Zimbabwe are ready to pilot now, Botswana and Namibia need adjustments, and Angola needs readiness work first." },
   { img: { id: "readiness", file: "fig4_readiness.png", w: 560, h: 205, caption: "Country readiness to pilot an MSME finance mechanism, with the institutions to build on" } },
 
