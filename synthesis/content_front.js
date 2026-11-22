@@ -138,7 +138,7 @@ const ch2 = [
   { p: "All five reports reach the same conclusion from different directions: the problem is the fit between finance and enterprises, not the volume of capital (F1, F2, F4, F5). Lenders and guarantors described the constraint in almost identical terms: collateral, track record and documentation, compounded by booking-based revenue that has no harvest-like settlement point (F5 §3). The demand-side evidence is consistent with this: {F:headline} brings together the figures that recur across the reports." },
   { img: { id: "headline", file: "fig3_headline.png", w: 560, h: 201, caption: "Headline evidence on MSME finance in KAZA" } },
 
-  { h: 2, t: "Five barriers and what they imply for design" },
+  { h: 2, t: "Barriers and design implications" },
   { p: "Five barriers recur across all countries and value chains and reinforce one another (F2 §4; F4 §2.2). Women- and youth-led enterprises face each more acutely: women’s firms sit in low-asset segments on communal land, and young founders have neither assets nor credit history. {T:barriers} summarizes how each barrier shows up in KAZA and what it implies for the design of the three activities." },
   { tbl: {
     id: "barriers", caption: "Barriers and design implications",
