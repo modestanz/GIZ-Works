@@ -1,0 +1,34 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../_base.css"><style>
+body{width:1200px;height:330px;padding:8px 14px}
+#tl{position:relative;height:92px;margin-top:-14px}
+.line{position:absolute;left:20px;right:20px;top:46px;height:5px;background:#203864;border-radius:3px}
+.dot{position:absolute;top:33px;width:32px;height:32px;border-radius:50%;background:#fff;border:3px solid #203864;font-size:13px;font-weight:700;color:#203864;display:flex;align-items:center;justify-content:center}
+.dot.g{background:#D91D3C;border-color:#D91D3C;color:#fff}
+.yr{position:absolute;top:72px;font-size:14px;font-weight:700;color:#6B6B6B}
+.tick{position:absolute;top:40px;width:2px;height:17px;background:#B4C7E7}
+.g2{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.c{border:1.5px solid #DDE3DA;border-radius:5px;padding:7px 9px;height:118px;display:flex;flex-direction:column}
+.c b{color:#203864;font-size:15px}
+.c .t{font-size:14px;line-height:1.2;margin-top:3px}
+.c .e{margin-top:auto;font-size:12.5px;color:#6B6B6B}
+.c.gate{border-color:#F2B8C3}
+</style></head><body><div id="tl"><div class="line"></div></div><div class="g2" id="g"></div><script>
+const tl=document.getElementById('tl'),g=document.getElementById('g');
+const add=(p,cl,st,h)=>{const d=document.createElement('div');d.className=cl;Object.assign(d.style,st);if(h!=null)d.innerHTML=h;p.appendChild(d);return d};
+const X0=40,X1=1132;const x=m=>X0+m/25*(X1-X0); // m: months from Dec 2026
+[['2027',1],['2028',13]].forEach(([y,m])=>{add(tl,'tick',{left:x(m)+'px'});add(tl,'yr',{left:(x(m)-16)+'px'},y);});
+
+const M=[['M1','Dec 2026',0,'Areas, value chains, youth band and ownership test confirmed','Partner State decisions'],
+['M2','Feb 2027',2,'Platforms launched in PA1 and PA2; first workshops and finance briefings','Event reports'],
+['M3','Mar 2027',3,'MOUs with 1 lender, 1 guarantor and 2 anchors per cohort 1 area','Commitments log; MOUs'],
+['M4','Apr 2027',4,'Competition package approved; Lot 1 call open; grant managers contracted','Call documents; contracts'],
+['M5','May 2027',5,'Risk-sharing, guarantee and RTFF referral agreements; baselines complete','Agreements; baseline report'],
+['M6','Q2 2027',6.3,'First RTFF cohort 1 loans and pre-peak order-backed working capital','Facility and lender reports'],
+['M7','Q3–Q4 2027',10,'Lot 2 awards; screened grantees referred to the RTFF and guarantee windows','Award list; referral log'],
+['M8','Q1 2028',14,'Gate 1: review of season one (PAR30, uptake)','Portfolio data; review note',1],
+['M9','Q2 2028',17,'Decision on the project extension to mid-2029','Contract amendment'],
+['M10','Q4 2028',23,'RTFF future arrangements agreed; evaluation; Gate 2','Independent evaluation',1]];
+const pos=[];M.forEach(([id,d,m,t,e,gt],i)=>{let xx=x(m);if(pos.length&&xx-pos[pos.length-1]<36)xx=pos[pos.length-1]+36;pos.push(xx);
+ add(tl,'dot'+(gt?' g':''),{left:(xx-16)+'px'},id.replace('M',''));
+ add(g,'c'+(gt?' gate':''),{},'<b>'+id+' · '+d+'</b><div class="t">'+t+'</div><div class="e">'+e+'</div>');});
+</script></body></html>
