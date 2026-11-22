@@ -1,0 +1,53 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1200px;height:630px;font-family:Carlito,Calibri,"Liberation Sans",sans-serif;background:#fff;color:#222222;padding:14px 16px}
+.grid{display:grid;grid-template-columns:150px repeat(4,1fr);column-gap:8px;row-gap:9px}
+.tier{background:#1F3B2C;color:#fff;text-align:center;padding:8px 4px;border-radius:4px;font-weight:700;font-size:19px;line-height:1.15}
+.tier span{display:block;font-weight:400;font-size:15px;color:#dfe9e2}
+.lab{border-radius:4px;padding:8px 8px;font-weight:700;font-size:18px;color:#fff;display:flex;flex-direction:column;justify-content:center;line-height:1.15}
+.lab small{font-weight:400;font-size:14px;margin-top:3px;color:#f3f3f3}
+.c1{background:#3D5A44}.c2{background:#C98A2B}.c3{background:#1F3B2C}.c4{background:#635B2C}
+.box{border-radius:4px;padding:7px 9px;font-size:15.5px;line-height:1.25;display:flex;flex-direction:column;justify-content:center}
+.box b{font-size:16.5px;display:block;margin-bottom:2px}
+.b1{background:#EEF2EA;border:1.5px solid #3D5A44}
+.b2{background:#FBF3E4;border:1.5px solid #C98A2B}
+.b3{background:#EFEDE4;border:1.5px solid #1F3B2C}
+.b4{background:#F7F8F6;border:1.5px dashed #6B6B6B}
+.b5{background:#F0EAD6;border:1.5px solid #635B2C}
+.span4{grid-column:2 / span 4}.span2{grid-column:span 2}
+.arrow{grid-column:2 / span 4;position:relative;height:30px;margin-top:2px}
+.arrow .line{position:absolute;left:0;right:22px;top:13px;height:5px;background:#C98A2B}
+.arrow .head{position:absolute;right:0;top:3px;width:0;height:0;border-left:24px solid #C98A2B;border-top:12px solid transparent;border-bottom:12px solid transparent}
+.arrow .t{position:absolute;left:50%;transform:translateX(-50%);top:-1px;background:#fff;padding:0 10px;font-size:16px;font-weight:700;color:#8A5A12}
+.foot{grid-column:1 / span 5;display:flex;gap:8px;margin-top:2px}
+.foot div{flex:1;border-top:3px solid #C98A2B;padding-top:5px;font-size:15px}
+</style></head><body>
+<div class="grid">
+  <div></div>
+  <div class="tier">Tier 0<span>Pre-enterprise, groups</span></div>
+  <div class="tier">Tier 1<span>Emerging micro</span></div>
+  <div class="tier">Tier 2<span>Supplier-ready</span></div>
+  <div class="tier">Tier 3<span>Investment-ready</span></div>
+
+  <div class="lab c1">1.2.1 Connect<small>Dialogue platforms and matchmaking</small></div>
+  <div class="box b1 span4"><b>One platform per intervention area, quarterly and timed to the season</b>Common-understanding workshops · finance briefings and lender clinics · women-only and youth-only sessions · product co-design labs · deal days with pipeline profiles · anchor roundtables and standard supply MOU · referral dashboard with coded rejection reasons</div>
+
+  <div class="lab c2">1.2.2 Prepare<small>Grant facility</small></div>
+  <div class="box b2 span2"><b>Lot 1: up to EUR 10,000</b>Groups, start-ups, micro, licence-holders · 10–20% contribution, largely in kind · equipment, compliance, design to brief · staged, in kind where possible</div>
+  <div class="box b2"><b>Lot 2: EUR 10,000–40,000</b>Tier 2, or Tier 1 with a buyer · 30–50% contribution, may be a loan · conversion clause: contribution, cash collateral, pool seed</div>
+  <div class="box b4"><b>No grant</b>Served by guaranteed and term finance under 1.2.3</div>
+
+  <div class="lab c3">1.2.3 Finance<small>Adapted mechanisms with partner institutions</small></div>
+  <div class="box b3"><b>Savings and groups</b>Savings groups linked to MFIs · community guarantee pool (Model C) · community revolving funds</div>
+  <div class="box b3"><b>Buyer-linked micro loans</b>RTFF Tier 1 (EUR 1,000–10,000) · PO finance after a first order · small lease-to-own</div>
+  <div class="box b3"><b>Order, asset and guaranteed finance</b>Order-backed working capital · RTFF Tier 2 · asset and lease-to-own (Model A) · guarantee windows with first loss (Model B)</div>
+  <div class="box b3"><b>Growth finance</b>Seasonal term loans · lighter guarantee cover · revenue-based or quasi-equity for a few</div>
+
+  <div class="lab c4">Underpinned by<small>Activity 1.1.1 and results finance</small></div>
+  <div class="box b5 span4"><b>Capacity building (SME Loop coaching, bookkeeping, supplier readiness, formalization as a milestone) · results-based finance (Model D) where an outcome payer exists</b></div>
+
+  <div></div>
+  <div class="arrow"><div class="line"></div><div class="head"></div><div class="t">Graduation: each step creates the record the next lender needs; concessionality falls</div></div>
+
+  <div class="foot"><div><b>Nationally:</b> money is lent, guaranteed and recovered through existing lenders, schemes, MFIs and the RTFF referral route</div><div><b>Regionally:</b> common diagnostic, supply MOU template, eligibility tests, indicator set and a shared first-loss and TA pool</div></div>
+</div></body></html>
