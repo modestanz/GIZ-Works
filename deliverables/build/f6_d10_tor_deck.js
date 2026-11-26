@@ -1,0 +1,572 @@
+// F6-D10: Validation presentation structured by TOR deliverable (15 slides, blue-teal palette; narrative in speaker notes)
+// Usage: node deliverables/build/f6_d10_deck.js out.pptx
+const { newDeck, makeHelpers, finish, usePalette, HEX } = require("./deck_lib");
+usePalette("blue");
+
+const FOOT = "KAZA R-NBT · Output 1.2 findings for validation (F6-D10) · Draft";
+const { pres, C } = newDeck({ title: "Output 1.2 Findings for Validation", subject: "F6-D10 plenary presentation for GIZ and regional partners", footer: FOOT });
+const H = makeHelpers(pres, C);
+const { sec, content, card, T } = H;
+const S = pres.shapes;
+
+// small helpers
+const circle = (s, x, y, d, color, text, size = 16) => {
+  s.addShape(S.OVAL, { x, y, w: d, h: d, fill: { color }, line: { color } });
+  if (text !== undefined) T(s, String(text), { x, y, w: d, h: d, fontSize: size, bold: true, color: C.background1, align: "center", valign: "middle" });
+};
+const box = (s, { x, y, w, h, fill, line, text, size = 14, color, bold, align = "center", valign = "middle", radius = 0.08 }) => {
+  s.addShape(S.ROUNDED_RECTANGLE, { x, y, w, h, rectRadius: radius, fill: { color: fill }, line: { color: line || fill, width: 1.25 } });
+  if (text !== undefined) T(s, text, { x: x + 0.1, y: y + 0.05, w: w - 0.2, h: h - 0.1, fontSize: size, color: color || C.text1, bold, align, valign });
+};
+const line = (s, x1, y1, x2, y2, color, width = 1.5, arrow) => {
+  const o = { x: Math.min(x1, x2), y: Math.min(y1, y2), w: Math.max(Math.abs(x2 - x1), 0.001), h: Math.max(Math.abs(y2 - y1), 0.001), line: { color, width } };
+  if ((x2 < x1) !== (y2 < y1)) o.flipH = true;
+  if (arrow) o.line.endArrowType = "triangle";
+  s.addShape(S.LINE, o);
+};
+const chartText = { catAxisLabelFontFace: "+mn-lt", valAxisLabelFontFace: "+mn-lt", dataLabelFontFace: "+mn-lt", titleFontFace: "+mn-lt", legendFontFace: "+mn-lt" };
+
+// ---------------- 1. Cover ----------------
+sec("Opening");
+let s = H.add("TITLE_CENTER");
+s.addText("F6-D10 · Plenary session for validation", { placeholder: "kicker" });
+s.addText("Financing regenerative nature-based tourism MSMEs in KAZA", { placeholder: "title" });
+s.addText("Output 1.2 findings and recommendations for validation by GIZ and regional partners, including SADC FANR and the KAZA Secretariat", { placeholder: "sub" });
+s.addText("Presented by Modesta Nyirenda, MNZ Consult · [Date and venue to be confirmed] · Presentation for validation", { placeholder: "meta" });
+s.addNotes(
+`Welcome and purpose (2 minutes).
+- Thank GIZ and the regional partners, in particular SADC FANR, the political partner of the programme, and the KAZA Secretariat.
+- This plenary is F6-D10 of the Access to Finance assignment: presentation and facilitation of a plenary discussion of the findings for validation. It is not a launch; content decisions belong to the Partner States and their institutions.
+- The presentation follows the terms of reference: after the purpose and the evidence base, one slide per study (F0 to F5-D8) gives its main finding and recommendations; the synthesis (F6-D9) then sets out the framework, the measurement system, the roadmap and roles; the last slides show what follows (F6-D11 and F6-D12) and what we ask you to validate.
+How the session works:
+- Three questions run through the whole presentation: is the evidence right; are the recommendations workable through the institutions named; and who carries what, at regional, national and destination level.
+- For each item participants raise a green (agree), amber (amend) or red (reject) card; the rapporteur records responses on the validation log against items A to D (slide 15). Discussion goes first to amber and red cards.
+- Disagreements are recorded with the reason. Questions on budget or programme scope go to a parking lot and are answered in writing. Written comments can be sent within two weeks.`);
+
+// ---------------- 2. Output 1.2 and the assignment ----------------
+s = content("Output 1.2 and this assignment");
+// left: what Output 1.2 is about
+box(s, { x: 0.6, y: 1.35, w: 5.9, h: 1.05, fill: C.text2, text: "Output 1.2: financial mechanisms are established in collaboration with financial institutions to support targeted MSMEs", size: 15, bold: true, color: C.background1, radius: 0.08 });
+const o12 = [
+  ["1.2.1", "Connect", "Dialogue platforms and matchmaking: MSMEs, associations, lenders, large tourism companies", HEX.green],
+  ["1.2.2", "Prepare", "Grant facility: Lot 1 up to EUR 10,000; Lot 2 EUR 10,000–40,000", HEX.gold],
+  ["1.2.3", "Finance", "New and existing financing mechanisms, tested with financial institutions", HEX.terra],
+];
+o12.forEach(([c, h, d, col], i) => {
+  const y = 2.6 + i * 1.12;
+  circle(s, 0.6, y, 0.95, col);
+  T(s, [{ text: c, options: { fontSize: 11, breakLine: true } }, { text: h, options: { fontSize: 13, bold: true } }], { x: 0.6, y: y + 0.12, w: 0.95, h: 0.7, color: C.background1, align: "center", valign: "middle" });
+  T(s, d, { x: 1.7, y, w: 4.8, h: 0.95, fontSize: 14, valign: "middle" });
+});
+box(s, { x: 0.6, y: 6.0, w: 5.9, h: 0.7, fill: C.background2, text: "Focus: women, youth and communities near protected areas", size: 14, color: C.text2, bold: true });
+// right: deliverables of the assignment
+T(s, "Deliverables of this assignment", { x: 6.95, y: 1.3, w: 5.8, h: 0.4, fontSize: 16, bold: true, color: C.text2, fontFace: "Cambria" });
+const dl = [
+  ["F0", "Inception: workplan, method, resources", "done"],
+  ["F1-D4", "Financial landscape analysis", "done"],
+  ["F2-D5", "Barriers and opportunities", "done"],
+  ["F3-D6", "Investment readiness assessment", "done"],
+  ["F4-D7", "Financing mechanisms assessment", "done"],
+  ["F5-D8", "Roundtable preparation and documentation", "done"],
+  ["F6-D9", "Consolidated synthesis report", "done"],
+  ["F6-D10", "Validation presentation and plenary", "today"],
+  ["F6-D11", "Summary pack for the Oversight Committee", "next"],
+  ["F6-D12", "Readiness pack and handover", "next"],
+];
+const stCol = { done: HEX.green, draft: HEX.gold, today: HEX.terra, next: "A6A6A6" };
+dl.forEach(([c, t, st], i) => {
+  const y = 1.8 + i * 0.46;
+  const hi = st === "today";
+  if (hi) s.addShape(S.ROUNDED_RECTANGLE, { x: 6.9, y: y - 0.04, w: 5.85, h: 0.44, rectRadius: 0.06, fill: { color: "F3E3DC" }, line: { color: HEX.terra, width: 1 } });
+  box(s, { x: 7.0, y, w: 1.05, h: 0.36, fill: i === 0 ? HEX.sage : i < 6 ? HEX.olive : HEX.forest, text: c, size: 11.5, bold: true, color: C.background1, radius: 0.18 });
+  T(s, t, { x: 8.2, y, w: 3.85, h: 0.36, fontSize: 13.5, bold: hi, color: C.text1, valign: "middle" });
+  s.addShape(S.OVAL, { x: 12.35, y: y + 0.08, w: 0.2, h: 0.2, fill: { color: stCol[st] }, line: { color: stCol[st] } });
+});
+[["Submitted", HEX.green], ["Draft for validation", HEX.gold], ["Today", HEX.terra], ["To follow", "A6A6A6"]].forEach(([t, col], i) => {
+  const x = 7.0 + i * 1.45;
+  s.addShape(S.OVAL, { x, y: 6.52, w: 0.16, h: 0.16, fill: { color: col }, line: { color: col } });
+  T(s, t, { x: x + 0.22, y: 6.43, w: 1.25, h: 0.34, fontSize: 10.5, color: "4A4A4A", valign: "middle" });
+});
+s.addNotes(
+`Output 1.2 and this assignment (3 minutes).
+- Output 1.2 of the KAZA Joint Action on Regenerative Nature-Based Tourism: financial mechanisms are established in collaboration with financial institutions to support targeted MSMEs, with a deliberate focus on enterprises led by women, youth and communities living near protected areas in the five KAZA Partner States.
+- Three tentative activities in the Output 1.2 design:
+  1.2.1 Dialogue platforms between MSMEs, private sector associations, financial institutions and large tourism companies or investors: build a common understanding of regenerative tourism and of perceived risks, promote existing mechanisms, clarify bankability criteria, explore adapted credit lines and public finance tools, and run matchmaking, including integration of MSMEs into the procurement of DMCs and lodge chains.
+  1.2.2 Grant facilities: Lot 1 small grants up to EUR 10,000 with up to 20% matching; Lot 2 medium grants of EUR 10,000–40,000 with up to 50% matching (own funds or loans), administered by partner entities such as BSOs, not-for-profit organisations or public development banks. Participants in the capacity-building programme have priority.
+  1.2.3 Support and strengthen new and existing financing mechanisms: partner with financial institutions, development banks and foundations to adapt and test existing products (loans with improved conditions, revolving funds, social or environmental bonds, savings groups and community finance), with Lot 2 grantees as the primary target group.
+- This assignment provides the evidence and recommendations for Output 1.2: inception deliverables (workplan, methodological proposal, summary of available resources); four analytical reports (F1-D4 financial landscape, F2-D5 barriers and opportunities, F3-D6 investment readiness, F4-D7 financing mechanisms by priority value chain); roundtable preparation and documentation (F5-D8); and the synthesis phase: the F6-D9 consolidated synthesis report, this validation session (F6-D10), the summary pack for the Oversight Committee (F6-D11) and the readiness pack and handover (F6-D12).
+- Today's session validates the F6-D9 findings; the results feed the Oversight Committee pack and the handover.`);
+
+// ---------------- 2. Evidence base (F1-D4 Methodology and Evidence Base, Table B) ----------------
+s = content("Built on six evidence streams, July to November 2026");
+const groups = [
+  ["Documents", HEX.gold, [["~90", "published references"], ["124", "Macro Diagnostic library sources"], ["27", "programme and KAZA documents"]]],
+  ["Enterprises", HEX.green, [["106", "MSME survey responses"]]],
+  ["Institutions", HEX.terra, [["20", "minuted interviews with 17 organisations"], ["66", "Macro Diagnostic engagements"]]],
+  ["Roundtables", HEX.brown, [["113", "participants, Regional Roundtable, Maun"], ["~45", "in the Victoria Falls and Maun finance sessions"]]],
+];
+groups.forEach(([g, col, st], i) => {
+  const x = 0.6 + i * 3.06, y = 1.35, w = 2.86, h = 3.45;
+  s.addShape(S.ROUNDED_RECTANGLE, { x, y, w, h, rectRadius: 0.1, fill: { color: C.background2 }, line: { color: C.background2 } });
+  box(s, { x: x + 0.2, y: y + 0.18, w: w - 0.4, h: 0.5, fill: col, text: g, size: 16, bold: true, color: C.background1, radius: 0.25 });
+  if (st.length === 1) {
+    circle(s, x + (w - 1.75) / 2, y + 0.92, 1.75, col);
+    T(s, st[0][0], { x: x + (w - 1.75) / 2, y: y + 0.92, w: 1.75, h: 1.75, fontSize: 40, bold: true, color: C.background1, align: "center", valign: "middle", fontFace: "Cambria" });
+    T(s, st[0][1], { x: x + 0.15, y: y + 2.75, w: w - 0.3, h: 0.55, fontSize: 14, align: "center", valign: "top" });
+  } else {
+    const step = (h - 0.85) / st.length;
+    st.forEach(([v, l], k) => {
+      const yy = y + 0.85 + k * step;
+      T(s, v, { x: x + 0.2, y: yy, w: w - 0.4, h: 0.55, fontSize: st.length === 3 ? 26 : 32, bold: true, color: col, align: "center", valign: "bottom", fontFace: "Cambria" });
+      T(s, l, { x: x + 0.15, y: yy + 0.55, w: w - 0.3, h: step - 0.6, fontSize: 13, align: "center", valign: "top" });
+    });
+  }
+});
+// timeline of when each stream was gathered
+const mx0 = 2.6, mw = 2.0, mx = (m) => mx0 + m * mw; // m = months since 1 July 2026
+["Jul", "Aug", "Sep", "Oct", "Nov"].forEach((m, i) => T(s, m, { x: mx(i), y: 4.95, w: mw, h: 0.28, fontSize: 12, bold: true, color: "6B6B6B", align: "center" }));
+s.addShape(S.LINE, { x: mx(0), y: 5.25, w: mw * 5, h: 0, line: { color: HEX.line, width: 1 } });
+const rows = [["Desk and documents", 0, 5, HEX.gold], ["MSME survey", 1, 3.2, HEX.green], ["Interviews", 0, 5, HEX.terra]];
+rows.forEach(([lab, a1, a2, col], i) => {
+  const y = 5.35 + i * 0.36;
+  T(s, lab, { x: 0.6, y, w: 1.9, h: 0.28, fontSize: 12, color: C.text1, valign: "middle" });
+  s.addShape(S.ROUNDED_RECTANGLE, { x: mx(a1), y: y + 0.04, w: mw * (a2 - a1), h: 0.2, rectRadius: 0.1, fill: { color: col }, line: { color: col } });
+});
+const ry = 5.35 + 3 * 0.36;
+T(s, "Roundtables", { x: 0.6, y: ry, w: 1.9, h: 0.28, fontSize: 12, color: C.text1, valign: "middle" });
+[[2.73, "Maun, Sep"], [4.31, "Victoria Falls"], [4.37, ""]].forEach(([m, lab]) => {
+  s.addShape(S.DIAMOND, { x: mx(m) - 0.12, y: ry + 0.02, w: 0.24, h: 0.24, fill: { color: HEX.brown }, line: { color: HEX.brown } });
+});
+T(s, "Regional, 22–24 Sep", { x: mx(2.73) + 0.18, y: ry, w: 1.6, h: 0.28, fontSize: 11, color: "4A4A4A", valign: "middle" });
+T(s, "Destinations, 10 and 12 Nov", { x: mx(4.37) + 0.18, y: ry - 0.06, w: 1.15, h: 0.4, fontSize: 9.5, color: "4A4A4A", valign: "middle" });
+T(s, "Source: F1-D4 Methodology and Evidence Base, Table B", { x: 8.6, y: 6.72, w: 4.1, h: 0.26, fontSize: 10, italic: true, color: "6B6B6B", align: "right" });
+s.addNotes(
+`Evidence base (3 minutes).
+- The findings rest on six evidence streams gathered between July and November 2026 (F1-D4 Methodology and Evidence Base, Table B).
+  A. Desk review of published sources: central bank and regulator publications, legislation and policy, DFI, guarantee-scheme and bank annual reports and product pages; around 90 references.
+  B. Programme and KAZA documents: the Macro Diagnostic library of 124 sources (Findings Report V2, Regional Roundtable report GM2-D9, RTFF Finance Lab report); 20 official files (17 distinct documents) provided by GIZ, including the RTFF presentation and KAZA institutional sources; and 10 KAZA-specific public documents (KAZA Treaty and Master Integrated Development Plan, 2026 Ministerial Committee communiqué, KAZA Conservation Trust Fund, OKACOM Agreement and CORB Fund).
+  C. The Macro Diagnostic MSME Enterprise Readiness survey: 106 valid responses (August to October 2026) on registration, finance sought and obtained, buyer links, savings groups and finance needs.
+  D. One-on-one interviews for this analysis: 20 minuted engagements with 17 organisations (DFIs, guarantee schemes, commercial and microfinance banks, a public MSME agency, a verifier, river-basin and conservation-finance bodies and a grant programme), August to November 2026.
+  E. Macro Diagnostic interviews: 66 engagements with government, operators, associations, community bodies and programme partners; their finance interviews are largely those in stream D, with four additional finance-relevant engagements.
+  F. Roundtables: the KAZA Regional Roundtable in Maun with the RTFF Finance Implementation Lab (113 participants, 22–24 September) and the finance segments of the destination roundtables in Victoria Falls (about 24–27) and Maun (about 20) on 10 and 12 November.
+- Key findings were cross-checked across streams and graded as triangulated, partially triangulated or desk-only. Ratings and readiness scores were assigned by the study team and are indicative; they have not yet been validated by the institutions concerned, which is one purpose of this session.
+- Caveats: the survey is self-selected and leans towards registered, established enterprises; evidence depth differs between Partner States; partner interest comes from single meetings and is not yet commitment.
+Facilitation prompt: Is any important source or institution missing?`);
+
+// ---------------- deliverable slide helper ----------------
+const dslide = (code, finding, recs, draw, notes) => {
+  const s = content(finding);
+  box(s, { x: 0.6, y: 1.2, w: 5.6, h: 0.4, fill: C.text2, text: code, size: 12.5, bold: true, color: C.background1, radius: 0.2, align: "left" });
+  s.addShape(S.ROUNDED_RECTANGLE, { x: 8.05, y: 1.75, w: 4.7, h: 5.1, rectRadius: 0.08, fill: { color: C.background2 }, line: { color: C.background2 } });
+  T(s, "Recommendations", { x: 8.3, y: 1.9, w: 4.2, h: 0.45, fontSize: 17, bold: true, color: C.text2, fontFace: "Cambria" });
+  const rc = [HEX.green, HEX.gold, HEX.terra];
+  recs.forEach((r, i) => {
+    const y = 2.55 + i * 1.42;
+    circle(s, 8.3, y, 0.48, rc[i], i + 1, 14);
+    T(s, r, { x: 8.92, y: y - 0.04, w: 3.68, h: 1.32, fontSize: 14.5, valign: "top" });
+  });
+  draw(s);
+  s.addNotes(notes);
+  return s;
+};
+
+// ---------------- 4. F0 ----------------
+sec("Studies F0 to F5");
+dslide("F0 · Inception and review of available resources", "Past programmes show that design, not money, decides success", [
+  "Build on institutions that already exist; do not create a new facility",
+  "Lend in the currency of revenue and time repayment to the tourism season",
+  "Start with supplier directories and targeted buyer sessions, not open marketplaces",
+], (s) => {
+  const cols = [
+    ["What worked", HEX.green, [["Savings groups to MFIs", "VSLA-to-MFI graduation in Zambia"], ["Anchor-linked supplier finance", "Wilderness–Stanbic precedent in Botswana"], ["Season-timed repayment", "FNB Zambia, NDB, SMEDCO"]]],
+    ["What did not", HEX.terra, [["Local-currency tourism fund", "Zimbabwe's revolving fund failed on design"], ["Open MSME marketplaces", "Struggled to fill a room; virtual version failed"], ["Grant-reliant business models", "Dependency; follow-on loans treated as grants"]]],
+  ];
+  cols.forEach(([h, col, items], i) => {
+    const x = 0.6 + i * 3.7;
+    s.addShape(S.ROUNDED_RECTANGLE, { x, y: 1.75, w: 3.5, h: 5.1, rectRadius: 0.08, fill: { color: C.background1 }, line: { color: col, width: 1.75 } });
+    box(s, { x: x + 0.2, y: 1.95, w: 3.1, h: 0.5, fill: col, text: h, size: 15, bold: true, color: C.background1, radius: 0.25 });
+    items.forEach(([a, b], k) => {
+      const y = 2.75 + k * 1.33;
+      T(s, [{ text: a, options: { bold: true, fontSize: 15, breakLine: true, color: C.text2 } }, { text: b, options: { fontSize: 13, color: "4A4A4A" } }], { x: x + 0.25, y, w: 3.0, h: 1.15, valign: "top" });
+    });
+  });
+},
+`F0: Inception, workplan and review of available resources (2 minutes).
+- The inception phase agreed the workplan, the coordination points with the Macro and Micro Diagnostics and Roundtables, and the method (F0-D1, F0-D2), and reviewed existing studies and programmes (F0-D3), including documented experience with MSME and tourism finance in the five Partner States. A working MSME definition was checked against each Partner State's national thresholds (F1-D4, MSME definitions table).
+- Main finding: past programmes in KAZA show that design, not the amount of money, decides success.
+  What worked: savings groups graduating to microfinance institutions (VSLA-to-MFI graduation in Zambia); supplier finance linked to an anchor buyer (the Wilderness–Stanbic precedent); repayment timed to the season (FNB Zambia's customer-proposed seasonal holidays, NDB's quarterly peak repayments, SMEDCO's season-timed repayment).
+  What did not: Zimbabwe's tourism revolving fund, which failed on design (local-currency lending); open MSME marketplaces, which struggled to fill a room, and a virtual version that failed; grant-reliant business models, where stakeholders warned of dependency and of follow-on loans being treated as grants.
+- Recommendations: build on institutions that already exist rather than creating a new facility; lend in the currency of revenue and time repayment to the tourism season; start matchmaking with low-cost supplier directories and targeted buyer sessions rather than open marketplaces.
+Facilitation prompt (item A1): Are there other programmes, successes or failures we should learn from?`);
+
+// ---------------- 5. F1-D4 ----------------
+dslide("F1-D4 · Financial landscape analysis", "Every state has institutions to build on; tourism barely uses them", [
+  "Work through national lenders, guarantee schemes and development banks",
+  "Open tourism windows in ECGC, NASRIA/BOSRIA and a Zambian risk-sharing scheme",
+  "Finance nationally; keep the regional level for standards, learning and the RTFF's future",
+], (s) => {
+  s.addChart(pres.charts.BAR, [{ name: "Readiness score (0–5)", labels: ["Zambia", "Zimbabwe", "Botswana", "Namibia", "Angola"], values: [4.1, 3.9, 3.4, 3.2, 1.4] }], {
+    x: 0.5, y: 1.7, w: 7.3, h: 3.75, barDir: "bar", chartColors: [HEX.green, HEX.green, HEX.gold, HEX.gold, HEX.terra], varyColors: true,
+    showValue: true, dataLabelPosition: "outEnd", dataLabelFormatCode: "0.0", dataLabelFontSize: 14, dataLabelColor: "222222", dataLabelFontBold: true,
+    showTitle: true, title: "Country readiness to pilot (score 0–5)", titleFontSize: 14, titleColor: HEX.forest,
+    catAxisOrientation: "maxMin", valAxisHidden: true, valAxisMaxVal: 5, valAxisMinVal: 0, valGridLine: { style: "none" }, catGridLine: { style: "none" },
+    catAxisLabelColor: "222222", catAxisLabelFontSize: 14, showLegend: false, barGapWidthPct: 45, ...chartText,
+  });
+  [["Ready to pilot", HEX.green], ["Ready with adjustments", HEX.gold], ["Readiness first", HEX.terra]].forEach(([t, col], i) => {
+    s.addShape(S.RECTANGLE, { x: 0.8 + i * 2.25, y: 5.53, w: 0.18, h: 0.18, fill: { color: col }, line: { color: col } });
+    T(s, t, { x: 1.04 + i * 2.25, y: 5.45, w: 2.0, h: 0.34, fontSize: 11, color: "4A4A4A", valign: "middle" });
+  });
+  [["~4%", "tourism share of Namibia's guarantee scheme reach"], ["<10%", "tourism share of Zimbabwe's ECGC portfolio"]].forEach(([v, l], i) => {
+    const x = 0.6 + i * 3.65;
+    T(s, v, { x, y: 5.95, w: 1.35, h: 0.8, fontSize: 30, bold: true, color: HEX.terra, fontFace: "Cambria", valign: "middle" });
+    T(s, l, { x: x + 1.4, y: 5.95, w: 2.1, h: 0.8, fontSize: 12.5, valign: "middle" });
+  });
+},
+`F1-D4: Financial landscape analysis (3 minutes).
+- The landscape analysis mapped financial actors, products, guarantee schemes, regulation, BSOs and potential anchor partners across the five Partner States, and scored each state's KAZA corridor on six weighted criteria (guarantee or development lender; lenders present; market depth and anchors; community finance; business support linked to finance; macroeconomic stability).
+- Main finding: KAZA does not mainly need another finance institution. Every state has institutions that can carry a pilot, but tourism is a marginal user of all of them: it takes about 4% of Namibia's guarantee scheme reach and under 10% of Zimbabwe's ECGC portfolio.
+- Readiness: Zambia (4.1: FNB Zambia scored credit, ZANACO, ZCGS, MSMED grants) and Zimbabwe (3.9: ECGC guarantee with 75–85% cover, SMEDCO, Women's Microfinance Bank) are ready to pilot; Botswana (3.4: CEDA, NDB, BOSRIA since 2026) and Namibia (3.2: NASRIA women and youth proposal, DBN For Her, NYDF) need adjustments; Angola (1.4) needs readiness work first.
+- Regional versus national, as the terms of reference ask: access to finance is governed nationally (licensing, exchange control, collateral law), so lending, guarantees and recovery should be national. Regional added value lies in common standards (readiness diagnostic, supply MOU, indicators), peer learning and the future arrangements of the RTFF.
+- Recommendations: work through national lenders, guarantee schemes and development banks; open tourism windows in ECGC, NASRIA/BOSRIA and a Zambian risk-sharing scheme; finance nationally and keep the regional level for standards, learning and the RTFF's future.
+Facilitation prompt (item A2): Are the readiness bands and institutions right for your country?`);
+
+// ---------------- 6. F2-D5 ----------------
+dslide("F2-D5 · Barriers and opportunities", "Finance is a fit, readiness and risk problem, not a capital shortage", [
+  "Adapt debt to the season: seasonal schedules, low-season grace, repayment from confirmed orders",
+  "Accept orders, invoices, movable assets and group guarantees as collateral",
+  "Use dialogue platforms and a supply MOU to address late payment; set grant contributions by lot",
+], (s) => {
+  const bars = [["Collateral", HEX.forest], ["Seasonality", HEX.olive], ["Informality", HEX.brown], ["Risk\nperception", HEX.gold], ["Power\nimbalance", HEX.terra]];
+  bars.forEach(([t, col], i) => {
+    const x = 0.6 + i * 1.46;
+    circle(s, x + 0.12, 1.75, 1.15, col);
+    T(s, t, { x: x + 0.12, y: 1.75, w: 1.15, h: 1.15, fontSize: 11.5, bold: true, color: C.background1, align: "center", valign: "middle" });
+  });
+  T(s, "Five barriers, each felt more acutely by women- and youth-led enterprises", { x: 0.6, y: 2.98, w: 7.3, h: 0.35, fontSize: 12.5, italic: true, color: "4A4A4A", align: "center" });
+  s.addChart(pres.charts.BAR, [{ name: "Obtained external finance", labels: ["With a buyer", "Without a buyer"], values: [28, 8] }], {
+    x: 0.5, y: 3.4, w: 4.2, h: 3.45, barDir: "col", chartColors: [HEX.green, HEX.sage], varyColors: true,
+    showValue: true, dataLabelPosition: "outEnd", dataLabelFormatCode: "0\"%\"", dataLabelFontSize: 18, dataLabelColor: "222222", dataLabelFontBold: true,
+    showTitle: true, title: "Obtained external finance (% of MSMEs)", titleFontSize: 13, titleColor: HEX.forest,
+    valAxisHidden: true, valGridLine: { style: "none" }, catGridLine: { style: "none" }, catAxisLabelColor: "222222", catAxisLabelFontSize: 13,
+    valAxisMaxVal: 35, valAxisMinVal: 0, showLegend: false, barGapWidthPct: 70, ...chartText,
+  });
+  [["82 of 106", "name finance a top-three challenge"], ["54", "have never applied for a loan"]].forEach(([v, l], i) => {
+    const y = 3.65 + i * 1.55;
+    T(s, v, { x: 4.9, y, w: 3.0, h: 0.75, fontSize: 32, bold: true, color: i ? HEX.gold : HEX.terra, fontFace: "Cambria", valign: "bottom" });
+    T(s, l, { x: 4.9, y: y + 0.75, w: 3.0, h: 0.6, fontSize: 13, valign: "top" });
+  });
+},
+`F2-D5: Barriers and opportunities (3 minutes).
+- The barriers study examined the financing needs of MSMEs by type, size and growth stage, with a deliberate focus on women, youth and communities adjacent to protected areas, and how financial institutions view risk.
+- Main finding: finance for R-NBT MSMEs is a fit, readiness and risk problem, not a capital shortage. Of 106 MSMEs surveyed, 82 name finance as a top-three challenge, yet 54 have never applied. A buyer is the strongest predictor of finance: 28% of enterprises with a buyer arrangement obtained external finance, against 8% without.
+- Five barriers recur in every country and value chain, and women- and youth-led enterprises face each more acutely: collateral (communal and concession land cannot be mortgaged; women's land rights are often secondary); seasonality (60–75% of revenue in the peak months); informality (no tax clearance, few records); lenders' risk perception (little sector knowledge, past failed funds); and power imbalances with buyers (orders without contracts, payment 30–90 days late, termination without notice).
+- Recommendations, as the terms of reference ask: at least three seasonality adaptations of existing debt products (seasonal repayment schedules, low-season grace periods, repayment linked to confirmed orders or forward bookings, with revenue-based repayment where records allow); alternative collateral (orders and invoices, movable assets such as vehicles and equipment, group and community guarantees, savings records); dialogue platforms with a standard supply MOU (written orders, payment within 30 days, notice before termination); and grant contributions set by lot: 10–20% for Lot 1, largely in kind, and 30–50% for Lot 2, which may be loan-financed.
+Facilitation prompt (item A3): Does this diagnosis hold for your country, and for women- and youth-led enterprises?`);
+
+// ---------------- 7. F3-D6 ----------------
+dslide("F3-D6 · Investment readiness and enterprise strengthening", "Most MSMEs are at Tiers 0–1: capacity is part of the finance gap", [
+  "A tiered pathway: coaching, bookkeeping and supplier readiness before and after finance",
+  "Make formalization a milestone, not an entry gate; fund tax clearance and licensing",
+  "Pay BSOs on results and train credit officers in seasonal cash-flow lending",
+], (s) => {
+  const tiers = [["Tier 0", "Pre-enterprise"], ["Tier 1", "Emerging micro"], ["Tier 2", "Supplier-ready"], ["Tier 3", "Investment-ready"]];
+  tiers.forEach(([t, d], i) => {
+    const x = 0.6 + i * 1.8;
+    s.addShape(S.CHEVRON, { x, y: 1.75, w: 1.95, h: 0.85, fill: { color: [HEX.sage, HEX.olive, HEX.green, HEX.forest][i] }, line: { color: C.background1, width: 1 } });
+    T(s, [{ text: t, options: { bold: true, fontSize: 13, breakLine: true } }, { text: d, options: { fontSize: 10 } }], { x: x + 0.35, y: 1.77, w: 1.3, h: 0.8, color: C.background1, align: "center", valign: "middle" });
+  });
+  T(s, "Most surveyed MSMEs sit at Tiers 0–1", { x: 0.6, y: 2.65, w: 3.6, h: 0.3, fontSize: 12, italic: true, color: HEX.terraDk });
+  s.addChart(pres.charts.BAR, [
+    { name: "PA1 Hwange–Victoria Falls–Livingstone", labels: ["Notebook or no records", "Written contract", "Women-led", "Youth-led"], values: [25, 42, 36, 16] },
+    { name: "PA2 Okavango Delta–Maun", labels: ["Notebook or no records", "Written contract", "Women-led", "Youth-led"], values: [38, 18, 48, 15] },
+  ], {
+    x: 0.5, y: 3.0, w: 7.4, h: 3.85, barDir: "col", chartColors: [HEX.gold, HEX.green],
+    showValue: true, dataLabelPosition: "outEnd", dataLabelFormatCode: "0\"%\"", dataLabelFontSize: 12, dataLabelColor: "222222",
+    showTitle: true, title: "Readiness profile of the two priority areas (% of respondents)", titleFontSize: 13, titleColor: HEX.forest,
+    valAxisHidden: true, valAxisMaxVal: 55, valAxisMinVal: 0, valGridLine: { style: "none" }, catGridLine: { style: "none" },
+    catAxisLabelColor: "222222", catAxisLabelFontSize: 12, showLegend: true, legendPos: "b", legendFontSize: 11, legendColor: "222222", barGapWidthPct: 60, ...chartText,
+  });
+},
+`F3-D6: Investment readiness and enterprise strengthening (3 minutes).
+- The readiness assessment looked at business models, financial practices, record-keeping and informality in the priority value chains, by gender, age and value-chain node, and at the capacity needs of MSMEs, BSOs and financial institutions.
+- Main finding: most surveyed MSMEs sit at readiness Tiers 0–1 (pre-enterprise and emerging micro). Capacity gaps in record-keeping, compliance and management are part of the access-to-finance barrier, not a separate problem. In Okavango–Maun 38% keep a notebook or no records and only 18% hold a written contract; in the Victoria Falls–Livingstone corridor the figures are 25% and 42%. Women lead 36% (PA1) and 48% (PA2) of respondents' enterprises; youth about 15–16%.
+- Readiness tiers used throughout: Tier 0 pre-enterprise and groups; Tier 1 emerging micro; Tier 2 supplier-ready; Tier 3 investment-ready. Each step should create the record the next lender needs.
+- Recommendations, aligned with Output 1.1: a tiered pathway with SME Loop coaching, bookkeeping and supplier readiness, before and after finance, with women-only and youth-only sessions and group models; formalization as a milestone rather than an entry gate, with grants for tax clearance and licensing; performance-based contracts for BSOs (paid per enterprise graduating a tier or obtaining and repaying finance); and training for credit officers in seasonal cash-flow lending, reading orders and contracts, and disaggregated portfolio reporting.
+- Scalable women- and youth-led models with investment potential include producer groups supplying lodges with fresh produce and eggs, youth service enterprises (laundry, maintenance, solar) on service contracts, women entering guiding and mokoro operations with asset finance, and women-led honey and beehive-fence enterprises linked to conservancies.
+Facilitation prompt (item A4): Do the readiness profiles match your experience? What capacity support is missing?`);
+
+// ---------------- 8. F4-D7 ----------------
+dslide("F4-D7 · Financing mechanisms assessment", "Several instruments can fill one gap; the RTFF is one of them", [
+  "Two blended models for women and youth: first loss with movable-asset finance; a community guarantee pool linked to MFIs",
+  "Use Lot 2 grants as the borrower's contribution; refer 30–60 screened grantees to lenders",
+  "Pilot nationally over two seasons; adapt the RTFF; defer bonds",
+], (s) => {
+  const cx = 4.25, cy = 4.3;
+  const sats = [
+    ["Guarantee windows with first loss", -90, HEX.green],
+    ["Order-backed supply finance", -18, HEX.gold],
+    ["Asset and lease-to-own", 54, HEX.brown],
+    ["Community and group finance", 126, HEX.sage],
+    ["RTFF (TUI Care Foundation)", 198, HEX.terra],
+  ];
+  const pts = sats.map(([, a]) => [cx + 2.4 * Math.cos(a * Math.PI / 180), cy + 1.95 * Math.sin(a * Math.PI / 180)]);
+  pts.forEach(([px, py]) => line(s, cx, cy, px, py, HEX.line, 2));
+  circle(s, cx - 1.05, cy - 1.05, 2.1, C.text2);
+  T(s, [{ text: "The gap", options: { bold: true, fontSize: 15, breakLine: true, color: HEX.light } }, { text: "EUR 1,000–30,000", options: { bold: true, fontSize: 14, breakLine: true } }, { text: "1–2 seasons, no land collateral", options: { fontSize: 11 } }],
+    { x: cx - 0.95, y: cy - 0.85, w: 1.9, h: 1.7, color: C.background1, align: "center", valign: "middle" });
+  sats.forEach(([h, , col], i) => {
+    const [px, py] = pts[i];
+    s.addShape(S.ROUNDED_RECTANGLE, { x: px - 1.22, y: py - 0.42, w: 2.44, h: 0.84, rectRadius: 0.12, fill: { color: C.background1 }, line: { color: col, width: 2 } });
+    T(s, h, { x: px - 1.17, y: py - 0.4, w: 2.34, h: 0.8, fontSize: 12.5, bold: true, color: C.text2, align: "center", valign: "middle" });
+  });
+},
+`F4-D7: Financing mechanisms assessment (3 minutes).
+- The mechanisms study assessed grant-based, debt-based, risk-sharing and alternative mechanisms for each priority value chain, against the barriers, the MSME segments and the national landscape, and identified potential partners.
+- Main finding: there is a structural gap that no current provider serves on usable terms: buyer-linked Tier 1–2 tourism MSMEs needing EUR 1,000–30,000 of working capital or a small asset, repaid over one or two seasons, without land collateral. Several instruments can fill it, through institutions that remain after the pilot: guarantee windows with first loss; order-backed supply chain finance against standard supply MOUs; asset and lease-to-own finance for guides, transport, laundry and solar; community and group finance (savings groups linked to MFIs, a community guarantee pool, revolving funds); and the TUI Care Foundation's RTFF.
+- The RTFF is one option among several: a revolving loan pilot for about 50 established businesses, at about 8–10% (not yet set) with step-downs, over 18–24 months, on social collateral, from Q1 2027. Four adjustments are proposed: seasonal and sales-linked schedules; a larger Tier 1 share; a loss reserve and lending in the currency of revenue; and a national partner for in-country recovery with a route to national lenders. In Botswana an RTFF route is conditional; otherwise enterprises are financed through CEDA, NDB, BOSRIA-backed lenders, microfinance and the Youth Development Fund.
+- Recommendations, as the terms of reference ask: at least two blended models for women- and youth-led enterprises: first-loss cover (10–15%, 20% for women- and youth-led or first-cycle portfolios) combined with movable-asset and lease finance; and a community guarantee pool linked to MFIs, graduating to individual loans; with results-based finance where an outcome payer exists. Lot 2 grantees can be targeted for debt and risk-sharing pilots: screen them, use the grant as the borrower's contribution or cash collateral, and refer 30–60 Tier 2 or buyer-linked grantees to the RTFF and national guarantee windows. Mechanisms are national; transboundary options are limited to standards and the RTFF's future. Social and environmental bonds are deferred as a later funding source for partner banks.
+Facilitation prompt (item A5): Which mechanisms can your institutions carry, and on what conditions?`);
+
+// ---------------- 9. F5-D8 ----------------
+dslide("F5-D8 · Roundtable finance segments", "Participants put coaching and buyer links before money", [
+  "Convene platforms through associations, connectors and traditional authorities",
+  "Design for access: local languages, paper forms, cash and mobile-money repayment",
+  "Test association guarantees and repayment deducted by buyers in PA1",
+], (s) => {
+  [["113", "participants, Regional Roundtable and Finance Lab, Maun, Sep"], ["~45", "in the Victoria Falls and Maun finance sessions, Nov"]].forEach(([v, l], i) => {
+    const x = 0.6 + i * 3.7;
+    T(s, v, { x, y: 1.75, w: 1.4, h: 0.85, fontSize: 32, bold: true, color: i ? HEX.gold : HEX.green, fontFace: "Cambria", valign: "middle" });
+    T(s, l, { x: x + 1.45, y: 1.75, w: 2.1, h: 0.85, fontSize: 12, valign: "middle" });
+  });
+  const cols = [
+    ["Victoria Falls asked for cost and structure", HEX.forest, ["Bank rates near 28% against 0–8% proposed", "Milestone tranches and seasonal repayment", "Association guarantees; buyer-deducted repayment", "6–12 months of coaching before lending"]],
+    ["Maun asked for access", HEX.brown, ["A route for unregistered groups: a kgosi's letter", "Setswana and paper forms", "Cash and mobile-money repayment", "An end to unpaid consignment for crafts"]],
+  ];
+  cols.forEach(([h, col, items], i) => {
+    const x = 0.6 + i * 3.7;
+    s.addShape(S.ROUNDED_RECTANGLE, { x, y: 2.8, w: 3.5, h: 4.05, rectRadius: 0.08, fill: { color: C.background1 }, line: { color: col, width: 1.75 } });
+    box(s, { x: x + 0.15, y: 2.95, w: 3.2, h: 0.72, fill: col, text: h, size: 13.5, bold: true, color: C.background1, radius: 0.12 });
+    T(s, items.map((t, k) => ({ text: t, options: { bullet: { indent: 12 }, breakLine: k < items.length - 1, paraSpaceAfter: 8 } })), { x: x + 0.2, y: 3.85, w: 3.15, h: 2.9, fontSize: 13.5, valign: "top" });
+  });
+},
+`F5-D8: Roundtable finance segments (3 minutes).
+- The assignment designed and facilitated the access-to-finance segments of the roundtables: the KAZA Regional Roundtable in Maun with the RTFF Finance Implementation Lab (113 participants, 22–24 September 2026), and the finance segments of the destination roundtables in Victoria Falls (about 24–27 participants, 10 November) and Maun (about 20, 12 November).
+- Main finding: participants in both destinations put records, costing, compliance and buyer links before money, and saw buyer links as what makes a business bankable. Delivery design decides reach: language, paper forms, cash channels and trusted intermediaries determine whether micro and community enterprises apply.
+- The two destinations differed. Victoria Falls asked for lower cost and better structure: bank rates near 28% against 0–8% proposed, milestone tranches, seasonal repayment, association guarantees (associations in Zimbabwe already bond their members), repayment deducted by buyers and 6–12 months of coaching before lending. Maun asked for access: a route for unregistered groups through a kgosi's letter, Setswana and paper forms, cash and mobile-money repayment linked to sales, coaching before and after the loan, and an end to unpaid consignment for crafts.
+- The September Roundtable showed that prioritisation works but would carry more weight with government decision-makers present, and that communities and traditional leaders must be involved.
+- Recommendations, feeding Activity 1.2.1: convene the platforms through associations, connectors and traditional authorities; design for access (local languages, paper forms, cash and mobile-money repayment); test association guarantees and repayment deducted by buyers in PA1.
+Facilitation prompt (item A6): Does this reflect what your constituencies said?`);
+
+sec("Synthesis F6-D9");
+// ---------------- 5. Framework ----------------
+s = content("F6-D9 · One pathway, three activities");
+const tiers = [["Tier 0", "Pre-enterprise, groups"], ["Tier 1", "Emerging micro"], ["Tier 2", "Supplier-ready"], ["Tier 3", "Investment-ready"]];
+tiers.forEach(([t, d], i) => {
+  const x = 0.7 + i * 3.02;
+  s.addShape(S.CHEVRON, { x, y: 1.4, w: 3.15, h: 0.95, fill: { color: [HEX.sage, HEX.olive, HEX.green, HEX.forest][i] }, line: { color: C.background1, width: 1 } });
+  T(s, [{ text: t, options: { bold: true, fontSize: 15, breakLine: true } }, { text: d, options: { fontSize: 12 } }], { x: x + 0.45, y: 1.42, w: 2.3, h: 0.9, color: C.background1, align: "center", valign: "middle" });
+});
+const acts = [
+  ["1", "Connect", "1.2.1 Dialogue platforms and matchmaking", ["One platform per delivery core, quarterly", "Supply MOUs with anchors", "Lender learning track"], C.accent1],
+  ["2", "Prepare", "1.2.2 Grant facility", ["Lot 1 up to EUR 10,000", "Lot 2 EUR 10,000–40,000", "Grants become the borrower's contribution"], C.accent2],
+  ["3", "Finance", "1.2.3 Financing mechanisms", ["Adapted products of lenders that stay", "Risk-sharing with guarantors", "Several options, including the RTFF"], C.accent3],
+];
+acts.forEach(([n, h, sub, items, col], i) => {
+  const x = 0.7 + i * 4.15;
+  s.addShape(S.ROUNDED_RECTANGLE, { x, y: 2.65, w: 3.75, h: 3.0, rectRadius: 0.1, fill: { color: C.background2 }, line: { color: col, width: 2 } });
+  circle(s, x + 0.2, 2.85, 0.75, col, n, 22);
+  T(s, h, { x: x + 1.1, y: 2.82, w: 2.5, h: 0.5, fontSize: 22, bold: true, color: C.text2, fontFace: "Cambria", valign: "middle" });
+  T(s, sub, { x: x + 1.1, y: 3.3, w: 2.55, h: 0.35, fontSize: 11.5, color: "4A4A4A", italic: true });
+  T(s, items.map((t, k) => ({ text: t, options: { bullet: { indent: 14 }, breakLine: k < items.length - 1, paraSpaceAfter: 6 } })), { x: x + 0.25, y: 3.85, w: 3.3, h: 1.7, fontSize: 14.5, valign: "top" });
+  if (i < 2) line(s, x + 3.8, 4.15, x + 4.1, 4.15, HEX.gold, 2.5, true);
+});
+box(s, { x: 0.7, y: 5.85, w: 11.95, h: 0.8, fill: "F3E3DC", line: HEX.terra, text: "Underpinned by Activity 1.1.1 coaching: records, costing, compliance and supplier readiness, before and after finance", size: 15, color: HEX.terraDk, bold: true });
+s.addNotes(
+`Strategic framework (4 minutes).
+- The three Output 1.2 activities are designed as one graduation pathway, not three separate projects. Enterprises enter at their readiness tier (0 pre-enterprise to 3 investment-ready) and move up as each step creates the record the next lender needs; concessionality falls as they move.
+- Activity 1.2.1 connects. One finance and market-linkage platform per delivery core (Livingstone–Victoria Falls with Hwange; Maun with the Delta community areas; the Zambezi Region if resourced), convened through associations, lodge impact officers and connectors on a quarterly cycle timed to the season. Formats: common-understanding workshops, lender clinics, women-only and youth-only sessions, deal days, and anchor procurement roundtables leading to a standard supply MOU (written orders, payment within 30 days, notice before termination). A learning track for banks, MFIs, guarantee schemes and DFIs covers tourism literacy, extended ESG and how verified nature-positive practice can count positively in credit assessment. Output: a screened pipeline with coded rejection reasons.
+- Activity 1.2.2 prepares and de-risks. Lot 1 (up to EUR 10,000, 10–20% contribution, largely in kind) for Tier 0–1 micro, start-up, group and community enterprises; Lot 2 (EUR 10,000–40,000, 30–50% contribution, which may be loan-financed) for Tier 2, or Tier 1 with a buyer. A conversion clause lets a Lot 2 grant serve as the borrower's contribution or cash collateral. Grants are conditional on training, and at least 60% go to women- or youth-led enterprises.
+- Activity 1.2.3 finances through institutions that will remain after the project: per area at least one lender, one guarantor and two anchors piloting adapted products over two tourism seasons.
+- Activity 1.1.1 capacity building underpins all three.
+Facilitation prompt (items B1–B4): Is one pathway the right organising idea? Are the lot sizes and contribution rules right for women, youth and community groups?`);
+
+// ---------------- 11. F6-D9 M&E ----------------
+dslide("F6-D9 · Contribution to the M&E framework", "One measurement system, built on GM1-D5", [
+  "Collect three baselines before cohort 1: MSME intake, lender portfolios, anchor procurement",
+  "Use one youth band (18–35) and one women-led test across grants, the RTFF and M&E",
+  "Verify RTFF milestones independently and review results at each decision gate",
+], (s) => {
+  [["18", "GM1-D5 programme indicators"], ["23", "Output 1.2 indicators"], ["32", "RTFF pilot and handover indicators"]].forEach(([v, l], i) => {
+    const x = 0.6 + i * 2.47;
+    T(s, v, { x, y: 1.75, w: 0.9, h: 0.75, fontSize: 30, bold: true, color: [HEX.forest, HEX.gold, HEX.terra][i], fontFace: "Cambria", valign: "middle" });
+    T(s, l, { x: x + 0.9, y: 1.75, w: 1.5, h: 0.75, fontSize: 11.5, valign: "middle" });
+  });
+  const lv = [
+    ["Outputs", HEX.green, ["Mechanisms established", "Loans and grants, by sex and age", "Supply MOUs signed"]],
+    ["Outcomes", HEX.gold, ["Share obtaining finance (ref. 20%)", "Repayment by season (PAR30 ≤ 15%)", "Days for anchors to pay"]],
+    ["Impact", HEX.terra, ["Revenue and jobs", "Finance per euro (≥ 1:1)", "Lenders continuing"]],
+  ];
+  lv.forEach(([h, col, items], i) => {
+    const x = 0.6 + i * 2.47;
+    s.addShape(S.ROUNDED_RECTANGLE, { x, y: 2.75, w: 2.3, h: 3.05, rectRadius: 0.08, fill: { color: C.background2 }, line: { color: col, width: 1.75 } });
+    box(s, { x: x + 0.15, y: 2.9, w: 2.0, h: 0.45, fill: col, text: h, size: 14, bold: true, color: C.background1, radius: 0.22 });
+    T(s, items.map((t, k) => ({ text: t, options: { bullet: { indent: 10 }, breakLine: k < items.length - 1, paraSpaceAfter: 6 } })), { x: x + 0.12, y: 3.5, w: 2.1, h: 2.2, fontSize: 12.5, valign: "top" });
+    if (i < 2) line(s, x + 2.32, 4.25, x + 2.45, 4.25, HEX.gold, 2, true);
+  });
+  const ch = ["Sex", "Age 18–35", "Disability", "Country", "Value chain", "Readiness tier"];
+  T(s, "Disaggregated by", { x: 0.6, y: 6.0, w: 1.6, h: 0.35, fontSize: 12, color: "4A4A4A", valign: "middle" });
+  ch.forEach((t, i) => box(s, { x: 2.15 + (i % 3) * 1.9, y: 6.0 + Math.floor(i / 3) * 0.45, w: 1.8, h: 0.36, fill: HEX.cream, line: HEX.line, text: t, size: 11.5, color: C.text2, radius: 0.18 }));
+},
+`F6-D9: Contribution to the M&E framework (3 minutes).
+- One measurement system: Output 1.2 reuses the 18 GM1-D5 programme indicators (MSME, destination and KAZA level, targets to be set in GM3-D11) and adds 23 Output 1.2 indicators; a further 32 indicators track the RTFF pilot, partner readiness, handover to the KAZA Secretariat and post-pilot roll-out.
+- Outputs are separated from outcomes and impact. Outputs: mechanisms established with partner institutions; finance transactions and grants by product, season, sex and age; anchors signing the supply MOU. Outcomes: share of targeted MSMEs obtaining external finance (survey reference 20%); repayment by season, with a stop-or-adjust threshold of PAR30 above 15%; days taken by anchors to pay MSME suppliers (reference 30–90 days late). Impact: revenue and full-time and seasonal jobs by sex and age; finance leveraged per euro of grant and first loss (target at least 1:1); lenders continuing products with less concessional support.
+- Every enterprise-level indicator is disaggregated by country, area, value chain and readiness tier, and by sex, age (exact year of birth, reported in one youth band of 18–35) and disability of owners and managers, with a majority ownership or decision-making test for women- and youth-led status. Unknown is recorded as unknown, not zero. The survey figures are references, not a baseline.
+- Recommendations: collect three baselines before cohort 1 disbursement (MSME intake, lender and guarantor portfolios, anchor procurement); adopt one youth band and one women-led test across grants, the RTFF and M&E; verify RTFF milestones and results payments independently and review results at each decision gate.
+Facilitation prompt (item C1): Can partners report the data asked of them, and under what consent?`);
+
+// ---------------- 7. Roadmap ----------------
+s = content("F6-D9 · Two seasons of piloting, three decision points");
+const qx0 = 1.0, qw = 1.06; // quarter index 0 = Q4 2026 ... 10 = Q2 2029
+const qx = (q) => qx0 + q * qw;
+// peak seasons (Q3 2027 = 3, Q3 2028 = 7)
+[3, 7].forEach((q) => s.addShape(S.RECTANGLE, { x: qx(q), y: 1.75, w: qw, h: 3.35, fill: { color: HEX.peak }, line: { color: HEX.peak } }));
+// extension zone after Dec 2028 (q >= 9)
+s.addShape(S.RECTANGLE, { x: qx(9), y: 1.75, w: qw * 2, h: 3.35, fill: { color: "EFEFEF" }, line: { color: "EFEFEF" } });
+// year and quarter labels
+[["2026", 0, 1], ["2027", 1, 4], ["2028", 5, 4], ["2029", 9, 2]].forEach(([y, q, n]) => T(s, y, { x: qx(q), y: 1.3, w: qw * n, h: 0.3, fontSize: 14, bold: true, color: C.text2, align: "center" }));
+["Q4", "Q1", "Q2", "Q3", "Q4", "Q1", "Q2", "Q3", "Q4", "Q1", "Q2"].forEach((q, i) => T(s, q, { x: qx(i), y: 1.55, w: qw, h: 0.22, fontSize: 10, color: "6B6B6B", align: "center" }));
+// phases
+const phases = [["Set-up", 0, 1, HEX.grey], ["Design", 1, 1, HEX.gold], ["Season one", 2, 4, HEX.forest], ["Season two + review", 6, 3, HEX.brown], ["Handover", 8.5, 2.5, HEX.sage]];
+phases.forEach(([t, q, n, col]) => box(s, { x: qx(q) + 0.03, y: 1.95, w: qw * n - 0.06, h: 0.6, fill: col, text: t, size: 13, bold: true, color: C.background1, radius: 0.05 }));
+// milestones
+const ms = [["Partner State decisions", 0.3, 2.9], ["Agreements signed", 1.7, 3.55], ["First loans; Lot 1 and Lot 2 calls", 2.4, 2.9], ["Products open to non-grantees", 6.2, 3.55]];
+ms.forEach(([t, q, y]) => {
+  circle(s, qx(q) - 0.11, y, 0.22, HEX.gold);
+  T(s, t, { x: qx(q) + 0.18, y: y - 0.08, w: 2.6, h: 0.4, fontSize: 12, color: C.text1, valign: "middle" });
+});
+// current project end line
+s.addShape(S.LINE, { x: qx(9), y: 1.75, w: 0, h: 3.35, line: { color: HEX.terraDk, width: 2, dashType: "dash" } });
+T(s, "Current end Dec 2028", { x: qx(9) + 0.08, y: 4.15, w: 1.9, h: 0.3, fontSize: 11, bold: true, color: HEX.terraDk });
+T(s, "Extension to mid-2029 sought", { x: qx(9) + 0.08, y: 4.45, w: 2.0, h: 0.5, fontSize: 11, color: "6B6B6B" });
+// gates
+const gates = [["Gate 1", "Continue, adjust or stop", 5.5, "c"], ["RTFF future", "Form, host, channels", 8.15, "r"], ["Gate 2", "Continue or hand over", 8.85, "l"]];
+gates.forEach(([g, d, q, al], i) => {
+  const x = qx(q);
+  const lx = al === "c" ? x - 1.0 : al === "r" ? x - 1.95 : x - 0.05;
+  s.addShape(S.DIAMOND, { x: x - 0.2, y: 5.2, w: 0.4, h: 0.4, fill: { color: HEX.terra }, line: { color: HEX.terra } });
+  T(s, [{ text: g, options: { bold: true, breakLine: true, color: HEX.terraDk } }, { text: d, options: { color: C.text1 } }], { x: lx, y: 5.68, w: 2.0, h: 0.7, fontSize: 13, align: al === "c" ? "center" : al === "r" ? "right" : "left", valign: "top" });
+});
+T(s, "Peak season shaded (June–October). Dates indicative.", { x: 0.6, y: 6.55, w: 8, h: 0.35, fontSize: 11, italic: true, color: "6B6B6B" });
+s.addNotes(
+`Roadmap and decision points (4 minutes).
+- Piloting runs over two full tourism seasons so that low-season repayment is observed twice. The roadmap is fitted to the current project end in December 2028; the extension to mid-2029 being sought is what allows the second low season to be observed before the final review.
+- Five phases: 0 validation and set-up (November 2026 to January 2027, including Partner State decisions on areas, value chains and criteria); 1 design and partnering (February to April 2027: agreements, product terms, supply MOU template, first Lot 1 window, grant managers); 2 season one (April 2027 to March 2028: RTFF cohort 1 on the TUI Care Foundation's timetable, pre-peak working capital, Lot 1 and Lot 2 awards, low-season asset loans); 3 season two and review (April to December 2028: products opened to non-grantees, second pilots such as community guarantee pools and results-based finance); 4 handover to national institutions and the KAZA Secretariat from Q4 2028.
+- Sequencing: Activity 1.2.1 starts first and runs throughout; grants before debt for Tiers 0–1, finance first for Tier 2 with a buyer; strongest institutions and areas first (PA1, then PA2 through national channels).
+- Three decision points:
+  Gate 1 (Q1 2028): continue, adjust or stop each product; stop or adjust if arrears over 30 days (PAR30) exceed 15% or uptake is below half of target.
+  RTFF future (Q4 2028): form, host, capital and national channels of the RTFF, decided with the KAZA Secretariat, the TUI Care Foundation and GIZ, before Gate 2 so that handover has a destination.
+  Gate 2 (Q4 2028): continue, adjust or hand over, on three tests: repayment by season, at least 60% of finance to women- and youth-led enterprises, and lenders willing to continue with less concessional support.
+- Measurement: one system built on the 18 GM1-D5 indicators, with 23 Output 1.2 indicators, separating outputs from outcomes and impact and disaggregated by sex, age (one youth band, 18–35) and disability.
+Facilitation prompt (items C2–C3): Is the timing realistic? Are the gate thresholds right, and should regional partners receive the gate reviews?`);
+
+// ---------------- 8. Roles ----------------
+s = content("F6-D9 · Who carries what: proposed roles");
+const layers = [
+  ["Regional", HEX.forest, [["KAZA Secretariat", "Regional R-NBT Finance Forum · common diagnostic, supply MOU and indicators · RTFF future decision · OKACOM coordination"], ["SADC FANR", "Link to the SADC TFCA programme · peer learning for guarantee schemes and DFIs · regional finance partners, e.g. SADC-DFRC"]]],
+  ["National", HEX.gold, [["Partner States and institutions", "Guarantee schemes and development banks: tourism windows · lenders: seasonal products, first-loss agreements · grant managers"]]],
+  ["Destination", HEX.green, [["Platforms in PA1 and PA2", "BSOs, associations and connectors convene · anchors sign supply MOUs · MSMEs: coaching, grants, finance"]]],
+];
+layers.forEach(([lab, col, items], i) => {
+  const y = 1.45 + i * 1.75;
+  box(s, { x: 0.6, y, w: 1.9, h: 1.55, fill: col, text: lab, size: 17, bold: true, color: C.background1 });
+  const w = (10.1 - (items.length - 1) * 0.2) / items.length;
+  items.forEach(([h, d], k) => {
+    const x = 2.7 + k * (w + 0.2);
+    s.addShape(S.ROUNDED_RECTANGLE, { x, y, w, h: 1.55, rectRadius: 0.08, fill: { color: C.background2 }, line: { color: C.background2 } });
+    T(s, [{ text: h, options: { bold: true, fontSize: 17, breakLine: true, color: C.text2 } }, { text: d, options: { fontSize: 15 } }], { x: x + 0.2, y: y + 0.1, w: w - 0.4, h: 1.35, valign: "middle" });
+  });
+});
+s.addNotes(
+`Roles (5 minutes, with responses from the KAZA Secretariat and SADC FANR).
+- Output 1.2 works at three levels. Money is lent, guaranteed and recovered nationally; enterprises are reached at destination level; standards, learning and the future of the RTFF sit at regional level. Evidence flows up from the pilots; standards and policy flow down.
+- Proposed role of the KAZA Secretariat: host the regional layer (an annual R-NBT Finance Forum, the common readiness diagnostic, the standard supply MOU template and the indicator set); co-decide the RTFF's future arrangements by Q4 2028 and receive the handover of templates; coordinate with OKACOM under the existing MoU, where an estimated 40% of active communities overlap and the CORB Fund can be a complementary layer; take the studies to Partner State structures for decisions.
+- Proposed role of SADC FANR: link Output 1.2 to the SADC TFCA programme so that pilots inform regional policy; convene peer learning between national guarantee schemes and development banks on tourism windows; connect regional finance partners such as the SADC-DFRC for resource mobilisation; receive gate reviews and the pilot evaluation for replication.
+- National level: Partner States confirm areas and criteria; guarantee schemes and development banks open tourism windows; lenders adapt products and own credit decisions and collection; grant managers (BSOs or development banks) run the grant facility under one manual.
+- Destination level: lead BSOs and associations convene the platforms; anchors sign supply MOUs; MSMEs receive coaching, grants and finance.
+- These roles are proposals for discussion. Invite the KAZA Secretariat and SADC FANR to respond first (3 minutes each).
+Facilitation prompts (items D1–D2): Can you accept these roles in principle, and what would you need? Which other regional programmes (ITC, World Bank, CORB Fund) must be aligned to avoid duplication?`);
+
+// ---------------- 14. F6-D11 and F6-D12 ----------------
+sec("Next steps");
+s = content("Next: decisions and handover");
+const dcard = (x, w, code, h, col) => {
+  s.addShape(S.ROUNDED_RECTANGLE, { x, y: 1.35, w, h: 5.5, rectRadius: 0.08, fill: { color: C.background2 }, line: { color: col, width: 1.75 } });
+  box(s, { x: x + 0.2, y: 1.55, w: w - 0.4, h: 0.5, fill: col, text: code, size: 14, bold: true, color: C.background1, radius: 0.25 });
+  T(s, h, { x: x + 0.25, y: 2.15, w: w - 0.5, h: 0.4, fontSize: 15, bold: true, color: C.text2, fontFace: "Cambria" });
+};
+dcard(0.6, 6.4, "F6-D11 · Summary pack for the Oversight Committee", "Seven decisions to move from design to agreements", HEX.forest);
+const decs = ["Intervention areas for Output 1.2", "One youth band (18–35) and one women-led test", "The RTFF's Botswana route", "Grant-facility envelope and lot split", "First loss and guarantee fees under 1.2.3", "Project extension to mid-2029", "Term-sheet talks and decision-gate criteria"];
+decs.forEach((d, i) => {
+  const y = 2.7 + i * 0.58;
+  circle(s, 0.85, y, 0.42, HEX.terra, i + 1, 12);
+  T(s, d, { x: 1.4, y, w: 5.4, h: 0.42, fontSize: 14, valign: "middle" });
+});
+dcard(7.2, 5.55, "F6-D12 · Readiness pack and handover", "Readiness pack (max 10 pages)", HEX.brown);
+const rp = [["Key decisions", "taken and pending"], ["Partner contacts", "lenders, guarantors, BSOs, anchors"], ["First 100-day actions", "owners and dates"], ["Outstanding risks", "and how to manage them"]];
+rp.forEach(([a, b], i) => {
+  const y = 2.7 + i * 0.68;
+  circle(s, 7.45, y + 0.04, 0.4, HEX.gold, i + 1, 12);
+  T(s, [{ text: a + " ", options: { bold: true } }, { text: b, options: { color: "4A4A4A" } }], { x: 8.0, y, w: 4.6, h: 0.5, fontSize: 14, valign: "middle" });
+});
+box(s, { x: 7.45, y: 5.6, w: 5.05, h: 1.0, fill: C.background1, line: HEX.line, text: "Handover meeting with GIZ, the KAZA Secretariat, the SADC Secretariat and the officers implementing Output 1.2", size: 13, color: C.text2, bold: true });
+s.addNotes(
+`Next steps: F6-D11 and F6-D12 (3 minutes).
+- After validation, the synthesis goes to the Oversight Committee in an integrated presentation with the Macro and Micro Diagnostics and Roundtables (F6-D11), to support decisions on implementation and resources. Seven decisions are proposed:
+  1. confirm the intervention areas for Output 1.2 (PA1 and PA2 as delivery cores; the Zambezi Region only if resourced; Angola on a readiness-first track);
+  2. adopt one youth band (18–35) and one women-led test across the grant facility, the RTFF and the M&E framework;
+  3. decide the RTFF's Botswana route (confirm an RTFF route by Q1 2027 and resource national channels in any case);
+  4. confirm the grant-facility envelope and lot split (about 40% Lot 1 and 60% Lot 2 by value);
+  5. allow first-loss cover and guarantee fees under Activity 1.2.3;
+  6. request the project extension to mid-2029;
+  7. mandate term-sheet talks with shortlisted partners and endorse the decision-gate criteria.
+- Once the synthesis is approved, the handover (F6-D12): a readiness pack of no more than 10 pages, summarising key decisions, partner contacts, the first 100-day actions and outstanding risks, and a handover meeting with GIZ, the KAZA Secretariat, the SADC Secretariat and the officers responsible for implementing Output 1.2.
+Facilitation prompt (item D2): Is anything missing from the decisions the Committee should take?`);
+
+sec("Validation");
+// ---------------- 9. Validation and next steps ----------------
+s = content("For validation today, and what happens next");
+const items = [
+  ["A", "Studies", "Main finding and recommendations of F0 to F5-D8", C.accent1],
+  ["B", "Synthesis", "One pathway, three activities, financing options", C.accent2],
+  ["C", "M&E, roadmap", "Measurement system, two seasons, gate thresholds", C.accent4],
+  ["D", "Roles, next steps", "Regional roles, decisions and handover", C.accent3],
+];
+items.forEach(([k, h, d, col], i) => {
+  const x = 0.6 + i * 3.06;
+  s.addShape(S.ROUNDED_RECTANGLE, { x, y: 1.45, w: 2.86, h: 2.75, rectRadius: 0.1, fill: { color: C.background2 }, line: { color: col, width: 1.5 } });
+  circle(s, x + 0.2, 1.7, 0.85, col, k, 26);
+  T(s, h, { x: x + 1.2, y: 1.7, w: 1.6, h: 0.85, fontSize: 18, bold: true, color: C.text2, fontFace: "Cambria", valign: "middle" });
+  T(s, d, { x: x + 0.22, y: 2.75, w: 2.45, h: 1.35, fontSize: 16, valign: "top" });
+});
+const steps = [["Today", "Read-back of the validation log"], ["Within 2 weeks", "Written comments from partners"], ["Then", "F6-D9 revised with a change log"], ["Next sitting", "Oversight Committee decisions (F6-D11)"], ["After", "Handover to GIZ and partners (F6-D12)"]];
+T(s, "What happens next", { x: 0.6, y: 4.5, w: 6, h: 0.4, fontSize: 17, bold: true, color: C.text2, fontFace: "Cambria" });
+T(s, "Each item recorded as", { x: 6.2, y: 4.5, w: 2.3, h: 0.4, fontSize: 13, color: "4A4A4A", align: "right", valign: "middle" });
+[["Agree", C.accent1], ["Amend", C.accent2], ["Reject", C.accent3]].forEach(([t, col], i) => box(s, { x: 8.65 + i * 1.37, y: 4.5, w: 1.25, h: 0.42, fill: col, text: t, size: 13, bold: true, color: C.background1, radius: 0.2 }));
+line(s, 1.15, 5.3, 12.2, 5.3, HEX.gold, 2.5, true);
+steps.forEach(([w, t], i) => {
+  const x = 0.6 + i * 2.46;
+  circle(s, x + 0.92, 5.02, 0.56, [HEX.green, HEX.gold, HEX.brown, HEX.terra, HEX.sage][i], i + 1, 16);
+  T(s, w, { x, y: 5.7, w: 2.4, h: 0.38, fontSize: 15, bold: true, color: C.text2, align: "center" });
+  T(s, t, { x, y: 6.08, w: 2.4, h: 0.8, fontSize: 14, align: "center", valign: "top" });
+});
+s.addNotes(
+`Validation and close (plenary checks, then read-back).
+- The validation log follows the structure of this presentation:
+  A Studies: A1 F0 lessons from past programmes; A2 F1-D4 landscape and country readiness; A3 F2-D5 barriers and seasonality and collateral adaptations; A4 F3-D6 readiness tiers and capacity building; A5 F4-D7 financing options, blended models and the RTFF; A6 F5-D8 roundtable messages.
+  B Synthesis: B1 one pathway, three activities; B2 Activity 1.2.1 platforms and lender learning track; B3 Activity 1.2.2 grant lots and rules; B4 Activity 1.2.3 mechanisms and partners.
+  C M&E and roadmap: C1 measurement system; C2 roadmap, timing and the extension; C3 gate thresholds.
+  D Roles and next steps: D1 roles of the KAZA Secretariat and SADC FANR; D2 decisions for the Oversight Committee and alignment with other programmes.
+- Next steps: the rapporteur reads back the log today; partners send written comments within two weeks; F6-D9 is revised with a log showing every change and its source; the Oversight Committee decides (F6-D11); the readiness pack and handover follow (F6-D12).
+- Close: thank participants; confirm the deadline and address for written comments.`);
+
+finish(pres, process.argv[2] || "F6-D10.pptx");

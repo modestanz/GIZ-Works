@@ -27,6 +27,15 @@ const THEME = {
   },
 };
 
+// Blue, teal and green palette with terracotta accents (F6-D10 TOR version)
+const BLUE = { forest: "0F2F4F", olive: "1D5C73", green: "178A68", gold: "1F6FB2", brown: "0E7C86", terra: "C8553D", terraDk: "8E3B2A", sage: "4E8FA0", cream: "EAF2F4", line: "C7D6DC", peak: "E3F1EC", light: "8FD3C4" };
+function usePalette(name) {
+  if (name !== "blue") return;
+  Object.assign(HEX, BLUE);
+  THEME.name = "KAZA R-NBT Blue-Teal";
+  Object.assign(THEME.colors, { dk2: BLUE.forest, lt2: BLUE.cream, accent1: BLUE.green, accent2: BLUE.gold, accent3: BLUE.terra, accent4: BLUE.brown, accent5: BLUE.sage, accent6: BLUE.terraDk, hlink: BLUE.gold, folHlink: BLUE.brown });
+}
+
 function newDeck({ title, subject, footer }) {
   const pres = new pptxgen();
   pres.layout = "LAYOUT_WIDE"; // 13.333 x 7.5 in
@@ -58,6 +67,17 @@ function newDeck({ title, subject, footer }) {
       { placeholder: { options: { name: "title", type: "title", x: 0.8, y: 1.3, w: 8.2, h: 2.2, fontSize: 36, bold: true, color: C.text2, fontFace: THEME.headFontFace, valign: "top", align: "left", margin: 0 }, text: "" } },
       { placeholder: { options: { name: "sub", type: "body", x: 0.8, y: 3.6, w: 8.2, h: 1.1, fontSize: 17, color: "4A4A4A", fontFace: THEME.bodyFontFace, valign: "top", margin: 0 }, text: "" } },
       { placeholder: { options: { name: "meta", type: "body", x: 0.8, y: 4.85, w: 8.2, h: 0.8, fontSize: 12.5, color: "6B6B6B", fontFace: THEME.bodyFontFace, valign: "top", margin: 0 }, text: "" } },
+    ],
+  });
+  pres.defineSlideMaster({
+    title: "TITLE_CENTER",
+    background: { color: C.background1 },
+    objects: [
+      { image: { path: BRAND("partner_logos.jpeg"), x: 2.6, y: 6.2, w: 8.13, h: 1.2 } },
+      { placeholder: { options: { name: "kicker", type: "body", x: 0.8, y: 0.75, w: 8.2, h: 0.45, fontSize: 14, bold: true, color: C.accent3, fontFace: THEME.bodyFontFace, margin: 0 }, text: "" } },
+      { placeholder: { options: { name: "title", type: "title", x: 0.8, y: 1.3, w: 11.68, h: 2.0, fontSize: 36, bold: true, color: C.text2, fontFace: THEME.headFontFace, valign: "middle", align: "center", margin: 0 }, text: "" } },
+      { placeholder: { options: { name: "sub", type: "body", x: 2.54, y: 3.45, w: 8.2, h: 1.0, fontSize: 17, color: "4A4A4A", fontFace: THEME.bodyFontFace, valign: "top", align: "center", margin: 0 }, text: "" } },
+      { placeholder: { options: { name: "meta", type: "body", x: 2.54, y: 4.55, w: 8.2, h: 0.7, fontSize: 12.5, color: "6B6B6B", fontFace: THEME.bodyFontFace, valign: "top", align: "center", margin: 0 }, text: "" } },
     ],
   });
   pres.defineSlideMaster({
@@ -174,4 +194,4 @@ async function finish(pres, out) {
   console.log("Wrote", out);
 }
 
-module.exports = { newDeck, makeHelpers, finish, HEX, THEME, FIG, BRAND, ROOT };
+module.exports = { newDeck, makeHelpers, finish, usePalette, HEX, THEME, FIG, BRAND, ROOT };
