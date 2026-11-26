@@ -200,7 +200,7 @@ dslide("F0 · Inception and review of available resources", "Past programmes sho
 Facilitation prompt (item A1): Are there other programmes, successes or failures we should learn from?`);
 
 // ---------------- 5. F1-D4 ----------------
-dslide("F1-D4 · Financial landscape analysis", "Every state has institutions to build on; tourism barely uses them", [
+dslide("F1-D4 · Financial landscape analysis", "Finance exists in every Partner State, but not on terms MSMEs can use", [
   "Work through national lenders, guarantee schemes and development banks",
   "Open tourism windows in ECGC, NASRIA/BOSRIA and a Zambian risk-sharing scheme",
   "Finance nationally; keep the regional level for standards, learning and the RTFF's future",
@@ -208,7 +208,7 @@ dslide("F1-D4 · Financial landscape analysis", "Every state has institutions to
   s.addChart(pres.charts.BAR, [{ name: "Readiness score (0–5)", labels: ["Zambia", "Zimbabwe", "Botswana", "Namibia", "Angola"], values: [4.1, 3.9, 3.4, 3.2, 1.4] }], {
     x: 0.5, y: 1.7, w: 7.3, h: 3.75, barDir: "bar", chartColors: [HEX.green, HEX.green, HEX.gold, HEX.gold, HEX.terra], varyColors: true,
     showValue: true, dataLabelPosition: "outEnd", dataLabelFormatCode: "0.0", dataLabelFontSize: 14, dataLabelColor: "222222", dataLabelFontBold: true,
-    showTitle: true, title: "Country readiness to pilot (score 0–5)", titleFontSize: 14, titleColor: HEX.forest,
+    showTitle: true, title: "Partner State readiness to pilot (score 0–5)", titleFontSize: 14, titleColor: HEX.forest,
     catAxisOrientation: "maxMin", valAxisHidden: true, valAxisMaxVal: 5, valAxisMinVal: 0, valGridLine: { style: "none" }, catGridLine: { style: "none" },
     catAxisLabelColor: "222222", catAxisLabelFontSize: 14, showLegend: false, barGapWidthPct: 45, ...chartText,
   });
@@ -222,13 +222,15 @@ dslide("F1-D4 · Financial landscape analysis", "Every state has institutions to
     T(s, l, { x: x + 1.4, y: 5.95, w: 2.1, h: 0.8, fontSize: 12.5, valign: "middle" });
   });
 },
-`F1-D4: Financial landscape analysis (3 minutes).
+`F1-D4: Financial landscape analysis (3 minutes). See F6-D9 Sections 2.1 and 2.3.
+- The landscape: finance is not absent from KAZA; it is misaligned with the profile of R-NBT MSMEs. Commercial banks in all five Partner States are liquid and have branches in the hub towns (Kasane, Maun, Katima Mulilo, Rundu, Livingstone, Victoria Falls and, to a lesser extent, Menongue). Each Partner State has a development lender or public MSME financier (CEDA and NDB, DBN, CEEC, SMEDCO, BDA), and four run national credit guarantee schemes (NASRIA, ZCGS, ECGC, FGC), with BOSRIA operating in Botswana since 2026. Microfinance, savings groups and community funds serve smaller borrowers; anchor lodges and DMCs buy from MSMEs; regional and international funders work through national institutions. Grant funding has thinned since the 2025 wind-down of USAID programmes.
+- Finance is available, but not on terms these enterprises can use: products are designed for formal collateral, steady monthly income and salaried borrowers, while most R-NBT MSMEs operate on land that cannot be mortgaged, earn most of their revenue in the dry season, often in a currency other than that of their costs, and have few records. Reach thins quickly beyond the hub towns.
 - The landscape analysis mapped financial actors, products, guarantee schemes, regulation, BSOs and potential anchor partners across the five Partner States, and scored each state's KAZA corridor on six weighted criteria (guarantee or development lender; lenders present; market depth and anchors; community finance; business support linked to finance; macroeconomic stability).
 - Main finding: KAZA does not mainly need another finance institution. Every state has institutions that can carry a pilot, but tourism is a marginal user of all of them: it takes about 4% of Namibia's guarantee scheme reach and under 10% of Zimbabwe's ECGC portfolio.
 - Readiness: Zambia (4.1: FNB Zambia scored credit, ZANACO, ZCGS, MSMED grants) and Zimbabwe (3.9: ECGC guarantee with 75–85% cover, SMEDCO, Women's Microfinance Bank) are ready to pilot; Botswana (3.4: CEDA, NDB, BOSRIA since 2026) and Namibia (3.2: NASRIA women and youth proposal, DBN For Her, NYDF) need adjustments; Angola (1.4) needs readiness work first.
 - Regional versus national, as the terms of reference ask: access to finance is governed nationally (licensing, exchange control, collateral law), so lending, guarantees and recovery should be national. Regional added value lies in common standards (readiness diagnostic, supply MOU, indicators), peer learning and the future arrangements of the RTFF.
 - Recommendations: work through national lenders, guarantee schemes and development banks; open tourism windows in ECGC, NASRIA/BOSRIA and a Zambian risk-sharing scheme; finance nationally and keep the regional level for standards, learning and the RTFF's future.
-Facilitation prompt (item A2): Are the readiness bands and institutions right for your country?`);
+Facilitation prompt (item A2): Is the landscape right, and are the readiness bands and institutions right for your Partner State?`);
 
 // ---------------- 6. F2-D5 ----------------
 dslide("F2-D5 · Barriers and opportunities", "Finance is a fit, readiness and risk problem, not a capital shortage", [
@@ -372,34 +374,35 @@ s.addNotes(
 - Sustainability: each mechanism has an institutional home after the pilot (national guarantee schemes, partner lenders' product lines, anchors' procurement policies, MFI-managed community funds, the RTFF's future arrangements with the KAZA Secretariat), and concessionality tapers on a pre-agreed schedule.
 Facilitation prompt (item A5): Which mechanisms and models can your institutions carry, and on what conditions?`);
 
-// ---------------- 9. F5-D8 ----------------
-dslide("F5-D8 · Roundtable finance segments", "Participants put coaching and buyer links before money", [
+// ---------------- 10. F5-D8 ----------------
+dslide("F5-D8 · Roundtable finance segments and working sessions", "Participants put coaching and buyer links before money", [
   "Convene platforms through associations, connectors and traditional authorities",
-  "Design for access: local languages, paper forms, cash and mobile-money repayment",
-  "Test association guarantees and repayment deducted by buyers in PA1",
+  "Pair order-linked loans with asset finance, starting from simple order forms or trial contracts",
+  "Design for access: local languages, paper forms, deposits and prompt payment by buyers",
 ], (s) => {
-  [["113", "participants, Regional Roundtable and Finance Lab, Maun, Sep"], ["~45", "in the Victoria Falls and Maun finance sessions, Nov"]].forEach(([v, l], i) => {
+  [["17 of 19", "Victoria Falls respondents would apply for a no-collateral, order-linked loan"], ["12 of 19", "want finance mainly for equipment, vehicles or boats"]].forEach(([v, l], i) => {
     const x = 0.6 + i * 3.7;
-    T(s, v, { x, y: 1.75, w: 1.4, h: 0.85, fontSize: 32, bold: true, color: i ? HEX.gold : HEX.green, fontFace: "Cambria", valign: "middle" });
-    T(s, l, { x: x + 1.45, y: 1.75, w: 2.1, h: 0.85, fontSize: 12, valign: "middle" });
+    T(s, v, { x, y: 1.75, w: 1.55, h: 0.85, fontSize: 28, bold: true, color: i ? HEX.gold : HEX.green, fontFace: "Cambria", valign: "middle" });
+    T(s, l, { x: x + 1.6, y: 1.75, w: 1.95, h: 0.85, fontSize: 11.5, valign: "middle" });
   });
   const cols = [
-    ["Victoria Falls asked for cost and structure", HEX.forest, ["Bank rates near 28% against 0–8% proposed", "Milestone tranches and seasonal repayment", "Association guarantees; buyer-deducted repayment", "6–12 months of coaching before lending"]],
-    ["Maun asked for access", HEX.brown, ["A route for unregistered groups: a kgosi's letter", "Setswana and paper forms", "Cash and mobile-money repayment", "An end to unpaid consignment for crafts"]],
+    ["Victoria Falls: cost and structure", HEX.forest, ["Collateral the main barrier (9 of 19, all groups)", "Rates of about 3–8% over two to five years, seasonal repayment", "Only 6 of 19 sell under a written contract", "Coaching first (13 of 19); grants still expected"]],
+    ["Maun: access", HEX.brown, ["Training alongside the loan; simple, fast applications", "Setswana and paper forms; a route for unregistered groups", "Deposits of about 50%; payment within one to two weeks", "Direct payment to producers, a women's fund, a youth share"]],
   ];
   cols.forEach(([h, col, items], i) => {
     const x = 0.6 + i * 3.7;
     s.addShape(S.ROUNDED_RECTANGLE, { x, y: 2.8, w: 3.5, h: 4.05, rectRadius: 0.08, fill: { color: C.background1 }, line: { color: col, width: 1.75 } });
-    box(s, { x: x + 0.15, y: 2.95, w: 3.2, h: 0.72, fill: col, text: h, size: 13.5, bold: true, color: C.background1, radius: 0.12 });
-    T(s, items.map((t, k) => ({ text: t, options: { bullet: { indent: 12 }, breakLine: k < items.length - 1, paraSpaceAfter: 8 } })), { x: x + 0.2, y: 3.85, w: 3.15, h: 2.9, fontSize: 13.5, valign: "top" });
+    box(s, { x: x + 0.15, y: 2.95, w: 3.2, h: 0.6, fill: col, text: h, size: 13.5, bold: true, color: C.background1, radius: 0.12 });
+    T(s, items.map((t, k) => ({ text: t, options: { bullet: { indent: 12 }, breakLine: k < items.length - 1, paraSpaceAfter: 12 } })), { x: x + 0.2, y: 3.75, w: 3.15, h: 3.0, fontSize: 14, valign: "top" });
   });
 },
-`F5-D8: Roundtable finance segments (3 minutes).
-- The assignment designed and facilitated the access-to-finance segments of the roundtables: the KAZA Regional Roundtable in Maun with the RTFF Finance Implementation Lab (113 participants, 22–24 September 2026), and the finance segments of the destination roundtables in Victoria Falls (about 24–27 participants, 10 November) and Maun (about 20, 12 November).
-- Main finding: participants in both destinations put records, costing, compliance and buyer links before money, and saw buyer links as what makes a business bankable. Delivery design decides reach: language, paper forms, cash channels and trusted intermediaries determine whether micro and community enterprises apply.
-- The two destinations differed. Victoria Falls asked for lower cost and better structure: bank rates near 28% against 0–8% proposed, milestone tranches, seasonal repayment, association guarantees (associations in Zimbabwe already bond their members), repayment deducted by buyers and 6–12 months of coaching before lending. Maun asked for access: a route for unregistered groups through a kgosi's letter, Setswana and paper forms, cash and mobile-money repayment linked to sales, coaching before and after the loan, and an end to unpaid consignment for crafts.
-- The September Roundtable showed that prioritisation works but would carry more weight with government decision-makers present, and that communities and traditional leaders must be involved.
-- Recommendations, feeding Activity 1.2.1: convene the platforms through associations, connectors and traditional authorities; design for access (local languages, paper forms, cash and mobile-money repayment); test association guarantees and repayment deducted by buyers in PA1.
+`F5-D8: Roundtable finance segments and the November working sessions (3 minutes). See F6-D9 Section 2.6.
+- The assignment designed and facilitated the access-to-finance segments of the roundtables: the KAZA Regional Roundtable in Maun with the RTFF Finance Implementation Lab (113 participants, 22–24 September 2026), and the finance segments of the destination working sessions in Victoria Falls (10 November) and Maun (12 November). Participant questionnaires were returned by 19 of 20 external participants in Victoria Falls and 17 of 18 in Maun (WS-VF; WS-MN).
+- Main finding: participants in both destinations put records, costing, compliance and buyer links before money (13 of 19 Victoria Falls respondents put coaching first), and saw buyer links as what makes a business bankable. Delivery design decides reach.
+- Victoria Falls: 17 of 19 respondents said they would apply for a loan with no collateral, linked to a buyer order and released after coaching, but demand leans to assets: 12 of 19 would use finance for equipment, vehicles or boats, against six each for working capital and premises, so an order-linked working-capital product alone will not meet the main need. Collateral was the barrier named most (9 of 19 and all three groups); preferred terms clustered at about 3–8% over two to five years with seasonal repayment, against bank rates near 28%; only 6 of 19 sell under a written contract or letter of intent, so order-linked lending needs a simple order form or trial contract. Groups proposed staged, ring-fenced funding, tiers from grants to blended finance to loans, and repayment through the buyer.
+- Maun: respondents asked for training alongside the loan, simple and fast applications, forms in Setswana, buyer links and written buyer specifications; payment practice varies by buyer, and craft producers asked for deposits of about 50% and payment within one to two weeks instead of 90-day accounts. Community groups said a loan for established businesses would not reach them and proposed direct payment to producers, a women's fund and a youth share rather than payment into a single trust account.
+- No finance provider attended either session, so these are stated preferences, not tested terms.
+- Recommendations, feeding Activities 1.2.1 and 1.2.3: convene the platforms through associations, connectors and traditional authorities; pair order-linked loans with asset and lease finance (Model A), starting from simple order forms or trial contracts; design for access (local languages, paper forms, cash and mobile-money repayment, deposits and prompt payment by buyers); test association guarantees and buyer-deducted repayment in PA1.
 Facilitation prompt (item A6): Does this reflect what your constituencies said?`);
 
 sec("Synthesis F6-D9");
@@ -412,7 +415,7 @@ tiers.forEach(([t, d], i) => {
   T(s, [{ text: t, options: { bold: true, fontSize: 15, breakLine: true } }, { text: d, options: { fontSize: 12 } }], { x: x + 0.45, y: 1.42, w: 2.3, h: 0.9, color: C.background1, align: "center", valign: "middle" });
 });
 const acts = [
-  ["1", "Connect", "1.2.1 Dialogue platforms and matchmaking", ["One platform per delivery core, quarterly", "Supply MOUs with anchors", "Lender learning track"], C.accent1],
+  ["1", "Connect", "1.2.1 Dialogue platforms and matchmaking", ["One platform per delivery core, every four months", "Supply MOUs with anchors", "Lender learning: tourism literacy, green assets in credit"], C.accent1],
   ["2", "Prepare", "1.2.2 Grant facility", ["Lot 1 up to EUR 10,000", "Lot 2 EUR 10,000–40,000", "Grants become the borrower's contribution"], C.accent2],
   ["3", "Finance", "1.2.3 Financing mechanisms", ["Adapted products of lenders that stay", "Risk-sharing with guarantors", "Several options, including the RTFF"], C.accent3],
 ];
@@ -429,9 +432,10 @@ box(s, { x: 0.7, y: 5.85, w: 11.95, h: 0.8, fill: "F3E3DC", line: HEX.terra, tex
 s.addNotes(
 `Strategic framework (4 minutes).
 - The three Output 1.2 activities are designed as one graduation pathway, not three separate projects. Enterprises enter at their readiness tier (0 pre-enterprise to 3 investment-ready) and move up as each step creates the record the next lender needs; concessionality falls as they move.
-- Activity 1.2.1 connects. One finance and market-linkage platform per delivery core (Livingstone–Victoria Falls with Hwange; Maun with the Delta community areas; the Zambezi Region if resourced), convened through associations, lodge impact officers and connectors on a quarterly cycle timed to the season. Formats: common-understanding workshops, lender clinics, women-only and youth-only sessions, deal days, and anchor procurement roundtables leading to a standard supply MOU (written orders, payment within 30 days, notice before termination). A learning track for banks, MFIs, guarantee schemes and DFIs covers tourism literacy, extended ESG and how verified nature-positive practice can count positively in credit assessment. Output: a screened pipeline with coded rejection reasons.
+- Activity 1.2.1 connects. One finance and market-linkage platform per delivery core (Livingstone–Victoria Falls with Hwange; Maun with the Delta community areas; the Zambezi Region if resourced), convened through associations, lodge impact officers and connectors every four months, timed to the season. Formats: common-understanding workshops, lender clinics, women-only and youth-only sessions, deal days, and anchor procurement roundtables leading to a standard supply MOU (written orders, payment within 30 days, notice before termination). A learning track for banks, MFIs, guarantee schemes and DFIs covers tourism literacy, extended ESG and how verified nature-positive practice can count positively in credit assessment. Output: a screened pipeline with coded rejection reasons.
 - Activity 1.2.2 prepares and de-risks. Lot 1 (up to EUR 10,000, 10–20% contribution, largely in kind) for Tier 0–1 micro, start-up, group and community enterprises; Lot 2 (EUR 10,000–40,000, 30–50% contribution, which may be loan-financed) for Tier 2, or Tier 1 with a buyer. A conversion clause lets a Lot 2 grant serve as the borrower's contribution or cash collateral. Grants are conditional on training, and at least 60% go to women- or youth-led enterprises.
 - Activity 1.2.3 finances through institutions that will remain after the project: per area at least one lender, one guarantor and two anchors piloting adapted products over two tourism seasons.
+- Lender learning platform (F6-D9 Section 5.1): a learning track for credit officers, risk managers and product teams of partner banks, MFIs, guarantee schemes and DFIs. Lenders find tourism hard to read (no harvest-like repayment point, specialised assets with no resale market, NDB arrears of about 18% in the Okavango), while EU anti-greenwashing rules and Botswana's green taxonomy are moving the market. Three subjects: tourism business literacy; regenerative practice and extended ESG; and reading nature-positive practice in credit terms: as collateral (green equipment under movable-collateral registries; assignable results-based payments and anchor receivables), as lower risk (lower costs, fewer outages, premium markets) and as pricing (rate step-downs or better guarantee cover for verified milestones). Delivered through clinics for credit officers, sessions with verifiers such as GreenLoop and Target 8.9, DFI peer exchange through SADC-DFRC and existing platforms such as Botswana's Sustainability Week.
 - Activity 1.1.1 capacity building underpins all three.
 Facilitation prompt (items B1–B4): Is one pathway the right organising idea? Are the lot sizes and contribution rules right for women, youth and community groups?`);
 
@@ -514,32 +518,35 @@ s.addNotes(
 - Measurement: one system built on the 18 GM1-D5 indicators, with 23 Output 1.2 indicators, separating outputs from outcomes and impact and disaggregated by sex, age (one youth band, 18–35) and disability.
 Facilitation prompt (items C2–C3): Is the timing realistic? Are the gate thresholds right, and should regional partners receive the gate reviews?`);
 
-// ---------------- 8. Roles ----------------
-s = content("F6-D9 · Who carries what: proposed roles");
-const layers = [
-  ["Regional", HEX.forest, [["KAZA Secretariat", "Regional R-NBT Finance Forum · common diagnostic, supply MOU and indicators · RTFF future decision · OKACOM coordination"], ["SADC FANR", "Link to the SADC TFCA programme · peer learning for guarantee schemes and DFIs · regional finance partners, e.g. SADC-DFRC"]]],
-  ["National", HEX.gold, [["Partner States and institutions", "Guarantee schemes and development banks: tourism windows · lenders: seasonal products, first-loss agreements · grant managers"]]],
-  ["Destination", HEX.green, [["Platforms in PA1 and PA2", "BSOs, associations and connectors convene · anchors sign supply MOUs · MSMEs: coaching, grants, finance"]]],
-];
-layers.forEach(([lab, col, items], i) => {
-  const y = 1.45 + i * 1.75;
-  box(s, { x: 0.6, y, w: 1.9, h: 1.55, fill: col, text: lab, size: 17, bold: true, color: C.background1 });
-  const w = (10.1 - (items.length - 1) * 0.2) / items.length;
-  items.forEach(([h, d], k) => {
-    const x = 2.7 + k * (w + 0.2);
-    s.addShape(S.ROUNDED_RECTANGLE, { x, y, w, h: 1.55, rectRadius: 0.08, fill: { color: C.background2 }, line: { color: C.background2 } });
-    T(s, [{ text: h, options: { bold: true, fontSize: 17, breakLine: true, color: C.text2 } }, { text: d, options: { fontSize: 15 } }], { x: x + 0.2, y: y + 0.1, w: w - 0.4, h: 1.35, valign: "middle" });
-  });
+// ---------------- 14. Roles and strategic partners ----------------
+s = content("F6-D9 · Who sustains it: roles and strategic partners");
+[
+  ["Anchoring and long-term capital", HEX.forest, ["KAZA Conservation Trust Fund: the RTFF as a programme account after 2028–2029", "TUI Care Foundation carries the RTFF until it is anchored", "KAZA Secretariat: regional layer; RTFF future decision by Q4 2028", "SADC FANR and SADC-DFRC: policy link; regional DFI pipeline"]],
+  ["Funders active in KAZA", HEX.gold, ["EU: R-NBT, Green Growth for KAZA, ITC programme", "Germany: GIZ, KfW and the International Climate Initiative", "GEF and World Bank: CORB Fund; Zambia tourism programme", "OKACOM CORB Fund; AfDB and African Guarantee Fund"]],
+  ["National channels", HEX.green, ["Development banks: NDB, CEDA, DBN, CEEC, SMEDCO, BDA", "Guarantee schemes: ECGC, NASRIA and BOSRIA, ZCGS, FGC", "Banks such as FNB, Stanbic, ZANACO: graduation of RTFF borrowers"]],
+  ["Pipeline and verification", HEX.terra, ["Anchors and their foundations nominate and back borrowers", "ITC grants de-risk RTFF loans", "WWF and OKACOM pipelines feed one referral register", "Verifiers such as GreenLoop: baselines and milestones"]],
+].forEach(([h, col, items], i) => {
+  const x = 0.6 + (i % 2) * 6.15, y = 1.35 + Math.floor(i / 2) * 2.3;
+  s.addShape(S.ROUNDED_RECTANGLE, { x, y, w: 5.95, h: 2.15, rectRadius: 0.08, fill: { color: C.background2 }, line: { color: col, width: 1.75 } });
+  box(s, { x: x + 0.2, y: y + 0.15, w: 3.6, h: 0.45, fill: col, text: h, size: 14, bold: true, color: C.background1, radius: 0.22 });
+  T(s, items.map((t, k) => ({ text: t, options: { bullet: { indent: 12 }, breakLine: k < items.length - 1, paraSpaceAfter: 4 } })), { x: x + 0.25, y: y + 0.68, w: 5.5, h: 1.4, fontSize: 13.5, valign: "top" });
+});
+[["2027", "Co-learning agreements; one shared referral register"], ["Season two", "Co-financing from funders active in KAZA"], ["By Q4 2028", "Host and national channels agreed, before Gate 2"]].forEach(([w, t], i) => {
+  const x = 0.6 + i * 4.1;
+  s.addShape(S.CHEVRON, { x, y: 6.0, w: 4.0, h: 0.72, fill: { color: [HEX.sage, HEX.olive, HEX.forest][i] }, line: { color: C.background1, width: 0 } });
+  T(s, [{ text: w + "  ", options: { bold: true } }, { text: t }], { x: x + 0.45, y: 6.0, w: 3.2, h: 0.72, fontSize: 11.5, color: C.background1, valign: "middle", align: "center" });
 });
 s.addNotes(
-`Roles (5 minutes, with responses from the KAZA Secretariat and SADC FANR).
-- Output 1.2 works at three levels. Money is lent, guaranteed and recovered nationally; enterprises are reached at destination level; standards, learning and the future of the RTFF sit at regional level. Evidence flows up from the pilots; standards and policy flow down.
-- Proposed role of the KAZA Secretariat: host the regional layer (an annual R-NBT Finance Forum, the common readiness diagnostic, the standard supply MOU template and the indicator set); co-decide the RTFF's future arrangements by Q4 2028 and receive the handover of templates; coordinate with OKACOM under the existing MoU, where an estimated 40% of active communities overlap and the CORB Fund can be a complementary layer; take the studies to Partner State structures for decisions.
-- Proposed role of SADC FANR: link Output 1.2 to the SADC TFCA programme so that pilots inform regional policy; convene peer learning between national guarantee schemes and development banks on tourism windows; connect regional finance partners such as the SADC-DFRC for resource mobilisation; receive gate reviews and the pilot evaluation for replication.
-- National level: Partner States confirm areas and criteria; guarantee schemes and development banks open tourism windows; lenders adapt products and own credit decisions and collection; grant managers (BSOs or development banks) run the grant facility under one manual.
+`Roles and strategic partners (5 minutes, with responses from the KAZA Secretariat and SADC FANR). See F6-D9 Sections 7.5 and 7.6 and Annex D.
+- The RTFF and the other mechanisms will outlast the project only if they have institutional homes, capital after the pilot and partners that keep originating, financing and verifying borrowers. None of this needs a new institution: the partners exist, and several already fund KAZA. Annex D of the synthesis lists eighteen possible partners with their current role, possible role and next step.
+- Anchoring and long-term capital: the KAZA Conservation Trust Fund, being designed by the Sustainable Finance Coalition with the KAZA Secretariat and WWF-US, could host the RTFF after the pilot as a programme account under its catalytic nature finance window, probably after 2028–2029; GBFF funding is expected in late 2027 and the fund structure around early 2028. The TUI Care Foundation has committed to carry the facility until it is anchored. Co-learning should start now, with a light letter of intent on joint learning.
+- Proposed role of the KAZA Secretariat: host the regional layer (R-NBT Finance Forum, common readiness diagnostic, supply MOU template, indicator set); co-decide the RTFF's future arrangements by Q4 2028; coordinate with OKACOM under the existing MoU; consider a finance task force with Partner State representatives. Proposed role of SADC FANR: link Output 1.2 to the SADC TFCA programme; with SADC-DFRC, aggregate KAZA MSMEs into a regional investment pipeline and bring DFIs in as in-country delivery partners; receive gate reviews and the pilot evaluation for replication.
+- Funders active in KAZA can each fund one layer (readiness grants, first loss and loss reserves, counter-guarantees, recapitalisation): the EU (R-NBT, Green Growth for KAZA, the ITC Green Value Chain programme); Germany (GIZ, KfW, and the International Climate Initiative, whose 2027 call could support a joint RTFF–CTF concept); the GEF and World Bank (the CORB Fund and Zambia's tourism programme); OKACOM's CORB Fund; the AfDB and African Guarantee Fund. Joint KAZA–OKACOM proposals could include the RTFF's recapitalisation.
+- National channels: development banks and guarantee schemes and commercial banks such as FNB, Stanbic and ZANACO are the graduation route for RTFF borrowers and the in-country partners for monitoring and recovery.
+- Pipeline and verification: anchors and their foundations nominate and back borrowers; ITC's planned grants (about €2 million, some 142 grants) can de-risk RTFF loans; WWF's Bankable Nature Solutions pipeline and OKACOM's community programmes can feed one shared referral register; verifiers such as GreenLoop provide baselines and milestone verification. A single joint space for EU-funded projects in KAZA would reduce duplication.
 - Destination level: lead BSOs and associations convene the platforms; anchors sign supply MOUs; MSMEs receive coaching, grants and finance.
-- These roles are proposals for discussion. Invite the KAZA Secretariat and SADC FANR to respond first (3 minutes each).
-Facilitation prompts (items D1–D2): Can you accept these roles in principle, and what would you need? Which other regional programmes (ITC, World Bank, CORB Fund) must be aligned to avoid duplication?`);
+- These are proposals for discussion. Invite the KAZA Secretariat and SADC FANR to respond first (3 minutes each).
+Facilitation prompts (items D1–D2): Can you accept these roles in principle, and what would you need? Which partners are missing, and who should convene the partnerships?`);
 
 // ---------------- 14. F6-D11 and F6-D12 ----------------
 sec("Next steps");
@@ -584,7 +591,7 @@ const items = [
   ["A", "Studies", "Main finding and recommendations of F0 to F5-D8", C.accent1],
   ["B", "Synthesis", "One pathway, three activities, financing options", C.accent2],
   ["C", "M&E, roadmap", "Measurement system, two seasons, gate thresholds", C.accent4],
-  ["D", "Roles, next steps", "Regional roles, decisions and handover", C.accent3],
+  ["D", "Roles, partners", "Regional roles, strategic partners, decisions and handover", C.accent3],
 ];
 items.forEach(([k, h, d, col], i) => {
   const x = 0.6 + i * 3.06;
@@ -607,10 +614,10 @@ steps.forEach(([w, t], i) => {
 s.addNotes(
 `Validation and close (plenary checks, then read-back).
 - The validation log follows the structure of this presentation:
-  A Studies: A1 F0 lessons from past programmes; A2 F1-D4 landscape and country readiness; A3 F2-D5 barriers and seasonality and collateral adaptations; A4 F3-D6 readiness tiers and capacity building; A5 F4-D7 financing options, blended models and the RTFF; A6 F5-D8 roundtable messages.
+  A Studies: A1 F0 lessons from past programmes; A2 F1-D4 landscape and country readiness; A3 F2-D5 barriers and seasonality and collateral adaptations; A4 F3-D6 readiness tiers and capacity building; A5 F4-D7 financing options, blended models and the RTFF; A6 F5-D8 roundtable and working-session messages.
   B Synthesis: B1 one pathway, three activities; B2 Activity 1.2.1 platforms and lender learning track; B3 Activity 1.2.2 grant lots and rules; B4 Activity 1.2.3 mechanisms and partners.
   C M&E and roadmap: C1 measurement system; C2 roadmap, timing and the extension; C3 gate thresholds.
-  D Roles and next steps: D1 roles of the KAZA Secretariat and SADC FANR; D2 decisions for the Oversight Committee and alignment with other programmes.
+  D Roles, partners and next steps: D1 roles of the KAZA Secretariat and SADC FANR and the strategic partnerships to sustain the RTFF and other mechanisms; D2 decisions for the Oversight Committee and alignment with other programmes.
 - Next steps: the rapporteur reads back the log today; partners send written comments within two weeks; F6-D9 is revised with a log showing every change and its source; the Oversight Committee decides (F6-D11); the readiness pack and handover follow (F6-D12).
 - Close: thank participants; confirm the deadline and address for written comments.`);
 
