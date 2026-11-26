@@ -41,7 +41,7 @@ const children = [
   P("Preparation determines whether the plenary validates or merely listens. The checklist in Table 3 should be completed in the week before the roundtable."),
   ...table("Preparation checklist", ["#", "Task", "Owner", "Done"], [600, 6200, 1900, 1046], [
     ["1", "Circulate the F6-D9 executive summary and the validation sheet (Annex B) to all confirmed participants one week ahead", "GIZ", ""],
-    ["2", "Confirm SADC FANR and KAZA Secretariat speakers; share slides 23–24 (regional roles) with them in advance", "GIZ / consultant", ""],
+    ["2", "Confirm SADC FANR and KAZA Secretariat speakers; share slide 23 (regional roles) with them in advance", "GIZ / consultant", ""],
     ["3", "Confirm date, venue, slot length and whether the session is plenary only or plenary with table work", "GIZ", ""],
     ["4", "Arrange seating by country table, with lenders and BSOs mixed across tables", "GIZ logistics", ""],
     ["5", "Print the validation sheet (one per participant) and the validation log (two copies for the rapporteur)", "GIZ logistics", ""],
