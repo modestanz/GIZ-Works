@@ -50,6 +50,17 @@ function newDeck({ title, subject, footer }) {
     ],
   });
   pres.defineSlideMaster({
+    title: "TITLE_LIGHT",
+    background: { color: C.background1 },
+    objects: [
+      { image: { path: BRAND("partner_logos.jpeg"), x: 2.6, y: 6.2, w: 8.13, h: 1.2 } },
+      { placeholder: { options: { name: "kicker", type: "body", x: 0.8, y: 0.75, w: 8.2, h: 0.45, fontSize: 14, bold: true, color: C.accent3, fontFace: THEME.bodyFontFace, margin: 0 }, text: "" } },
+      { placeholder: { options: { name: "title", type: "title", x: 0.8, y: 1.3, w: 8.2, h: 2.2, fontSize: 36, bold: true, color: C.text2, fontFace: THEME.headFontFace, valign: "top", align: "left", margin: 0 }, text: "" } },
+      { placeholder: { options: { name: "sub", type: "body", x: 0.8, y: 3.6, w: 8.2, h: 1.1, fontSize: 17, color: "4A4A4A", fontFace: THEME.bodyFontFace, valign: "top", margin: 0 }, text: "" } },
+      { placeholder: { options: { name: "meta", type: "body", x: 0.8, y: 4.85, w: 8.2, h: 0.8, fontSize: 12.5, color: "6B6B6B", fontFace: THEME.bodyFontFace, valign: "top", margin: 0 }, text: "" } },
+    ],
+  });
+  pres.defineSlideMaster({
     title: "SECTION",
     background: { color: C.text2 },
     objects: [

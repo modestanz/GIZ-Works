@@ -27,43 +27,81 @@ const chartText = { catAxisLabelFontFace: "+mn-lt", valAxisLabelFontFace: "+mn-l
 
 // ---------------- 1. Title ----------------
 sec("Opening");
-let s = H.add("TITLE");
+let s = H.add("TITLE_LIGHT");
 s.addText("F6-D10 · Plenary session for validation", { placeholder: "kicker" });
 s.addText("Financing regenerative nature-based tourism MSMEs in KAZA", { placeholder: "title" });
 s.addText("Output 1.2 findings and recommendations for validation by GIZ and regional partners, including SADC FANR and the KAZA Secretariat", { placeholder: "sub" });
 s.addText("Presented by Modesta Nyirenda, MNZ Consult · [Date and venue to be confirmed] · Draft for validation", { placeholder: "meta" });
+const motif = [["1.2.1", "Connect", HEX.green, 9.55, 1.15, -0.4, -0.1], ["1.2.2", "Prepare", HEX.gold, 11.0, 1.15, 0.4, -0.1], ["1.2.3", "Finance", HEX.terra, 10.27, 2.45, 0, 0.35]];
+motif.forEach(([, , col, x, y]) => s.addShape(S.OVAL, { x, y, w: 2.15, h: 2.15, fill: { color: col, transparency: 12 }, line: { color: C.background1, width: 2 } }));
+motif.forEach(([c, t, , x, y, dx, dy]) => T(s, [{ text: c, options: { fontSize: 13, breakLine: true } }, { text: t, options: { fontSize: 18, bold: true } }], { x: x + dx, y: y + 0.55 + dy, w: 2.15, h: 1.05, color: C.background1, align: "center", valign: "middle" }));
 s.addNotes(
 `Welcome and purpose (2 minutes).
 - Thank GIZ and the regional partners, in particular SADC FANR and the KAZA Secretariat.
 - This is a validation session, not a launch. The findings come from the F6-D9 Consolidated Synthesis Report, which draws together the five Output 1.2 finance studies (F1-D4 to F5-D8), the October 2026 Macro Diagnostic, the two GM3-D10 destination Micro Diagnostics and the November 2026 working sessions in Victoria Falls and Maun.
 - Output 1.2: financial mechanisms are established in collaboration with financial institutions to support targeted MSMEs, through three activities: 1.2.1 dialogue platforms and matchmaking, 1.2.2 a grant facility and 1.2.3 support to new and existing financing mechanisms.
 - Content decisions belong to the Partner States and their institutions; the role of this session is to confirm, amend or reject the findings and to agree who carries what at regional level.
-- The presentation has nine slides; the detail sits in the F6-D9 report and in these notes.`);
-
-// ---------------- 2. What we ask ----------------
-s = content("Three questions for this plenary");
-const qs = [
-  ["Is the evidence right?", "Diagnosis, barriers, country and area starting points", C.accent1],
-  ["Is the design workable?", "One pathway, three activities, financing options", C.accent2],
-  ["Who carries what?", "Regional, national and destination roles", C.accent3],
-];
-qs.forEach(([h, b, col], i) => {
-  const x = 0.9 + i * 4.1;
-  circle(s, x + 1.25, 1.6, 1.3, col, i + 1, 36);
-  T(s, h, { x, y: 3.05, w: 3.8, h: 0.6, fontSize: 22, bold: true, color: C.text2, align: "center", fontFace: "Cambria" });
-  T(s, b, { x, y: 3.65, w: 3.8, h: 0.8, fontSize: 15, color: "4A4A4A", align: "center", valign: "top" });
-  if (i < 2) line(s, x + 2.75, 2.25, x + 5.15, 2.25, HEX.line, 1.5, true);
-});
-T(s, "Each finding is recorded as", { x: 0.6, y: 5.25, w: 12.1, h: 0.4, fontSize: 15, color: "4A4A4A", align: "center" });
-[["Agree", C.accent1], ["Amend", C.accent2], ["Reject", C.accent3]].forEach(([t, col], i) => {
-  box(s, { x: 3.65 + i * 2.1, y: 5.75, w: 1.85, h: 0.6, fill: col, text: t, size: 16, bold: true, color: C.background1, radius: 0.3 });
-});
-s.addNotes(
-`How the session works (3 minutes).
+- The presentation has nine slides; the detail sits in the F6-D9 report and in these notes.
+How the session works:
 - Three questions run through the whole presentation: is the evidence right; is the design workable through the institutions named; and who carries what, at regional, national and destination level.
-- For each finding participants raise a green (agree), amber (amend) or red (reject) card. The rapporteur records responses on the validation log against items A to D (see slide 9). Discussion goes first to amber and red cards: what would need to change for the card to turn green?
-- Disagreements are recorded with the reason rather than resolved on the spot. Questions on budget or programme scope go to a parking lot and are answered in writing.
-- Participants can also hand in the validation sheet or send written comments within two weeks.`);
+- For each finding participants raise a green (agree), amber (amend) or red (reject) card. The rapporteur records responses on the validation log against items A to D (slide 9). Discussion goes first to amber and red cards: what would need to change for the card to turn green?
+- Disagreements are recorded with the reason rather than resolved on the spot. Questions on budget or programme scope go to a parking lot and are answered in writing. Participants can also send written comments within two weeks.`);
+
+// ---------------- 2. Evidence base (F1-D4 Methodology and Evidence Base, Table B) ----------------
+s = content("Built on six evidence streams, July to November 2026");
+const groups = [
+  ["Documents", HEX.gold, [["~90", "published references"], ["124", "Macro Diagnostic library sources"], ["27", "programme and KAZA documents"]]],
+  ["Enterprises", HEX.green, [["106", "MSME survey responses"]]],
+  ["Institutions", HEX.terra, [["20", "minuted interviews with 17 organisations"], ["66", "Macro Diagnostic engagements"]]],
+  ["Roundtables", HEX.brown, [["113", "participants, Regional Roundtable, Maun"], ["~45", "in the Victoria Falls and Maun finance sessions"]]],
+];
+groups.forEach(([g, col, st], i) => {
+  const x = 0.6 + i * 3.06, y = 1.35, w = 2.86, h = 3.45;
+  s.addShape(S.ROUNDED_RECTANGLE, { x, y, w, h, rectRadius: 0.1, fill: { color: C.background2 }, line: { color: C.background2 } });
+  box(s, { x: x + 0.2, y: y + 0.18, w: w - 0.4, h: 0.5, fill: col, text: g, size: 16, bold: true, color: C.background1, radius: 0.25 });
+  if (st.length === 1) {
+    circle(s, x + (w - 1.75) / 2, y + 0.92, 1.75, col);
+    T(s, st[0][0], { x: x + (w - 1.75) / 2, y: y + 0.92, w: 1.75, h: 1.75, fontSize: 40, bold: true, color: C.background1, align: "center", valign: "middle", fontFace: "Cambria" });
+    T(s, st[0][1], { x: x + 0.15, y: y + 2.75, w: w - 0.3, h: 0.55, fontSize: 14, align: "center", valign: "top" });
+  } else {
+    const step = (h - 0.85) / st.length;
+    st.forEach(([v, l], k) => {
+      const yy = y + 0.85 + k * step;
+      T(s, v, { x: x + 0.2, y: yy, w: w - 0.4, h: 0.55, fontSize: st.length === 3 ? 26 : 32, bold: true, color: col, align: "center", valign: "bottom", fontFace: "Cambria" });
+      T(s, l, { x: x + 0.15, y: yy + 0.55, w: w - 0.3, h: step - 0.6, fontSize: 13, align: "center", valign: "top" });
+    });
+  }
+});
+// timeline of when each stream was gathered
+const mx0 = 2.6, mw = 2.0, mx = (m) => mx0 + m * mw; // m = months since 1 July 2026
+["Jul", "Aug", "Sep", "Oct", "Nov"].forEach((m, i) => T(s, m, { x: mx(i), y: 4.95, w: mw, h: 0.28, fontSize: 12, bold: true, color: "6B6B6B", align: "center" }));
+s.addShape(S.LINE, { x: mx(0), y: 5.25, w: mw * 5, h: 0, line: { color: HEX.line, width: 1 } });
+const rows = [["Desk and documents", 0, 5, HEX.gold], ["MSME survey", 1, 3.2, HEX.green], ["Interviews", 0, 5, HEX.terra]];
+rows.forEach(([lab, a1, a2, col], i) => {
+  const y = 5.35 + i * 0.36;
+  T(s, lab, { x: 0.6, y, w: 1.9, h: 0.28, fontSize: 12, color: C.text1, valign: "middle" });
+  s.addShape(S.ROUNDED_RECTANGLE, { x: mx(a1), y: y + 0.04, w: mw * (a2 - a1), h: 0.2, rectRadius: 0.1, fill: { color: col }, line: { color: col } });
+});
+const ry = 5.35 + 3 * 0.36;
+T(s, "Roundtables", { x: 0.6, y: ry, w: 1.9, h: 0.28, fontSize: 12, color: C.text1, valign: "middle" });
+[[2.73, "Maun, Sep"], [4.31, "Victoria Falls"], [4.37, ""]].forEach(([m, lab]) => {
+  s.addShape(S.DIAMOND, { x: mx(m) - 0.12, y: ry + 0.02, w: 0.24, h: 0.24, fill: { color: HEX.brown }, line: { color: HEX.brown } });
+});
+T(s, "Regional, 22–24 Sep", { x: mx(2.73) + 0.18, y: ry, w: 1.6, h: 0.28, fontSize: 11, color: "4A4A4A", valign: "middle" });
+T(s, "Destinations, 10 and 12 Nov", { x: mx(4.37) + 0.18, y: ry - 0.06, w: 1.15, h: 0.4, fontSize: 9.5, color: "4A4A4A", valign: "middle" });
+T(s, "Source: F1-D4 Methodology and Evidence Base, Table B", { x: 8.6, y: 6.72, w: 4.1, h: 0.26, fontSize: 10, italic: true, color: "6B6B6B", align: "right" });
+s.addNotes(
+`Evidence base (3 minutes).
+- The findings rest on six evidence streams gathered between July and November 2026 (F1-D4 Methodology and Evidence Base, Table B).
+  A. Desk review of published sources: central bank and regulator publications, legislation and policy, DFI, guarantee-scheme and bank annual reports and product pages; around 90 references.
+  B. Programme and KAZA documents: the Macro Diagnostic library of 124 sources (Findings Report V2, Regional Roundtable report GM2-D9, RTFF Finance Lab report); 20 official files (17 distinct documents) provided by GIZ, including the RTFF presentation and KAZA institutional sources; and 10 KAZA-specific public documents (KAZA Treaty and Master Integrated Development Plan, 2026 Ministerial Committee communiqué, KAZA Conservation Trust Fund, OKACOM Agreement and CORB Fund).
+  C. The Macro Diagnostic MSME Enterprise Readiness survey: 106 valid responses (August to October 2026) on registration, finance sought and obtained, buyer links, savings groups and finance needs.
+  D. One-on-one interviews for this analysis: 20 minuted engagements with 17 organisations (DFIs, guarantee schemes, commercial and microfinance banks, a public MSME agency, a verifier, river-basin and conservation-finance bodies and a grant programme), August to November 2026.
+  E. Macro Diagnostic interviews: 66 engagements with government, operators, associations, community bodies and programme partners; their finance interviews are largely those in stream D, with four additional finance-relevant engagements.
+  F. Roundtables: the KAZA Regional Roundtable in Maun with the RTFF Finance Implementation Lab (113 participants, 22–24 September) and the finance segments of the destination roundtables in Victoria Falls (about 24–27) and Maun (about 20) on 10 and 12 November.
+- Key findings were cross-checked across streams and graded as triangulated, partially triangulated or desk-only. Ratings and readiness scores were assigned by the study team and are indicative; they have not yet been validated by the institutions concerned, which is one purpose of this session.
+- Caveats: the survey is self-selected and leans towards registered, established enterprises; evidence depth differs between Partner States; partner interest comes from single meetings and is not yet commitment.
+Facilitation prompt: Is any important source or institution missing?`);
 
 // ---------------- 3. Core finding ----------------
 sec("Findings");
@@ -284,6 +322,8 @@ items.forEach(([k, h, d, col], i) => {
 });
 const steps = [["Today", "Read-back of the validation log"], ["Within 2 weeks", "Written comments from partners"], ["Then", "F6-D9 revised with a change log"], ["Next sitting", "Oversight Committee decisions (F6-D11)"], ["After", "Handover to GIZ and partners (F6-D12)"]];
 T(s, "What happens next", { x: 0.6, y: 4.5, w: 6, h: 0.4, fontSize: 17, bold: true, color: C.text2, fontFace: "Cambria" });
+T(s, "Each item recorded as", { x: 6.2, y: 4.5, w: 2.3, h: 0.4, fontSize: 13, color: "4A4A4A", align: "right", valign: "middle" });
+[["Agree", C.accent1], ["Amend", C.accent2], ["Reject", C.accent3]].forEach(([t, col], i) => box(s, { x: 8.65 + i * 1.37, y: 4.5, w: 1.25, h: 0.42, fill: col, text: t, size: 13, bold: true, color: C.background1, radius: 0.2 }));
 line(s, 1.15, 5.3, 12.2, 5.3, HEX.gold, 2.5, true);
 steps.forEach(([w, t], i) => {
   const x = 0.6 + i * 2.46;

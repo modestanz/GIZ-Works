@@ -55,7 +55,7 @@ const children = [
   H1("4. Session plan"),
   P("The audience is senior, at programme and regional level, so the deck is short (nine slides) and visual, and the narrative sits in the speaker notes. The plan in Table 4 assumes a 90-minute plenary: about 30 minutes of presentation in four short blocks, each followed by a plenary check, so that more than half the time is discussion. If more time is available, add table work by country on section B; if less, keep the plenary checks and shorten the presentation. The slide numbers refer to the F6-D10 deck."),
   ...table("Session plan (indicative timings)", ["Time", "Block", "Slides", "Method", "Lead"], [1050, 2700, 900, 3496, 1600], [
-    ["0:00–0:08", "Welcome, purpose and how validation works", "1–2", "Opening by GIZ; the three questions and the agree, amend or reject cards", "GIZ; facilitator"],
+    ["0:00–0:08", "Welcome, purpose and evidence base", "1–2", "Opening by GIZ; the three questions and the agree, amend or reject cards (slide 9); the six evidence streams", "GIZ; facilitator"],
     ["0:08–0:18", "A. What the evidence shows", "3–4", "Presentation: core finding, countries and priority areas", "Facilitator"],
     ["0:18–0:33", "Plenary check A", "4", "Card vote on A1–A5; discussion of amend and reject responses", "Facilitator; rapporteur"],
     ["0:33–0:43", "B. Framework and financing options", "5–6", "Presentation: one pathway, three activities; options to fill the gap", "Facilitator"],
