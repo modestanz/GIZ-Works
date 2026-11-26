@@ -15,11 +15,11 @@ const children = [
   new Paragraph({ spacing: { after: 240 }, children: [new TextRun({ text: "KAZA R-NBT · Output 1.2 Access to Finance · November 2026", size: 18 })] }),
 
   H1("1. Versions compared"),
-  P("This log records the changes between the author’s draft of 26 November 2026 (saved 20:20) and the updated draft. The two files were compared paragraph by paragraph, including every table. All other text is unchanged. Changes 13–16 were made afterwards, on the author’s reviewed draft (SEC_DRAFT, 26 November 2026), to align the platform cycle in the body with the executive summary; the author’s own edit to Annex D in that draft (the Sustainable Finance Coalition row now names WWF-US and the KAZA Conservation Trust Fund) is retained."),
+  P("This log records the changes between the author’s draft of 26 November 2026 (saved 20:20) and the updated draft. The two files were compared paragraph by paragraph, including every table. All other text is unchanged. Changes 13–17 were made afterwards, on the author’s reviewed draft (SEC_DRAFT, 26 November 2026), to align the platform cycle in the body with the executive summary and to refresh the contents page; the author’s own edit to Annex D in that draft (the Sustainable Finance Coalition row now names WWF-US and the KAZA Conservation Trust Fund) is retained."),
   ...table("Versions compared", ["Version", "Pages (total)", "Main text (excluding annexes)", "Annexes"], [2900, 1700, 3046, 2100], [
     ["Author’s draft, 26 November 2026", "35", "28 pages (pages 4–31)", "A–D"],
     ["Updated draft", "39", "29 pages (pages 5–33)", "A–E"],
-    ["Author’s reviewed draft (SEC_DRAFT) with changes 13–16", "39", "29 pages (pages 5–33), unchanged", "A–E"],
+    ["Author’s reviewed draft (SEC_DRAFT) with changes 13–17", "39", "29 pages (pages 5–33), unchanged", "A–E"],
   ]),
   P("Page counts are from a PDF rendering and may differ by a page in Word. The main text is within the 30-page limit in the terms of reference but one page above the earlier target of fewer than 28 pages (Section 5)."),
 
@@ -45,6 +45,7 @@ const children = [
     row(["14", "Section 5.1, Table 13 (formats)", "Format “Quarterly deal days” renamed “Deal days every four months”.", "Consistency"]),
     row(["15", "Section 6.2, Table 17 (indicator A1, target)", "Target “Quarterly cycle in each active area” becomes “A cycle every four months in each active area”. Reporting frequencies (“quarterly” for event reports, portfolio and grant data) are unchanged: they are reporting periods, not the platform cycle.", "Consistency"]),
     row(["16", "Section 7.1, Season one", "“quarterly deal days” becomes “deal days every four months”.", "Consistency"]),
+    row(["17", "Contents", "The contents page in the reviewed draft still listed the deleted Section 2.7 and older titles and page numbers. The 2.7 entry is removed, entries now match the headings in the body (for example “2.3 Where Each Partner State Can Start”) and page numbers are updated; Word is set to update fields when the file opens.", "Consistency"]),
   ]),
 
   H1("4. Table numbering"),
