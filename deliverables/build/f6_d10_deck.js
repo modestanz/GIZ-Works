@@ -285,6 +285,65 @@ s.addNotes(
 - Social and environmental bonds are not recommended as a pilot instrument; they are a later funding source for partner banks.
 Facilitation prompts (items B4–B5): Which of these can your institutions carry, and on what conditions? Is the Botswana route right?`);
 
+if (process.env.MERGED) {
+// ---------------- 7+8. Roadmap and roles (merged) ----------------
+sec("Roadmap and roles");
+s = content("Roadmap and who carries it");
+const qx0 = 1.0, qw = 1.06; // quarter index 0 = Q4 2026 ... 10 = Q2 2029
+const qx = (q) => qx0 + q * qw;
+[3, 7].forEach((q) => s.addShape(S.RECTANGLE, { x: qx(q), y: 1.72, w: qw, h: 0.72, fill: { color: "F7EFD9" }, line: { color: "F7EFD9" } }));
+s.addShape(S.RECTANGLE, { x: qx(9), y: 1.72, w: qw * 2, h: 0.72, fill: { color: "EFEFEF" }, line: { color: "EFEFEF" } });
+[["2026", 0, 1], ["2027", 1, 4], ["2028", 5, 4], ["2029", 9, 2]].forEach(([y, q, n]) => T(s, y, { x: qx(q), y: 1.25, w: qw * n, h: 0.28, fontSize: 14, bold: true, color: C.text2, align: "center" }));
+["Q4", "Q1", "Q2", "Q3", "Q4", "Q1", "Q2", "Q3", "Q4", "Q1", "Q2"].forEach((q, i) => T(s, q, { x: qx(i), y: 1.5, w: qw, h: 0.22, fontSize: 10, color: "6B6B6B", align: "center" }));
+const phases = [["Set-up", 0, 1, HEX.grey], ["Design", 1, 1, HEX.gold], ["Season one", 2, 4, HEX.forest], ["Season two + review", 6, 3, HEX.brown], ["Handover", 8.5, 2.5, HEX.sage]];
+phases.forEach(([t, q, n, col]) => box(s, { x: qx(q) + 0.03, y: 1.82, w: qw * n - 0.06, h: 0.52, fill: col, text: t, size: 13, bold: true, color: C.background1, radius: 0.05 }));
+s.addShape(S.LINE, { x: qx(9), y: 1.72, w: 0, h: 1.55, line: { color: HEX.terraDk, width: 2, dashType: "dash" } });
+T(s, "Current end Dec 2028; extension to mid-2029 sought", { x: qx(9) + 0.08, y: 2.5, w: 2.1, h: 0.5, fontSize: 10.5, color: HEX.terraDk });
+const gates = [["Gate 1", "Continue, adjust or stop", 5.5, "c"], ["RTFF future", "Form, host, channels", 8.15, "r"], ["Gate 2", "Continue or hand over", 8.85, "l"]];
+gates.forEach(([g, d, q, al]) => {
+  const x = qx(q);
+  const lx = al === "c" ? x - 1.0 : al === "r" ? x - 1.95 : x - 0.05;
+  s.addShape(S.DIAMOND, { x: x - 0.17, y: 2.5, w: 0.34, h: 0.34, fill: { color: HEX.terra }, line: { color: HEX.terra } });
+  if (al === "l") return; // Gate 2 label sits beside the extension note; shown in the legend line below
+  T(s, [{ text: g, options: { bold: true, breakLine: true, color: HEX.terraDk } }, { text: d, options: { color: C.text1 } }], { x: lx, y: 2.88, w: 2.0, h: 0.6, fontSize: 12, align: al === "c" ? "center" : "right", valign: "top" });
+});
+T(s, [{ text: "Gate 2 ", options: { bold: true, color: HEX.terraDk } }, { text: "continue or hand over (Q4 2028)", options: {} }], { x: qx(9) + 0.08, y: 2.95, w: 2.1, h: 0.5, fontSize: 10.5, color: C.text1 });
+// roles, ordered so that the regional card sits under the RTFF future and Gate 2 decisions
+const lanes = [
+  ["Destination", HEX.green, ["BSOs and associations convene the platforms", "Anchors sign supply MOUs", "MSMEs: coaching, grants, finance"]],
+  ["National", HEX.gold, ["Guarantee schemes open tourism windows", "Lenders offer seasonal products and own credit decisions", "Grant managers run Lots 1 and 2"]],
+  ["Regional", HEX.forest, ["KAZA Secretariat: regional forum, common tools, RTFF future decision", "SADC FANR: TFCA policy link, peer learning, regional finance partners"]],
+];
+lanes.forEach(([lab, col, items], i) => {
+  const x = 0.6 + i * 4.1, y = 3.65, w = 3.9, h = 3.05;
+  s.addShape(S.ROUNDED_RECTANGLE, { x, y, w, h, rectRadius: 0.08, fill: { color: C.background2 }, line: { color: C.background2 } });
+  box(s, { x: x + 0.2, y: y + 0.18, w: w - 0.4, h: 0.48, fill: col, text: lab, size: 15, bold: true, color: C.background1, radius: 0.24 });
+  T(s, items.map((t, k) => ({ text: t, options: { bullet: { indent: 14 }, breakLine: k < items.length - 1, paraSpaceAfter: 8 } })), { x: x + 0.25, y: y + 0.85, w: w - 0.45, h: h - 1.0, fontSize: 17, valign: "top" });
+});
+s.addNotes(
+`Roadmap and who carries it (8 minutes, with responses from the KAZA Secretariat and SADC FANR).
+ROADMAP
+Roadmap and decision points (4 minutes).
+- Piloting runs over two full tourism seasons so that low-season repayment is observed twice. The roadmap is fitted to the current project end in December 2028; the extension to mid-2029 being sought is what allows the second low season to be observed before the final review.
+- Five phases: 0 validation and set-up (November 2026 to January 2027, including Partner State decisions on areas, value chains and criteria); 1 design and partnering (February to April 2027: agreements, product terms, supply MOU template, first Lot 1 window, grant managers); 2 season one (April 2027 to March 2028: RTFF cohort 1 on the TUI Care Foundation's timetable, pre-peak working capital, Lot 1 and Lot 2 awards, low-season asset loans); 3 season two and review (April to December 2028: products opened to non-grantees, second pilots such as community guarantee pools and results-based finance); 4 handover to national institutions and the KAZA Secretariat from Q4 2028.
+- Sequencing: Activity 1.2.1 starts first and runs throughout; grants before debt for Tiers 0–1, finance first for Tier 2 with a buyer; strongest institutions and areas first (PA1, then PA2 through national channels).
+- Three decision points:
+  Gate 1 (Q1 2028): continue, adjust or stop each product; stop or adjust if arrears over 30 days (PAR30) exceed 15% or uptake is below half of target.
+  RTFF future (Q4 2028): form, host, capital and national channels of the RTFF, decided with the KAZA Secretariat, the TUI Care Foundation and GIZ, before Gate 2 so that handover has a destination.
+  Gate 2 (Q4 2028): continue, adjust or hand over, on three tests: repayment by season, at least 60% of finance to women- and youth-led enterprises, and lenders willing to continue with less concessional support.
+- Measurement: one system built on the 18 GM1-D5 indicators, with 23 Output 1.2 indicators, separating outputs from outcomes and impact and disaggregated by sex, age (one youth band, 18–35) and disability.
+Facilitation prompt (items C1–C3): Is the timing realistic? Are the gate thresholds right, and should regional partners receive the gate reviews?
+ROLES
+Roles (5 minutes, with responses from the KAZA Secretariat and SADC FANR).
+- Output 1.2 works at three levels. Money is lent, guaranteed and recovered nationally; enterprises are reached at destination level; standards, learning and the future of the RTFF sit at regional level. Evidence flows up from the pilots; standards and policy flow down.
+- Proposed role of the KAZA Secretariat: host the regional layer (an annual R-NBT Finance Forum, the common readiness diagnostic, the standard supply MOU template and the indicator set); co-decide the RTFF's future arrangements by Q4 2028 and receive the handover of templates; coordinate with OKACOM under the existing MoU, where an estimated 40% of active communities overlap and the CORB Fund can be a complementary layer; take the studies to Partner State structures for decisions.
+- Proposed role of SADC FANR: link Output 1.2 to the SADC TFCA programme so that pilots inform regional policy; convene peer learning between national guarantee schemes and development banks on tourism windows; connect regional finance partners such as the SADC-DFRC for resource mobilisation; receive gate reviews and the pilot evaluation for replication.
+- National level: Partner States confirm areas and criteria; guarantee schemes and development banks open tourism windows; lenders adapt products and own credit decisions and collection; grant managers (BSOs or development banks) run the grant facility under one manual.
+- Destination level: lead BSOs and associations convene the platforms; anchors sign supply MOUs; MSMEs receive coaching, grants and finance.
+- These roles are proposals for discussion. Invite the KAZA Secretariat and SADC FANR to respond first (3 minutes each).
+Facilitation prompts (items D1–D2): Can you accept these roles in principle, and what would you need? Which other regional programmes (ITC, World Bank, CORB Fund) must be aligned to avoid duplication?`);
+
+} else {
 // ---------------- 7. Roadmap ----------------
 sec("Roadmap and roles");
 s = content("Two seasons of piloting, three decision points");
@@ -358,6 +417,7 @@ s.addNotes(
 - These roles are proposals for discussion. Invite the KAZA Secretariat and SADC FANR to respond first (3 minutes each).
 Facilitation prompts (items D1–D2): Can you accept these roles in principle, and what would you need? Which other regional programmes (ITC, World Bank, CORB Fund) must be aligned to avoid duplication?`);
 
+}
 // ---------------- 9. Validation and next steps ----------------
 sec("Validation");
 s = content("For validation today, and what happens next");
