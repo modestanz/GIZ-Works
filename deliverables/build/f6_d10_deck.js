@@ -41,11 +41,65 @@ s.addNotes(
 - This is a validation session, not a launch. The findings come from the F6-D9 Consolidated Synthesis Report, which draws together the five Output 1.2 finance studies (F1-D4 to F5-D8), the October 2026 Macro Diagnostic, the two GM3-D10 destination Micro Diagnostics and the November 2026 working sessions in Victoria Falls and Maun.
 - Output 1.2: financial mechanisms are established in collaboration with financial institutions to support targeted MSMEs, through three activities: 1.2.1 dialogue platforms and matchmaking, 1.2.2 a grant facility and 1.2.3 support to new and existing financing mechanisms.
 - Content decisions belong to the Partner States and their institutions; the role of this session is to confirm, amend or reject the findings and to agree who carries what at regional level.
-- The presentation has nine slides; the detail sits in the F6-D9 report and in these notes.
+- The presentation has ten slides; the detail sits in the F6-D9 report and in these notes.
 How the session works:
 - Three questions run through the whole presentation: is the evidence right; is the design workable through the institutions named; and who carries what, at regional, national and destination level.
-- For each finding participants raise a green (agree), amber (amend) or red (reject) card. The rapporteur records responses on the validation log against items A to D (slide 9). Discussion goes first to amber and red cards: what would need to change for the card to turn green?
+- For each finding participants raise a green (agree), amber (amend) or red (reject) card. The rapporteur records responses on the validation log against items A to D (slide 10). Discussion goes first to amber and red cards: what would need to change for the card to turn green?
 - Disagreements are recorded with the reason rather than resolved on the spot. Questions on budget or programme scope go to a parking lot and are answered in writing. Participants can also send written comments within two weeks.`);
+
+// ---------------- 2. Output 1.2 and the assignment ----------------
+s = content("Output 1.2 and this assignment");
+// left: what Output 1.2 is about
+box(s, { x: 0.6, y: 1.35, w: 5.9, h: 1.05, fill: C.text2, text: "Output 1.2: financial mechanisms are established in collaboration with financial institutions to support targeted MSMEs", size: 15, bold: true, color: C.background1, radius: 0.08 });
+const o12 = [
+  ["1.2.1", "Connect", "Dialogue platforms and matchmaking: MSMEs, associations, lenders, large tourism companies", HEX.green],
+  ["1.2.2", "Prepare", "Grant facility: Lot 1 up to EUR 10,000; Lot 2 EUR 10,000–40,000", HEX.gold],
+  ["1.2.3", "Finance", "New and existing financing mechanisms, tested with financial institutions", HEX.terra],
+];
+o12.forEach(([c, h, d, col], i) => {
+  const y = 2.6 + i * 1.12;
+  circle(s, 0.6, y, 0.95, col);
+  T(s, [{ text: c, options: { fontSize: 11, breakLine: true } }, { text: h, options: { fontSize: 13, bold: true } }], { x: 0.6, y: y + 0.12, w: 0.95, h: 0.7, color: C.background1, align: "center", valign: "middle" });
+  T(s, d, { x: 1.7, y, w: 4.8, h: 0.95, fontSize: 14, valign: "middle" });
+});
+box(s, { x: 0.6, y: 6.0, w: 5.9, h: 0.7, fill: C.background2, text: "Focus: women, youth and communities near protected areas", size: 14, color: C.text2, bold: true });
+// right: deliverables of the assignment
+T(s, "Deliverables of this assignment", { x: 6.95, y: 1.3, w: 5.8, h: 0.4, fontSize: 16, bold: true, color: C.text2, fontFace: "Cambria" });
+const dl = [
+  ["F0", "Inception: workplan, method, resources", "done"],
+  ["F1-D4", "Financial landscape analysis", "done"],
+  ["F2-D5", "Barriers and opportunities", "done"],
+  ["F3-D6", "Investment readiness assessment", "done"],
+  ["F4-D7", "Financing mechanisms assessment", "done"],
+  ["F5-D8", "Roundtable preparation and documentation", "done"],
+  ["F6-D9", "Consolidated synthesis report", "draft"],
+  ["F6-D10", "Validation presentation and plenary", "today"],
+  ["F6-D11", "Summary pack for the Oversight Committee", "next"],
+  ["F6-D12", "Readiness pack and handover", "next"],
+];
+const stCol = { done: HEX.green, draft: HEX.gold, today: HEX.terra, next: "A6A6A6" };
+dl.forEach(([c, t, st], i) => {
+  const y = 1.8 + i * 0.46;
+  const hi = st === "today";
+  if (hi) s.addShape(S.ROUNDED_RECTANGLE, { x: 6.9, y: y - 0.04, w: 5.85, h: 0.44, rectRadius: 0.06, fill: { color: "F3E3DC" }, line: { color: HEX.terra, width: 1 } });
+  box(s, { x: 7.0, y, w: 1.05, h: 0.36, fill: i === 0 ? HEX.sage : i < 6 ? HEX.olive : HEX.forest, text: c, size: 11.5, bold: true, color: C.background1, radius: 0.18 });
+  T(s, t, { x: 8.2, y, w: 3.85, h: 0.36, fontSize: 13.5, bold: hi, color: C.text1, valign: "middle" });
+  s.addShape(S.OVAL, { x: 12.35, y: y + 0.08, w: 0.2, h: 0.2, fill: { color: stCol[st] }, line: { color: stCol[st] } });
+});
+[["Submitted", HEX.green], ["Draft for validation", HEX.gold], ["Today", HEX.terra], ["To follow", "A6A6A6"]].forEach(([t, col], i) => {
+  const x = 7.0 + i * 1.45;
+  s.addShape(S.OVAL, { x, y: 6.52, w: 0.16, h: 0.16, fill: { color: col }, line: { color: col } });
+  T(s, t, { x: x + 0.22, y: 6.43, w: 1.25, h: 0.34, fontSize: 10.5, color: "4A4A4A", valign: "middle" });
+});
+s.addNotes(
+`Output 1.2 and this assignment (3 minutes).
+- Output 1.2 of the KAZA Joint Action on Regenerative Nature-Based Tourism: financial mechanisms are established in collaboration with financial institutions to support targeted MSMEs, with a deliberate focus on enterprises led by women, youth and communities living near protected areas in the five KAZA Partner States.
+- Three tentative activities in the Output 1.2 design:
+  1.2.1 Dialogue platforms between MSMEs, private sector associations, financial institutions and large tourism companies or investors: build a common understanding of regenerative tourism and of perceived risks, promote existing mechanisms, clarify bankability criteria, explore adapted credit lines and public finance tools, and run matchmaking, including integration of MSMEs into the procurement of DMCs and lodge chains.
+  1.2.2 Grant facilities: Lot 1 small grants up to EUR 10,000 with up to 20% matching; Lot 2 medium grants of EUR 10,000–40,000 with up to 50% matching (own funds or loans), administered by partner entities such as BSOs, not-for-profit organisations or public development banks. Participants in the capacity-building programme have priority.
+  1.2.3 Support and strengthen new and existing financing mechanisms: partner with financial institutions, development banks and foundations to adapt and test existing products (loans with improved conditions, revolving funds, social or environmental bonds, savings groups and community finance), with Lot 2 grantees as the primary target group.
+- This assignment provides the evidence and recommendations for Output 1.2: inception deliverables (workplan, methodological proposal, summary of available resources); four analytical reports (F1-D4 financial landscape, F2-D5 barriers and opportunities, F3-D6 investment readiness, F4-D7 financing mechanisms by priority value chain); roundtable preparation and documentation (F5-D8); and the synthesis phase: the F6-D9 consolidated synthesis report, this validation session (F6-D10), the summary pack for the Oversight Committee (F6-D11) and the readiness pack and handover (F6-D12).
+- Today's session validates the F6-D9 findings; the results feed the Oversight Committee pack and the handover.`);
 
 // ---------------- 2. Evidence base (F1-D4 Methodology and Evidence Base, Table B) ----------------
 s = content("Built on six evidence streams, July to November 2026");
