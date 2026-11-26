@@ -1,4 +1,4 @@
-// F6-D10: Validation presentation structured by TOR deliverable (15 slides, blue-teal palette; narrative in speaker notes)
+// F6-D10: Validation presentation structured by TOR deliverable (16 slides, blue-teal palette; narrative in speaker notes)
 // Usage: node deliverables/build/f6_d10_deck.js out.pptx
 const { newDeck, makeHelpers, finish, usePalette, HEX } = require("./deck_lib");
 usePalette("blue");
@@ -40,7 +40,7 @@ s.addNotes(
 - The presentation follows the terms of reference: after the purpose and the evidence base, one slide per study (F0 to F5-D8) gives its main finding and recommendations; the synthesis (F6-D9) then sets out the framework, the measurement system, the roadmap and roles; the last slides show what follows (F6-D11 and F6-D12) and what we ask you to validate.
 How the session works:
 - Three questions run through the whole presentation: is the evidence right; are the recommendations workable through the institutions named; and who carries what, at regional, national and destination level.
-- For each item participants raise a green (agree), amber (amend) or red (reject) card; the rapporteur records responses on the validation log against items A to D (slide 15). Discussion goes first to amber and red cards.
+- For each item participants raise a green (agree), amber (amend) or red (reject) card; the rapporteur records responses on the validation log against items A to D (slide 16). Discussion goes first to amber and red cards.
 - Disagreements are recorded with the reason. Questions on budget or programme scope go to a parking lot and are answered in writing. Written comments can be sent within two weeks.`);
 
 // ---------------- 2. Output 1.2 and the assignment ----------------
@@ -295,37 +295,82 @@ dslide("F3-D6 · Investment readiness and enterprise strengthening", "Most MSMEs
 - Scalable women- and youth-led models with investment potential include producer groups supplying lodges with fresh produce and eggs, youth service enterprises (laundry, maintenance, solar) on service contracts, women entering guiding and mokoro operations with asset finance, and women-led honey and beehive-fence enterprises linked to conservancies.
 Facilitation prompt (item A4): Do the readiness profiles match your experience? What capacity support is missing?`);
 
-// ---------------- 8. F4-D7 ----------------
-dslide("F4-D7 · Financing mechanisms assessment", "Several instruments can fill one gap; the RTFF is one of them", [
-  "Two blended models for women and youth: first loss with movable-asset finance; a community guarantee pool linked to MFIs",
-  "Use Lot 2 grants as the borrower's contribution; refer 30–60 screened grantees to lenders",
-  "Pilot nationally over two seasons; adapt the RTFF; defer bonds",
+// ---------------- 8. F4-D7 (a): the layered stack ----------------
+dslide("F4-D7 · Financing mechanisms assessment", "No single instrument fills the gap: a layered stack tied to buyers", [
+  "Pilot first what is most feasible: order-backed finance, guarantee windows with first loss, seasonal loans",
+  "Use the RTFF as the reference collateral-free pilot; grants and national guarantees carry what it cannot",
+  "Lend nationally; keep standards, a shared first-loss and TA pool and the CORB Fund regional",
 ], (s) => {
-  const cx = 4.25, cy = 4.3;
-  const sats = [
-    ["Guarantee windows with first loss", -90, HEX.green],
-    ["Order-backed supply finance", -18, HEX.gold],
-    ["Asset and lease-to-own", 54, HEX.brown],
-    ["Community and group finance", 126, HEX.sage],
-    ["RTFF (TUI Care Foundation)", 198, HEX.terra],
+  const layers = [
+    ["Top · Tier 3", "Term, revenue-linked and conservation-linked finance", HEX.forest, 4.3],
+    ["Middle · Tiers 1–2", "Order-backed working capital · asset and lease finance · guarantee-backed seasonal loans · RTFF", HEX.gold, 5.55],
+    ["Base · Tiers 0–1", "Grants · coaching · savings groups and community finance", HEX.green, 6.8],
   ];
-  const pts = sats.map(([, a]) => [cx + 2.4 * Math.cos(a * Math.PI / 180), cy + 1.95 * Math.sin(a * Math.PI / 180)]);
-  pts.forEach(([px, py]) => line(s, cx, cy, px, py, HEX.line, 2));
-  circle(s, cx - 1.05, cy - 1.05, 2.1, C.text2);
-  T(s, [{ text: "The gap", options: { bold: true, fontSize: 15, breakLine: true, color: HEX.light } }, { text: "EUR 1,000–30,000", options: { bold: true, fontSize: 14, breakLine: true } }, { text: "1–2 seasons, no land collateral", options: { fontSize: 11 } }],
-    { x: cx - 0.95, y: cy - 0.85, w: 1.9, h: 1.7, color: C.background1, align: "center", valign: "middle" });
-  sats.forEach(([h, , col], i) => {
-    const [px, py] = pts[i];
-    s.addShape(S.ROUNDED_RECTANGLE, { x: px - 1.22, y: py - 0.42, w: 2.44, h: 0.84, rectRadius: 0.12, fill: { color: C.background1 }, line: { color: col, width: 2 } });
-    T(s, h, { x: px - 1.17, y: py - 0.4, w: 2.34, h: 0.8, fontSize: 12.5, bold: true, color: C.text2, align: "center", valign: "middle" });
+  layers.forEach(([h, d, col, w], i) => {
+    const y = 1.85 + i * 1.32, x = 1.05 + (6.8 - w) / 2;
+    s.addShape(S.ROUNDED_RECTANGLE, { x, y, w, h: 1.18, rectRadius: 0.06, fill: { color: col }, line: { color: col } });
+    T(s, [{ text: h, options: { bold: true, fontSize: 13, breakLine: true } }, { text: d, options: { fontSize: 12 } }], { x: x + 0.15, y: y + 0.05, w: w - 0.3, h: 1.08, color: C.background1, align: "center", valign: "middle" });
   });
+  s.addShape(S.UP_ARROW, { x: 0.5, y: 1.9, w: 0.42, h: 3.55, fill: { color: HEX.terra }, line: { color: HEX.terra } });
+  T(s, "Graduation", { x: 0.2, y: 5.5, w: 0.8, h: 0.3, fontSize: 9.5, bold: true, color: HEX.terraDk, align: "center" });
+  box(s, { x: 0.9, y: 5.95, w: 6.9, h: 0.85, fill: C.background2, line: HEX.terra, text: "The gap: EUR 1,000–30,000 for buyer-linked Tier 1–2 MSMEs, repaid over 1–2 seasons, with no land collateral", size: 13, color: C.text2, bold: true });
 },
-`F4-D7: Financing mechanisms assessment (3 minutes).
-- The mechanisms study assessed grant-based, debt-based, risk-sharing and alternative mechanisms for each priority value chain, against the barriers, the MSME segments and the national landscape, and identified potential partners.
-- Main finding: there is a structural gap that no current provider serves on usable terms: buyer-linked Tier 1–2 tourism MSMEs needing EUR 1,000–30,000 of working capital or a small asset, repaid over one or two seasons, without land collateral. Several instruments can fill it, through institutions that remain after the pilot: guarantee windows with first loss; order-backed supply chain finance against standard supply MOUs; asset and lease-to-own finance for guides, transport, laundry and solar; community and group finance (savings groups linked to MFIs, a community guarantee pool, revolving funds); and the TUI Care Foundation's RTFF.
-- The RTFF is one option among several: a revolving loan pilot for about 50 established businesses, at about 8–10% (not yet set) with step-downs, over 18–24 months, on social collateral, from Q1 2027. Four adjustments are proposed: seasonal and sales-linked schedules; a larger Tier 1 share; a loss reserve and lending in the currency of revenue; and a national partner for in-country recovery with a route to national lenders. In Botswana an RTFF route is conditional; otherwise enterprises are financed through CEDA, NDB, BOSRIA-backed lenders, microfinance and the Youth Development Fund.
-- Recommendations, as the terms of reference ask: at least two blended models for women- and youth-led enterprises: first-loss cover (10–15%, 20% for women- and youth-led or first-cycle portfolios) combined with movable-asset and lease finance; and a community guarantee pool linked to MFIs, graduating to individual loans; with results-based finance where an outcome payer exists. Lot 2 grantees can be targeted for debt and risk-sharing pilots: screen them, use the grant as the borrower's contribution or cash collateral, and refer 30–60 Tier 2 or buyer-linked grantees to the RTFF and national guarantee windows. Mechanisms are national; transboundary options are limited to standards and the RTFF's future. Social and environmental bonds are deferred as a later funding source for partner banks.
-Facilitation prompt (item A5): Which mechanisms can your institutions carry, and on what conditions?`);
+`F4-D7: Financing mechanisms assessment, part 1 (3 minutes). See F6-D9 Section 2.5.
+- F4 assessed 18 types of financing mechanism in four families (grant-based, debt-based, risk-sharing and alternative, including capital-market and conservation instruments) against five criteria: fit with MSME segments, reduction of the barriers, fit with the financial landscape, regulation and sustainability. It also rated each against the five barriers and the Joint Action's two cross-cutting requirements: gender and youth inclusion, and regenerative outcomes.
+- Main finding: no single instrument fills the gap. There is one segment no current provider serves on usable terms: buyer-linked Tier 1–2 tourism MSMEs needing EUR 1,000–30,000 of working capital or a small asset, repaid over one or two seasons, without land collateral. The feasible response is a layered stack tied to buyers: grants, coaching and community finance at the base; order-backed working capital, asset finance and guarantee-backed seasonal loans in the middle, with the RTFF as the first collateral-free loan product; and term, revenue-linked and conservation-linked finance at the top. Enterprises graduate upward as each step creates the record the next lender needs.
+- The RTFF (TUI Care Foundation) is the recommended reference debt pilot for the gap: collateral-free loans of EUR 1,000–30,000 for about 50 buyer-linked MSMEs; as presented in November about 8–10% (not yet set) with step-downs over 18–24 months, from Q1 2027. It is complemented by the grants it cannot replace and by national guarantees that can carry its borrowers after the pilot. Adjustments: a larger Tier 1 share, a loss reserve with lending in the currency of revenue, and a route to national lenders and guarantee schemes after the pilot and handover to the KAZA Secretariat.
+- National first: money is lent, guaranteed and recovered nationally (licensing, exchange control, collateral law, five currencies). Design, standards, counter-guarantees, a shared first-loss and TA pool and basin-level conservation finance (the OKACOM CORB Fund) can be regional. The RTFF's offshore administration is the one cross-border lending route and still needs country checks.
+Facilitation prompt (item A5): Is the stack right, and which layer can your institution carry?`);
+
+// ---------------- 9. F4-D7 (b): feasibility and blended models ----------------
+s = content("Most feasible: supply chain finance, guarantee windows, seasonal loans");
+box(s, { x: 0.6, y: 1.2, w: 5.6, h: 0.4, fill: C.text2, text: "F4-D7 · Feasibility, blended models and selection", size: 12.5, bold: true, color: C.background1, radius: 0.2, align: "left" });
+{
+  const mech = [
+    ["Supply chain finance", 3], ["Guarantee windows", 3], ["Seasonal loans and grace", 3], ["First-loss grants", 3], ["TA grants", 3],
+    ["Matching grants", 2.5], ["RTFF collateral-free loans", 2.5], ["Blended structures", 2.5], ["Savings groups and VSLAs", 2.5],
+    ["Revolving funds", 2], ["Community guarantee funds", 2], ["PPPs and concession JVs", 2], ["PES and conservation trust funds", 2],
+    ["Revenue-based finance", 1.5], ["Impact investment", 1.5], ["Green and sustainability bonds", 1],
+  ];
+  const col = (v) => (v >= 3 ? HEX.green : v >= 2.5 ? HEX.brown : v >= 2 ? HEX.gold : v >= 1.5 ? HEX.sage : HEX.terra);
+  s.addChart(pres.charts.BAR, [{ name: "Overall feasibility", labels: mech.map((m) => m[0]), values: mech.map((m) => m[1]) }], {
+    x: 0.45, y: 1.7, w: 5.9, h: 4.75, barDir: "bar", chartColors: mech.map((m) => col(m[1])), varyColors: true,
+    showValue: false, showTitle: true, title: "Overall feasibility of mechanisms (F4)", titleFontSize: 13, titleColor: HEX.forest,
+    catAxisOrientation: "maxMin", valAxisHidden: true, valAxisMaxVal: 3, valAxisMinVal: 0, valGridLine: { style: "none" }, catGridLine: { style: "none" },
+    catAxisLabelColor: "222222", catAxisLabelFontSize: 10.5, showLegend: false, barGapWidthPct: 35, ...chartText,
+  });
+  [["High", HEX.green], ["Medium–High", HEX.brown], ["Medium", HEX.gold], ["Low–Medium", HEX.sage], ["Low", HEX.terra]].forEach(([t, c], i) => {
+    s.addShape(S.RECTANGLE, { x: 0.7 + i * 1.12, y: 6.56, w: 0.16, h: 0.16, fill: { color: c }, line: { color: c } });
+    T(s, t, { x: 0.9 + i * 1.12, y: 6.48, w: 0.95, h: 0.32, fontSize: 9.5, color: "4A4A4A", valign: "middle" });
+  });
+}
+T(s, "Four blended models for women- and youth-led MSMEs", { x: 6.55, y: 1.68, w: 6.2, h: 0.35, fontSize: 14, bold: true, color: C.text2, fontFace: "Cambria" });
+[["A", "First loss + asset and lease finance", "Youth guides, transport, laundry, solar; women's equipment", HEX.green],
+ ["B", "Guarantee window accepting orders and invoices", "Women- and youth-led suppliers; NASRIA 80/20 tier", HEX.gold],
+ ["C", "Community guarantee fund", "Women's savings groups and cooperatives moving into supply", HEX.brown],
+ ["D", "Results-based conservation finance", "Conservancies, coexistence services, honey (PA2 first)", HEX.terra]].forEach(([k, h, d, c], i) => {
+  const x = 6.55 + (i % 2) * 3.13, y = 2.1 + Math.floor(i / 2) * 1.62;
+  s.addShape(S.ROUNDED_RECTANGLE, { x, y, w: 3.0, h: 1.5, rectRadius: 0.08, fill: { color: C.background2 }, line: { color: c, width: 1.5 } });
+  circle(s, x + 0.12, y + 0.14, 0.5, c, k, 15);
+  T(s, h, { x: x + 0.7, y: y + 0.08, w: 2.22, h: 0.62, fontSize: 12.5, bold: true, color: C.text2, valign: "middle" });
+  T(s, d, { x: x + 0.15, y: y + 0.74, w: 2.75, h: 0.7, fontSize: 11.5, color: "4A4A4A", valign: "top" });
+});
+T(s, "A–C for the first cohort; D designed now, piloted in PA2", { x: 6.55, y: 5.36, w: 6.2, h: 0.3, fontSize: 11.5, italic: true, color: HEX.terraDk });
+const selSteps = [["Tier", "No debt at Tier 0"], ["Buyer", "Order-backed finance first"], ["Security", "Asset, order, savings or outcome"], ["Model", "A, B, C, D, or RTFF if none"]];
+selSteps.forEach(([h, d], i) => {
+  const x = 6.55 + i * 1.57;
+  s.addShape(S.ROUNDED_RECTANGLE, { x, y: 5.75, w: 1.38, h: 1.05, rectRadius: 0.08, fill: { color: [HEX.sage, HEX.olive, HEX.brown, HEX.forest][i] }, line: { color: C.background1 } });
+  T(s, [{ text: h, options: { bold: true, fontSize: 12.5, breakLine: true } }, { text: d, options: { fontSize: 10 } }], { x: x + 0.05, y: 5.78, w: 1.28, h: 1.0, color: C.background1, align: "center", valign: "middle" });
+  if (i < 3) line(s, x + 1.39, 6.27, x + 1.56, 6.27, HEX.terra, 2, true);
+});
+s.addNotes(
+`F4-D7: Financing mechanisms assessment, part 2 (3 minutes). See F6-D9 Section 2.5 and Table 5.
+- Feasibility (F4 overall rating on segment fit, barrier reduction, landscape, regulation and sustainability). High: supply chain finance (purchase-order finance, invoice discounting and approved-supplier finance against standard supply MOUs, answering 30–90-day late payment); guarantee windows inside existing national schemes with a grant-funded first-loss layer (ECGC with 75–85% cover; NASRIA with 60% and a proposed 80/20 tier for women- and youth-led businesses; NASRIA/BOSRIA in Botswana; a Zambian lender willing to pay for cover); seasonal loans with low-season grace; first-loss and TA grants. Medium–High: matching grants, RTFF collateral-free loans, blended structures, savings groups. Medium: revolving funds, community guarantee funds, PPPs and concession joint ventures, PES and conservation trust funds. Low–Medium: revenue-based finance (a small later pilot) and impact investment (anchors and Tier 3, later RTFF capital). Low: green and sustainability bonds (long-term funding for partner banks only).
+- Blended models for women- and youth-led MSMEs (women own or lead 40% of surveyed MSMEs and youth 17%; both lack land collateral and credit history): (A) first-loss grant with movable-asset and lease-to-own finance; (B) a guarantee window that accepts orders, invoices and payment trails, built on NASRIA's 80/20 proposal; (C) a community guarantee fund seeded by grant and topped up by savings groups and community revenue; (D) results-based finance tied to conservation outcomes. A to C are recommended for the first cohort; D is designed now and piloted in PA2.
+- Selection guidance: the readiness tier decides the instrument (no debt at Tier 0); a credible buyer decides whether order-backed finance comes first; the security available decides the model (a movable asset: A; an order or invoice: B; savings-group membership: C; a conservation payment stream: D; none: an RTFF loan if buyer-linked, otherwise a grant).
+- Lot 2 grantees: piloting debt and risk-sharing with them is feasible for a screened subset (Tier 2, or Tier 1 with a buyer), likely one in four or fewer, with the grant as borrower contribution, cash collateral or pool seed.
+- Sustainability: each mechanism has an institutional home after the pilot (national guarantee schemes, partner lenders' product lines, anchors' procurement policies, MFI-managed community funds, the RTFF's future arrangements with the KAZA Secretariat), and concessionality tapers on a pre-agreed schedule.
+Facilitation prompt (item A5): Which mechanisms and models can your institutions carry, and on what conditions?`);
 
 // ---------------- 9. F5-D8 ----------------
 dslide("F5-D8 · Roundtable finance segments", "Participants put coaching and buyer links before money", [
