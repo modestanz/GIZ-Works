@@ -82,7 +82,7 @@ const children = [
   ]),
 
   H1("5. Outstanding risks"),
-  P("Table 5 lists the risks most affected by the handover, with the mitigation and who watches each. The full risk register is in F6-D9 Table 19."),
+  P("Table 5 lists the risks most affected by the handover, with the mitigation and who watches each. The full risk register is in F6-D9 Table 20."),
   ...table("Outstanding risks", ["Risk", "Mitigation", "Owner"], [3300, 4646, 1800], [
     ["Validation and decisions delayed (Secretariat review before member states; Committee date)", "Agree the route to member states; table decisions with the F6-D11 sheets; keep design work moving", "GIZ; KAZA Secretariat"],
     ["Partner interest does not turn into commitment", "Term-sheet talks in the first 60 days; first loss and fee support; more than one candidate per role", "GIZ"],

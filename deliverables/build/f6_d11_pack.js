@@ -80,7 +80,7 @@ const children = [
     options: ["A. 18–35 and a majority ownership or decision-making test, across all instruments.", "B. Leave each instrument to its own definition and map them in reporting."],
     rec: "Option A, with the exact year of birth recorded so that results can be re-cut to national bands.",
     implications: "The TUI Care Foundation would align RTFF milestones before cohort 1 selection.",
-    evidence: "F6-D9 Table 5 and §6.1; RTFF design.",
+    evidence: "F6-D9 Table 6 and §6.1; RTFF design.",
     next: "GIZ informs the TUI Care Foundation and SIGMA; definitions written into the grant manual, the RTFF referral protocol and the intake baseline.",
   }),
   ...sheet(3, "Botswana route for the RTFF", {
@@ -89,7 +89,7 @@ const children = [
     options: ["A. Wait for Route A before starting finance in PA2.", "B. Route B only: CEDA, NDB, BOSRIA-backed lenders, microfinance and the Youth Development Fund.", "C. Resource Route B now and add Route A if the TUI Care Foundation confirms it by Q1 2027."],
     rec: "Option C.",
     implications: "PA2 can start season one regardless of the RTFF; BOSRIA, CEDA and NDB would be briefed jointly, building on BOSRIA rather than designing a new scheme.",
-    evidence: "F6-D9 §2.5, §5.3 and Table 19; MiD2; RT-MN.",
+    evidence: "F6-D9 §2.5, §2.6, §5.3 and Table 20; MiD2; RT-MN.",
     next: "GIZ and the KAZA Secretariat write to the TUI Care Foundation; term-sheet talks with CEDA, NDB and BOSRIA (Decision 7).",
   }),
   ...sheet(4, "Grant-facility envelope and lot split", {
@@ -98,7 +98,7 @@ const children = [
     options: ["A. About 40% of value to Lot 1 and 60% to Lot 2; 60–70% to cohort 1 chains, 15–20% to crafts and conservation, 10–20% to second-wave chains and the phased pathway.", "B. A different split set by GIZ against the confirmed envelope."],
     rec: "Option A, applied to the envelope GIZ confirms; Lot 2 sized so that 30–60 grantees can enter the Activity 1.2.3 pilots.",
     implications: "The first Lot 1 window opens in the 2027 low season; grant managers must be contracted by April 2027.",
-    evidence: "F6-D9 §5.2 and Table 14.",
+    evidence: "F6-D9 §5.2 and Table 15.",
     next: "GIZ confirms the envelope; grant manual and competition package drafted; grant managers procured.",
   }),
   ...sheet(5, "First loss and guarantee fees under Activity 1.2.3", {
@@ -116,7 +116,7 @@ const children = [
     options: ["A. Request the extension now.", "B. Decide at Milestone M9 in Q2 2028.", "C. No extension; Gate 2 taken on one full low season."],
     rec: "Option A.",
     implications: "Allows Gate 2 and the evaluation to rest on two low seasons and gives time for an orderly handover to national institutions and the KAZA Secretariat.",
-    evidence: "F6-D9 §7.1 and Table 19; RT-VF.",
+    evidence: "F6-D9 §7.1 and Table 20; RT-VF.",
     next: "GIZ prepares the request to the funders; roadmap updated once the response is known.",
   }),
   ...sheet(7, "Term-sheet talks and decision-gate criteria", {

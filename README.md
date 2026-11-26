@@ -51,3 +51,7 @@ Files in `deliverables/` (PDF copies alongside each):
 - **F6-D12** readiness pack (6 pages, per the TOR: key decisions, partners and contacts, first 100-day actions, outstanding risks, documents and roles) and handover meeting documentation (agenda, participants, checklist and sign-off, minutes template, action log).
 
 Build: `node deliverables/build/<script>.js out.(pptx|docx)`. Decks use pptxgenjs (`npm install -g pptxgenjs`) with the balanced earth palette and the F6-D9 figure PNGs in `synthesis/figures/balanced_palette/`; Word documents use the F6-D9 house style via `deliverables/build/doc_lib.js`, then `src/update_toc.py` (twice) to fill the contents list.
+
+## F6-D9 revision (26 November 2026): section 2.5 on financing mechanisms
+
+The F6-D9 Word file is now the author's edited version, with a new section **2.5 Financing mechanisms identified** (synthesis of F4-D7: feasibility of 18 mechanism types, Table 5, blended models A–D, selection guidance, national versus regional, Lot 2 grantees, sustainability) and an executive-summary paragraph. Later sections and tables were renumbered (2.6, 2.7; Tables 6–23). The edit was made directly in the Word XML (`synthesis/edits/`), so `synthesis/build.js` no longer reproduces the current report; edit the Word file from now on. The file asks Word to refresh fields on opening so the contents page numbers update.
