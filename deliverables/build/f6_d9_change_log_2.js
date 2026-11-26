@@ -4,7 +4,7 @@ const { makeKit, buildDoc } = require("./doc_lib");
 const K = makeKit();
 const { P, H1, B, table, SRC } = K;
 
-const fills = { Addition: "E2EFDA", Correction: "FCE4D6", Renumbering: "EDEDED" };
+const fills = { Addition: "E2EFDA", Correction: "FCE4D6", Renumbering: "EDEDED", Consistency: "DDEBF7" };
 const row = (cells) => ({ cells, fills: cells.map((c, i) => (i === 3 ? fills[c] : undefined)) });
 const mapRows = [];
 for (let n = 7; n <= 23; n++) mapRows.push([`Table ${n}`, `Table ${n - 1}`]);
@@ -15,10 +15,11 @@ const children = [
   new Paragraph({ spacing: { after: 240 }, children: [new TextRun({ text: "KAZA R-NBT · Output 1.2 Access to Finance · November 2026", size: 18 })] }),
 
   H1("1. Versions compared"),
-  P("This log records the changes between the author’s draft of 26 November 2026 (saved 20:20) and the updated draft. The two files were compared paragraph by paragraph, including every table. All other text is unchanged."),
+  P("This log records the changes between the author’s draft of 26 November 2026 (saved 20:20) and the updated draft. The two files were compared paragraph by paragraph, including every table. All other text is unchanged. Changes 13–16 were made afterwards, on the author’s reviewed draft (SEC_DRAFT, 26 November 2026), to align the platform cycle in the body with the executive summary; the author’s own edit to Annex D in that draft (the Sustainable Finance Coalition row now names WWF-US and the KAZA Conservation Trust Fund) is retained."),
   ...table("Versions compared", ["Version", "Pages (total)", "Main text (excluding annexes)", "Annexes"], [2900, 1700, 3046, 2100], [
     ["Author’s draft, 26 November 2026", "35", "28 pages (pages 4–31)", "A–D"],
     ["Updated draft", "39", "29 pages (pages 5–33)", "A–E"],
+    ["Author’s reviewed draft (SEC_DRAFT) with changes 13–16", "39", "29 pages (pages 5–33), unchanged", "A–E"],
   ]),
   P("Page counts are from a PDF rendering and may differ by a page in Word. The main text is within the 30-page limit in the terms of reference but one page above the earlier target of fewer than 28 pages (Section 5)."),
 
@@ -40,6 +41,10 @@ const children = [
     row(["10", "Table 3 (source reports), MiD row", "“64 in the KAZA component, 40 in Okavango–Maun” corrected to “64 in Hwange–Victoria Falls–Livingstone, 40 in Okavango–Maun”: the 64 respondents are those of the first priority area.", "Correction"]),
     row(["11", "Section 7.7 and Annex E", "“7.6 Immediate next steps” becomes 7.7; “Annex D: References” becomes Annex E.", "Renumbering"]),
     row(["12", "Contents", "New entries for Section 7.6 and Annex D; renumbered entries for 7.7 and Annex E; page numbers updated. Word is set to update fields when the file opens.", "Renumbering"]),
+    row(["13", "Section 5.1, Structure", "“A quarterly cycle timed to the season” becomes “A cycle every four months, timed to the season”. The cycle has three sessions a year (low season, pre-season deal day, peak season), so it runs every four months, as the executive summary already says.", "Consistency"]),
+    row(["14", "Section 5.1, Table 13 (formats)", "Format “Quarterly deal days” renamed “Deal days every four months”.", "Consistency"]),
+    row(["15", "Section 6.2, Table 17 (indicator A1, target)", "Target “Quarterly cycle in each active area” becomes “A cycle every four months in each active area”. Reporting frequencies (“quarterly” for event reports, portfolio and grant data) are unchanged: they are reporting periods, not the platform cycle.", "Consistency"]),
+    row(["16", "Section 7.1, Season one", "“quarterly deal days” becomes “deal days every four months”.", "Consistency"]),
   ]),
 
   H1("4. Table numbering"),
