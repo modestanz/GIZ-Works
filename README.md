@@ -41,3 +41,13 @@ python3 src/update_toc.py "$PWD/pass1.docx" "$PWD/F6-D9.docx"
 ```
 
 `update_toc.py` may print a `DisposedException` after saving; the output files are still written.
+
+## F6-D10, F6-D11 and F6-D12 (November 2026)
+
+Files in `deliverables/` (PDF copies alongside each):
+
+- **F6-D10** validation deck for the 2nd Roundtable plenary (25 slides with speaker notes) and the plenary facilitation guide with validation templates (validation log, participant sheet, revision log, attendance register).
+- **F6-D11** Oversight Committee deck (22 slides), integrating the Macro Diagnostic, Micro Diagnostics and Roundtables with Output 1.2, and the summary pack with seven decision sheets and a draft decision record.
+- **F6-D12** readiness pack (readiness by component and country, partnerships, document register, template outlines, open decisions, roles, first 90 days) and handover meeting documentation (agenda, participants, checklist and sign-off, minutes template, action log).
+
+Build: `node deliverables/build/<script>.js out.(pptx|docx)`. Decks use pptxgenjs (`npm install -g pptxgenjs`) with the balanced earth palette and the F6-D9 figure PNGs in `synthesis/figures/balanced_palette/`; Word documents use the F6-D9 house style via `deliverables/build/doc_lib.js`, then `src/update_toc.py` (twice) to fill the contents list.
