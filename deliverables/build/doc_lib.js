@@ -65,7 +65,7 @@ function makeKit() {
 // cover: { title, subtitle, code, codeLine, dateLine, status }
 function buildDoc({ out, header, cover, children, toc = true, docTitle }) {
   const center = (kids, spacing = {}) => new Paragraph({ alignment: AlignmentType.CENTER, spacing: { line: 240, lineRule: LineRuleType.AUTO, after: 100, ...spacing }, children: kids });
-  const titlePage = [
+  const titlePage = !cover ? [] : [
     center([new TextRun({ text: cover.title, bold: true, size: 40, color: TEAL })], { before: 1200, after: 100 }),
     center([new TextRun({ text: cover.subtitle, italics: true, size: 24 })], { before: 288 }),
     center([new TextRun({ text: "Kavango Zambezi Transfrontier Conservation Area: Angola · Botswana · Namibia · Zambia · Zimbabwe", italics: true, size: 24 })], { after: 1100 }),
@@ -92,7 +92,7 @@ function buildDoc({ out, header, cover, children, toc = true, docTitle }) {
   const coverProps = { page: { size: { width: 11906, height: 16838 }, margin: { top: 1440, right: 1440, bottom: 1440, left: 1440, header: 708, footer: 708 } } };
   const pageProps = { page: { size: { width: 11906, height: 16838 }, margin: { top: 1440, right: 1080, bottom: 1440, left: 1080, header: 708, footer: 708 } } };
   const doc = new Document({
-    creator: "Modesta Nyirenda", title: docTitle || cover.title, features: { updateFields: toc },
+    creator: "Modesta Nyirenda", title: docTitle || (cover && cover.title), features: { updateFields: toc },
     styles: {
       default: { document: { run: { font: FONT, size: 22 }, paragraph: { spacing: { after: 160, line: 259, lineRule: LineRuleType.AUTO } } } },
       paragraphStyles: [
@@ -108,9 +108,11 @@ function buildDoc({ out, header, cover, children, toc = true, docTitle }) {
       { reference: "b", levels: [{ level: 0, format: LevelFormat.BULLET, text: "•", alignment: AlignmentType.LEFT, style: { paragraph: { indent: { left: 720, hanging: 360 } } } }] },
       ...["n", "n2", "n3", "n4", "n5", "n6", "n7", "n8"].map((reference) => ({ reference, levels: [{ level: 0, format: LevelFormat.DECIMAL, text: "%1.", alignment: AlignmentType.LEFT, style: { paragraph: { indent: { left: 720, hanging: 360 } } } }] })),
     ] },
-    sections: [
+    sections: cover ? [
       { properties: { ...coverProps, titlePage: true }, headers: { default: hdr(), first: coverHeader }, footers: { default: ftr(), first: coverFooter }, children: titlePage },
       { properties: { ...pageProps, type: SectionType.NEXT_PAGE }, headers: { default: hdr() }, footers: { default: ftr() }, children: [...tocPage, ...children] },
+    ] : [
+      { properties: { ...pageProps }, headers: { default: hdr() }, footers: { default: ftr() }, children: [...tocPage, ...children] },
     ],
   });
   return Packer.toBuffer(doc).then((b) => { fs.writeFileSync(out, b); console.log("Wrote", out); });
