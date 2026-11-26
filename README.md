@@ -48,6 +48,6 @@ Files in `deliverables/` (PDF copies alongside each):
 
 - **F6-D10** high-level validation deck (10 graphical slides, narrative in the speaker notes) and the plenary facilitation guide with validation templates (validation log, participant sheet, revision log, attendance register).
 - **F6-D11** Oversight Committee deck (22 slides), integrating the Macro Diagnostic, Micro Diagnostics and Roundtables with Output 1.2, and the summary pack with seven decision sheets and a draft decision record.
-- **F6-D12** readiness pack (readiness by component and country, partnerships, document register, template outlines, open decisions, roles, first 90 days) and handover meeting documentation (agenda, participants, checklist and sign-off, minutes template, action log).
+- **F6-D12** readiness pack (6 pages, per the TOR: key decisions, partners and contacts, first 100-day actions, outstanding risks, documents and roles) and handover meeting documentation (agenda, participants, checklist and sign-off, minutes template, action log).
 
 Build: `node deliverables/build/<script>.js out.(pptx|docx)`. Decks use pptxgenjs (`npm install -g pptxgenjs`) with the balanced earth palette and the F6-D9 figure PNGs in `synthesis/figures/balanced_palette/`; Word documents use the F6-D9 house style via `deliverables/build/doc_lib.js`, then `src/update_toc.py` (twice) to fill the contents list.
