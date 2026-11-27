@@ -26,11 +26,11 @@ const arrow = (s, x1, y1, x2, y2, color, width = 2) => {
 };
 const bullets = (items, o = {}) => items.map((t, k) => ({ text: t, options: { bullet: { indent: o.indent || 12 }, breakLine: k < items.length - 1, paraSpaceAfter: o.space ?? 6 } }));
 // "Informs Decision ..." chip under the title
-const chip = (s, nums, label = "Informs") => {
-  const w = 1.55 + nums.length * 0.5;
+const chip = (s, nums, label = "Informs", lw = 1.45) => {
+  const w = lw + 0.1 + nums.length * 0.5;
   box(s, { x: 0.6, y: 1.22, w, h: 0.4, fill: "F3E3DC", line: HEX.terra, radius: 0.2 });
-  T(s, label + (nums.length > 1 ? " decisions" : " decision"), { x: 0.72, y: 1.22, w: 1.45, h: 0.4, fontSize: 12, bold: true, color: HEX.terraDk, valign: "middle" });
-  nums.forEach((n, i) => circle(s, 2.12 + i * 0.5, 1.26, 0.32, HEX.terra, n, 11));
+  T(s, label + (nums.length > 1 ? " decisions" : " decision"), { x: 0.72, y: 1.22, w: lw, h: 0.4, fontSize: 12, bold: true, color: HEX.terraDk, valign: "middle" });
+  nums.forEach((n, i) => circle(s, 0.67 + lw + i * 0.5, 1.26, 0.32, HEX.terra, n, 11));
 };
 const chartText = { catAxisLabelFontFace: "+mn-lt", valAxisLabelFontFace: "+mn-lt", dataLabelFontFace: "+mn-lt", titleFontFace: "+mn-lt", legendFontFace: "+mn-lt" };
 const DEC = [
@@ -394,7 +394,7 @@ s.addNotes(
 
 // ---------------- 11. M&E and risks ----------------
 s = content("Results measured once; the main risks link to today's decisions");
-chip(s, [2]);
+chip(s, [2], "Measurement informs", 2.55);
 T(s, "One measurement system on GM1-D5", { x: 0.6, y: 1.8, w: 5.6, h: 0.4, fontSize: 16, bold: true, color: C.text2, fontFace: "Cambria" });
 [["18", "GM1-D5 indicators"], ["23", "Output 1.2 indicators"], ["32", "RTFF pilot and handover"]].forEach(([v, l], i) => {
   const x = 0.6 + i * 1.9;
@@ -414,7 +414,8 @@ const rk = [
   ["Partner interest does not turn into commitment", [4, 5]],
   ["Project ends before two seasons are observed (extension sought by GIZ)", []],
   ["Thin cohort 1 pipeline of coached, buyer-linked firms", [3]],
-  ["Low-season default; currency and exchange control", [4]],
+  ["Low-season default", [4]],
+  ["Currency and exchange control", []],
   ["Inconsistent targeting across instruments", [2]],
 ];
 rk.forEach(([t, ds], i) => {
@@ -429,7 +430,7 @@ s.addNotes(
 - Output 1.2 should use one measurement system for the baseline, the grant milestones, the RTFF pricing step-downs and the results framework, built on the 18 GM1-D5 baseline indicators and recorded at intake (GM3-D11). The synthesis proposes 23 Output 1.2 indicators; the RTFF adds 32 for the pilot, partner readiness, handover and roll-out. Outputs (mechanisms established, loans and grants made) are kept separate from outcomes (share obtaining finance, survey reference 21%; repayment by season, with PAR30 at 15% as the stop-or-adjust threshold; days taken by anchors to pay suppliers) and impact (revenue, jobs, finance leveraged per euro of at least 1:1, lenders continuing without concessional support).
 - Every indicator is disaggregated by sex, age, disability, country, value chain and readiness tier. This only works if one youth band (18–35, with the exact year of birth recorded so results can be re-cut to national bands) and one women-led test (majority ownership or decision-making) are used across the grant facility, the RTFF and M&E: Decision 2. The programme uses 18–35; the RTFF 18–30; national youth bands run from 15 to 45.
 - Three baselines are needed before cohort 1: a disaggregated MSME intake baseline, a lender portfolio baseline and an anchor procurement baseline. The survey is a reference point, not a baseline.
-- The risks rated high in impact that the Committee can most influence each link to a decision: partner commitment (first loss, Decision 4; term-sheet talks, Decision 5); the timeframe (the extension to mid-2029, sought by GIZ outside this assignment); the depth of the cohort 1 pipeline (Lot 2 grantees as a second-round pipeline, Decision 3); low-season default and currency risk (loss reserve and first loss, Decision 4); and inconsistent targeting (Decision 2).`);
+- The risks rated high in impact that the Committee can most influence each link to a decision: partner commitment (first loss, Decision 4; term-sheet talks, Decision 5); the timeframe (the extension to mid-2029, sought by GIZ outside this assignment); the depth of the cohort 1 pipeline (Lot 2 grantees as a second-round pipeline, Decision 3); low-season default (first loss, Decision 4); and inconsistent targeting (Decision 2). Two risks are noted rather than linked to a decision: the timeframe (the extension, for GIZ and the funders) and currency and exchange control, which is managed through the loan terms (lending in the currency of revenue, a loss reserve, registering foreign loans with the Reserve Bank of Zimbabwe) rather than by a Committee decision. The tag at the top of the slide refers to the measurement panel: one youth band and one women-led test are needed for disaggregated results (Decision 2).`);
 
 // ---------------- 12. Strategic partners ----------------
 s = content("Who sustains it after the pilot: strategic partners");
