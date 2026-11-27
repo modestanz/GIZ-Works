@@ -433,7 +433,7 @@ s.addNotes(
 - The risks rated high in impact that the Committee can most influence each link to a decision: partner commitment (first loss, Decision 4; term-sheet talks, Decision 5); the timeframe (the extension to mid-2029, sought by GIZ outside this assignment); the depth of the cohort 1 pipeline (Lot 2 grantees as a second-round pipeline, Decision 3); low-season default (first loss, Decision 4); and inconsistent targeting (Decision 2). Two risks are noted rather than linked to a decision: the timeframe (the extension, for GIZ and the funders) and currency and exchange control, which is managed through the loan terms (lending in the currency of revenue, a loss reserve, registering foreign loans with the Reserve Bank of Zimbabwe) rather than by a Committee decision. The tag at the top of the slide refers to the measurement panel: one youth band and one women-led test are needed for disaggregated results (Decision 2).`);
 
 // ---------------- 12. Strategic partners ----------------
-s = content("Who sustains it after the pilot: strategic partners");
+s = content("Partners to sustain the RTFF beyond the pilot");
 box(s, { x: 0.6, y: 1.22, w: 3.6, h: 0.4, fill: "F3E3DC", line: HEX.terra, radius: 0.2, text: "For noting and endorsement", size: 12, bold: true, color: HEX.terraDk });
 [
   ["Anchoring and long-term capital", HEX.forest, ["KAZA Conservation Trust Fund: the RTFF as a programme account after 2028–2029", "TUI Care Foundation carries the RTFF until it is anchored", "KAZA Secretariat: regional layer; RTFF future by Q4 2028"]],
