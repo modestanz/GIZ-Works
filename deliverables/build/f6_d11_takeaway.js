@@ -7,11 +7,11 @@ const { P, H1, H2, B, table, fig, SRC } = K;
 const children = [
   // 1. At a glance
   H1("1. At a glance"),
-  P("This take-away summarises the recommendations for Output 1.2 of the KAZA Regenerative Nature-Based Tourism (R-NBT) programme: **financial mechanisms are established in collaboration with financial institutions to support targeted MSMEs**, with a focus on enterprises led by women, youth and communities near protected areas. It accompanies the presentation to the Oversight Committee (F6-D11), where the Committee is asked to take five decisions that move Output 1.2 from design to agreements in early 2027. Full evidence and detail are in the F6-D9 Consolidated Synthesis Report."),
+  P("This take-away summarises the recommendations of the **Financial Landscape Analysis** workstream (studies F1-D4 to F5-D8) for Output 1.2 of the KAZA Regenerative Nature-Based Tourism (R-NBT) programme: **financial mechanisms are established in collaboration with financial institutions to support targeted MSMEs**, with a focus on enterprises led by women, youth and communities near protected areas. It accompanies the presentation to the Oversight Committee (F6-D11), where the Committee is asked to take five decisions that move Output 1.2 from design to agreements in early 2027. Full evidence and detail are in the F6-D9 Consolidated Synthesis Report."),
   ...B([
-    "**Finance exists, but not on terms these enterprises can use.** Of 106 MSMEs surveyed, 82 name finance as a top-three challenge, yet 54 have never applied; a buyer raises the chance of obtaining finance from 8% to 28%.",
-    "**Two priority areas, two starting points.** Hwange–Victoria Falls–Livingstone needs finance on better cost and structure; Okavango–Maun, more informal and 48% women-led, needs access first.",
-    "**Coaching and buyer links come before money,** and lenders will not change terms without risk-sharing.",
+    "**Finance exists, but not on terms these enterprises can use (F1-D4):** every Partner State has lenders and guarantee schemes to build on, but tourism barely uses them.",
+    "**Five barriers block access (F2-D5),** and most enterprises are not yet ready for debt (F3-D6); a buyer raises the chance of finance from 8% to 28%.",
+    "**Lenders will not change terms without risk-sharing (F4-D7),** and participants put coaching and buyer links before money (F5-D8).",
     "**One route to finance: connect, prepare, finance.** Dialogue platforms, grants and adapted finance from institutions that stay, piloted over two tourism seasons, with results that trigger finance decisions.",
     "**Public institutions and strategic partners carry it forward:** state business support organisations, tourism authorities and district councils locally; the KAZA Conservation Trust Fund and funders active in KAZA after the pilot.",
   ]),
@@ -28,21 +28,23 @@ const children = [
   ]),
 
   // 3. What the evidence shows
-  H1("3. What the evidence shows"),
-  H2("Finance is misaligned, not absent"),
+  H1("3. What the Financial Landscape Analysis found"),
+  H2("The landscape: finance is misaligned, not absent (F1-D4)"),
   P("Banks in all five Partner States are liquid and present in the hub towns, each Partner State has a development lender or public MSME financier, and four run national credit guarantee schemes. But the finance on offer is built for land collateral, steady monthly income and formal records, while most R-NBT MSMEs are micro or informal, operate on communal or concession land and earn most of their revenue in five peak months. Tourism takes about 4% of Namibia’s guarantee scheme reach and under 10% of Zimbabwe’s."),
-  ...fig("fig3_destinations_bal.png", "Finance-relevant profile of the two priority areas (November 2026 survey update; self-selected, indicative)", 600),
-  H2("What participants asked for"),
+  H2("Where each Partner State can start (F1-D4)"),
+  P("Zambia (4.1) and Zimbabwe (3.9) are ready to pilot; Botswana (3.4) and Namibia (3.2) are ready with adjustments; Angola (1.4) needs readiness work first. Output 1.2 is therefore proposed to work through two delivery cores, Hwange–Victoria Falls–Livingstone and Okavango–Maun, with Namibia’s Zambezi Region as a third area if resourced and Angola on a readiness-first track. In Botswana, the RTFF’s Chobe–Maun corridor has been decided."),
+  ...fig("fig2_readiness_bal.png", "Partner State readiness to pilot an MSME finance mechanism, with the institutions to build on", 600),
+  H2("Barriers and readiness (F2-D5, F3-D6)"),
+  P("Five barriers block access: collateral, since most enterprises operate on communal or concession land; seasonality, with most revenue in five peak months; informality and capacity; lenders’ perception of risk; and power imbalances in supply chains, such as unwritten orders and late payment. A buyer arrangement raises the chance of obtaining finance from 8% to 28%. Most enterprises are at readiness Tiers 0–1, so gaps in records, compliance and management are part of the finance gap: grants and coaching come before debt for them, and finance first for buyer-linked Tier 2 suppliers."),
+  ...fig("fig3_destinations_bal.png", "Finance-relevant profile of the two priority areas, from the Micro Diagnostics survey (November 2026; self-selected, indicative)", 600),
+  H2("What lenders need (F4-D7)"),
+  P("Lenders and guarantors consulted will not adapt collateral and repayment terms without risk-sharing. The most feasible mechanisms are **order-backed supply chain finance, guarantee windows with a first-loss layer and seasonal loans**; the TUI Care Foundation’s **RTFF** is the collateral-free pilot for the EUR 1,000–30,000 gap; four blended models address collateral for women- and youth-led enterprises."),
+
+  H2("What participants asked for (F5-D8)"),
   ...B([
     "**Victoria Falls (cost and structure):** 17 of 19 respondents would apply for a no-collateral, order-linked loan; 12 of 19 want finance mainly for equipment, vehicles or boats; preferred rates of about 3–8% over two to five years, against bank rates near 28%; only 6 of 19 sell under a written contract; 13 of 19 put coaching first.",
     "**Maun (access):** training alongside the loan; simple, fast applications in Setswana and on paper; a route for unregistered groups; deposits of about 50% and payment within one to two weeks; direct payment to producers, a women’s fund and a youth share.",
   ]),
-  H2("Where each Partner State can start"),
-  P("Zambia (4.1) and Zimbabwe (3.9) are ready to pilot; Botswana (3.4) and Namibia (3.2) are ready with adjustments; Angola (1.4) needs readiness work first. Output 1.2 is therefore proposed to work through two delivery cores, Hwange–Victoria Falls–Livingstone and Okavango–Maun, with Namibia’s Zambezi Region as a third area if resourced and Angola on a readiness-first track. In Botswana, the RTFF’s Chobe–Maun corridor has been decided."),
-  ...fig("fig2_readiness_bal.png", "Partner State readiness to pilot an MSME finance mechanism, with the institutions to build on", 600),
-  H2("What lenders need"),
-  P("Lenders and guarantors consulted will not adapt collateral and repayment terms without risk-sharing. The most feasible mechanisms are **order-backed supply chain finance, guarantee windows with a first-loss layer and seasonal loans**; the TUI Care Foundation’s **RTFF** is the collateral-free pilot for the EUR 1,000–30,000 gap; four blended models address collateral for women- and youth-led enterprises."),
-
   // 4. What Output 1.2 proposes
   H1("4. What Output 1.2 proposes: one route to finance"),
   P("The three Output 1.2 activities are one route to finance, not three projects. Enterprises enter at their readiness tier and move up as each step creates the record the next lender needs, supported throughout by Activity 1.1.1 coaching."),

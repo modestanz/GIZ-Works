@@ -5,13 +5,25 @@ const K = makeKit();
 const { P, H1, B, table, SRC } = K;
 
 const G = "E2EFDA", A = "FFF2CC", R = "F8D7D0";
-const st = (label) => ({ Ready: G, "Partly ready": A, "Not ready": R, Taken: G, Pending: A, Open: A }[label]);
+const st = (label) => ({ Ready: G, "Partly ready": A, "Not ready": R, Taken: G, Pending: A, Open: A, Submitted: G, "Feedback awaited": A, "Feedback being incorporated": A, "For validation": A, "This pack": G }[label]);
 const row = (cells, si) => ({ cells, fills: cells.map((_, i) => (i === si ? st(cells[i]) : undefined)) });
 
 const children = [
   H1("1. Purpose and status"),
-  P("This readiness pack hands over the Output 1.2 work on financial mechanisms for R-NBT MSMEs to GIZ, the KAZA Secretariat, the SADC Secretariat and the officers responsible for implementing Output 1.2. As the terms of reference require, it summarises the **key decisions**, the **partners and contacts**, the **first 100-day actions** and the **outstanding risks**. It is Part 1 of F6-D12; Part 2 is the handover meeting documentation. The work handed over is the Financial Landscape Analysis workstream (F1-D4 to F5-D8), informed by SIGMA’s Macro and Micro Diagnostics and consolidated in F6-D9 (26 November 2026)."),
+  P("This readiness pack hands over the work of the Financial Landscape Analysis workstream on Output 1.2 financial mechanisms for R-NBT MSMEs to GIZ, the KAZA Secretariat, the SADC Secretariat and the officers responsible for implementing Output 1.2. As the terms of reference require, it summarises the **key decisions**, the **partners and contacts**, the **first 100-day actions** and the **outstanding risks**. It is Part 1 of F6-D12; Part 2 is the handover meeting documentation. The workstream’s studies (F1-D4 to F5-D8) were informed by SIGMA’s Macro and Micro Diagnostics and consolidated in F6-D9; Table 1 lists every deliverable and its status."),
   P("Status is as of 27 November 2026. The designs are complete (F6-D9, with change logs), and the materials for validation (F6-D10 deck and facilitation guide) and for the Oversight Committee (F6-D11 deck, summary pack with decision sheets, and take-away) are ready. Implementation depends on validation at the second roundtable, on the Committee’s five decisions and on partner commitments. The consultant remains available after contract closure for reporting and handover, drawing on hours already committed. Ratings: **Ready** (can proceed now), **Partly ready** (design done, key steps outstanding), **Not ready** (depends on a decision or resources not yet in place)."),
+  ...table("Financial Landscape Analysis deliverables", ["Deliverable", "Version", "Status", "What it hands over"], [3100, 1900, 1500, 3246], [
+    row(["F0 Inception: workplan, method, available resources", "Inception phase", "Submitted", "Workplan, method, lessons from past programmes"], 2),
+    row(["F1-D4 Financial Landscape Analysis", "Revised draft, 29 Oct 2026", "Feedback awaited", "Lenders, guarantors and support by Partner State; readiness scores"], 2),
+    row(["F2-D5 Barriers and Opportunities", "Revised draft, 29 Oct 2026", "Submitted", "Barriers and root causes; lender risk views; grant facility design"], 2),
+    row(["F3-D6 Investment Readiness and Enterprise Strengthening", "5 Nov 2026", "Submitted", "Readiness tiers 0–3; capacity needs; lead BSOs; baseline fields"], 2),
+    row(["F4-D7 Financing Mechanisms Assessment", "Revised draft, 18 Nov 2026", "Feedback being incorporated", "Mechanism feasibility; blended models; pilot design; partner shortlist"], 2),
+    row(["F5-D8 Roundtable preparation and documentation", "Draft 2; segment reports, Nov 2026", "Submitted", "Institutional evidence; roundtable and working-session findings"], 2),
+    row(["F6-D9 Consolidated Synthesis Report", "26 Nov 2026, with change logs", "For validation", "Output 1.2 framework, recommendations, M&E, roadmap, partners"], 2),
+    row(["F6-D10 Validation presentation and plenary", "Deck; facilitation guide", "Ready", "Materials for the second roundtable"], 2),
+    row(["F6-D11 Summary pack for the Oversight Committee", "Deck; pack with decision sheets; take-away", "Ready", "Five decisions and the take-away"], 2),
+    row(["F6-D12 Readiness pack and handover", "This pack; meeting documentation", "This pack", "Decisions, partners, 100 days, risks"], 2),
+  ]),
   ...table("Readiness at a glance", ["Component", "Status", "In place", "Outstanding"], [2100, 1250, 3200, 3196], [
     row(["1.2.1 Dialogue platforms", "Partly ready", "Formats, a cycle every four months, conveners per area; lender learning platform designed; supplier directory started with SIGMA", "Conveners contracted; readiness diagnostic and supply MOU template; first sessions"], 1),
     row(["1.2.2 Grant facility", "Not ready", "Lot design, scoring, contribution rules, conversion clause", "Envelope and lot split; grant manual; grant managers"], 1),
@@ -23,7 +35,7 @@ const children = [
   ]),
 
   H1("2. Key decisions"),
-  P("Table 2 lists the decisions taken during the assignment and those still pending, with who decides. The five Oversight Committee decisions are set out with options in the F6-D11 decision sheets."),
+  P("Table 3 lists the decisions taken during the assignment and those still pending, with who decides. The five Oversight Committee decisions are set out with options in the F6-D11 decision sheets."),
   ...table("Key decisions taken and pending", ["Decision", "Status", "Who decides", "Note"], [3700, 1050, 2300, 2696], [
     { band: "Taken during the assignment (to be confirmed through validation)" },
     row(["Keep the two grant lots of the Output 1.2 design; no third lot", "Taken", "GIZ (design)", "Lot 1 up to EUR 10,000; Lot 2 EUR 10,000–40,000"], 1),
@@ -44,7 +56,7 @@ const children = [
   ]),
 
   H1("3. Partners and contacts"),
-  P("Table 3 lists the institutions to work with in each area, the strategic partners proposed to sustain the RTFF and the other mechanisms (F6-D9 Section 7.6 and Annex D) and the partnership conversations that pass to GIZ, with their status and next step. No institution has yet committed to a pilot role. Named contacts and contact details are held in the stakeholder databases annexed to F1-D4 and F2-D5 and in the consultation records handed over at the meeting; they are not reproduced here."),
+  P("Table 4 lists the institutions to work with in each area, the strategic partners proposed to sustain the RTFF and the other mechanisms (F6-D9 Section 7.6 and Annex D) and the partnership conversations that pass to GIZ, with their status and next step. No institution has yet committed to a pilot role. Named contacts and contact details are held in the stakeholder databases annexed to F1-D4 and F2-D5 and in the consultation records handed over at the meeting; they are not reproduced here."),
   ...table("Partners, status and next step", ["Partner", "Role in Output 1.2", "Status (Nov 2026)", "Next step", "Lead"], [1900, 2300, 2300, 2146, 1100], [
     { band: "Financial institutions and guarantors by area" },
     ["Zambia (PA1): FNB Zambia, ZANACO, ZCGS, MSMED, CEEC", "Risk-sharing for order-backed supply and guiding; matching grants", "Readiness 4.1; FNB would pay for risk sharing", "Term-sheet talks", "GIZ"],
@@ -68,7 +80,7 @@ const children = [
   ]),
 
   H1("4. First 100 days after handover"),
-  P("Table 4 sets out the first 100 days, counted from the handover meeting (day 1), assuming the second roundtable and the Oversight Committee meet within the first two months. Owners are proposals for confirmation at the handover meeting."),
+  P("Table 5 sets out the first 100 days, counted from the handover meeting (day 1), assuming the second roundtable and the Oversight Committee meet within the first two months. Owners are proposals for confirmation at the handover meeting."),
   ...table("First 100-day actions", ["Days", "Action", "Owner (proposed)"], [1100, 6646, 2000], [
     { band: "Days 1–14: take over" },
     ["1", "Handover meeting; files transferred to the GIZ project folder; owners and action log agreed", "GIZ; consultant"],
@@ -90,7 +102,7 @@ const children = [
   ]),
 
   H1("5. Outstanding risks"),
-  P("Table 5 lists the risks most affected by the handover, with the mitigation, the F6-D11 decision that reduces each (noted: not for the Committee) and the owner. The full register is in F6-D9 Table 19."),
+  P("Table 6 lists the risks most affected by the handover, with the mitigation, the F6-D11 decision that reduces each (noted: not for the Committee) and the owner. The full register is in F6-D9 Table 19."),
   ...table("Outstanding risks", ["Risk", "Mitigation", "F6-D11 decision", "Owner"], [2900, 4146, 1100, 1600], [
     ["Validation and decisions delayed (Secretariat review; Committee date)", "Agree the route to member states; keep design work moving", "—", "GIZ; KAZA Secretariat"],
     ["Partner interest does not turn into commitment", "Term-sheet talks in the first 60 days; first loss; several candidates per role", "4, 5", "GIZ"],
@@ -105,11 +117,9 @@ const children = [
   ]),
 
   H1("6. Documents, templates and roles"),
-  P("All documents are transferred at the handover meeting. Table 6 lists them, and Table 7 sets out who leads each function after handover."),
-  ...table("Documents handed over", ["Document", "Version", "Use"], [5200, 2100, 2446], [
-    ["F1-D4 to F5-D8 finance studies and roundtable finance segment reports", "Revised drafts, Oct–Nov 2026", "Evidence base"],
-    ["F6-D9 Consolidated Synthesis Report and change logs", "Draft of 26 Nov 2026", "Reference for all decisions"],
-    ["F6-D10 validation deck and facilitation guide; F6-D11 deck, summary pack with decision sheets, take-away and change log", "Nov 2026", "Roundtable; Committee"],
+  P("The deliverables in Table 1 and the supporting documents in Table 7 are transferred at the handover meeting; Table 8 sets out who leads each function after handover."),
+  ...table("Supporting documents handed over", ["Document", "Version", "Use"], [5200, 2100, 2446], [
+    ["Change logs for F6-D9 and the F6-D11 deck; figure source files", "Nov 2026", "Version history"],
     ["GM1-D5 indicator extract; RTFF indicators; decision-gate criteria", "Nov 2026", "M&E and gates"],
     ["KAZA–OKACOM synergy note; ITC convergence note; GIZ–SFC minutes", "Oct–Nov 2026", "Coordination; partnerships"],
   ]),
