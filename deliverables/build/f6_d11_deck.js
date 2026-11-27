@@ -392,8 +392,8 @@ s.addNotes(
 - Three decision points: Gate 1 (Q1 2028): continue, adjust or stop each product; stop or adjust if arrears over 30 days (PAR30) exceed 15% or uptake is below half of target. RTFF future (Q4 2028): form, host, capital and national channels agreed with the KAZA Secretariat, before Gate 2 so that the handover has a destination. Gate 2 (Q4 2028): continue, adjust or hand over, on repayment by season, at least 60% to women- and youth-led enterprises, and lenders continuing with less concessional support. Decision 5 endorses these criteria, set out in the separate Output 1.2 Decision Gates document.
 - The project currently ends in December 2028. Without the extension to mid-2029, the second low season is not observed before the final review. The extension is a decision for GIZ and the funders, outside this assignment; it is shown here because the roadmap depends on it.`);
 
-// ---------------- 11. Measurement drives finance; risks ----------------
-s = content("Measurement drives finance");
+// ---------------- 11. What we measure, and what it decides; risks ----------------
+s = content("What we measure, and what it decides");
 chip(s, [2, 3, 4, 5], "Measurement informs", 2.75);
 
 // ---- left: measure -> finance decision ----
@@ -402,8 +402,12 @@ T(s, [
   { text: "18 programme indicators (GM1-D5), plus 23 for Output 1.2 and 32 for the RTFF, all broken down by sex, age (18–35), disability, country, value chain and readiness tier" },
 ], { x: 0.6, y: 1.7, w: 5.2, h: 0.7, fontSize: 11, valign: "middle" });
 circle(s, 5.88, 1.91, 0.36, HEX.terra, 2, 11.5);
-T(s, "We measure", { x: 0.6, y: 2.45, w: 2.35, h: 0.3, fontSize: 12, bold: true, color: "6B6B6B" });
-T(s, "It decides", { x: 3.35, y: 2.45, w: 2.5, h: 0.3, fontSize: 12, bold: true, color: "6B6B6B" });
+T(s, [
+  { text: "Also tracked: ", options: { bold: true, color: C.text2 } },
+  { text: "outputs (loans and grants by product, season, sex and age; mechanisms and supply MOUs) · outcomes (share obtaining finance, ref. 21%; days for anchors to pay) · impact (revenue and jobs)" },
+], { x: 0.6, y: 2.4, w: 5.75, h: 0.6, fontSize: 11, valign: "middle", color: "333333" });
+T(s, "We measure", { x: 0.6, y: 3.05, w: 2.35, h: 0.3, fontSize: 12, bold: true, color: "6B6B6B" });
+T(s, "It decides", { x: 3.35, y: 3.05, w: 2.5, h: 0.3, fontSize: 12, bold: true, color: "6B6B6B" });
 const md = [
   ["Repayment by season (PAR30) and uptake", "Gate 1: stop or adjust if PAR30 > 15% or uptake < half of target", 5],
   ["Verified R-NBT and local-sourcing milestones", "RTFF interest rate steps down for agreed results", null],
@@ -412,12 +416,12 @@ const md = [
   ["Leverage of at least 1:1; lenders continuing", "Gate 2: continue, adjust or hand over; concessional support tapers", 5],
 ];
 md.forEach(([m, d, n], i) => {
-  const y = 2.8 + i * 0.82;
-  box(s, { x: 0.6, y, w: 2.35, h: 0.7, fill: HEX.cream, line: HEX.line, text: m, size: 11.5, color: C.text2, bold: true });
-  arrow(s, 2.98, y + 0.35, 3.3, y + 0.35, HEX.gold, 2);
-  s.addShape(S.ROUNDED_RECTANGLE, { x: 3.35, y, w: 2.95, h: 0.7, rectRadius: 0.08, fill: { color: C.background1 }, line: { color: HEX.olive, width: 1.25 } });
-  T(s, d, { x: 3.45, y, w: n ? 2.35 : 2.75, h: 0.7, fontSize: 11.5, valign: "middle" });
-  if (n) circle(s, 5.88, y + 0.17, 0.36, HEX.terra, n, 11.5);
+  const y = 3.38 + i * 0.7;
+  box(s, { x: 0.6, y, w: 2.35, h: 0.6, fill: HEX.cream, line: HEX.line, text: m, size: 11, color: C.text2, bold: true });
+  arrow(s, 2.98, y + 0.3, 3.3, y + 0.3, HEX.gold, 2);
+  s.addShape(S.ROUNDED_RECTANGLE, { x: 3.35, y, w: 2.95, h: 0.6, rectRadius: 0.08, fill: { color: C.background1 }, line: { color: HEX.olive, width: 1.25 } });
+  T(s, d, { x: 3.45, y, w: n ? 2.35 : 2.75, h: 0.6, fontSize: 11, valign: "middle" });
+  if (n) circle(s, 5.88, y + 0.12, 0.36, HEX.terra, n, 11.5);
 });
 
 // ---- right: risks (unchanged from the current slide) ----
@@ -441,7 +445,7 @@ rk.forEach(([t, ds], i) => {
 
 s.addNotes(
 `Measurement and risks (3 minutes). See F6-D9 Chapter 6, Sections 5.2, 5.3 and 7.1, and Table 19.
-- Output 1.2 uses one measurement system for the baseline, the grant milestones, the RTFF pricing step-downs and the results framework, built on the 18 GM1-D5 indicators and recorded at intake (GM3-D11). The synthesis adds 23 Output 1.2 indicators and the RTFF 32 for the pilot, partner readiness, handover and roll-out. Every indicator is disaggregated by sex, age, disability, country, value chain and readiness tier, which only works with one youth band (18–35) and one women-led test across instruments (Decision 2).
+- Output 1.2 uses one measurement system for the baseline, the grant milestones, the RTFF pricing step-downs and the results framework, built on the 18 GM1-D5 indicators and recorded at intake (GM3-D11). The synthesis adds 23 Output 1.2 indicators and the RTFF 32 for the pilot, partner readiness, handover and roll-out. Every indicator is disaggregated by sex, age, disability, country, value chain and readiness tier, which only works with one youth band (18–35) and one women-led test across instruments (Decision 2). Alongside these triggers, the system tracks outputs (loans and grants by product, season, sex and age; mechanisms established with partner institutions; supply MOUs signed), outcomes (share of targeted MSMEs obtaining external finance, survey reference 21%; days taken by anchors to pay suppliers) and impact (revenue and jobs), kept separate from one another.
 - The point for the Committee is that these numbers are not only reported; they trigger finance decisions:
   - Repayment by season and uptake decide Gate 1 (Q1 2028): a product is stopped or adjusted if arrears over 30 days (PAR30) exceed 15% or uptake is below half of target. Decision 5 endorses these criteria.
   - Verified milestones (formalisation, local sourcing, R-NBT practice) step the RTFF interest rate down for agreed results; verification is independent.
