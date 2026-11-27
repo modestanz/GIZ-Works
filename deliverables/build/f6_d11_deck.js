@@ -292,7 +292,7 @@ s.addNotes(
 
 // ---------------- 8. Framework ----------------
 sec("What we propose");
-s = content("One pathway, three activities");
+s = content("One route to finance: connect, prepare, finance");
 chip(s, [3, 4]);
 const tiers = [["Tier 0", "Pre-enterprise, groups"], ["Tier 1", "Emerging micro"], ["Tier 2", "Supplier-ready"], ["Tier 3", "Investment-ready"]];
 tiers.forEach(([t, d], i) => {

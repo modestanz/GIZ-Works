@@ -407,7 +407,7 @@ Facilitation prompt (item A6): Does this reflect what your constituencies said?`
 
 sec("Synthesis F6-D9");
 // ---------------- 5. Framework ----------------
-s = content("F6-D9 · One pathway, three activities");
+s = content("F6-D9 · One route to finance: connect, prepare, finance");
 const tiers = [["Tier 0", "Pre-enterprise, groups"], ["Tier 1", "Emerging micro"], ["Tier 2", "Supplier-ready"], ["Tier 3", "Investment-ready"]];
 tiers.forEach(([t, d], i) => {
   const x = 0.7 + i * 3.02;
@@ -587,7 +587,7 @@ sec("Validation");
 s = content("For validation today, and what happens next");
 const items = [
   ["A", "Studies", "Main finding and recommendations of F0 to F5-D8", C.accent1],
-  ["B", "Synthesis", "One pathway, three activities, financing options", C.accent2],
+  ["B", "Synthesis", "One route to finance: connect, prepare, finance", C.accent2],
   ["C", "M&E, roadmap", "Measurement system, two seasons, gate thresholds", C.accent4],
   ["D", "Roles, partners", "Regional roles, strategic partners, decisions and handover", C.accent3],
 ];
