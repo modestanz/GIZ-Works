@@ -28,7 +28,7 @@ const children = [
   H1("3. Slide map"),
   P("Table 2 maps each current slide to the earlier slide or slides it replaces, and Table 3 lists the earlier slides that were removed."),
   ...table("Current slides and their earlier counterparts", ["#", "Current slide", "Earlier", "Change", "Type"], [450, 2800, 900, 4596, 1000], [
-    row(["1", "From diagnosis to decisions: financing R-NBT MSMEs in KAZA", "1", "Light, centred cover; marked draft for decision", "Revised"], 4),
+    row(["1", "From evidence to decisions: financing R-NBT MSMEs in KAZA", "1", "Light, centred cover; title and subtitle revised; marked draft for decision", "Revised"], 4),
     row(["2", "Five decisions today, in about 70 minutes", "2", "Seven decisions reduced to five; agenda with timings and slide ranges; items not for decision today noted", "Revised"], 4),
     row(["3", "How each decision will be taken", "—", "Decision procedure (present, clarify, views, decide, record); agree, amend or defer; ground rules", "New"], 4),
     row(["4", "The Financial Landscape Analysis, informed by the diagnostics", "3", "Workstream (F1-D4 to F5-D8) at the centre, Macro and Micro Diagnostics as inputs, F6-D9 and F6-D11 as outputs; four questions tied to decisions", "Revised"], 4),
@@ -66,6 +66,7 @@ const children = [
     ["9", "11", "Measurement-system line reworded: 18 programme indicators (GM1-D5), plus 23 for Output 1.2 and 32 for the RTFF, all broken down by sex, age, disability, country, value chain and readiness tier", "Clearer"],
     ["10", "11", "“Also tracked” line added (outputs, outcomes and impact, including the share obtaining finance and days for anchors to pay); title “What we measure, and what it decides”", "Restores finance measures dropped in revision 8"],
     ["11", "15", "“Diagnostic, MOU template and baseline commissioned” changed to “GIZ commissions the readiness diagnostic, supply MOU template, intake baseline and grant manual”", "Clearer; matches the F6-D12 action"],
+    ["12", "1", "Cover title “From diagnosis to decisions” changed to “From evidence to decisions: financing R-NBT MSMEs in KAZA”; subtitle “Summary of Output 1.2 recommendations, presented with the Macro and Micro Diagnostics and the Roundtables, for decision by the Oversight Committee”", "Matches the evidence framing of slide 4 and the terms of reference wording"],
   ]),
 
   H1("5. Decisions: earlier and current numbering"),
@@ -83,7 +84,7 @@ const children = [
   P("Some changes have already been carried into the related documents; others are held until the decks are final."),
   ...B([
     "**Already updated:** the F6-D11 summary pack (five decisions, agenda, storyline, title of the framework, risk table, measurement link to Decision 2); F6-D10 slide 15 and the facilitation guide (five decisions, framework title); the F6-D12 readiness pack and handover documentation (five decisions, corridor, extension, risk table); and F6-D9 (corridor and extension, change log rows 19–20).",
-    "**Held until the decks are final:** the summary pack Section 5 (the five measurement-to-decision links, the new measurement wording and the tracked results); the F6-D12 M&E row (baselines make the triggers work); F6-D10 slide 14 title, to match slide 12; and the F6-D10 guide item C1 and validation sheet, to match F6-D10 slide 12.",
+    "**Held until the decks are final:** the summary pack cover title, to match the deck; the summary pack Section 5 (the five measurement-to-decision links, the new measurement wording and the tracked results); the F6-D12 M&E row (baselines make the triggers work); F6-D10 slide 14 title, to match slide 12; and the F6-D10 guide item C1 and validation sheet, to match F6-D10 slide 12.",
     "**F6-D10 slide 12** carries the measurement slide titled “Measurement drives finance”, without the “Also tracked” line, as agreed; the updated version is available as a stand-alone file.",
     "**Slide 15 footnote** still reads “Owners are proposals for GIZ to confirm”, although the slide shows no owners (they are in F6-D12).",
     "**Chobe–Maun corridor:** the deck states that it has been decided, but not by whom or when.",

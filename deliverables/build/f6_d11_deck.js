@@ -45,8 +45,8 @@ const DEC = [
 sec("Opening");
 let s = H.add("TITLE_CENTER");
 s.addText("F6-D11 · Oversight Committee · For decision", { placeholder: "kicker" });
-s.addText("From diagnosis to decisions: financing R-NBT MSMEs in KAZA", { placeholder: "title" });
-s.addText("Output 1.2 recommendations, presented with the Macro Diagnostic, the destination Micro Diagnostics and the Roundtables", { placeholder: "sub" });
+s.addText("From evidence to decisions: financing R-NBT MSMEs in KAZA", { placeholder: "title" });
+s.addText("Summary of Output 1.2 recommendations, presented with the Macro and Micro Diagnostics and the Roundtables, for decision by the Oversight Committee", { placeholder: "sub" });
 s.addText("Presented by Modesta Nyirenda, MNZ Consult, with the GIZ KAZA R-NBT team · [Date and venue to be confirmed] · Draft for decision", { placeholder: "meta" });
 s.addNotes(
 `Welcome and purpose (2 minutes). Chair opens; presenter introduces.
