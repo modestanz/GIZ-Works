@@ -556,8 +556,8 @@ const dcard = (x, w, code, h, col) => {
   box(s, { x: x + 0.2, y: 1.55, w: w - 0.4, h: 0.5, fill: col, text: code, size: 14, bold: true, color: C.background1, radius: 0.25 });
   T(s, h, { x: x + 0.25, y: 2.15, w: w - 0.5, h: 0.4, fontSize: 15, bold: true, color: C.text2, fontFace: "Cambria" });
 };
-dcard(0.6, 6.4, "F6-D11 · Summary pack for the Oversight Committee", "Seven decisions to move from design to agreements", HEX.forest);
-const decs = ["Intervention areas for Output 1.2", "One youth band (18–35) and one women-led test", "The RTFF's Botswana route", "Grant-facility envelope and lot split", "First loss and guarantee fees under 1.2.3", "Project extension to mid-2029", "Term-sheet talks and decision-gate criteria"];
+dcard(0.6, 6.4, "F6-D11 · Summary pack for the Oversight Committee", "Six decisions to move from design to agreements", HEX.forest);
+const decs = ["Intervention areas for Output 1.2", "One youth band (18–35) and one women-led test", "Grant-facility envelope and lot split", "First loss and guarantee fees under 1.2.3", "Project extension to mid-2029", "Term-sheet talks and decision-gate criteria"];
 decs.forEach((d, i) => {
   const y = 2.7 + i * 0.58;
   circle(s, 0.85, y, 0.42, HEX.terra, i + 1, 12);
@@ -573,14 +573,13 @@ rp.forEach(([a, b], i) => {
 box(s, { x: 7.45, y: 5.6, w: 5.05, h: 1.0, fill: C.background1, line: HEX.line, text: "Handover meeting with GIZ, the KAZA Secretariat, the SADC Secretariat and the officers implementing Output 1.2", size: 13, color: C.text2, bold: true });
 s.addNotes(
 `Next steps: F6-D11 and F6-D12 (3 minutes).
-- After validation, the synthesis goes to the Oversight Committee in an integrated presentation with the Macro and Micro Diagnostics and Roundtables (F6-D11), to support decisions on implementation and resources. Seven decisions are proposed:
+- After validation, the synthesis goes to the Oversight Committee in an integrated presentation with the Macro and Micro Diagnostics and Roundtables (F6-D11), to support decisions on implementation and resources. Six decisions are proposed (the RTFF route in Botswana is not among them: the Chobe–Maun corridor has already been decided):
   1. confirm the intervention areas for Output 1.2 (PA1 and PA2 as delivery cores; the Zambezi Region only if resourced; Angola on a readiness-first track);
   2. adopt one youth band (18–35) and one women-led test across the grant facility, the RTFF and the M&E framework;
-  3. decide the RTFF's Botswana route (confirm an RTFF route by Q1 2027 and resource national channels in any case);
-  4. confirm the grant-facility envelope and lot split (about 40% Lot 1 and 60% Lot 2 by value);
-  5. allow first-loss cover and guarantee fees under Activity 1.2.3;
-  6. request the project extension to mid-2029;
-  7. mandate term-sheet talks with shortlisted partners and endorse the decision-gate criteria.
+  3. confirm the grant-facility envelope and lot split (about 40% Lot 1 and 60% Lot 2 by value);
+  4. allow first-loss cover and guarantee fees under Activity 1.2.3;
+  5. request the project extension to mid-2029;
+  6. mandate term-sheet talks with shortlisted partners and endorse the decision-gate criteria.
 - Once the synthesis is approved, the handover (F6-D12): a readiness pack of no more than 10 pages, summarising key decisions, partner contacts, the first 100-day actions and outstanding risks, and a handover meeting with GIZ, the KAZA Secretariat, the SADC Secretariat and the officers responsible for implementing Output 1.2.
 Facilitation prompt (item D2): Is anything missing from the decisions the Committee should take?`);
 

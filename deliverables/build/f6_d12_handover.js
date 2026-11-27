@@ -119,7 +119,7 @@ const children = [
     ["8", "Explore capacity-building ties with CEDA, DBN, LEA, SMEDCO (training of trainers, sponsored training)", "GIZ", "Q1 2027", "Open", ""],
     ["9", "Share the capacity gaps (records, compliance, management) with SIGMA as part of the access-to-finance barrier", "Consultant", "Nov 2026", "Open", "Record of input"],
     ["10", "Hold the second roundtable validation session (F6-D10) and revise F6-D9 with a change log", "GIZ; consultant", "Per roundtable", "Open", ""],
-    ["11", "Table the seven decisions at the Oversight Committee (F6-D11)", "GIZ", "Next sitting", "Open", ""],
+    ["11", "Table the six decisions at the Oversight Committee (F6-D11)", "GIZ", "Next sitting", "Open", ""],
     ["12", "Commission the readiness diagnostic, supply MOU template, intake baseline and grant manual", "GIZ / SIGMA", "Feb–Mar 2027", "Open", ""],
     ["13", "Schedule the first platform sessions in PA1 and PA2 for the 2026–27 low season", "Lead BSOs; GIZ", "Feb 2027", "Open", ""],
     ["14", "Transfer all files to the GIZ project folder", "Consultant", "At meeting", "Open", ""],

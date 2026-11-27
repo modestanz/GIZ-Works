@@ -5,7 +5,7 @@ const { P, H1, H2, H3, B, N, table, fig, SRC, field, pageBreak } = K;
 
 // One decision sheet
 const sheet = (n, title, { decision, background, options, rec, implications, evidence, next }) => [
-  ...([3, 5, 7].includes(n) ? [pageBreak()] : []),
+  ...([3, 5].includes(n) ? [pageBreak()] : []),
   H2(`Decision ${n}: ${title}`),
   ...table(null, ["Element", "Content"], [2000, 7746], [
     ["Decision sought", decision],
@@ -21,25 +21,25 @@ const sheet = (n, title, { decision, background, options, rec, implications, evi
 const children = [
   H1("1. Purpose of this pack"),
   P("F6-D11 is the summary pack that brings the Output 1.2 recommendations to the Oversight Committee, presented together with the Macro Diagnostic, the destination Micro Diagnostics and the Roundtables, so that the Committee can take the decisions Output 1.2 needs to move from design to agreements. It accompanies the slide deck **F6-D11 Output 1.2 Summary Pack for the Oversight Committee** (16 slides with speaker notes) and draws on the F6-D9 Consolidated Synthesis Report (draft of 26 November 2026, presented for validation in F6-D10), to which readers are referred for evidence and detail. The pack is designed for an in-person sitting: members receive the decision sheets in print, give their views in turn and record each decision as agreed, amended or deferred before the sitting closes."),
-  P("Section 2 sets out how the sitting will run. The pack then has four parts: the joint evidence from the workstreams (Section 3), what Output 1.2 proposes (Section 4), how it will be delivered, measured and sustained (Section 5) and seven decision sheets (Section 6), followed by a draft decision record (Section 7). Items for noting are in Section 8."),
+  P("Section 2 sets out how the sitting will run. The pack then has four parts: the joint evidence from the workstreams (Section 3), what Output 1.2 proposes (Section 4), how it will be delivered, measured and sustained (Section 5) and six decision sheets (Section 6), followed by a draft decision record (Section 7). Items for noting are in Section 8."),
   ...table("Decisions requested from the Oversight Committee", ["#", "Decision", "Recommendation in brief"], [500, 3300, 5946], [
     ["1", "Intervention areas for Output 1.2", "PA1 and PA2 as delivery cores; Zambezi Region only if resourced; Angola readiness-first"],
     ["2", "Youth band and women-led test", "18–35 and a majority ownership or decision-making test, across all instruments"],
-    ["3", "Botswana route for the RTFF", "Confirm Route A by Q1 2027; resource Route B (national lenders) now in any case"],
-    ["4", "Grant-facility envelope and lot split", "Confirm envelope; about 40% Lot 1 and 60% Lot 2 by value"],
-    ["5", "First loss and guarantee fees under Activity 1.2.3", "Allow 10–15% first loss (20% for women- and youth-led) and first-cycle guarantee fees"],
-    ["6", "Project extension to mid-2029", "Request it now"],
-    ["7", "Term-sheet talks and decision gates", "Mandate talks with shortlisted partners; endorse the gate criteria"],
+    ["3", "Grant-facility envelope and lot split", "Confirm envelope; about 40% Lot 1 and 60% Lot 2 by value"],
+    ["4", "First loss and guarantee fees under Activity 1.2.3", "Allow 10–15% first loss (20% for women- and youth-led) and first-cycle guarantee fees"],
+    ["5", "Project extension to mid-2029", "Request it now"],
+    ["6", "Term-sheet talks and decision gates", "Mandate talks with shortlisted partners; endorse the gate criteria"],
   ]),
+  P("The RTFF route in Botswana is not among the decisions: the Chobe–Maun corridor has already been decided. It is listed for noting in Section 8."),
 
   H1("2. How the sitting will run"),
-  P("The sitting is held in person and takes about 80 minutes. The evidence and the proposal are kept to about 30 minutes so that most of the time goes to the decisions (Table 2). If time is short, the Chair may take Decisions 1–3 and 6 first, as they are the most time-critical."),
+  P("The sitting is held in person and takes about 75 minutes. The evidence and the proposal are kept to about 30 minutes so that most of the time goes to the decisions (Table 2). If time is short, the Chair may take Decisions 1, 2 and 5 first, as they are the most time-critical."),
   ...table("Proposed agenda", ["Time", "Block", "Slides", "Purpose", "Lead"], [1000, 2100, 900, 4146, 1600], [
-    ["0:00–0:05", "Purpose and how we decide", "1–3", "The seven decisions; the decision procedure agreed with members", "Chair; presenter"],
+    ["0:00–0:05", "Purpose and how we decide", "1–3", "The six decisions; the decision procedure agreed with members", "Chair; presenter"],
     ["0:05–0:20", "What we know", "4–7", "Joint evidence from the Macro and Micro Diagnostics, the Roundtables and the finance studies; where each Partner State can start", "Presenter"],
     ["0:20–0:35", "What we propose", "8–12", "One pathway, three activities; risk-sharing; roadmap and gates; measurement and risks; strategic partners", "Presenter"],
-    ["0:35–1:10", "Decisions 1–7", "13–14", "One decision at a time, following the procedure below (about 5 minutes each)", "Chair"],
-    ["1:10–1:20", "Read-back and next steps", "15–16", "Decision record read back; first 100 days; close", "Chair; rapporteur"],
+    ["0:35–1:05", "Decisions 1–6", "13–14", "One decision at a time, following the procedure below (about 5 minutes each)", "Chair"],
+    ["1:05–1:15", "Read-back and next steps", "15–16", "Decision record read back; first 100 days; close", "Chair; rapporteur"],
   ]),
   H3("Decision procedure"),
   P("Each decision follows the same five steps, so that every delegation is heard and the outcome is unambiguous:"),
@@ -125,16 +125,7 @@ const children = [
     evidence: "F6-D9 §6.1 and Table 17; RTFF design.",
     next: "GIZ informs the TUI Care Foundation and SIGMA; definitions written into the grant manual, the RTFF referral protocol and the intake baseline.",
   }),
-  ...sheet(3, "Botswana route for the RTFF", {
-    decision: "Decide how Okavango–Maun (PA2) enterprises will be financed in season one.",
-    background: "The RTFF treats the Victoria Falls–Livingstone corridor as the strong cohort 1 candidate. In Botswana it is conditional on Route A, an RTFF Botswana phase, which depends on the TUI Care Foundation's arrangements (licensing, exchange control, in-country administration) and a country check on borrower protection under consumer protection law. Failing that, Route B offers coaching and market access with referral to national lenders.",
-    options: ["A. Wait for Route A before starting finance in PA2.", "B. Route B only: CEDA, NDB, BOSRIA-backed lenders, microfinance and the Youth Development Fund.", "C. Resource Route B now and add Route A if the TUI Care Foundation confirms it by Q1 2027."],
-    rec: "Option C.",
-    implications: "PA2 can start season one regardless of the RTFF; BOSRIA, CEDA and NDB would be briefed jointly, building on BOSRIA rather than designing a new scheme.",
-    evidence: "F6-D9 §2.4, §2.6, §5.3, Table 16 and Annex A (Table 20); MiD2; RT-MN.",
-    next: "GIZ and the KAZA Secretariat write to the TUI Care Foundation; term-sheet talks with CEDA, NDB and BOSRIA (Decision 7).",
-  }),
-  ...sheet(4, "Grant-facility envelope and lot split", {
+  ...sheet(3, "Grant-facility envelope and lot split", {
     decision: "Confirm the Activity 1.2.2 envelope and its split between Lot 1 and Lot 2 and between value chains.",
     background: "The two lots in the Output 1.2 design are kept: Lot 1 up to EUR 10,000 with up to 20% contribution; Lot 2 EUR 10,000–40,000 with up to 50%. The budget envelope was not available to the study.",
     options: ["A. About 40% of value to Lot 1 and 60% to Lot 2; 60–70% to cohort 1 chains, 15–20% to crafts and conservation, 10–20% to second-wave chains and the phased pathway.", "B. A different split set by GIZ against the confirmed envelope."],
@@ -143,7 +134,7 @@ const children = [
     evidence: "F6-D9 §5.2 and Table 14; WS-VF (demand for coaching, grants and assets).",
     next: "GIZ confirms the envelope; grant manual and competition package drafted; grant managers procured.",
   }),
-  ...sheet(5, "First loss and guarantee fees under Activity 1.2.3", {
+  ...sheet(4, "First loss and guarantee fees under Activity 1.2.3", {
     decision: "Confirm that Activity 1.2.3 budget lines can finance first-loss cover and guarantee fees.",
     background: "Lenders and guarantors consulted will not adapt collateral and repayment terms for tourism MSMEs without risk-sharing. The proposed first loss is 10–15% of portfolio principal losses (20% for women- and youth-led or first-cycle Tier 1 portfolios), sitting beneath national guarantee cover. On EUR 0.5–1.5 million of new lending per priority-area pilot this implies about EUR 75,000–225,000 per pilot, tapering to zero over three seasons. Guarantee fees (2–5%, e.g. ECGC) would be covered in the first cycle.",
     options: ["A. Allow first loss and fees under 1.2.3 as proposed.", "B. Fees only, no first loss.", "C. Neither; rely on grants and the RTFF."],
@@ -152,7 +143,7 @@ const children = [
     evidence: "F6-D9 §2.5, §5.3 and Table 15; F4-D7; F5-D8 consultations.",
     next: "GIZ confirms the budget line; first-loss agreement template drafted; figures used in term-sheet talks.",
   }),
-  ...sheet(6, "Project extension to mid-2029", {
+  ...sheet(5, "Project extension to mid-2029", {
     decision: "Request the extension of the project from December 2028 to mid-2029.",
     background: "Piloting over two full tourism seasons lets low-season repayment be observed twice. With finance from Q1–Q2 2027, the second low season falls after December 2028. The roadmap places the extension decision at Milestone M9 (Q2 2028).",
     options: ["A. Request the extension now.", "B. Decide at Milestone M9 in Q2 2028.", "C. No extension; Gate 2 taken on one full low season."],
@@ -161,7 +152,7 @@ const children = [
     evidence: "F6-D9 §7.1, Figure 7 and Table 19; RT-VF.",
     next: "GIZ prepares the request to the funders; roadmap updated once the response is known.",
   }),
-  ...sheet(7, "Term-sheet talks and decision-gate criteria", {
+  ...sheet(6, "Term-sheet talks and decision-gate criteria", {
     decision: "Mandate term-sheet talks with shortlisted partners and endorse the criteria for Gate 1, the RTFF future decision and Gate 2.",
     background: "No institution has committed to a pilot role. Agreements (risk-sharing, guarantee windows, RTFF referral) must be signed by May 2027 for season one. The decision-gate criteria are set out in the separate Output 1.2 Decision Gates document.",
     options: ["A. Mandate talks now and endorse the criteria.", "B. Mandate talks; endorse criteria at the next sitting.", "C. Defer both."],
@@ -177,16 +168,16 @@ const children = [
   ...table("Decision record", ["#", "Decision", "Agreed / amended / deferred", "Conditions or amendments", "Owner", "By when"], [500, 2600, 1500, 2746, 1200, 1200], [
     ["1", "Intervention areas", "", "", "", ""],
     ["2", "Youth band and women-led test", "", "", "", ""],
-    ["3", "RTFF Botswana route", "", "", "", ""],
-    ["4", "Grant-facility envelope and lot split", "", "", "", ""],
-    ["5", "First loss and guarantee fees", "", "", "", ""],
-    ["6", "Extension to mid-2029", "", "", "", ""],
-    ["7", "Term-sheet talks and decision gates", "", "", "", ""],
+    ["3", "Grant-facility envelope and lot split", "", "", "", ""],
+    ["4", "First loss and guarantee fees", "", "", "", ""],
+    ["5", "Extension to mid-2029", "", "", "", ""],
+    ["6", "Term-sheet talks and decision gates", "", "", "", ""],
   ], { h: 600 }),
   field("Chair:", 40), field("Date:", 20),
 
   H1("8. Items for noting"),
   ...B([
+    "**RTFF route in Botswana: already decided.** The Chobe–Maun corridor has been decided, so the RTFF route in Botswana is not before the Committee. In PA2, CEDA, NDB and BOSRIA remain the national lenders and guarantor for term-sheet talks (Decision 6).",
     "**Validation status.** F6-D9 was presented for validation to GIZ and regional partners, including SADC FANR and the KAZA Secretariat (F6-D10); comments are reflected in a change log. The Macro Diagnostic is under review by the KAZA Secretariat before it goes to member states, so member-state comments may come back as a second round.",
     "**RTFF selection criteria, pipeline and indicators.** The TUI Care Foundation's only stated minimum is a formally registered business; GIZ produces the pipeline. A joint TUI Care Foundation, GIZ and SIGMA meeting is to settle selection criteria, the split between enterprises needing funding only and those needing capacity building plus funding, and key indicators for the project and the RTFF, separating outputs from impact with a youth and gender lens.",
     "**Strategic partnerships (for endorsement).** The partnerships in Section 5 and F6-D9 Section 7.6 and Annex D: start co-learning between the RTFF pilot and the KAZA Conservation Trust Fund design in 2027, with a light letter of intent and the TUI Care Foundation in the conversation; prepare co-financing for season two with funders active in KAZA; follow up SADC-DFRC’s official position, OKACOM (an estimated 40% of active communities overlap with KAZA; CORB Fund under the existing MoU) and ITC’s Green Value Chain programme in Botswana (division of labour in Maun).",
