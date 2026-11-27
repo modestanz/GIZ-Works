@@ -439,39 +439,45 @@ s.addNotes(
 - Activity 1.1.1 capacity building underpins all three.
 Facilitation prompt (items B1–B4): Is one pathway the right organising idea? Are the lot sizes and contribution rules right for women, youth and community groups?`);
 
-// ---------------- 11. F6-D9 M&E ----------------
-dslide("F6-D9 · Contribution to the M&E framework", "One measurement system, built on GM1-D5", [
+// ---------------- 12. F6-D9 M&E: measurement drives finance ----------------
+dslide("F6-D9 · Contribution to the M&E framework", "Measurement drives finance", [
   "Collect three baselines before cohort 1: MSME intake, lender portfolios, anchor procurement",
   "Use one youth band (18–35) and one women-led test across grants, the RTFF and M&E",
-  "Verify RTFF milestones independently and review results at each decision gate",
+  "Verify milestones independently and review results at each gate before money moves",
 ], (s) => {
-  [["18", "GM1-D5 programme indicators"], ["23", "Output 1.2 indicators"], ["32", "RTFF pilot and handover indicators"]].forEach(([v, l], i) => {
-    const x = 0.6 + i * 2.47;
-    T(s, v, { x, y: 1.75, w: 0.9, h: 0.75, fontSize: 30, bold: true, color: [HEX.forest, HEX.gold, HEX.terra][i], fontFace: "Cambria", valign: "middle" });
-    T(s, l, { x: x + 0.9, y: 1.75, w: 1.5, h: 0.75, fontSize: 11.5, valign: "middle" });
-  });
-  const lv = [
-    ["Outputs", HEX.green, ["Mechanisms established", "Loans and grants, by sex and age", "Supply MOUs signed"]],
-    ["Outcomes", HEX.gold, ["Share obtaining finance (ref. 20%)", "Repayment by season (PAR30 ≤ 15%)", "Days for anchors to pay"]],
-    ["Impact", HEX.terra, ["Revenue and jobs", "Finance per euro (≥ 1:1)", "Lenders continuing"]],
+  T(s, [
+    { text: "One measurement system: ", options: { bold: true, color: C.text2 } },
+    { text: "18 programme indicators (GM1-D5), plus 23 for Output 1.2 and 32 for the RTFF, all broken down by sex, age (18–35), disability, country, value chain and readiness tier" },
+  ], { x: 0.6, y: 1.75, w: 7.25, h: 0.6, fontSize: 12, valign: "middle" });
+  T(s, "We measure", { x: 0.6, y: 2.4, w: 2.9, h: 0.3, fontSize: 12, bold: true, color: "6B6B6B" });
+  T(s, "It decides", { x: 4.0, y: 2.4, w: 3.8, h: 0.3, fontSize: 12, bold: true, color: "6B6B6B" });
+  const md = [
+    ["Repayment by season (PAR30) and uptake", "Gate 1 (Q1 2028): stop or adjust a product if PAR30 > 15% or uptake < half of target"],
+    ["Verified R-NBT and local-sourcing milestones", "RTFF interest rate steps down for agreed results"],
+    ["Grant milestones met", "Grant tranches released in stages"],
+    ["Repayment data over three seasons", "First-loss cover tapers from 15% to zero"],
+    ["Leverage of at least 1:1; lenders continuing", "Gate 2 (Q4 2028): continue, adjust or hand over; concessional support tapers"],
   ];
-  lv.forEach(([h, col, items], i) => {
-    const x = 0.6 + i * 2.47;
-    s.addShape(S.ROUNDED_RECTANGLE, { x, y: 2.75, w: 2.3, h: 3.05, rectRadius: 0.08, fill: { color: C.background2 }, line: { color: col, width: 1.75 } });
-    box(s, { x: x + 0.15, y: 2.9, w: 2.0, h: 0.45, fill: col, text: h, size: 14, bold: true, color: C.background1, radius: 0.22 });
-    T(s, items.map((t, k) => ({ text: t, options: { bullet: { indent: 10 }, breakLine: k < items.length - 1, paraSpaceAfter: 6 } })), { x: x + 0.12, y: 3.5, w: 2.1, h: 2.2, fontSize: 12.5, valign: "top" });
-    if (i < 2) line(s, x + 2.32, 4.25, x + 2.45, 4.25, HEX.gold, 2, true);
+  md.forEach(([m, d], i) => {
+    const y = 2.75 + i * 0.82;
+    box(s, { x: 0.6, y, w: 2.9, h: 0.7, fill: HEX.cream, line: HEX.line, text: m, size: 12, color: C.text2, bold: true });
+    line(s, 3.55, y + 0.35, 3.95, y + 0.35, HEX.gold, 2, true);
+    s.addShape(S.ROUNDED_RECTANGLE, { x: 4.0, y, w: 3.85, h: 0.7, rectRadius: 0.08, fill: { color: C.background1 }, line: { color: HEX.olive, width: 1.25 } });
+    T(s, d, { x: 4.12, y, w: 3.65, h: 0.7, fontSize: 12, valign: "middle" });
   });
-  const ch = ["Sex", "Age 18–35", "Disability", "Country", "Value chain", "Readiness tier"];
-  T(s, "Disaggregated by", { x: 0.6, y: 6.0, w: 1.6, h: 0.35, fontSize: 12, color: "4A4A4A", valign: "middle" });
-  ch.forEach((t, i) => box(s, { x: 2.15 + (i % 3) * 1.9, y: 6.0 + Math.floor(i / 3) * 0.45, w: 1.8, h: 0.36, fill: HEX.cream, line: HEX.line, text: t, size: 11.5, color: C.text2, radius: 0.18 }));
 },
-`F6-D9: Contribution to the M&E framework (3 minutes).
-- One measurement system: Output 1.2 reuses the 18 GM1-D5 programme indicators (MSME, destination and KAZA level, targets to be set in GM3-D11) and adds 23 Output 1.2 indicators; a further 32 indicators track the RTFF pilot, partner readiness, handover to the KAZA Secretariat and post-pilot roll-out.
-- Outputs are separated from outcomes and impact. Outputs: mechanisms established with partner institutions; finance transactions and grants by product, season, sex and age; anchors signing the supply MOU. Outcomes: share of targeted MSMEs obtaining external finance (survey reference 20%); repayment by season, with a stop-or-adjust threshold of PAR30 above 15%; days taken by anchors to pay MSME suppliers (reference 30–90 days late). Impact: revenue and full-time and seasonal jobs by sex and age; finance leveraged per euro of grant and first loss (target at least 1:1); lenders continuing products with less concessional support.
-- Every enterprise-level indicator is disaggregated by country, area, value chain and readiness tier, and by sex, age (exact year of birth, reported in one youth band of 18–35) and disability of owners and managers, with a majority ownership or decision-making test for women- and youth-led status. Unknown is recorded as unknown, not zero. The survey figures are references, not a baseline.
-- Recommendations: collect three baselines before cohort 1 disbursement (MSME intake, lender and guarantor portfolios, anchor procurement); adopt one youth band and one women-led test across grants, the RTFF and M&E; verify RTFF milestones and results payments independently and review results at each decision gate.
-Facilitation prompt (item C1): Can partners report the data asked of them, and under what consent?`);
+`F6-D9: Contribution to the M&E framework (3 minutes). See F6-D9 Chapter 6 and Sections 5.2, 5.3 and 7.1.
+- One measurement system: Output 1.2 reuses the 18 GM1-D5 programme indicators (MSME, destination and KAZA level, targets to be set in GM3-D11) and adds 23 Output 1.2 indicators; a further 32 indicators track the RTFF pilot, partner readiness, handover to the KAZA Secretariat and post-pilot roll-out. Outputs are kept separate from outcomes and impact. Every enterprise-level indicator is disaggregated by country, area, value chain and readiness tier, and by sex, age (one youth band of 18–35) and disability, with a majority ownership or decision-making test for women- and youth-led status. The survey figures (for example 21% obtaining finance) are references, not a baseline.
+- Main finding: the numbers are not only reported; they trigger finance decisions.
+  - Repayment by season and uptake decide Gate 1 (Q1 2028): a product is stopped or adjusted if arrears over 30 days (PAR30) exceed 15% or uptake is below half of target.
+  - Verified milestones (formalisation, local sourcing, R-NBT practice) step the RTFF interest rate down for agreed results.
+  - Grant milestones release grant tranches in stages.
+  - Repayment data over three seasons let first-loss cover taper from 15% to zero.
+  - Finance leveraged per euro of grant and first loss (target at least 1:1), with repayment by season, at least 60% to women- and youth-led enterprises and lenders continuing, decide Gate 2 (Q4 2028): continue, adjust or hand over, with concessional support tapering.
+- Recommendations: collect three baselines before cohort 1 disbursement (MSME intake, lender and guarantor portfolios, anchor procurement), so that the triggers have something to compare against; adopt one youth band and one women-led test across grants, the RTFF and M&E; verify milestones and results payments independently and review results at each decision gate before money moves.
+- The gate criteria and the related decisions go to the Oversight Committee in F6-D11.
+Facilitation prompt (item C1): Can partners report the data asked of them, and are these the right triggers for moving money?`);
+
 
 // ---------------- 7. Roadmap ----------------
 s = content("F6-D9 · Two seasons of piloting, three decision points");
