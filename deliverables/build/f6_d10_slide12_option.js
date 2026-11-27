@@ -38,7 +38,7 @@ const dslide = (code, finding, recs, draw, notes) => {
 };
 
 sec("Synthesis F6-D9");
-dslide("F6-D9 · Contribution to the M&E framework", "Measurement drives finance", [
+dslide("F6-D9 · Contribution to the M&E framework", "What we measure, and what it decides", [
   "Collect three baselines before cohort 1: MSME intake, lender portfolios, anchor procurement",
   "Use one youth band (18–35) and one women-led test across grants, the RTFF and M&E",
   "Verify milestones independently and review results at each gate before money moves",

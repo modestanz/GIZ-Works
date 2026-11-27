@@ -28,7 +28,7 @@ const chip = (s, nums, label, lw) => {
 };
 
 sec("What we propose");
-const s = content("Measurement drives finance");
+const s = content("What we measure, and what it decides");
 chip(s, [2, 3, 4, 5], "Measurement informs decisions", 2.75);
 
 // ---- left: measure -> finance decision ----
