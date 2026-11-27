@@ -38,7 +38,6 @@ const DEC = [
   "One youth band (18–35) and one women-led test",
   "Grant-facility envelope and lot split",
   "First loss and guarantee fees under Activity 1.2.3",
-  "Project extension to mid-2029",
   "Term-sheet talks and decision-gate criteria",
 ];
 
@@ -57,7 +56,7 @@ s.addNotes(
 - Content decisions belong to the Committee and the Partner States. The presenter explains the evidence and the recommendations and answers questions; the presenter does not take part in the decisions.`);
 
 // ---------------- 2. Decisions and agenda ----------------
-s = content("Six decisions today, in about 75 minutes");
+s = content("Five decisions today, in about 70 minutes");
 T(s, "For decision", { x: 0.6, y: 1.3, w: 6.8, h: 0.4, fontSize: 17, bold: true, color: C.text2, fontFace: "Cambria" });
 DEC.forEach((d, i) => {
   const y = 1.85 + i * 0.7;
@@ -65,14 +64,14 @@ DEC.forEach((d, i) => {
   circle(s, 0.7, y + 0.05, 0.48, HEX.terra, i + 1, 15);
   T(s, d, { x: 1.35, y, w: 5.95, h: 0.58, fontSize: 15.5, valign: "middle" });
 });
-T(s, "Already decided, for noting: the RTFF's Chobe–Maun corridor in Botswana (slide 13)", { x: 0.6, y: 6.8 - 0.05, w: 6.8, h: 0.35, fontSize: 12, italic: true, color: "4A4A4A" });
+T(s, "Not for decision today: Chobe–Maun corridor (decided); extension to mid-2029 (GIZ)", { x: 0.6, y: 6.8 - 0.05, w: 6.8, h: 0.35, fontSize: 12, italic: true, color: "4A4A4A" });
 // agenda column
 T(s, "How the sitting runs", { x: 8.0, y: 1.3, w: 4.7, h: 0.4, fontSize: 17, bold: true, color: C.text2, fontFace: "Cambria" });
 const ag = [
   ["5", "Purpose and how we decide", "slides 1–3", HEX.sage],
   ["15", "What we know", "slides 4–7", HEX.olive],
   ["15", "What we propose", "slides 8–12", HEX.green],
-  ["30", "Decisions 1–6", "slides 13–14", HEX.terra],
+  ["25", "Decisions 1–5", "slides 13–14", HEX.terra],
   ["10", "Read-back and next 100 days", "slides 15–16", HEX.forest],
 ];
 let ay = 1.85;
@@ -85,15 +84,14 @@ ag.forEach(([m, t, sl, col]) => {
 });
 s.addNotes(
 `What the Committee is asked to do today (3 minutes).
-- Open with the decisions so that members listen for the evidence behind each. The six decisions are those the F6-D9 synthesis lists as needed now, less the RTFF route in Botswana, where the Chobe–Maun corridor has already been decided; each has a decision sheet in the printed pack (background, options, recommendation, implications, evidence and next steps).
+- Open with the decisions so that members listen for the evidence behind each. The five decisions are those the F6-D9 synthesis lists as needed now, less two: the RTFF route in Botswana, where the Chobe–Maun corridor has already been decided; and the project extension to mid-2029, which is a decision for GIZ and the funders outside this assignment; each has a decision sheet in the printed pack (background, options, recommendation, implications, evidence and next steps).
   1. Confirm the intervention areas for Output 1.2: the programme now plans two priority areas, while Output 1.2 foresees three.
   2. Adopt one youth band (18–35) and one women-led test (majority ownership or decision-making) across the grant facility, the RTFF and the M&E framework.
   3. Confirm the grant-facility envelope and the split between Lot 1 and Lot 2.
   4. Confirm whether first-loss cover and guarantee fees can sit under Activity 1.2.3.
-  5. Request the project extension to mid-2029.
-  6. Mandate term-sheet talks with the shortlisted partners and endorse the decision-gate criteria.
-- Items for noting, which do not need a decision today: the Chobe–Maun corridor, already decided; validation status of the reports; RTFF selection criteria, pipeline and indicators; the strategic partnerships proposed to sustain the RTFF and other mechanisms; and the handover (F6-D12).
-- Proposed timing: about 75 minutes. The evidence and the proposal are kept to 30 minutes so that most of the time goes to the decisions. If time is short, the Chair may take Decisions 1, 2 and 5 first, which are the most time-critical.`);
+  5. Mandate term-sheet talks with the shortlisted partners and endorse the decision-gate criteria.
+- Items for noting, which do not need a decision today: the Chobe–Maun corridor, already decided; the project extension to mid-2029, sought outside this assignment; validation status of the reports; RTFF selection criteria, pipeline and indicators; the strategic partnerships proposed to sustain the RTFF and other mechanisms; and the handover (F6-D12).
+- Proposed timing: about 70 minutes. The evidence and the proposal are kept to 30 minutes so that most of the time goes to the decisions. If time is short, the Chair may take Decisions 1, 2 and 5 first, which are the most time-critical (agreements must be signed by May 2027).`);
 
 // ---------------- 3. How we will decide ----------------
 s = content("How the Committee will decide, decision by decision");
@@ -153,7 +151,7 @@ steps.forEach(([h, d, b, col], i) => {
   T(s, d, { x: x + 0.15, y: 2.88, w: 2.0, h: 0.5, fontSize: 11.5, bold: true, color: col, valign: "top" });
   T(s, b, { x: x + 0.15, y: 3.45, w: 2.0, h: 1.85, fontSize: 13, valign: "top" });
 });
-const qs = [["Where?", "Decision 1"], ["For whom?", "Decision 2"], ["With what money?", "Decisions 3, 4"], ["With whom, and when?", "Decisions 5, 6"]];
+const qs = [["Where?", "Decision 1"], ["For whom?", "Decision 2"], ["With what money?", "Decisions 3, 4"], ["With whom, and when?", "Decision 5"]];
 T(s, "The evidence answers four questions, each tied to today's decisions", { x: 0.6, y: 5.6, w: 12.1, h: 0.4, fontSize: 15, bold: true, color: C.text2, fontFace: "Cambria" });
 qs.forEach(([q, d], i) => {
   const x = 0.6 + i * 3.06;
@@ -164,7 +162,7 @@ s.addNotes(
 `One storyline across the workstreams (2 minutes).
 - Each workstream narrowed the question. The Macro Diagnostic (SIGMA, October 2026) set the priority areas and value chains and surveyed 106 MSMEs. The KAZA Regional Roundtable in Maun (22–24 September 2026, 113 participants) tested the priorities with the Partner States; the TUI Care Foundation presented the RTFF and a Finance Implementation Lab examined it. The destination Micro Diagnostics (GM3-D10) took the analysis to Hwange–Victoria Falls–Livingstone and Okavango–Maun, with 141 survey responses in the November update. The working sessions in Victoria Falls (10 November) and Maun (12 November) heard MSMEs, buyers and associations, with 36 participant questionnaires.
 - The Output 1.2 finance studies (F1-D4 to F5-D8) were consolidated in the F6-D9 synthesis, which was presented for validation to GIZ and regional partners (F6-D10).
-- Together the evidence answers four questions, each tied to today's decisions: where Output 1.2 will work (Decision 1); for whom, defined consistently (Decision 2); with what money (Decisions 3 and 4); and with whom and when (Decisions 5 and 6).`);
+- Together the evidence answers four questions, each tied to today's decisions: where Output 1.2 will work (Decision 1); for whom, defined consistently (Decision 2); with what money (Decisions 3 and 4); and with whom and when (Decision 5).`);
 
 // ---------------- 5. Core finding ----------------
 s = content("Finance exists, but not on terms these enterprises can use");
@@ -252,7 +250,7 @@ s.addNotes(
 `Where each Partner State can start (3 minutes). See F6-D9 Sections 2.3, 3.3, 4.8 and 7.2.
 - The readiness scores (0–5) combine the depth of finance institutions, guarantee schemes, the regulatory environment and tourism demand. Zambia (4.1) and Zimbabwe (3.9) are ready to pilot; Botswana (3.4) and Namibia (3.2) are ready with adjustments; Angola (1.4) needs readiness work first.
 - The programme plans coaching for about 150 MSMEs across two priority areas, while Output 1.2 foresees three intervention areas. The recommendation (Decision 1) is two delivery cores, Hwange–Victoria Falls–Livingstone (PA1) and the Okavango Delta–Maun (PA2); Namibia's Zambezi Region as a third area only if resourced, building on the NASRIA women and youth guarantee tier with DBN; and Angola on a readiness-first track.
-- The RTFF treats the Victoria Falls–Livingstone corridor as the strong cohort 1 candidate. In Botswana, the Chobe–Maun corridor has already been decided, so it is not before the Committee today. CEDA, NDB and BOSRIA remain the national lenders and guarantor for term-sheet talks in PA2 (Decision 6).`);
+- The RTFF treats the Victoria Falls–Livingstone corridor as the strong cohort 1 candidate. In Botswana, the Chobe–Maun corridor has already been decided, so it is not before the Committee today. CEDA, NDB and BOSRIA remain the national lenders and guarantor for term-sheet talks in PA2 (Decision 5).`);
 
 // ---------------- 8. Framework ----------------
 sec("What we propose");
@@ -327,7 +325,7 @@ s.addNotes(
 
 // ---------------- 10. Roadmap ----------------
 s = content("Two seasons of piloting, three decision points");
-chip(s, [5, 6]);
+chip(s, [5]);
 const qx0 = 1.0, qw = 1.06; // quarter index 0 = Q4 2026 ... 10 = Q2 2029
 const qx = (q) => qx0 + q * qw;
 [3, 7].forEach((q) => s.addShape(S.RECTANGLE, { x: qx(q), y: 2.25, w: qw, h: 2.95, fill: { color: HEX.peak }, line: { color: HEX.peak } }));
@@ -342,20 +340,19 @@ s.addShape(S.RECTANGLE, { x: qx(9), y: 2.25, w: qw * 2, h: 2.95, fill: { color: 
 s.addShape(S.LINE, { x: qx(9), y: 2.25, w: 0, h: 2.95, line: { color: HEX.terraDk, width: 2, dashType: "dash" } });
 T(s, "Current end Dec 2028", { x: qx(9) + 0.08, y: 4.25, w: 1.9, h: 0.3, fontSize: 11, bold: true, color: HEX.terraDk });
 T(s, "Extension to mid-2029 sought", { x: qx(9) + 0.08, y: 4.55, w: 2.0, h: 0.5, fontSize: 11, color: "6B6B6B" });
-circle(s, qx(10) + 0.55, 3.25, 0.4, HEX.terra, 5, 13);
 [["Gate 1", "Continue, adjust or stop", 5.5, "c"], ["RTFF future", "Form, host, channels", 8.15, "r"], ["Gate 2", "Continue or hand over", 8.85, "l"]].forEach(([g, d, q, al]) => {
   const x = qx(q);
   const lx = al === "c" ? x - 1.0 : al === "r" ? x - 1.95 : x - 0.05;
   s.addShape(S.DIAMOND, { x: x - 0.2, y: 5.3, w: 0.4, h: 0.4, fill: { color: HEX.terra }, line: { color: HEX.terra } });
   T(s, [{ text: g, options: { bold: true, breakLine: true, color: HEX.terraDk } }, { text: d, options: { color: C.text1 } }], { x: lx, y: 5.78, w: 2.0, h: 0.7, fontSize: 13, align: al === "c" ? "center" : al === "r" ? "right" : "left", valign: "top" });
 });
-T(s, "Peak season shaded (June–October). Dates indicative. Decision 6 endorses the gate criteria.", { x: 0.6, y: 6.55, w: 9, h: 0.35, fontSize: 11, italic: true, color: "6B6B6B" });
+T(s, "Peak season shaded (June–October). Dates indicative. Decision 5 endorses the gate criteria.", { x: 0.6, y: 6.55, w: 9, h: 0.35, fontSize: 11, italic: true, color: "6B6B6B" });
 s.addNotes(
 `Roadmap and decision points (3 minutes). See F6-D9 Chapter 7 and Figure 7.
 - Pilots run over two full tourism seasons so that low-season repayment is observed twice. Five phases: validation and set-up (November 2026 to January 2027, including today's decisions); design and partnering (February to April 2027: competition package and first Lot 1 window, product terms, supply MOU template, agreements signed, lender training, grant managers contracted); season one (April 2027 to March 2028: RTFF cohort 1 and pre-peak working capital for buyer-linked suppliers, Lot 1 and Lot 2 awards, low-season asset loans with grace, deal days every four months); season two and review (April to December 2028: products opened to non-grantees, second pilots, independent review); handover (Q4 2028 to mid-2029).
 - RTFF cohort 1 follows the TUI Care Foundation's timetable, with finance from the first quarter of 2027.
-- Three decision points: Gate 1 (Q1 2028): continue, adjust or stop each product; stop or adjust if arrears over 30 days (PAR30) exceed 15% or uptake is below half of target. RTFF future (Q4 2028): form, host, capital and national channels agreed with the KAZA Secretariat, before Gate 2 so that the handover has a destination. Gate 2 (Q4 2028): continue, adjust or hand over, on repayment by season, at least 60% to women- and youth-led enterprises, and lenders continuing with less concessional support. Decision 6 endorses these criteria, set out in the separate Output 1.2 Decision Gates document.
-- The project currently ends in December 2028. Without the extension to mid-2029 (Decision 5), the second low season is not observed before the final review. Requesting it now, rather than at the planned Q2 2028 milestone, gives partners certainty when they sign agreements in early 2027.`);
+- Three decision points: Gate 1 (Q1 2028): continue, adjust or stop each product; stop or adjust if arrears over 30 days (PAR30) exceed 15% or uptake is below half of target. RTFF future (Q4 2028): form, host, capital and national channels agreed with the KAZA Secretariat, before Gate 2 so that the handover has a destination. Gate 2 (Q4 2028): continue, adjust or hand over, on repayment by season, at least 60% to women- and youth-led enterprises, and lenders continuing with less concessional support. Decision 5 endorses these criteria, set out in the separate Output 1.2 Decision Gates document.
+- The project currently ends in December 2028. Without the extension to mid-2029, the second low season is not observed before the final review. The extension is a decision for GIZ and the funders, outside this assignment; it is shown here because the roadmap depends on it.`);
 
 // ---------------- 11. M&E and risks ----------------
 s = content("Results measured once; the main risks link to today's decisions");
@@ -376,8 +373,8 @@ box(s, { x: 0.6, y: 6.05, w: 5.6, h: 0.8, fill: HEX.cream, line: HEX.line, text:
 s.addShape(S.ROUNDED_RECTANGLE, { x: 6.6, y: 1.8, w: 6.15, h: 5.05, rectRadius: 0.08, fill: { color: C.background2 }, line: { color: C.background2 } });
 T(s, "Main risks and the decision that reduces each", { x: 6.85, y: 1.9, w: 5.8, h: 0.42, fontSize: 15, bold: true, color: C.text2, fontFace: "Cambria" });
 const rk = [
-  ["Partner interest does not turn into commitment", [4, 6]],
-  ["Project ends before two seasons are observed", [5]],
+  ["Partner interest does not turn into commitment", [4, 5]],
+  ["Project ends before two seasons are observed (extension sought by GIZ)", []],
   ["Thin cohort 1 pipeline of coached, buyer-linked firms", [3]],
   ["Low-season default; currency and exchange control", [4]],
   ["Inconsistent targeting across instruments", [2]],
@@ -386,6 +383,7 @@ rk.forEach(([t, ds], i) => {
   const y = 2.45 + i * 0.7;
   s.addShape(S.LINE, { x: 6.85, y: y + 0.64, w: 5.7, h: 0, line: { color: HEX.line, width: 0.75 } });
   T(s, t, { x: 6.85, y, w: 4.6, h: 0.6, fontSize: 13, valign: "middle" });
+  if (!ds.length) T(s, "Noted", { x: 11.6, y, w: 1.0, h: 0.6, fontSize: 11.5, italic: true, color: "6B6B6B", align: "center", valign: "middle" });
   ds.forEach((d, k) => circle(s, 11.75 + k * 0.45, y + 0.12, 0.38, HEX.terra, d, 12));
 });
 s.addNotes(
@@ -393,7 +391,7 @@ s.addNotes(
 - Output 1.2 should use one measurement system for the baseline, the grant milestones, the RTFF pricing step-downs and the results framework, built on the 18 GM1-D5 baseline indicators and recorded at intake (GM3-D11). The synthesis proposes 23 Output 1.2 indicators; the RTFF adds 32 for the pilot, partner readiness, handover and roll-out. Outputs (mechanisms established, loans and grants made) are kept separate from outcomes (share obtaining finance, survey reference 21%; repayment by season, with PAR30 at 15% as the stop-or-adjust threshold; days taken by anchors to pay suppliers) and impact (revenue, jobs, finance leveraged per euro of at least 1:1, lenders continuing without concessional support).
 - Every indicator is disaggregated by sex, age, disability, country, value chain and readiness tier. This only works if one youth band (18–35, with the exact year of birth recorded so results can be re-cut to national bands) and one women-led test (majority ownership or decision-making) are used across the grant facility, the RTFF and M&E: Decision 2. The programme uses 18–35; the RTFF 18–30; national youth bands run from 15 to 45.
 - Three baselines are needed before cohort 1: a disaggregated MSME intake baseline, a lender portfolio baseline and an anchor procurement baseline. The survey is a reference point, not a baseline.
-- The risks rated high in impact that the Committee can most influence each link to a decision: partner commitment (first loss, Decision 4; term-sheet talks, Decision 6); the timeframe (extension, Decision 5); the depth of the cohort 1 pipeline (Lot 2 grantees as a second-round pipeline, Decision 3); low-season default and currency risk (loss reserve and first loss, Decision 4); and inconsistent targeting (Decision 2).`);
+- The risks rated high in impact that the Committee can most influence each link to a decision: partner commitment (first loss, Decision 4; term-sheet talks, Decision 5); the timeframe (the extension to mid-2029, sought by GIZ outside this assignment); the depth of the cohort 1 pipeline (Lot 2 grantees as a second-round pipeline, Decision 3); low-season default and currency risk (loss reserve and first loss, Decision 4); and inconsistent targeting (Decision 2).`);
 
 // ---------------- 12. Strategic partners ----------------
 s = content("Who sustains it after the pilot: strategic partners");
@@ -440,8 +438,7 @@ const dcard = (s, x, y, w, h, n, title, rec, alt, why) => {
   });
 };
 sec("Decisions");
-const infoCard = (s, title, items) => {
-  const nx = 6.75, ny = 1.35 + 2.78;
+const infoCard = (s, title, items, nx = 6.75, ny = 1.35 + 2.78) => {
   s.addShape(S.ROUNDED_RECTANGLE, { x: nx, y: ny, w: 5.95, h: 2.62, rectRadius: 0.08, fill: { color: C.background2 }, line: { color: C.background2 } });
   T(s, title, { x: nx + 0.25, y: ny + 0.12, w: 5.5, h: 0.45, fontSize: 16, bold: true, color: C.text2, fontFace: "Cambria" });
   T(s, bullets(items, { space: 4 }), { x: nx + 0.25, y: ny + 0.6, w: 5.5, h: 1.95, fontSize: 13, valign: "top" });
@@ -454,21 +451,24 @@ s = content("Decisions 1–3: where, for whom and with what grants");
 ].forEach(([n, t, r, a, w], i) => dcard(s, 0.6 + (i % 2) * 6.15, 1.35 + Math.floor(i / 2) * 2.78, 5.95, 2.62, n, t, r, a, w));
 infoCard(s, "Already decided: not for decision today", [
   "RTFF in Botswana: the Chobe–Maun corridor has been decided",
-  "PA2 works with CEDA, NDB and BOSRIA as national lenders and guarantor; term-sheet talks under Decision 6",
+  "PA2 works with CEDA, NDB and BOSRIA as national lenders and guarantor; term-sheet talks under Decision 5",
 ]);
 s.addNotes(
 `Decisions 1–3 (about 15 minutes; about 5 minutes each). Follow the procedure on slide 3 for each: present, clarify, views, decide, record. Each decision has a sheet in the printed pack.
 Decision 1, intervention areas. Background: Output 1.2 refers to three intervention areas; the programme now plans coaching for about 150 MSMEs across two priority areas. Options: A, two delivery cores only; B (recommended), PA1 and PA2 as delivery cores, Namibia's Zambezi Region as a third area only if resourced, Angola on a readiness-first track (Lot 1 grants, technical assistance and group savings); C, three full areas from the start. Implication: keeps the commitment to three areas open without spreading resources thin. Evidence: F6-D9 Sections 2.3, 3.3 and 4.8.
 Decision 2, youth band and women-led test. Background: the programme uses 18–35; the RTFF 18–30; national bands run from 15 to 45; NASRIA reports youth as 40 or under. Inconsistent definitions would make the target of at least 60% to women- or youth-led enterprises impossible to compare. Recommended: 18–35 and a majority ownership or decision-making test across all instruments, recording the exact year of birth so results can be re-cut to national bands. The TUI Care Foundation would align RTFF milestones before cohort 1 selection. Evidence: F6-D9 Section 6.1.
 Decision 3, grant-facility envelope and lot split. Background: the two lots in the Output 1.2 design are kept; the budget envelope was not available to the study. Recommended: about 40% of value to Lot 1 and 60% to Lot 2; 60–70% to cohort 1 chains, 15–20% to crafts and conservation, 10–20% to second-wave chains and the phased pathway; Lot 2 sized so that 30–60 grantees can enter the Activity 1.2.3 pilots. Grant managers must be contracted by April 2027. Evidence: F6-D9 Section 5.2 and Table 14.
-Already decided, for noting: the RTFF route in Botswana. The Chobe–Maun corridor has been decided, so it is not before the Committee today. In PA2, CEDA, NDB and BOSRIA remain the national lenders and guarantor for term-sheet talks (Decision 6).`);
+Already decided, for noting: the RTFF route in Botswana. The Chobe–Maun corridor has been decided, so it is not before the Committee today. In PA2, CEDA, NDB and BOSRIA remain the national lenders and guarantor for term-sheet talks (Decision 5).`);
 
-s = content("Decisions 4–6: risk-sharing, time and partners");
+s = content("Decisions 4–5: risk-sharing and partners");
 [
   [4, "First loss and guarantee fees", "Allow 10–15% first loss (20% for women- and youth-led), about EUR 75–225k per pilot, and first-cycle guarantee fees", "Fees only; or neither, relying on grants and the RTFF", "Lenders will not change terms without risk-sharing"],
-  [5, "Extension to mid-2029", "Request it now rather than at the planned Q2 2028 milestone", "Decide in Q2 2028; or no extension, Gate 2 on one low season", "Without it the second low season is not observed"],
-  [6, "Term-sheet talks and gates", "Mandate talks with shortlisted lenders, guarantors and two anchors per area; endorse the gate criteria", "Mandate talks now, criteria later; or defer both", "Agreements must be signed by May 2027"],
+  [5, "Term-sheet talks and gates", "Mandate talks with shortlisted lenders, guarantors and two anchors per area; endorse the gate criteria", "Mandate talks now, criteria later; or defer both", "Agreements must be signed by May 2027"],
 ].forEach(([n, t, r, a, w], i) => dcard(s, 0.6 + (i % 2) * 6.15, 1.35 + Math.floor(i / 2) * 2.78, 5.95, 2.62, n, t, r, a, w));
+infoCard(s, "Outside this assignment, for noting", [
+  "Project extension to mid-2029: a decision for GIZ and the funders",
+  "The roadmap assumes it, so that a second low season is observed before the final review",
+], 0.6);
 infoCard(s, "For noting", [
   "Validation status: F6-D9 validated in F6-D10; Macro Diagnostic under KAZA Secretariat review",
   "RTFF selection criteria, pipeline split and indicators: TUI Care Foundation, GIZ and SIGMA",
@@ -476,11 +476,10 @@ infoCard(s, "For noting", [
   "Handover: readiness pack and first 100 days (F6-D12)",
 ]);
 s.addNotes(
-`Decisions 4–6 and items for noting (about 15 minutes).
+`Decisions 4–5 and items for noting (about 10 minutes).
 Decision 4, first loss and guarantee fees under Activity 1.2.3. Background: lenders and guarantors consulted will not adapt collateral and repayment terms without risk-sharing. Proposed: first loss of 10–15% of portfolio principal losses (20% for women- and youth-led or first-cycle Tier 1 portfolios), beneath national guarantee cover; on EUR 0.5–1.5 million of new lending per priority-area pilot, about EUR 75,000–225,000 per pilot, tapering to zero over three seasons; guarantee fees (2–5%) covered in the first cycle. Options: A (recommended), first loss and fees as proposed; B, fees only; C, neither. If budget lines do not allow it, this is the main design gap to resolve before term sheets. Evidence: F6-D9 Sections 2.5 and 5.3; F4-D7.
-Decision 5, extension to mid-2029. Background: piloting over two full seasons lets low-season repayment be observed twice; with finance from early 2027, the second low season falls after December 2028. Options: A (recommended), request now; B, decide at the Q2 2028 milestone; C, no extension, Gate 2 on one low season. Evidence: F6-D9 Section 7.1 and Table 19.
-Decision 6, term-sheet talks and decision gates. Background: no institution has committed to a pilot role; agreements must be signed by May 2027 for season one. Recommended: mandate talks with ECGC and SMEDCO; FNB Zambia and ZANACO; CEDA, NDB and BOSRIA; NASRIA and DBN; and two anchors per area; and endorse the criteria for Gate 1, the RTFF future decision and Gate 2. Talks are non-binding until the Committee approves agreements. Evidence: F6-D9 Section 5.3, Table 16, Annex A (Table 20) and Section 7.1; Output 1.2 Decision Gates: Criteria.
-Items for noting: validation status (F6-D9 presented for validation in F6-D10; the Macro Diagnostic is under KAZA Secretariat review before it goes to member states, so comments may come back as a second round); RTFF selection criteria, the split between enterprises needing funding only and those needing capacity building plus funding, and key indicators, to be agreed by the TUI Care Foundation, GIZ and SIGMA; strategic partnerships (slide 12); and the handover (F6-D12).`);
+Decision 5, term-sheet talks and decision gates. Background: no institution has committed to a pilot role; agreements must be signed by May 2027 for season one. Recommended: mandate talks with ECGC and SMEDCO; FNB Zambia and ZANACO; CEDA, NDB and BOSRIA; NASRIA and DBN; and two anchors per area; and endorse the criteria for Gate 1, the RTFF future decision and Gate 2. Talks are non-binding until the Committee approves agreements. Evidence: F6-D9 Section 5.3, Table 16, Annex A (Table 20) and Section 7.1; Output 1.2 Decision Gates: Criteria.
+Items for noting: the project extension to mid-2029, a decision for GIZ and the funders outside this assignment, which the roadmap assumes so that a second low season is observed before the final review; validation status (F6-D9 presented for validation in F6-D10; the Macro Diagnostic is under KAZA Secretariat review before it goes to member states, so comments may come back as a second round); RTFF selection criteria, the split between enterprises needing funding only and those needing capacity building plus funding, and key indicators, to be agreed by the TUI Care Foundation, GIZ and SIGMA; strategic partnerships (slide 12); and the handover (F6-D12).`);
 
 // ---------------- 15. Next 100 days ----------------
 sec("Next steps");
@@ -488,7 +487,7 @@ s = content("After the decisions: the first 100 days");
 const ph = [
   ["Days 1–14", "Take over", HEX.sage, ["Handover meeting; action log agreed", "TUI, GIZ and SIGMA: RTFF entry criteria and indicators", "Follow up SADC-DFRC's position"]],
   ["Days 15–30", "Validate", HEX.olive, ["F6-D9 revised after validation", "Committee sitting prepared with these decision sheets", "OKACOM overlap and ITC's Maun coverage confirmed"]],
-  ["Days 31–60", "Decide and open talks", HEX.terra, ["Committee decisions recorded and sent to partners", "Extension request prepared", "Term-sheet talks with shortlisted partners"]],
+  ["Days 31–60", "Decide and open talks", HEX.terra, ["Committee decisions recorded and sent to partners", "Term-sheet talks with shortlisted partners", "Diagnostic, MOU template and baseline commissioned"]],
   ["Days 61–100", "Prepare season one", HEX.forest, ["First platform sessions in PA1 and PA2", "Grant-manager procurement; Lot 1 call drafted", "RTFF referral protocol; intake baselines started"]],
 ];
 ph.forEach(([d, h, col, items], i) => {
@@ -504,7 +503,7 @@ s.addNotes(
 `After the decisions: the first 100 days (3 minutes). Aligned with the F6-D12 readiness pack, which counts days from the handover meeting and assumes the second roundtable and the Committee meet within the first two months. Today's sitting falls in days 31–60.
 - Days 1–14, take over: handover meeting, files transferred and action log agreed; a TUI Care Foundation, GIZ and SIGMA meeting on minimum entry criteria and screening, the pipeline split (funding only, or capacity building plus funding) and key indicators; follow-up of SADC-DFRC's position; KAZA Secretariat feedback incorporated.
 - Days 15–30, validate: second roundtable validation (F6-D10) and F6-D9 revised with a change log; the Committee sitting prepared with these decision sheets; OKACOM overlap and ITC's Maun coverage confirmed.
-- Days 31–60, decide and open talks: Committee decisions recorded and communicated to partners; extension request prepared; term-sheet talks with ECGC and SMEDCO, FNB Zambia and ZANACO, CEDA, NDB and BOSRIA, NASRIA and DBN, and two anchors per area; readiness diagnostic, supply MOU template, intake baseline and grant manual commissioned.
+- Days 31–60, decide and open talks: Committee decisions recorded and communicated to partners; term-sheet talks with ECGC and SMEDCO, FNB Zambia and ZANACO, CEDA, NDB and BOSRIA, NASRIA and DBN, and two anchors per area; readiness diagnostic, supply MOU template, intake baseline and grant manual commissioned.
 - Days 61–100, prepare season one: first platform sessions in PA1 and PA2 in the low season and the supplier directory published; grant-manager procurement launched, competition package and Lot 1 call drafted; RTFF referral and co-financing protocol agreed; intake baselines started; commitments log reviewed monthly.
 - Owners are proposals for GIZ to confirm.`);
 
@@ -512,7 +511,7 @@ s.addNotes(
 s = content("Decision record: read back before we close");
 const hdr = (t) => ({ text: t, options: { bold: true, color: "FFFFFF", fill: { color: HEX.forest }, align: "center", valign: "middle" } });
 const rows = [[hdr("#"), hdr("Decision"), hdr("Agree"), hdr("Amend"), hdr("Defer"), hdr("Conditions or amendments"), hdr("Owner"), hdr("By when")]];
-const short = ["Intervention areas", "Youth band and women-led test", "Grant envelope and lot split", "First loss and guarantee fees", "Extension to mid-2029", "Term-sheet talks and gates"];
+const short = ["Intervention areas", "Youth band and women-led test", "Grant envelope and lot split", "First loss and guarantee fees", "Term-sheet talks and gates"];
 short.forEach((d, i) => rows.push([
   { text: String(i + 1), options: { bold: true, align: "center", color: HEX.terraDk } },
   { text: d, options: { bold: true, color: C.text2 } },
@@ -521,7 +520,7 @@ short.forEach((d, i) => rows.push([
   { text: "☐", options: { align: "center", color: HEX.terra, fontSize: 16 } },
   { text: "" }, { text: "" }, { text: "" },
 ]));
-s.addTable(rows, { x: 0.6, y: 1.35, w: 12.1, colW: [0.45, 3.0, 0.8, 0.8, 0.8, 3.95, 1.15, 1.15], rowH: [0.42, ...Array(6).fill(0.68)], fontSize: 13, valign: "middle", border: { type: "solid", color: "C7D6DC", pt: 0.75 }, fill: { color: "FFFFFF" } });
+s.addTable(rows, { x: 0.6, y: 1.35, w: 12.1, colW: [0.45, 3.0, 0.8, 0.8, 0.8, 3.95, 1.15, 1.15], rowH: [0.42, ...Array(5).fill(0.78)], fontSize: 13, valign: "middle", border: { type: "solid", color: "C7D6DC", pt: 0.75 }, fill: { color: "FFFFFF" } });
 T(s, [
   { text: "Rapporteur completes the record live on screen; the Chair reads each line back. ", options: {} },
   { text: "Signed record circulated within five working days.", options: { bold: true, color: C.text2 } },
