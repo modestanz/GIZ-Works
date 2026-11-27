@@ -94,7 +94,7 @@ s.addNotes(
 - Proposed timing: about 70 minutes. The evidence and the proposal are kept to 30 minutes so that most of the time goes to the decisions. If time is short, the Chair may take Decisions 1, 2 and 5 first, which are the most time-critical (agreements must be signed by May 2027).`);
 
 // ---------------- 3. How we will decide ----------------
-s = content("How the Committee will decide, decision by decision");
+s = content("How each decision will be taken");
 const flow = [
   ["Present", "2 min", "Presenter reads the recommendation from the decision sheet", HEX.sage],
   ["Clarify", "3 min", "Questions of clarification only", HEX.olive],
@@ -125,7 +125,7 @@ s.addShape(S.ROUNDED_RECTANGLE, { x: 0.6, y: 5.55, w: 12.1, h: 1.3, rectRadius: 
 T(s, "Ground rules", { x: 0.85, y: 5.65, w: 2.2, h: 0.4, fontSize: 14, bold: true, color: C.text2 });
 T(s, bullets(rules, { space: 3 }), { x: 0.85, y: 6.0, w: 11.7, h: 0.82, fontSize: 13, valign: "top" });
 s.addNotes(
-`How the Committee will decide (3 minutes). The Chair agrees the procedure with members before the evidence is presented.
+`How each decision will be taken (3 minutes). The Chair agrees the procedure with members before the evidence is presented.
 - Each decision follows the same five steps: the presenter reads the recommendation from the decision sheet (about 2 minutes); members ask questions of clarification only (about 3 minutes); each Partner State and regional partner gives its view in turn (about 1 minute each), so that every delegation is heard, not only the most vocal; the Chair then tests for consent; and the rapporteur reads back the wording, the owner and the date.
 - Three possible outcomes: agree (adopted as stated); amend (adopted with conditions or changes, recorded word for word); defer (not yet, with what the Committee needs, from whom and by when). A deferral is a valid outcome and is better than an unclear agreement.
 - Consent, not voting, is proposed: a decision stands if no member objects. Where a Partner State cannot agree, the Chair may record the decision for the others and the reservation of that Partner State, or defer. The Chair decides; the procedure is a proposal.
