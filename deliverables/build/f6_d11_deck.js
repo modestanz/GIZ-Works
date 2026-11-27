@@ -550,7 +550,7 @@ s = content("After the decisions: the first 100 days");
 const ph = [
   ["Days 1–14", "Take over", HEX.sage, ["Handover meeting; action log agreed", "TUI, GIZ and SIGMA: RTFF entry criteria and indicators", "Follow up SADC-DFRC's position"]],
   ["Days 15–30", "Validate", HEX.olive, ["F6-D9 revised after validation", "Committee sitting prepared with these decision sheets", "OKACOM overlap and ITC's Maun coverage confirmed"]],
-  ["Days 31–60", "Decide and open talks", HEX.terra, ["Committee decisions recorded and sent to partners", "Term-sheet talks with shortlisted partners", "Diagnostic, MOU template and baseline commissioned"]],
+  ["Days 31–60", "Decide and open talks", HEX.terra, ["Committee decisions recorded and sent to partners", "Term-sheet talks with shortlisted partners", "GIZ commissions the readiness diagnostic, supply MOU template, intake baseline and grant manual"]],
   ["Days 61–100", "Prepare season one", HEX.forest, ["First platform sessions in PA1 and PA2", "Grant-manager procurement; Lot 1 call drafted", "RTFF referral protocol; intake baselines started"]],
 ];
 ph.forEach(([d, h, col, items], i) => {
