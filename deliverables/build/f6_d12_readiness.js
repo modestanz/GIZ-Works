@@ -10,14 +10,14 @@ const row = (cells, si) => ({ cells, fills: cells.map((_, i) => (i === si ? st(c
 
 const children = [
   H1("1. Purpose and status"),
-  P("This readiness pack hands over the Output 1.2 work on financial mechanisms for R-NBT MSMEs to GIZ, the KAZA Secretariat, the SADC Secretariat and the officers responsible for implementing Output 1.2. As the terms of reference require, it summarises the **key decisions**, the **partners and contacts**, the **first 100-day actions** and the **outstanding risks**. It is Part 1 of F6-D12; Part 2 is the handover meeting documentation. The work handed over is the Financial Landscape Analysis workstream (F1-D4 to F5-D8), informed by SIGMA’s Macro and Micro Diagnostics, consolidated in the F6-D9 synthesis (draft of 26 November 2026), presented for validation in F6-D10 and taken to the Oversight Committee in F6-D11."),
+  P("This readiness pack hands over the Output 1.2 work on financial mechanisms for R-NBT MSMEs to GIZ, the KAZA Secretariat, the SADC Secretariat and the officers responsible for implementing Output 1.2. As the terms of reference require, it summarises the **key decisions**, the **partners and contacts**, the **first 100-day actions** and the **outstanding risks**. It is Part 1 of F6-D12; Part 2 is the handover meeting documentation. The work handed over is the Financial Landscape Analysis workstream (F1-D4 to F5-D8), informed by SIGMA’s Macro and Micro Diagnostics and consolidated in F6-D9 (26 November 2026)."),
   P("Status is as of November 2026. The designs are complete (F6-D9), but implementation depends on validation at the second roundtable (F6-D10), on the Oversight Committee decisions (F6-D11) and on partner commitments. The consultant remains available after contract closure for reporting and handover, drawing on hours already committed. Ratings: **Ready** (can proceed now), **Partly ready** (design done, key steps outstanding), **Not ready** (depends on a decision or resources not yet in place)."),
   ...table("Readiness at a glance", ["Component", "Status", "In place", "Outstanding"], [2100, 1250, 3200, 3196], [
     row(["1.2.1 Dialogue platforms", "Partly ready", "Formats, a cycle every four months, conveners per area; lender learning platform designed; supplier directory started with SIGMA", "Conveners contracted; readiness diagnostic and supply MOU template; first sessions"], 1),
     row(["1.2.2 Grant facility", "Not ready", "Lot design, scoring, contribution rules, conversion clause", "Envelope and lot split; grant manual; grant managers"], 1),
     row(["1.2.3 Financing mechanisms", "Partly ready", "Mechanisms assessed; pilots and partner shortlist per area", "Partner commitments; first-loss budget line; agreement templates"], 1),
     row(["RTFF", "Partly ready", "Design (about 50 loans, from Q1 2027); Chobe–Maun corridor decided in Botswana; three adjustments; 32 indicators", "Selection criteria; referral protocol; in-country recovery"], 1),
-    row(["M&E", "Partly ready", "GM1-D5 extract; 23 Output 1.2 indicators; gate criteria", "Indicator ownership; targets; three baselines"], 1),
+    row(["M&E", "Partly ready", "GM1-D5 extract; 23 Output 1.2 indicators; gate criteria", "Indicator ownership; targets; three baselines; one youth band and women-led test (F6-D11 Decision 2)"], 1),
     row(["Strategic partnerships", "Partly ready", "Four kinds of partnership and 18 candidates identified (F6-D9 Section 7.6, Annex D)", "Co-learning letter of intent; co-financing for season two; RTFF host by Q4 2028"], 1),
     row(["Governance", "Not ready", "Five decisions framed with options (F6-D11)", "Roundtable validation; Oversight Committee sitting"], 1),
   ]),
@@ -52,9 +52,9 @@ const children = [
     ["Botswana (PA2): CEDA, NDB, NASRIA/BOSRIA, Stanbic, LEA, Youth Development Fund", "National lenders and guarantor alongside the RTFF; BOSRIA window; grant manager (LEA)", "Readiness 3.4; Chobe–Maun corridor decided", "Joint briefing of BOSRIA, CEDA and NDB", "GIZ"],
     ["Namibia (Zambezi Region): NASRIA, DBN, NYDF", "Women and youth guarantee tier (second cohort)", "Readiness 3.2; if resourced", "Decide resourcing", "GIZ"],
     { band: "Strategic partners for sustainability (F6-D9 Annex D)" },
-    ["KAZA Conservation Trust Fund (Sustainable Finance Coalition, KAZA Secretariat, WWF-US)", "Possible home for the RTFF as a programme account after 2028–2029", "Fund being designed; GBFF funding expected late 2027", "Co-learning letter of intent with the TUI Care Foundation", "GIZ"],
+    ["KAZA Conservation Trust Fund (SFC, KAZA Secretariat, WWF-US)", "Possible home for the RTFF as a programme account after 2028–2029", "Fund being designed; GBFF funding expected late 2027", "Co-learning letter of intent with the TUI Care Foundation", "GIZ"],
     ["TUI Care Foundation (RTFF)", "Collateral-free buyer-linked loans; carries the RTFF until it is anchored", "GIZ produces the pipeline; criteria open", "Joint meeting with GIZ and SIGMA", "GIZ"],
-    ["Funders active in KAZA: EU, KfW and IKI, GEF and World Bank, AfDB and AGF; verifiers such as GreenLoop", "Co-finance one layer each (grants, first loss, counter-guarantees, recapitalisation); verify milestones", "Not yet approached for Output 1.2", "Co-financing for season two; IKI 2027 call for a joint RTFF–CTF concept", "GIZ"],
+    ["Funders in KAZA (EU, KfW, IKI, GEF, World Bank, AfDB); verifiers (GreenLoop)", "Co-finance one layer each (grants, first loss, counter-guarantees, recapitalisation); verify milestones", "Not yet approached for Output 1.2", "Co-financing for season two; IKI 2027 call for a joint RTFF–CTF concept", "GIZ"],
     { band: "Partnership conversations handed over" },
     ["SADC-DFRC", "Regional resource mobilisation", "Official position awaited", "Follow up; then a concrete proposal", "Consultant, then GIZ"],
     ["OKACOM (CORB Fund)", "Complementary layer in shared communities (~40% overlap)", "MoU with KAZA; synergy note prepared", "Discuss with GIZ Transboundary Water Management project", "GIZ"],
@@ -87,15 +87,18 @@ const children = [
   ]),
 
   H1("5. Outstanding risks"),
-  P("Table 5 lists the risks most affected by the handover, with the mitigation and who watches each. The full risk register is in F6-D9 Table 19."),
-  ...table("Outstanding risks", ["Risk", "Mitigation", "Owner"], [3300, 4646, 1800], [
-    ["Validation and decisions delayed (Secretariat review before member states; Committee date)", "Agree the route to member states; table decisions with the F6-D11 sheets; keep design work moving", "GIZ; KAZA Secretariat"],
-    ["Partner interest does not turn into commitment", "Term-sheet talks in the first 60 days; first loss and fee support; more than one candidate per role", "GIZ"],
-    ["First loss and guarantee fees not allowed under 1.2.3", "Decide at the Committee; otherwise redesign around guarantee fees and grants as contribution", "GIZ"],
-    ["RTFF criteria do not match the pipeline", "Agree minimum entry criteria early; use survey and coaching data to shape them", "GIZ; TUI"],
-    ["Project ends before two seasons are observed", "Extension to mid-2029 decided by GIZ and the funders (outside this assignment); front-load cohort 1; agree handover before Q4 2028", "GIZ"],
-    ["The RTFF and other mechanisms have no home after the pilot", "Co-learning with the KAZA Conservation Trust Fund from 2027; co-financing for season two; host and national channels agreed by Q4 2028, before Gate 2", "GIZ; KAZA Secretariat; TUI"],
-    ["Duplication with ITC, OKACOM, World Bank programmes", "Share criteria and beneficiary lists; align contribution ratios", "GIZ"],
+  P("Table 5 lists the risks most affected by the handover, with the mitigation, the F6-D11 decision that reduces each (noted: not for the Committee) and the owner. The full register is in F6-D9 Table 19."),
+  ...table("Outstanding risks", ["Risk", "Mitigation", "F6-D11 decision", "Owner"], [2900, 4146, 1100, 1600], [
+    ["Validation and decisions delayed (Secretariat review; Committee date)", "Agree the route to member states; keep design work moving", "—", "GIZ; KAZA Secretariat"],
+    ["Partner interest does not turn into commitment", "Term-sheet talks in the first 60 days; first loss; several candidates per role", "4, 5", "GIZ"],
+    ["First loss and guarantee fees not allowed under 1.2.3", "Redesign around guarantee fees and grants as contribution", "4", "GIZ"],
+    ["Low-season default", "Seasonal schedules and grace in agreements; first-loss cover; PAR30 threshold at Gate 1", "4", "Lenders; GIZ"],
+    ["Currency and exchange control", "Lend in the currency of revenue; loss reserve; register foreign loans in Zimbabwe", "Noted", "GIZ; TUI"],
+    ["Thin cohort 1 pipeline, or RTFF criteria that do not match it", "Agree RTFF entry criteria early; open call through associations; Lot 2 grantees as a second round", "3", "GIZ; TUI; SIGMA"],
+    ["Inconsistent targeting across instruments", "One youth band (18–35) and one women-led test across grants, the RTFF and M&E", "2", "GIZ; TUI; SIGMA"],
+    ["Project ends before two seasons are observed", "Extension decided by GIZ and the funders; front-load cohort 1", "Noted", "GIZ"],
+    ["The RTFF and other mechanisms have no home after the pilot", "Co-learning with the KAZA Conservation Trust Fund from 2027; host agreed by Q4 2028", "—", "GIZ; KAZA Sec.; TUI"],
+    ["Duplication with ITC, OKACOM, World Bank programmes", "Share criteria and beneficiary lists; align contribution ratios", "—", "GIZ"],
   ]),
 
   H1("6. Documents, templates and roles"),
@@ -109,7 +112,7 @@ const children = [
   ]),
   P("Four tools still need drafting; their outlines are in F6-D9 (Sections 5.1–5.3 and Annex C):"),
   ...B([
-    "**Supply MOU:** written orders, payment within 30 days (15 for micro suppliers), notice before termination, procurement targets, optional buyer-deducted repayment.",
+    "**Supply MOU:** written orders, payment within 30 days (15 for micro suppliers), notice before termination, optional buyer-deducted repayment.",
     "**RTFF referral and co-financing protocol:** eligibility screen, one-page profile, decision deadline, coded rejection reasons, grant as borrower contribution, seasonal schedule, in-country recovery.",
     "**Grant manual:** lots, eligibility, scoring (market linkage 25%, readiness 20%, R-NBT 20%, inclusion 20%, financing plan 15%), tranches, conversion clause, safeguards.",
     "**Common readiness diagnostic:** intake fields from F6-D9 Annex C, returning a tier (0–3) and a grant-ready, guarantee-ready or loan-ready tag.",
@@ -123,7 +126,7 @@ const children = [
     ["Regional layer and RTFF future", "KAZA Secretariat", "SADC FANR; GIZ"],
     ["Post-contract reporting and handover support", "Consultant (committed hours)", "GIZ"],
   ]),
-  SRC("Sources: F6-D9 and its source reports; F6-D11 decision sheets; GIZ–consultant close-out discussion (November 2026); ITC convergence note; KAZA–OKACOM synergy note; GIZ–SFC minutes (26 November 2026)."),
+  SRC("Sources: F6-D9 and its sources; F6-D11; GIZ–consultant close-out discussion; ITC, OKACOM and SFC notes (Oct–Nov 2026)."),
 ];
 
 buildDoc({
