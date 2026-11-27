@@ -44,8 +44,8 @@ dslide("F6-D9 · Contribution to the M&E framework", "Measurement drives finance
   "Verify milestones independently and review results at each gate before money moves",
 ], (s) => {
   T(s, [
-    { text: "One system on GM1-D5: ", options: { bold: true, color: C.text2 } },
-    { text: "18 programme, 23 Output 1.2 and 32 RTFF indicators, disaggregated by sex, age (18–35), disability, country, value chain and tier" },
+    { text: "One measurement system: ", options: { bold: true, color: C.text2 } },
+    { text: "18 programme indicators (GM1-D5), plus 23 for Output 1.2 and 32 for the RTFF, all broken down by sex, age (18–35), disability, country, value chain and readiness tier" },
   ], { x: 0.6, y: 1.75, w: 7.25, h: 0.6, fontSize: 12, valign: "middle" });
   T(s, "We measure", { x: 0.6, y: 2.4, w: 2.9, h: 0.3, fontSize: 12, bold: true, color: "6B6B6B" });
   T(s, "It decides", { x: 4.0, y: 2.4, w: 3.8, h: 0.3, fontSize: 12, bold: true, color: "6B6B6B" });

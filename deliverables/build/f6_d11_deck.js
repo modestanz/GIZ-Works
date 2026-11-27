@@ -398,9 +398,9 @@ chip(s, [2, 3, 4, 5], "Measurement informs", 2.75);
 
 // ---- left: measure -> finance decision ----
 T(s, [
-  { text: "One system on GM1-D5: ", options: { bold: true, color: C.text2 } },
-  { text: "18 programme, 23 Output 1.2 and 32 RTFF indicators, disaggregated by sex, age (18–35), disability, country, value chain and tier" },
-], { x: 0.6, y: 1.78, w: 5.2, h: 0.62, fontSize: 11.5, valign: "middle" });
+  { text: "One measurement system: ", options: { bold: true, color: C.text2 } },
+  { text: "18 programme indicators (GM1-D5), plus 23 for Output 1.2 and 32 for the RTFF, all broken down by sex, age (18–35), disability, country, value chain and readiness tier" },
+], { x: 0.6, y: 1.7, w: 5.2, h: 0.7, fontSize: 11, valign: "middle" });
 circle(s, 5.88, 1.91, 0.36, HEX.terra, 2, 11.5);
 T(s, "We measure", { x: 0.6, y: 2.45, w: 2.35, h: 0.3, fontSize: 12, bold: true, color: "6B6B6B" });
 T(s, "It decides", { x: 3.35, y: 2.45, w: 2.5, h: 0.3, fontSize: 12, bold: true, color: "6B6B6B" });
