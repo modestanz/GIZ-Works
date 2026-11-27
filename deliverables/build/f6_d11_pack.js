@@ -2,9 +2,10 @@
 const { makeKit, buildDoc } = require("./doc_lib");
 const K = makeKit();
 const { P, H1, H2, H3, B, N, table, fig, SRC, field, pageBreak } = K;
+const { esBody } = require("./f6_d11_exec_summary_draft");
 
 // One decision sheet
-const sheet = (n, title, { decision, background, options, rec, implications, evidence, next }) => [
+const sheet = (n, title, { decision, background, options, rec, implications, budget, consult, evidence, next }) => [
   ...([3, 5].includes(n) ? [pageBreak()] : []),
   H2(`Decision ${n}: ${title}`),
   ...table(null, ["Element", "Content"], [2000, 7746], [
@@ -13,15 +14,19 @@ const sheet = (n, title, { decision, background, options, rec, implications, evi
     ["Options", options.join("\n")],
     ["Recommendation", rec],
     ["Implications", implications],
+    ["Budget implications", budget],
+    ["Consultation and partner positions", consult],
     ["Evidence", evidence],
     ["Next steps if agreed", next],
   ]),
 ];
 
 const children = [
-  H1("1. Purpose of this pack"),
+  H1("Executive summary"),
+  ...esBody,
+  H1("1. Purpose of this pack", { newPage: true }),
   P("F6-D11 is the summary pack that brings the Output 1.2 recommendations to the Oversight Committee, presented together with the Macro Diagnostic, the destination Micro Diagnostics and the Roundtables, so that the Committee can take the decisions Output 1.2 needs to move from design to agreements. It accompanies the slide deck **F6-D11 Output 1.2 Summary Pack for the Oversight Committee** (16 slides with speaker notes) and draws on the F6-D9 Consolidated Synthesis Report (draft of 26 November 2026, presented for validation in F6-D10), to which readers are referred for evidence and detail. The pack is designed for an in-person sitting: members receive the decision sheets in print, give their views in turn and record each decision as agreed, amended or deferred before the sitting closes."),
-  P("Section 2 sets out how the sitting will run. The pack then has four parts: the joint evidence from the workstreams (Section 3), what Output 1.2 proposes (Section 4), how it will be delivered, measured and sustained (Section 5) and five decision sheets (Section 6), followed by a draft decision record (Section 7). Items for noting are in Section 8."),
+  P("Section 2 sets out how the sitting will run. The pack then has four parts: the joint evidence from the workstreams (Section 3), what Output 1.2 proposes (Section 4), how it will be delivered, measured and sustained (Section 5) and five decision sheets (Section 6), followed by a draft decision record (Section 7). Items for noting are in Section 8, and acronyms are listed at the end."),
   ...table("Decisions requested from the Oversight Committee", ["#", "Decision", "Recommendation in brief"], [500, 3300, 5946], [
     ["1", "Intervention areas for Output 1.2", "PA1 and PA2 as delivery cores; Zambezi Region only if resourced; Angola readiness-first"],
     ["2", "Youth band and women-led test", "18–35 and a majority ownership or decision-making test, across all instruments"],
@@ -86,16 +91,30 @@ const children = [
     ["1.2.3 Financing mechanisms", "Per area, one lender, one guarantor and two anchors piloting over two seasons: seasonal loans under guarantee windows with first loss; order-backed supply chain finance; asset and lease-to-own finance; community guarantee pools and revolving funds; association guarantees with buyer-deducted repayment; the RTFF as the collateral-free pilot for the EUR 1,000–30,000 gap, with three adjustments (a larger Tier 1 share; a loss reserve with lending in the currency of revenue; a route to national lenders and guarantee schemes after the pilot and handover to the KAZA Secretariat). Four blended models for women- and youth-led enterprises; bonds later, as capital for partner banks"],
   ]),
 
+  P("Public institutions are partners in financing and empowering MSMEs alongside the lenders and anchors (Table 6)."),
+  ...table("Public institutions and their roles", ["Partner", "Examples", "Role"], [2300, 3500, 3946], [
+    ["State business support organisations", "SMEDCO with ZIDA (Zimbabwe); ZDA and CEEC (Zambia); LEA with CEDA (Botswana); NIPDB (Namibia); INAPEM (Angola)", "Lead the platforms with associations, apply the readiness diagnostic and manage the grants, separately from lending; CEDA, CEEC and SMEDCO also lend to grant graduates"],
+    ["National tourism authorities", "ZTA (Zimbabwe); BTO (Botswana)", "License and grade operators, certify practice and link MSMEs to markets; simpler licensing for micro operators eases access to finance"],
+    ["District councils", "Chobe District Council; Zimbabwe’s rural district councils", "Support micro enterprises locally through trading licences, market space and outreach to wards and villages"],
+  ]),
+
   H1("5. How it will be delivered, measured and sustained"),
   P("The roadmap runs from November 2026 to December 2028 in five phases: validation and set-up; design and partnering; season one; season two and review; and handover to national institutions and the KAZA Secretariat. Piloting over two full tourism seasons lets low-season repayment be observed twice; without the extension to mid-2029 the second low season falls after the final review (Figure 3)."),
   ...fig("fig7_roadmap_bal.png", "Indicative roadmap for Output 1.2, November 2026 to December 2028, with the extension sought to mid-2029", 640),
-  P("Results are measured through one system built on the 18 GM1-D5 indicators. Output 1.2 adds 23 indicators and the RTFF 32 more for the pilot, partner readiness, handover and roll-out. Outputs (mechanisms established, loans and grants made) are reported separately from outcomes (share obtaining finance, repayment by season, payment days) and impact (revenue, jobs and lenders continuing without concessional support), all disaggregated by sex, age, disability, country, value chain and readiness tier. Disaggregated results can only be compared across the grant facility, the RTFF and M&E if one youth band and one women-led test are used throughout, which is why measurement informs Decision 2. Three decision points structure the pilot (Table 6)."),
+  P("One measurement system covers 18 programme indicators (GM1-D5), plus 23 for Output 1.2 and 32 for the RTFF, all broken down by sex, age (18–35), disability, country, value chain and readiness tier. Disaggregated results can only be compared across the grant facility, the RTFF and M&E if one youth band and one women-led test are used throughout, which is why measurement informs Decision 2. The results are not only reported; they trigger finance decisions (Table 7). Alongside them, the system tracks outputs (loans and grants by product, season, sex and age; mechanisms and supply MOUs), outcomes (share obtaining finance, survey reference 21%; days for anchors to pay) and impact (revenue and jobs). Three decision points structure the pilot (Table 8)."),
+  ...table("What we measure and what it decides", ["We measure", "It decides", "Decision"], [3300, 5246, 1200], [
+    ["Repayment by season (PAR30) and uptake", "Gate 1 (Q1 2028): stop or adjust a product if PAR30 exceeds 15% or uptake is below half of target", "5"],
+    ["Verified R-NBT and local-sourcing milestones", "The RTFF interest rate steps down for agreed results", "RTFF terms"],
+    ["Grant milestones met", "Grant tranches are released in stages", "3"],
+    ["Repayment data over three seasons", "First-loss cover tapers from 15% to zero", "4"],
+    ["Leverage of at least 1:1; lenders continuing", "Gate 2 (Q4 2028): continue, adjust or hand over; concessional support tapers", "5"],
+  ], { plainFirst: true }),
   ...table("Decision points in the roadmap", ["Decision point", "Timing", "What is decided", "Main test"], [1500, 1300, 3200, 3746], [
     ["Gate 1", "Q1 2028", "Continue, adjust or stop each product", "PAR30 at or below 15%; uptake at least half of target"],
     ["RTFF future", "Q4 2028", "Form, host, capital and national channels of the RTFF", "Capital preserved; legal routes and national channels in place"],
     ["Gate 2", "Q4 2028", "Continue, adjust or hand over; taper concessional support", "Repayment by season; at least 60% to women and youth; lenders continuing"],
   ]),
-  P("The main risks the Committee can influence each link to one of today’s decisions; two are noted rather than linked (Table 7; full register in F6-D9 Table 19)."),
+  P("The main risks the Committee can influence each link to one of today’s decisions; two are noted rather than linked (Table 9; full register in F6-D9 Table 19)."),
   ...table("Main risks and the decision that reduces each", ["Risk", "Decision", "How it reduces the risk"], [3900, 1000, 4846], [
     ["Partner interest does not turn into commitment", "4, 5", "Risk-sharing (4); term-sheet talks turn interest into agreements (5)"],
     ["Project ends before two seasons are observed", "Noted", "Extension is for GIZ and the funders; front-load cohort 1"],
@@ -104,7 +123,7 @@ const children = [
     ["Currency and exchange control", "Noted", "Loan terms: currency of revenue, loss reserve, loan registration"],
     ["Inconsistent targeting across instruments", "2", "One definition across grants, the RTFF and M&E"],
   ]),
-  P("The RTFF and the other mechanisms will outlast the project only if they have institutional homes, capital after the pilot and partners that keep originating, financing and verifying borrowers. F6-D9 Section 7.6 and Annex D propose four kinds of strategic partnership, none of which needs a new institution (Table 8). They should be formalised in sequence: co-learning agreements and a shared referral register in 2027; co-financing for season two; and a decision with the KAZA Secretariat on the RTFF’s host and national channels by Q4 2028, before Gate 2. The Committee is asked to note them and endorse the start of co-learning (Section 8)."),
+  P("The RTFF and the other mechanisms will outlast the project only if they have institutional homes, capital after the pilot and partners that keep originating, financing and verifying borrowers. F6-D9 Section 7.6 and Annex D propose four kinds of strategic partnership, none of which needs a new institution (Table 10). They should be formalised in sequence: co-learning agreements and a shared referral register in 2027; co-financing for season two; and a decision with the KAZA Secretariat on the RTFF’s host and national channels by Q4 2028, before Gate 2. The Committee is asked to note them and endorse the start of co-learning (Section 8)."),
   ...table("Strategic partnerships to sustain the RTFF and other mechanisms", ["Kind of partnership", "Partners", "What they bring"], [2300, 3900, 3546], [
     ["Anchoring and long-term capital", "KAZA Conservation Trust Fund (Sustainable Finance Coalition, KAZA Secretariat, WWF-US); TUI Care Foundation", "A home for the RTFF after 2028–2029; the TUI Care Foundation carries it until then"],
     ["Co-financing from funders active in KAZA", "EU; Germany (GIZ, KfW, International Climate Initiative); GEF and World Bank; OKACOM CORB Fund; AfDB and African Guarantee Fund", "One layer each: readiness grants, first loss and loss reserves, counter-guarantees or recapitalisation"],
@@ -121,6 +140,8 @@ const children = [
     options: ["A. Two delivery cores only (PA1 and PA2).", "B. PA1 and PA2 as delivery cores; Zambezi Region as a third area only if resourced; Angola on a readiness-first track (Lot 1 grants, technical assistance and group savings).", "C. Three full intervention areas from the start."],
     rec: "Option B.",
     implications: "Keeps the Output 1.2 commitment to three areas open without spreading resources thin. Zambezi Region dialogues could start in 2027 with a second cohort in 2027–28 if resourced.",
+    budget: "No direct cost. A third area (Namibia’s Zambezi Region) would need its own resourcing for platforms, grants and a second cohort, about 2027–28.",
+    consult: "The programme plans coaching in two priority areas (SIGMA); NASRIA has proposed a women and youth guarantee tier that could serve the Zambezi Region; Partner State positions are sought at validation (F6-D10).",
     evidence: "F6-D9 §2.3, §3.3, §4.8 and §7.2; Macro Diagnostic; MiD1–2.",
     next: "GIZ records the geography in the Output 1.2 workplan; lead BSOs confirmed per area; Zambezi Region resourcing decided at the next Committee sitting.",
   }),
@@ -130,6 +151,8 @@ const children = [
     options: ["A. 18–35 and a majority ownership or decision-making test, across all instruments.", "B. Leave each instrument to its own definition and map them in reporting."],
     rec: "Option A, with the exact year of birth recorded so that results can be re-cut to national bands.",
     implications: "The TUI Care Foundation would align RTFF milestones before cohort 1 selection.",
+    budget: "None; the definitions are written into the grant manual, the RTFF referral protocol and the intake baseline.",
+    consult: "The programme uses 18–35; the RTFF uses 18–30 and the TUI Care Foundation would need to align its milestones; NASRIA reports youth as 40 or under.",
     evidence: "F6-D9 §6.1 and Table 17; RTFF design.",
     next: "GIZ informs the TUI Care Foundation and SIGMA; definitions written into the grant manual, the RTFF referral protocol and the intake baseline.",
   }),
@@ -139,6 +162,8 @@ const children = [
     options: ["A. About 40% of value to Lot 1 and 60% to Lot 2; 60–70% to cohort 1 chains, 15–20% to crafts and conservation, 10–20% to second-wave chains and the phased pathway.", "B. A different split set by GIZ against the confirmed envelope."],
     rec: "Option A, applied to the envelope GIZ confirms; Lot 2 sized so that 30–60 grantees can enter the Activity 1.2.3 pilots.",
     implications: "The first Lot 1 window opens in the 2027 low season; grant managers must be contracted by April 2027.",
+    budget: "The envelope is set by GIZ and was not available to the study; the split applies to the envelope confirmed. Grant managers are contracted from it by April 2027.",
+    consult: "Participants in both working sessions asked for grants conditional on training (WS-VF; WS-MN); state BSOs proposed as grant managers per area are SMEDCO, ZDA and CEEC, LEA with CEDA, and NIPDB.",
     evidence: "F6-D9 §5.2 and Table 14; WS-VF (demand for coaching, grants and assets).",
     next: "GIZ confirms the envelope; grant manual and competition package drafted; grant managers procured.",
   }),
@@ -148,6 +173,8 @@ const children = [
     options: ["A. Allow first loss and fees under 1.2.3 as proposed.", "B. Fees only, no first loss.", "C. Neither; rely on grants and the RTFF."],
     rec: "Option A. If budget lines do not allow it, this is the main design gap to resolve before term sheets.",
     implications: "Unused balances roll into the next cycle or convert to a loss reserve. Leverage target: at least EUR 1 of finance per euro of grant and first loss.",
+    budget: "About EUR 75,000–225,000 per area pilot on EUR 0.5–1.5 million of new lending, tapering to zero over three seasons, plus first-cycle guarantee fees of 2–5%; unused balances roll over or become a loss reserve.",
+    consult: "Lenders and guarantors consulted would not adapt terms without risk-sharing; NASRIA and CEDA proposed 80/20 or 70/30 structures; FNB Zambia indicated it would pay for risk-sharing (F5).",
     evidence: "F6-D9 §2.5, §5.3 and Table 15; F4-D7; F5-D8 consultations.",
     next: "GIZ confirms the budget line; first-loss agreement template drafted; figures used in term-sheet talks.",
   }),
@@ -157,6 +184,8 @@ const children = [
     options: ["A. Mandate talks now and endorse the criteria.", "B. Mandate talks; endorse criteria at the next sitting.", "C. Defer both."],
     rec: "Option A. Talks with ECGC and SMEDCO; FNB Zambia and ZANACO; CEDA, NDB and BOSRIA; NASRIA and DBN; and two anchors per area.",
     implications: "Talks are non-binding until the Committee approves agreements. The gate criteria give partners clarity on when products continue, change or stop.",
+    budget: "Staff time for the talks; no financial commitment until the Committee approves the agreements.",
+    consult: "Interest was stated in consultations by the shortlisted institutions (F6-D9 Annex A), and BDA, NDB, LEA and SMEDCO expressed interest at the SADC-DFRC consultation; no institution has yet committed.",
     evidence: "F6-D9 §5.3, Table 16, Annex A (Table 20) and §7.1; Output 1.2 Decision Gates: Criteria.",
     next: "GIZ opens talks; commitments log reviewed monthly; agreements returned to the Committee for approval.",
   }),
@@ -182,6 +211,25 @@ const children = [
     "**Strategic partnerships (for endorsement).** The partnerships in Section 5 and F6-D9 Section 7.6 and Annex D: start co-learning between the RTFF pilot and the KAZA Conservation Trust Fund design in 2027, with a light letter of intent and the TUI Care Foundation in the conversation; prepare co-financing for season two with funders active in KAZA; follow up SADC-DFRC’s official position, OKACOM (an estimated 40% of active communities overlap with KAZA; CORB Fund under the existing MoU) and ITC’s Green Value Chain programme in Botswana (division of labour in Maun).",
     "**Handover.** The readiness pack and handover documentation (F6-D12) set out what GIZ and partners take forward, the documents and templates handed over and the roles after handover.",
   ]),
+  H1("Acronyms"),
+  ...table("Acronyms", ["Acronym", "Meaning"], [1800, 7946], [
+    ["BSO", "Business support organisation"],
+    ["BTO; ZTA", "Botswana Tourism Organisation; Zimbabwe Tourism Authority"],
+    ["CEDA; CEEC; LEA", "Citizen Entrepreneurial Development Agency (Botswana); Citizens Economic Empowerment Commission (Zambia); Local Enterprise Authority (Botswana)"],
+    ["DBN; NDB", "Development Bank of Namibia; National Development Bank (Botswana)"],
+    ["DMC", "Destination management company"],
+    ["ECGC; NASRIA; BOSRIA", "Credit guarantee schemes of Zimbabwe, Namibia and Botswana"],
+    ["GM1-D5", "Programme baseline indicators (SIGMA)"],
+    ["INAPEM; NIPDB", "Institute for Support to Micro, Small and Medium Enterprises (Angola); Namibia Investment Promotion and Development Board"],
+    ["MOU", "Memorandum of understanding (here, a standard supply agreement between anchor buyers and MSME suppliers)"],
+    ["MSME", "Micro, small and medium enterprise"],
+    ["PA1; PA2", "Priority area 1, Hwange–Victoria Falls–Livingstone; priority area 2, Okavango–Maun"],
+    ["PAR30", "Portfolio at risk over 30 days: share of loans with repayments more than 30 days late"],
+    ["R-NBT", "Regenerative nature-based tourism"],
+    ["RTFF", "Regenerative Tourism Finance Facility (TUI Care Foundation)"],
+    ["SADC-DFRC; SADC FANR", "SADC Development Finance Resource Centre; SADC Food, Agriculture and Natural Resources Directorate"],
+    ["SMEDCO; ZDA; ZIDA", "Small and Medium Enterprises Development Corporation (Zimbabwe); Zambia Development Agency; Zimbabwe Investment and Development Agency"],
+  ], { plainFirst: true }),
   SRC("Sources: F6-D9 Consolidated Synthesis Report (draft of 26 November 2026) and the reports it synthesizes; F6-D10 validation presentation; F6-D12 readiness pack; Output 1.2 Decision Gates: Criteria; RTFF Pilot, Handover and Roll-out Indicators."),
 ];
 
@@ -189,8 +237,8 @@ buildDoc({
   out: process.argv[2],
   header: "KAZA R-NBT Output 1.2 · F6-D11 Summary Pack for the Oversight Committee — Draft for Decision",
   cover: {
-    title: "Output 1.2 Summary Pack",
-    subtitle: "Recommendations for Financing R-NBT MSMEs, Integrated with the Macro Diagnostic, the Destination Micro Diagnostics and the Roundtables, with Decision Sheets for the Oversight Committee",
+    title: "From Evidence to Decisions: Financing R-NBT MSMEs in KAZA",
+    subtitle: "Summary of Output 1.2 Recommendations, Presented with the Macro and Micro Diagnostics and the Roundtables, for Decision by the Oversight Committee, with Decision Sheets",
     code: "F6-D11: Summary Pack for the Oversight Committee",
     codeLine: "To be used with the slide deck ‘F6-D11 Output 1.2 Summary Pack for the Oversight Committee’ and the F6-D9 Consolidated Synthesis Report",
     dateLine: "November 2026 · Committee date to be confirmed",

@@ -35,4 +35,6 @@ const children = [
   P("**Next steps:** decision record within five working days; term-sheet talks and tools commissioned within 60 days; first platform sessions in the low season (F6-D12)."),
 ];
 
-buildDoc({ out: process.argv[2], header: "KAZA R-NBT Output 1.2 · F6-D11 Summary Pack · Executive summary (draft for review)", cover: null, children, toc: false });
+// the pack reuses everything after the title lines
+module.exports = { esBody: children.slice(2) };
+if (require.main === module) buildDoc({ out: process.argv[2], header: "KAZA R-NBT Output 1.2 · F6-D11 Summary Pack · Executive summary (draft for review)", cover: null, children, toc: false });

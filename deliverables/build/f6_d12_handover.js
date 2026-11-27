@@ -128,7 +128,7 @@ const children = [
     ["15", "Invite tourism authorities (ZTA, BTO) and district councils (for example the Chobe District Council) to the platforms; discuss simpler licensing for micro operators", "GIZ; lead BSOs", "Feb 2027", "Open", ""],
     ["16", "Co-learning letter of intent between the RTFF pilot and the KAZA Conservation Trust Fund design, with the TUI Care Foundation", "GIZ; KAZA Secretariat", "Q1 2027", "Open", ""],
     ["17", "Confirm who decided the Chobe–Maun corridor and when, and add it to F6-D9 Section 2.6", "GIZ; consultant", "Dec 2026", "Open", ""],
-    ["18", "Carry the final deck changes into the F6-D11 summary pack (executive summary, measurement, budget and consultation rows, acronyms) and the F6-D10 guide", "Consultant", "Dec 2026", "Open", "Committed hours"],
+    ["18", "Carry the final deck changes into the F6-D11 summary pack (executive summary, measurement, budget and consultation rows, acronyms) and the F6-D10 guide", "Consultant", "Dec 2026", "Done", "Completed 27 Nov 2026"],
     ...blank(3, 6),
   ], { h: 360 }),
   SRC("Status: Open, In progress, Done, Dropped (with reason)."),

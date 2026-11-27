@@ -525,7 +525,7 @@ s.addNotes(
 Facilitation prompt (items C2–C3): Is the timing realistic? Are the gate thresholds right, and should regional partners receive the gate reviews?`);
 
 // ---------------- 14. Roles and strategic partners ----------------
-s = content("F6-D9 · Who sustains it: roles and strategic partners");
+s = content("F6-D9 · Roles and partners to sustain the RTFF beyond the pilot");
 [
   ["Anchoring and long-term capital", HEX.forest, ["KAZA Conservation Trust Fund: the RTFF as a programme account after 2028–2029", "TUI Care Foundation carries the RTFF until it is anchored", "KAZA Secretariat: regional layer; RTFF future decision by Q4 2028", "SADC FANR and SADC-DFRC: policy link; regional DFI pipeline"]],
   ["Funders active in KAZA", HEX.gold, ["EU: R-NBT, Green Growth for KAZA, ITC programme", "Germany: GIZ, KfW and the International Climate Initiative", "GEF and World Bank: CORB Fund; Zambia tourism programme", "OKACOM CORB Fund; AfDB and African Guarantee Fund"]],

@@ -81,11 +81,11 @@ const children = [
   ], { plainFirst: true }),
 
   H1("6. Related documents and points to check"),
-  P("Some changes have already been carried into the related documents; others are held until the decks are final."),
+  P("All changes have now been carried into the related documents."),
   ...B([
     "**Already updated:** the F6-D11 summary pack (five decisions, agenda, storyline, title of the framework, risk table, measurement link to Decision 2); F6-D10 slide 15 and the facilitation guide (five decisions, framework title); the F6-D12 readiness pack and handover documentation (five decisions, corridor, extension, risk table); and F6-D9 (corridor and extension, change log rows 19–20).",
-    "**Held until the decks are final:** the summary pack cover title, to match the deck; three additions to the summary pack (a one-page executive summary at the front, rows for budget implications and for consultation and partner positions on each decision sheet, and a list of acronyms); the summary pack Section 5 (the five measurement-to-decision links, the new measurement wording and the tracked results); the F6-D12 M&E row (baselines make the triggers work); F6-D10 slide 14 title, to match slide 12; and the F6-D10 guide item C1 and validation sheet, to match F6-D10 slide 12.",
-    "**F6-D10 slide 12** carries the measurement slide titled “Measurement drives finance”, without the “Also tracked” line, as agreed; the updated version is available as a stand-alone file.",
+    "**Carried across once the decks were final (27 November 2026):** the F6-D11 summary pack now has the deck’s cover title, a one-page executive summary, the public institutions table, the measurement-to-decision links and tracked results (Table 7), budget implications and consultation rows on each decision sheet, and a list of acronyms; F6-D10 slide 14 is retitled “Roles and partners to sustain the RTFF beyond the pilot”; and the F6-D10 guide item C1 and validation sheet use “Measurement drives finance”.",
+    "**F6-D10 slide 12** carries the measurement slide titled “Measurement drives finance”, without the “Also tracked” line, as agreed; the version with that line is available as a stand-alone file.",
     "**Slide 15 footnote** still reads “Owners are proposals for GIZ to confirm”, although the slide shows no owners (they are in F6-D12).",
     "**Chobe–Maun corridor:** the deck states that it has been decided, but not by whom or when.",
   ]),
