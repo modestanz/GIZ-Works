@@ -36,7 +36,7 @@ const children = [
   ...table("Proposed agenda", ["Time", "Block", "Slides", "Purpose", "Lead"], [1000, 2100, 900, 4146, 1600], [
     ["0:00–0:05", "Purpose and how we decide", "1–3", "The five decisions; the decision procedure agreed with members", "Chair; presenter"],
     ["0:05–0:20", "What we know", "4–7", "Joint evidence from the Macro and Micro Diagnostics, the Roundtables and the finance studies; where each Partner State can start", "Presenter"],
-    ["0:20–0:35", "What we propose", "8–12", "One pathway, three activities; risk-sharing; roadmap and gates; measurement and risks; strategic partners", "Presenter"],
+    ["0:20–0:35", "What we propose", "8–12", "One route to finance: connect, prepare, finance; risk-sharing; roadmap and gates; measurement and risks; strategic partners", "Presenter"],
     ["0:35–1:00", "Decisions 1–5", "13–14", "One decision at a time, following the procedure below (about 5 minutes each)", "Chair"],
     ["1:00–1:10", "Read-back and next steps", "15–16", "Decision record read back; first 100 days; close", "Chair; rapporteur"],
   ]),
