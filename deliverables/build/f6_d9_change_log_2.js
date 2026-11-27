@@ -15,11 +15,11 @@ const children = [
   new Paragraph({ spacing: { after: 240 }, children: [new TextRun({ text: "KAZA R-NBT · Output 1.2 Access to Finance · November 2026", size: 18 })] }),
 
   H1("1. Versions compared"),
-  P("This log records the changes between the author’s draft of 26 November 2026 (saved 20:20) and the updated draft. The two files were compared paragraph by paragraph, including every table. All other text is unchanged. Changes 13–18 were made afterwards, on the author’s reviewed draft (SEC_DRAFT, 26 November 2026), to align the platform cycle in the body and figures with the executive summary and to refresh the contents page; the author’s own edit to Annex D in that draft (the Sustainable Finance Coalition row now names WWF-US and the KAZA Conservation Trust Fund) is retained."),
+  P("This log records the changes between the author’s draft of 26 November 2026 (saved 20:20) and the updated draft. The two files were compared paragraph by paragraph, including every table. All other text is unchanged. Changes 13–21 were made afterwards, on the author’s reviewed draft (SEC_DRAFT, 26 November 2026), to align the platform cycle in the body and figures with the executive summary, refresh the contents page, record the Chobe–Maun corridor as decided and take the project extension out of the decisions for this assignment; the author’s own edit to Annex D in that draft (the Sustainable Finance Coalition row now names WWF-US and the KAZA Conservation Trust Fund) is retained."),
   ...table("Versions compared", ["Version", "Pages (total)", "Main text (excluding annexes)", "Annexes"], [2900, 1700, 3046, 2100], [
     ["Author’s draft, 26 November 2026", "35", "28 pages (pages 4–31)", "A–D"],
     ["Updated draft", "39", "29 pages (pages 5–33)", "A–E"],
-    ["Author’s reviewed draft (SEC_DRAFT) with changes 13–18", "39", "29 pages (pages 5–33), unchanged", "A–E"],
+    ["Author’s reviewed draft (SEC_DRAFT) with changes 13–21", "39", "29 pages (pages 5–33), unchanged", "A–E"],
   ]),
   P("Page counts are from a PDF rendering and may differ by a page in Word. The main text is within the 30-page limit in the terms of reference but one page above the earlier target of fewer than 28 pages (Section 5)."),
 
@@ -47,6 +47,9 @@ const children = [
     row(["16", "Section 7.1, Season one", "“quarterly deal days” becomes “deal days every four months”.", "Consistency"]),
     row(["17", "Contents", "The contents page in the reviewed draft still listed the deleted Section 2.7 and older titles and page numbers. The 2.7 entry is removed, entries now match the headings in the body (for example “2.3 Where Each Partner State Can Start”) and page numbers are updated; Word is set to update fields when the file opens.", "Consistency"]),
     row(["18", "Figures 4 and 7", "Figure 4 (strategic framework): “One platform per intervention area, quarterly and timed to the season” becomes “every four months and timed to the season”. Figure 7 (roadmap), Activity 1.2.1 bar: “Quarterly cycle” becomes “Every four months”. Nothing else in either figure changes. Figure 9 still shows quarterly coordination meetings with the TUI Care Foundation and development partners; that is a meeting frequency, not the platform cycle, and is unchanged.", "Consistency"]),
+    row(["19", "Executive summary (RTFF bullet), Section 2.6, Table 16 (PA2), Section 7.2, Table 19, Annex A (Table 20)", "The RTFF route in Botswana is no longer treated as open: the Chobe–Maun corridor has been decided. Executive summary: “a Botswana route is conditional” becomes “the Chobe–Maun corridor has been decided for Botswana”, keeping the note on the borrower-protection check. Section 2.6: the Route A / Route B sentence becomes “in Botswana, the Chobe–Maun corridor has been decided”. Table 16, PA2: “RTFF only under Route A, otherwise referral to national channels (Route B)” becomes “RTFF in the Chobe–Maun corridor”. Section 7.2: PA2 runs “through national channels and the RTFF’s Chobe–Maun corridor”. Table 19: the risk “No Botswana RTFF route and Route B not resourced” is removed. Table 20: “especially under Route B” removed from the Youth Development Fund row.", "Consistency"]),
+    row(["20", "Executive summary (Decisions needed now), Section 7.7", "The Botswana route and the project extension to mid-2029 are removed from the decisions needed now, and “request the extension to mid-2029” from the immediate next steps. The extension is a decision for GIZ and the funders, outside this assignment; the report still notes that it is being sought and that the roadmap depends on it (Executive summary, Sections 1.4 and 7.1, Table 19).", "Consistency"]),
+    row(["21", "Section 2.6", "Double full stop after “payment within one to two weeks” corrected.", "Correction"]),
   ]),
 
   H1("4. Table numbering"),
@@ -60,6 +63,7 @@ const children = [
   H1("5. Points to check"),
   ...B([
     "**Length.** The main text is now about 29 pages (28 in the author’s draft), within the 30-page limit but above the earlier target of fewer than 28. To return below 28: shorten the first paragraph of the lender learning platform to its first and last sentences, and move the co-financing paragraph of Section 7.6 into Annex D, which together save about half a page; or remove the executive summary’s November bullets, which repeat Section 2.6.",
+    "**Chobe–Maun corridor.** The report now states that the corridor has been decided but not by whom or when. Add the decision-maker, date and a source code in Section 2.6 when available.",
     "**To confirm with partners.** TUI contribution figures are as transcribed in the SFC minutes; KfW’s current KAZA programmes were not part of the consultations; ITC’s grant framework, ceilings and currency were awaiting approval in October 2026; SADC-DFRC’s official position is awaited.",
     "**Wording carried from earlier edits.** Some passages now use “Partner State” where the meaning is a country in general (for example “three Partner States” in Section 4.2); these read correctly and were left as edited.",
   ]),
