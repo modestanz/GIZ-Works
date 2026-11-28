@@ -31,7 +31,7 @@ const page = (body, extra = "") => `<!doctype html><html><head><meta charset="ut
 
 
 // makeFigures(dir): returns { render(FIGS), figure(name, caption) } with its own figure counter
-function makeFigures(FIGDIR) {
+function makeFigures(FIGDIR, { recolor = {}, captionColor = "1F5135" } = {}) {
   fs.mkdirSync(FIGDIR, { recursive: true });
   let fn = 0;
   const figure = (name, cap) => {
@@ -40,14 +40,15 @@ function makeFigures(FIGDIR) {
     const buf = fs.readFileSync(file);
     const w = buf.readUInt32BE(16), h = buf.readUInt32BE(20), outW = 650;
     return [
-      new Paragraph({ keepNext: true, keepLines: true, spacing: { before: 160, after: 80 }, children: [new TextRun({ text: `Figure ${fn}: `, bold: true, color: "1F5135", size: 20 }), new TextRun({ text: cap, italics: true, size: 20 })] }),
+      new Paragraph({ keepNext: true, keepLines: true, spacing: { before: 160, after: 80 }, children: [new TextRun({ text: `Figure ${fn}: `, bold: true, color: captionColor, size: 20 }), new TextRun({ text: cap, italics: true, size: 20 })] }),
       new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 160, line: 240, lineRule: LineRuleType.AUTO }, children: [new ImageRun({ type: "png", data: buf, transformation: { width: outW, height: Math.round(outW * h / w) } })] }),
     ];
   };
   async function render(FIGS) {
     const { chromium } = require("playwright");
     const b = await chromium.launch();
-    for (const [name, html] of Object.entries(FIGS)) {
+    for (let [name, html] of Object.entries(FIGS)) {
+      for (const [from, to] of Object.entries(recolor)) html = html.split(from).join(to);
       fs.writeFileSync(path.join(FIGDIR, name + ".html"), html);
       const p = await b.newPage({ viewport: { width: W + 20, height: 800 }, deviceScaleFactor: 2 });
       await p.setContent(html); await p.waitForTimeout(150);
