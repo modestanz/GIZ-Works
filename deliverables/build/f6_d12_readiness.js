@@ -14,14 +14,14 @@ const { render, figure } = makeFigures(path.join(__dirname, "f6d12_figs"), { rec
 // ---------------------------------------------------------------- content (unchanged from the table version)
 const deliverables = [
   ["F0 Inception: workplan, method, available resources", "Inception phase", "Submitted", "Workplan, method, lessons from past programmes"],
-  ["F1-D4 Financial Landscape Analysis", "Revised draft, 29 Oct 2026", "Feedback awaited", "Lenders, guarantors and support by Partner State; readiness scores"],
+  ["F1-D4 Financial Landscape Analysis", "Revised draft, 29 Oct 2026", "KAZA reviewed", "Lenders, guarantors and support by Partner State; readiness scores"],
   ["F2-D5 Barriers and Opportunities", "Revised draft, 29 Oct 2026", "Submitted", "Barriers and root causes; lender risk views; grant facility design"],
   ["F3-D6 Investment Readiness and Enterprise Strengthening", "5 Nov 2026", "Submitted", "Readiness tiers 0–3; capacity needs; lead BSOs; baseline fields"],
-  ["F4-D7 Financing Mechanisms Assessment", "Revised draft, 18 Nov 2026", "Feedback being incorporated", "Mechanism feasibility; blended models; pilot design; partner shortlist"],
+  ["F4-D7 Financing Mechanisms Assessment", "Revised draft, 18 Nov 2026", "Submitted", "Mechanism feasibility; blended models; pilot design; partner shortlist"],
   ["F5-D8 Roundtable preparation and documentation", "Draft 2; segment reports, Nov 2026", "Submitted", "Institutional evidence; roundtable and working-session findings"],
-  ["F6-D9 Consolidated Synthesis Report", "26 Nov 2026, with change logs", "For validation", "Output 1.2 framework, recommendations, M&E, roadmap, partners"],
-  ["F6-D10 Validation presentation and plenary", "Deck; facilitation guide", "Ready", "Materials for the second roundtable"],
-  ["F6-D11 Summary pack for the Oversight Committee", "Deck; pack with decision sheets; take-away", "Ready", "Five decisions and the take-away"],
+  ["F6-D9 Consolidated Synthesis Report", "26 Nov 2026, with change logs", "Submitted", "Output 1.2 framework, recommendations, M&E, roadmap, partners"],
+  ["F6-D10 Validation presentation and plenary", "Deck; facilitation guide", "Submitted", "Materials for the second roundtable"],
+  ["F6-D11 Summary pack for the Oversight Committee", "Deck; pack with decision sheets; take-away", "Submitted", "Five decisions and the take-away"],
   ["F6-D12 Readiness pack and handover", "This pack; meeting documentation", "This pack", "Decisions, partners, 100 days, risks"],
 ];
 const readiness = [
@@ -144,7 +144,7 @@ const supportingDocs = [
 // Figure 1: deliverables as a flow
 const delivCard = ([n, v, s, h]) => { const [code, ...rest] = n.split(" "); return `<div class="card"><div style="display:flex;justify-content:space-between;align-items:flex-start;gap:4px;flex-wrap:wrap"><span class="code">${esc(code)}</span>${pill(s)}</div><div class="t" style="margin-top:6px">${esc(rest.join(" "))}</div><div class="small muted" style="margin-top:3px">${esc(v)}</div><div class="r">→ ${esc(h)}</div></div>`; };
 const fig1 = page(`
-<div class="band forest">Inception</div><div class="grid" style="grid-template-columns:1fr 2fr">${delivCard(deliverables[0])}<div class="small muted" style="align-self:center;padding-left:6px">Statuses: ${pill("Submitted")} ${pill("Ready")} ${pill("This pack")} complete or ready; ${pill("Feedback awaited")} ${pill("Feedback being incorporated")} ${pill("For validation")} still open</div></div>
+<div class="band forest">Inception</div><div class="grid" style="grid-template-columns:1fr 2fr">${delivCard(deliverables[0])}<div class="small muted" style="align-self:center;padding-left:6px">Statuses: ${pill("Submitted")} ${pill("KAZA reviewed")} ${pill("This pack")}: every deliverable is now submitted; F1-D4 has also been reviewed by the KAZA Secretariat</div></div>
 <div class="arrow">▼</div>
 <div class="band">Studies of the Financial Landscape Analysis, informed by SIGMA’s Macro and Micro Diagnostics</div>
 <div class="grid five" style="grid-template-columns:repeat(5,minmax(0,1fr));gap:6px">${deliverables.slice(1, 6).map(delivCard).join("")}</div>
@@ -213,7 +213,7 @@ async function main() {
   const children = [
     H1("1. Purpose and status"),
     P("This readiness pack hands over the work of the Financial Landscape Analysis workstream on Output 1.2 financial mechanisms for R-NBT MSMEs to GIZ, the KAZA Secretariat, the SADC Secretariat and the officers responsible for implementing Output 1.2. As the terms of reference require, it summarises the **key decisions**, the **partners and contacts**, the **first 100-day actions** and the **outstanding risks**. It is Part 1 of F6-D12; Part 2 is the handover meeting documentation. The workstream’s studies (F1-D4 to F5-D8) were informed by SIGMA’s Macro and Micro Diagnostics and consolidated in F6-D9; Figure 1 shows every deliverable and its status."),
-    P("Status is as of 27 November 2026. The designs are complete (F6-D9, with change logs), and the materials for validation (F6-D10 deck and facilitation guide) and for the Oversight Committee (F6-D11 deck, summary pack with decision sheets, and take-away) are ready. Implementation depends on validation at the second roundtable, on the Committee’s five decisions and on partner commitments. The consultant remains available after contract closure for reporting and handover, drawing on hours already committed. Figure 2 rates each component: **Ready** (can proceed now), **Partly ready** (design done, key steps outstanding), **Not ready** (depends on a decision or resources not yet in place)."),
+    P("Status is as of 27 November 2026. All deliverables have been submitted: the studies (F1-D4, reviewed by the KAZA Secretariat, to F5-D8), the synthesis (F6-D9, with change logs) and the materials for validation (F6-D10 deck and facilitation guide) and for the Oversight Committee (F6-D11 deck, summary pack with decision sheets, and take-away). Implementation depends on validation at the second roundtable, on the Committee’s five decisions and on partner commitments. The consultant remains available after contract closure for reporting and handover, drawing on hours already committed. Figure 2 rates each component: **Ready** (can proceed now), **Partly ready** (design done, key steps outstanding), **Not ready** (depends on a decision or resources not yet in place)."),
     ...figure("fig1", "Financial Landscape Analysis deliverables"),
     ...figure("fig2", "Readiness at a glance"),
 
