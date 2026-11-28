@@ -29,7 +29,7 @@ const readiness = [
   ["1.2.2 Grant facility", "Not ready", "Lot design, scoring, contribution rules, conversion clause", "Envelope and lot split; grant manual; grant managers"],
   ["1.2.3 Financing mechanisms", "Partly ready", "Mechanisms assessed; pilots and partner shortlist per area", "Partner commitments; first-loss budget line; agreement templates"],
   ["RTFF pilot", "Partly ready", "Design (about 50 loans, from Q1 2027); Chobe–Maun corridor decided in Botswana; three adjustments; 32 indicators", "A pilot plan to be developed with the TUI Care Foundation (cohort, timeline, country split and milestones); selection criteria; referral protocol; in-country recovery"],
-  ["M&E", "Partly ready", "GM1-D5 extract; 23 Output 1.2 indicators; gate criteria; results linked to finance decisions (gates, RTFF step-down, grant tranches, first-loss taper)", "Indicator ownership; targets; three baselines, without which the triggers cannot work; one youth band and women-led test (Decision 2)"],
+  ["M&E", "Partly ready", "Three indicator sets (Figure 8): 18 GM1-D5 programme indicators; 23 Output 1.2 indicators (F6-D9 Table 17); 32 RTFF pilot, handover and roll-out indicators (companion note); gate criteria; results linked to finance decisions (gates, RTFF step-down, grant tranches, first-loss taper)", "Indicator ownership; targets; three baselines, without which the triggers cannot work; one youth band and women-led test (Decision 2)"],
   ["Strategic partnerships", "Partly ready", "Four kinds of partnership and 18 candidates identified (F6-D9 Section 7.6, Annex D)", "Co-learning letter of intent; co-financing for season two; RTFF host by Q4 2028"],
   ["Governance", "Not ready", "Five decisions framed with options; validation and Committee materials ready (F6-D10, F6-D11)", "Roundtable validation; Oversight Committee sitting"],
 ];
@@ -119,6 +119,21 @@ const risks = [
   ["The RTFF and other mechanisms have no home after the pilot", "Co-learning with the KAZA Conservation Trust Fund from 2027; alternative homes explored in parallel (a KAZA Secretariat vehicle, a lead country, or testing in one market first); host agreed by Q4 2028", "—", "GIZ; KAZA Sec.; TUI"],
   ["Duplication with ITC, OKACOM, World Bank programmes", "Share criteria and beneficiary lists; align contribution ratios", "—", "GIZ"],
 ];
+// indicator sets handed over: [count, title, source, [[group, codes, n, examples]]]
+const indicatorSets = [
+  ["18", "Programme baseline indicators", "GM1-D5 (SIGMA); targets set in GM3-D11; recorded at intake", [
+    ["MSME, destination and KAZA level", "", "", "the programme’s own baseline set, which the two layers below reuse rather than duplicate"]]],
+  ["23", "Output 1.2 indicators", "F6-D9 Section 6.2, Table 17", [
+    ["Output 1.2", "O1–O7", "7", "Mechanisms established; finance transactions; share obtaining finance; leverage per euro; PAR30 by season; share to women- and youth-led; tourism share of guarantee schemes"],
+    ["1.2.1 Platforms", "A1–A5", "5", "Sessions held; referrals and approval rate; supply MOUs; days for anchors to pay; product adaptations agreed"],
+    ["1.2.2 Grants", "G1–G6", "6", "Grants awarded; contribution mobilised; milestones met; tier graduation; complementary finance; R-NBT progression"],
+    ["1.2.3 Mechanisms", "F1–F5", "5", "Partnership agreements; repayment by season; local procurement; revenue and jobs; lenders continuing without first loss"]]],
+  ["32", "RTFF pilot, handover and roll-out indicators", "Companion note to F6-D9 (Nov 2026), submitted with the Landscape Analysis; not a contract deliverable", [
+    ["Pilot performance", "R1–R13", "13", "Referral funnel (about 150 referrals for about 50 loans); repayment by season (PAR30 below 15%); capital preserved (at least EUR 708,000 net fund value by Q4 2028); at least 60% to women- or youth-led; graduation to national lenders"],
+    ["Partner readiness", "P1–P9", "9", "Products adopted (at least one lender per country); guarantee windows in use; lender learning; BSO referral quality; anchor repayment links; co-financing"],
+    ["Handover to KAZA", "K1–K7", "7", "Future arrangements decided by Q4 2028; legal routes; national channels in at least two countries; Secretariat capacity; operations manual and evaluation before Gate 2"],
+    ["Post-pilot roll-out", "S1–S3", "3", "Reach through national channels; concessionality taper; replication in new areas"]]],
+];
 const tools = [
   ["Supply MOU", "written orders, payment within 30 days (15 for micro suppliers), notice before termination, optional buyer-deducted repayment."],
   ["RTFF referral and co-financing protocol", "eligibility screen, one-page profile, decision deadline, coded rejection reasons, grant as borrower contribution, seasonal schedule, in-country recovery."],
@@ -136,7 +151,7 @@ const roles = [
 ];
 const supportingDocs = [
   ["Change logs for F6-D9 and the F6-D11 deck; figure source files", "Nov 2026", "Version history"],
-  ["GM1-D5 indicator extract; RTFF indicators; decision-gate criteria", "Nov 2026", "M&E and gates"],
+  ["GM1-D5 indicator extract; RTFF Pilot, Handover and Roll-out Indicators (companion note prepared for F6-D9 and submitted with the Landscape Analysis, not a contract deliverable); decision-gate criteria", "Nov 2026", "M&E and gates"],
   ["KAZA–OKACOM synergy note; ITC convergence note and meeting minutes; GIZ–SFC minutes; WWF KAZA Bankable Nature Solutions minutes", "Oct–Nov 2026", "Coordination; partnerships"],
 ];
 
@@ -205,7 +220,18 @@ const fig8 = page(`<div class="grid" style="grid-template-columns:300px 24px 210
 <div class="small muted"><b>Function</b></div><div></div><div class="small muted"><b>Lead</b></div><div></div><div class="small muted"><b>Support</b></div>
 ${roles.map(([f, l, s]) => `<div class="card t" style="font-size:14.5px">${esc(f)}</div><div class="arrow" style="margin:0">➜</div><div>${chip(l, "fill")}</div><div class="arrow" style="margin:0;color:#9AA79E">＋</div><div>${s.split("; ").map((x) => chip(x)).join("")}</div>`).join("")}</div>`);
 
-const FIGS = { fig1, fig2, fig3, fig4a, fig4b, fig5, fig6, fig7, fig8 };
+// Figure: indicator sets as layers
+const layerCol = ["#1F3B2C", "#3D5A44", "#C98A2B"];
+const figInd = page(`${indicatorSets.map(([n, title, src, groups], i) => `
+${i ? `<div class="arrow" style="margin:2px 0 4px">▼ builds on, without collecting twice</div>` : ""}
+<div style="display:flex;gap:10px;align-items:stretch">
+<div style="flex:none;width:96px;border-radius:6px;background:${layerCol[i]};color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6px"><div style="font-size:34px;font-weight:700;line-height:1">${n}</div><div style="font-size:12px;text-align:center;margin-top:3px">indicators</div></div>
+<div style="flex:1"><div class="t" style="font-size:16px">${esc(title)}</div><div class="small muted" style="margin-bottom:5px">${esc(src)}</div>
+${groups.length === 1 ? `<div class="r">${esc(groups[0][0])}: ${esc(groups[0][3])}</div>` : `<div class="grid" style="grid-template-columns:repeat(${groups.length},minmax(0,1fr));gap:6px">${groups.map(([g, codes, k, ex]) => `<div class="card" style="border-top:4px solid ${layerCol[i]};padding:6px 8px"><div style="display:flex;justify-content:space-between;gap:4px;align-items:baseline"><span class="t" style="font-size:13.5px">${esc(g)}</span><span class="small muted" style="white-space:nowrap">${esc(codes)} · ${k}</span></div><div class="small" style="margin-top:4px">${esc(ex)}</div></div>`).join("")}</div>`}
+</div></div>`).join("")}
+<div class="card small" style="margin-top:10px;background:#F7F9F6">Shared rules: one record per enterprise; disaggregated by country, area, sex, age and formality; unknown values recorded as unknown, not zero; each Output 1.2 and RTFF indicator is linked to a GM1-D5 indicator where one exists, so that definitions are shared and nothing is collected twice.</div>`);
+
+const FIGS = { fig1, fig2, fig3, fig4a, fig4b, fig5, fig6, figInd, fig7, fig8 };
 
 // ---------------------------------------------------------------- render and assemble
 async function main() {
@@ -235,8 +261,10 @@ async function main() {
     ...figure("fig6", "Outstanding risks"),
 
     H1("6. Documents, templates and roles"),
-    P("The deliverables in Figure 1 and the supporting documents below are transferred at the handover meeting; Figure 9 sets out who leads each function after handover. Supporting documents handed over:"),
+    P("The deliverables in Figure 1 and the supporting documents below are transferred at the handover meeting; Figure 10 sets out who leads each function after handover. Supporting documents handed over:"),
     ...B(supportingDocs.map(([d, v, u]) => `**${d}** (${v}): ${u.charAt(0).toLowerCase() + u.slice(1)}.`)),
+    P("Figure 8 shows how the three indicator sets handed over fit together."),
+    ...figure("figInd", "Indicator sets handed over: programme, Output 1.2 and RTFF"),
     P("Four tools still need drafting; their outlines are in F6-D9 (Sections 5.1–5.3 and Annex C):"),
     ...figure("fig7", "Four tools still to draft"),
     ...figure("fig8", "Roles after handover (proposed)"),
