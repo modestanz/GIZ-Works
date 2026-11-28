@@ -38,7 +38,7 @@ const decisions = {
     ["Keep the two grant lots of the Output 1.2 design; no third lot", "Taken", "GIZ (design)", "Lot 1 up to EUR 10,000; Lot 2 EUR 10,000–40,000"],
     ["Present the RTFF as one financing option among several", "Taken", "GIZ", "Three adjustments proposed to the TUI Care Foundation as pilot design partner"],
     ["Work through existing national institutions; no new facility", "Taken", "Synthesis (F6-D9)", "Regional level for standards, learning and the RTFF's future"],
-    ["RTFF route in Botswana: the Chobe–Maun corridor", "Taken", "Already decided", "Not before the Oversight Committee"],
+    ["RTFF pilot route in KAZA: the two priority areas, Chobe and Victoria Falls", "Taken", "Already decided", "Not before the Oversight Committee"],
   ],
   pending: [
     ["Intervention areas: PA1 and PA2; Zambezi Region if resourced; Angola readiness-first", "Pending", "Oversight Committee", "Calls and agreements need a confirmed geography"],
