@@ -137,7 +137,7 @@ async function main() {
     { band: "Open items and leads" },
     ["10", "First 100-day actions with owners agreed (Readiness Pack Figure 6)", "", "", ""],
     ["11", "Key decisions and open questions (Readiness Pack Figure 3) and outstanding risks (Figure 7) with owners agreed", "", "", ""],
-    ["12", "Partners and leads: state BSOs, tourism authorities and district councils; KAZA Conservation Trust Fund and funders active in KAZA; SADC-DFRC, OKACOM, TUI Care Foundation, ITC, WWF KAZA Bankable Nature Solutions, EU Delegation, KAZA Secretariat, SIGMA", "", "", ""],
+    ["12", "Partners and leads: state BSOs, tourism authorities and district councils; KAZA Conservation Trust Fund and funders active in KAZA; SADC-DFRC, OKACOM, TUI Care Foundation, ITC, WWF KAZA Bankable Nature Solutions, EU Delegation, KAZA Secretariat", "", "", ""],
     ["13", "Template outlines: supply MOU, RTFF referral protocol, grant manual, readiness diagnostic", "", "", ""],
     ["14", "Action log agreed (Section 7)", "", "", ""],
   ], { h: 420 }),

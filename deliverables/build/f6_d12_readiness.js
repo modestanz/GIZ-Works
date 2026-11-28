@@ -79,7 +79,6 @@ const partners = {
     ["WWF KAZA Bankable Nature Solutions", "Green pipeline and de-risking capital; wholesale green funding through banks (Namibia, Botswana, a Standard Bank group facility across five states); EU first loss or guarantees", "Engaged (Nov 2026); bank structures in progress", "Follow up the bank structures, pricing and currency; WWF to suggest alternative homes for the RTFF; keep as a sounding board", "GIZ"],
     ["EU Delegation", "One joint space for EU-funded projects in KAZA (WWF, ITC, R-NBT)", "Raised by GIZ (Nov 2026)", "Agree a functional joint space that private-sector partners find worth attending", "GIZ"],
     ["KAZA Secretariat; SADC FANR", "Regional layer; RTFF future decision; policy link", "Reviewing the diagnostics", "Agree regional roles at validation; discuss a regional home for the RTFF (Trust Fund, a KAZA Secretariat vehicle or a lead country) and a KAZA finance task force with Partner State representatives", "GIZ"],
-    ["SIGMA International", "Pipeline, supplier directory, indicators", "Inception phase", "Joint indicator document; intake baseline", "GIZ"],
   ],
 };
 // 100 days: phase -> [days, action, owner]
