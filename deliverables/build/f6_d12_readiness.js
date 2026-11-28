@@ -28,7 +28,7 @@ const readiness = [
   ["1.2.1 Dialogue platforms", "Partly ready", "Formats, a cycle every four months, conveners per area; lender learning platform designed; supplier directory started with SIGMA", "Conveners contracted; readiness diagnostic and supply MOU template; first sessions"],
   ["1.2.2 Grant facility", "Not ready", "Lot design, scoring, contribution rules, conversion clause", "Envelope and lot split; grant manual; grant managers"],
   ["1.2.3 Financing mechanisms", "Partly ready", "Mechanisms assessed; pilots and partner shortlist per area", "Partner commitments; first-loss budget line; agreement templates"],
-  ["RTFF pilot", "Partly ready", "Design (about 50 loans, from Q1 2027); Chobe–Maun corridor decided in Botswana; three adjustments; 32 indicators", "A pilot plan to be developed with the TUI Care Foundation (cohort, timeline, country split and milestones); selection criteria; referral protocol; in-country recovery"],
+  ["RTFF pilot", "Partly ready", "Design (about 50 loans, from Q1 2027); three adjustments; 32 indicators; proposal to channel Maun–Chobe products through Chobe (Kasane) as a market", "A pilot plan to be developed with the TUI Care Foundation (cohort, timeline, country split and milestones); selection criteria; referral protocol; in-country recovery"],
   ["M&E", "Partly ready", "Three indicator sets (Figure 8): 18 GM1-D5 programme indicators; 23 Output 1.2 indicators (F6-D9 Table 17); 32 RTFF pilot, handover and roll-out indicators (companion note); gate criteria; results linked to finance decisions (gates, RTFF step-down, grant tranches, first-loss taper)", "Indicator ownership; targets; three baselines, without which the triggers cannot work; one youth band and women-led test (Decision 2)"],
   ["Strategic partnerships", "Partly ready", "Four kinds of partnership and 18 candidates identified (F6-D9 Section 7.6, Annex D)", "Co-learning letter of intent; co-financing for season two; RTFF host by Q4 2028"],
   ["Governance", "Not ready", "Five decisions framed with options; validation and Committee materials ready (F6-D10, F6-D11)", "Roundtable validation; Oversight Committee sitting"],
@@ -38,7 +38,6 @@ const decisions = {
     ["Keep the two grant lots of the Output 1.2 design; no third lot", "Taken", "GIZ (design)", "Lot 1 up to EUR 10,000; Lot 2 EUR 10,000–40,000"],
     ["Present the RTFF as one financing option among several", "Taken", "GIZ", "Three adjustments proposed to the TUI Care Foundation as pilot design partner"],
     ["Work through existing national institutions; no new facility", "Taken", "Synthesis (F6-D9)", "Regional level for standards, learning and the RTFF's future"],
-    ["RTFF pilot route in KAZA: the two priority areas, Chobe and Victoria Falls", "Taken", "Already decided", "Not before the Oversight Committee"],
   ],
   pending: [
     ["Intervention areas: PA1 and PA2; Zambezi Region if resourced; Angola readiness-first", "Pending", "Oversight Committee", "Calls and agreements need a confirmed geography"],
@@ -48,6 +47,7 @@ const decisions = {
     ["Term-sheet talks and decision-gate criteria", "Pending", "Oversight Committee", "Agreements needed by May 2027"],
   ],
   open: [
+    ["RTFF pilot: include Chobe (Kasane) as a market through which products from Maun–Chobe are channelled", "Proposed", "GIZ; TUI Care Foundation", "A proposal, not yet decided; not before the Oversight Committee"],
     ["Project extension to mid-2029", "Pending", "GIZ; funders", "Outside this assignment; needed to observe a second low season"],
     ["TUI Care Foundation minimum entry criteria beyond formal registration", "Open", "TUI Care Foundation", "Risk of a pipeline rejected on first sight"],
     ["Ownership of the key indicators as one shared live document", "Open", "GIZ; SIGMA; TUI", "Outputs separate from impact; youth and gender lens"],
@@ -59,7 +59,7 @@ const partners = {
   fis: [
     ["Zambia (PA1): FNB Zambia, ZANACO, ZCGS, MSMED, CEEC", "Risk-sharing for order-backed supply and guiding; matching grants", "Readiness 4.1; FNB would pay for risk sharing", "Term-sheet talks", "GIZ"],
     ["Zimbabwe (PA1): ECGC, SMEDCO, CBZ, Stanbic, Women's Microfinance Bank", "Tourism guarantee window with first loss; grant manager", "Readiness 3.9; currency rules", "ECGC window talks; register foreign loans", "GIZ"],
-    ["Botswana (PA2): CEDA, NDB, NASRIA/BOSRIA, Stanbic, LEA, Youth Development Fund", "National lenders and guarantor alongside the RTFF; BOSRIA window; grant manager (LEA)", "Readiness 3.4; Chobe–Maun corridor decided", "Joint briefing of BOSRIA, CEDA and NDB", "GIZ"],
+    ["Botswana (PA2): CEDA, NDB, NASRIA/BOSRIA, Stanbic, LEA, Youth Development Fund", "National lenders and guarantor alongside the RTFF; BOSRIA window; grant manager (LEA)", "Readiness 3.4; Chobe (Kasane) proposed as a market for Maun–Chobe products", "Joint briefing of BOSRIA, CEDA and NDB", "GIZ"],
     ["Namibia (Zambezi Region): NASRIA, DBN, NYDF", "Women and youth guarantee tier (second cohort)", "Readiness 3.2; if resourced", "Decide resourcing", "GIZ"],
   ],
   public: [

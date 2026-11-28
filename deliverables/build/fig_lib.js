@@ -5,7 +5,7 @@ const path = require("path");
 const { Paragraph, TextRun, ImageRun, AlignmentType, LineRuleType } = require("docx");
 
 const esc = (t) => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-const tone = (s) => ({ Ready: "ok", Submitted: "ok", "KAZA reviewed": "ok", Taken: "ok", "This pack": "ok", "Partly ready": "mid", Pending: "mid", Open: "mid", "Feedback awaited": "mid", "Feedback being incorporated": "mid", "For validation": "mid", "Not ready": "no" }[s] || "mid");
+const tone = (s) => ({ Ready: "ok", Submitted: "ok", "KAZA reviewed": "ok", Taken: "ok", "This pack": "ok", "Partly ready": "mid", Pending: "mid", Open: "mid", Proposed: "mid", "Feedback awaited": "mid", "Feedback being incorporated": "mid", "For validation": "mid", "Not ready": "no" }[s] || "mid");
 const pill = (s) => `<span class="pill ${tone(s)}">${esc(s)}</span>`;
 const chip = (t, cls = "") => `<span class="chip ${cls}">${esc(t)}</span>`;
 const split = (t) => { const i = t.indexOf(":"); return i < 0 ? [t, ""] : [t.slice(0, i), t.slice(i + 1).trim()]; };
