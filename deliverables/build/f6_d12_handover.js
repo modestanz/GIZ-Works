@@ -1,60 +1,123 @@
-// F6-D12 (part 2): Handover meeting documentation
+// F6-D12 (part 2): Handover meeting documentation. Illustrated version: meeting details, agenda, participants
+// and the pre-meeting checklist are drawn as figures; the forms used in the meeting (handover checklist,
+// sign-off, minutes and action log) stay as fillable tables.
+// Usage: node deliverables/build/f6_d12_handover.js out.docx
+const path = require("path");
 const { makeKit, buildDoc } = require("./doc_lib");
+const { esc, chip, page, makeFigures } = require("./fig_lib");
 const K = makeKit();
 const { P, H1, H2, B, N, table, SRC, field, pageBreak } = K;
 const blank = (n, cols) => Array.from({ length: n }, () => Array(cols).fill(""));
+const { render, figure } = makeFigures(path.join(__dirname, "f6d12h_figs"));
 
-const children = [
+// ---------------------------------------------------------------- content (unchanged from the table version)
+const details = {
+  purpose: "Hand over the Output 1.2 deliverables, open items, partnership leads and documents; agree owners and an action log; sign off the handover",
+  date: "[To be confirmed] · in person, with an online link for partners who cannot attend",
+  duration: "About two and a half hours",
+  chair: "GIZ Output 1.2 lead",
+  presenter: "Consultant (MNZ Consult)",
+  prereads: ["F6-D12 Part 1 Readiness Pack", "F6-D11 take-away summary pack and decision sheets", "RTFF indicators", "Output 1.2 Decision Gates"],
+  outputs: ["Signed handover checklist", "minutes", "agreed action log", "documents transferred to the GIZ project folder"],
+};
+// [start, end, item, lead, reference]
+const agenda = [
+  ["0:00", "0:10", "1. Welcome, purpose and agreement of the agenda", "GIZ", ""],
+  ["0:10", "0:25", "2. Status of deliverables F1-D4 to F6-D12, change logs and validation (diagnostics, F6-D9, second roundtable)", "Consultant", "Readiness Pack §1, §6"],
+  ["0:25", "0:55", "3. Readiness by component: 1.2.1, 1.2.2, 1.2.3, RTFF, M&E, governance, partnerships", "Consultant", "Readiness Pack §1"],
+  ["0:55", "1:10", "4. The five decisions pending at the Oversight Committee; what is already decided (Chobe–Maun corridor) and what sits outside the assignment (extension)", "GIZ", "F6-D11; Readiness Pack §2"],
+  ["1:10", "1:20", "Break", "", ""],
+  ["1:20", "1:50", "5. RTFF: minimum entry criteria and screening; pipeline split (funding only vs capacity building plus funding); key indicators for the project and the RTFF (outputs vs impact, youth and gender lens)", "GIZ with TUI Care Foundation and SIGMA", "RTFF indicators; Readiness Pack §2, §6"],
+  ["1:50", "2:05", "6. Partners handed to GIZ: state BSOs, tourism authorities and district councils; strategic partners (KAZA Conservation Trust Fund, funders active in KAZA); SADC-DFRC, OKACOM, ITC", "Consultant", "Readiness Pack §3"],
+  ["2:05", "2:15", "7. Document register, templates to develop and file transfer", "Consultant", "Readiness Pack §6"],
+  ["2:15", "2:30", "8. First 100-day actions, outstanding risks, roles after handover, action log and sign-off", "GIZ", "Readiness Pack §4–6; Sections 5–7 below"],
+];
+// [group, organisation, role, name]
+const participants = [
+  ["Receives the handover", "GIZ KAZA R-NBT", "Chair; Output 1.2 lead; receives the handover", ""],
+  ["Receives the handover", "GIZ KAZA R-NBT", "Project management and contracts", ""],
+  ["Receives the handover", "GIZ KAZA R-NBT", "M&E", ""],
+  ["Receives the handover", "GIZ (regional partnerships)", "Receives partnership leads (SADC-DFRC and others)", ""],
+  ["Receives the handover", "Output 1.2 implementing officers", "Receive the 100-day actions and templates", ""],
+  ["Hands over", "MNZ Consult", "Consultant; presents and hands over", "Modesta Nyirenda"],
+  ["Regional partners", "KAZA Secretariat", "Receives the regional layer and the RTFF future arrangements", ""],
+  ["Regional partners", "SADC Secretariat (FANR)", "Policy link to the SADC TFCA programme; regional replication", ""],
+  ["Programme partners", "SIGMA International", "Diagnostics and inception phase; pipeline and indicators", ""],
+  ["Programme partners", "TUI Care Foundation", "RTFF administrator (agenda item 5)", ""],
+];
+// [task, owner]
+const prep = [
+  ["Confirm date, venue and online link; send invitations with pre-reads", "GIZ"],
+  ["Confirm KAZA Secretariat and SADC Secretariat attendance, and TUI Care Foundation and SIGMA participation for agenda item 5", "GIZ"],
+  ["Prepare the GIZ project folder and access rights for the file transfer", "GIZ"],
+  ["Bring all documents in the register to final file names and versions", "Consultant"],
+  ["Update the readiness ratings if any decision or partner response has arrived", "Consultant"],
+  ["Print the handover checklist (Section 5) for signature", "GIZ"],
+];
+
+// ---------------------------------------------------------------- figures
+const EXTRA = `.tile{border:1.4px solid #DDE3DA;border-radius:6px;padding:8px 10px}
+.lab{font-size:12.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#5a6660}
+.val{font-size:15px;font-weight:700;color:#1F3B2C;margin-top:3px;line-height:1.25}
+.doc{display:flex;gap:8px;align-items:flex-start;font-size:14px;line-height:1.25;margin:5px 0}
+.ic{flex:none;width:18px;height:22px;border:1.6px solid #3D5A44;border-radius:2px 7px 2px 2px;background:#F3F8F1}
+.tick{flex:none;width:18px;height:18px;border-radius:50%;background:#3D7A4F;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.box{flex:none;width:22px;height:22px;border:2px solid #3D5A44;border-radius:3px;background:#fff}
+.line{border-bottom:1.3px solid #9AA79E;height:20px;margin-top:4px}`;
+const toMin = (t) => { const [h, m] = t.split(":").map(Number); return h * 60 + m; };
+
+const figMeeting = page(`
+<div style="background:#1F3B2C;color:#fff;border-radius:6px;padding:10px 14px"><div class="lab" style="color:#BFD6C3">Purpose</div><div style="font-size:16px;font-weight:700;line-height:1.3;margin-top:3px">${esc(details.purpose)}</div></div>
+<div class="grid" style="grid-template-columns:2fr 1fr 1fr 1fr;margin-top:8px">
+${[["Date and venue", details.date], ["Duration", details.duration], ["Chair", details.chair], ["Presenter", details.presenter]].map(([l, v]) => `<div class="tile"><div class="lab">${esc(l)}</div><div class="val">${esc(v)}</div></div>`).join("")}</div>
+<div class="grid" style="grid-template-columns:1fr 1fr;margin-top:8px">
+<div class="tile" style="background:#F7F9F6"><div class="lab">Pre-reads</div>${details.prereads.map((d) => `<div class="doc"><span class="ic"></span><span>${esc(d)}</span></div>`).join("")}</div>
+<div class="tile" style="background:#FDF7E9;border-color:#F3E3BF"><div class="lab">Outputs</div>${details.outputs.map((d) => `<div class="doc"><span class="tick">✓</span><span>${esc(d.charAt(0).toUpperCase() + d.slice(1))}</span></div>`).join("")}</div></div>`, EXTRA);
+
+const PX = 2.1; // pixels per minute for the duration bar
+const figAgenda = page(`<div style="display:grid;grid-template-columns:92px 1fr;gap:0 12px">
+${agenda.map(([a, b, item, lead, ref]) => {
+  const mins = toMin(b) - toMin(a), brk = item === "Break";
+  const m = /^(\d)\. (.*)$/.exec(item);
+  return `<div style="text-align:right;padding-top:6px"><div style="font-size:15px;font-weight:700;color:#1F3B2C">${a}</div><div class="small muted">${mins} min</div></div>
+<div style="display:flex;gap:10px;margin-bottom:6px;align-items:stretch">
+<div style="flex:none;width:10px;border-radius:5px;background:${brk ? "#D6DBD4" : "#C98A2B"};min-height:${Math.max(30, mins * PX)}px"></div>
+${brk ? `<div class="small muted" style="align-self:center;font-style:italic">Break</div>` : `<div class="card" style="flex:1;display:flex;gap:10px;align-items:flex-start"><span class="num" style="background:#3D5A44">${m[1]}</span><div style="flex:1"><div class="r" style="margin-top:1px">${esc(m[2])}</div><div style="margin-top:5px">${chip(lead, "fill")}${ref ? ` <span class="small muted">${esc(ref)}</span>` : ""}</div></div></div>`}
+</div>`; }).join("")}
+<div style="text-align:right"><div style="font-size:15px;font-weight:700;color:#1F3B2C">2:30</div></div><div class="small muted" style="padding-top:3px">Close</div></div>`, EXTRA);
+
+const groups = ["Receives the handover", "Hands over", "Regional partners", "Programme partners"];
+const gcol = { "Receives the handover": "#1F3B2C", "Hands over": "#C98A2B", "Regional partners": "#B8563E", "Programme partners": "#3D5A44" };
+const pCard = ([, org, role, name]) => `<div class="card"><div class="t">${esc(org)}</div><div class="r">${esc(role)}</div>
+<div style="display:flex;gap:8px;margin-top:6px;align-items:flex-end"><div style="flex:1"><div class="lab" style="font-size:11px">Name</div>${name ? `<div style="font-size:14px;font-weight:700;margin-top:2px">${esc(name)}</div>` : `<div class="line"></div>`}</div>
+<div style="flex:none;font-size:11.5px;color:#5a6660;display:flex;gap:6px">${["In person", "Online", "Apologies"].map((x) => `<span style="display:flex;align-items:center;gap:3px"><span class="box" style="width:13px;height:13px;border-width:1.5px"></span>${x}</span>`).join("")}</div></div></div>`;
+const figParticipants = page(`<div class="grid" style="grid-template-columns:1fr 1fr;gap:10px">
+<div><div class="band" style="background:${gcol[groups[0]]}">${groups[0]}</div><div class="grid">${participants.filter((p) => p[0] === groups[0]).map(pCard).join("")}</div></div>
+<div>${groups.slice(1).map((g) => `<div class="band" style="background:${gcol[g]}">${g}</div><div class="grid">${participants.filter((p) => p[0] === g).map(pCard).join("")}</div>`).join("")}</div></div>`, EXTRA);
+
+const figPrep = page(`<div class="grid" style="grid-template-columns:1fr 1fr;gap:8px">
+${prep.map(([t, o], i) => `<div class="card" style="display:flex;gap:10px;align-items:flex-start"><span class="box"></span><div style="flex:1"><div class="r" style="margin-top:0"><b style="color:#B8563E">${i + 1}.</b> ${esc(t)}</div><div style="margin-top:5px">${chip(o, o === "GIZ" ? "fill" : "")}</div></div></div>`).join("")}</div>`, EXTRA);
+
+const FIGS = { meeting: figMeeting, agenda: figAgenda, participants: figParticipants, prep: figPrep };
+
+async function main() {
+  await render(FIGS);
+  const children = [
   H1("1. About the handover meeting"),
   P("The handover meeting transfers the Output 1.2 work on financial mechanisms for R-NBT MSMEs from the consultant to GIZ, the KAZA Secretariat, the SADC Secretariat and the officers responsible for implementing Output 1.2, as the terms of reference require. It walks through the readiness pack (F6-D12 Part 1), confirms who owns each open item, transfers the documents and closes with a signed handover record. Because the consultancy closes on 30 November 2026 while validation and decisions are still pending, the meeting and any follow-up draw on hours committed under the contract."),
-  ...table("Meeting details", ["Item", "Detail"], [2200, 7546], [
-    ["Purpose", "Hand over the Output 1.2 deliverables, open items, partnership leads and documents; agree owners and an action log; sign off the handover"],
-    ["Date and venue", "[To be confirmed] · in person, with an online link for partners who cannot attend"],
-    ["Duration", "About two and a half hours"],
-    ["Chair", "GIZ Output 1.2 lead"],
-    ["Presenter", "Consultant (MNZ Consult)"],
-    ["Pre-reads", "F6-D12 Part 1 Readiness Pack; F6-D11 take-away summary pack and decision sheets; RTFF indicators; Output 1.2 Decision Gates"],
-    ["Outputs", "Signed handover checklist; minutes; agreed action log; documents transferred to the GIZ project folder"],
-  ]),
+  ...figure("meeting", "Meeting details"),
 
   H1("2. Agenda"),
-  P("The agenda combines the handover with the joint TUI Care Foundation, GIZ and SIGMA discussion on RTFF selection criteria, pipeline and indicators, which the close-out discussion identified as the most urgent open item. If that discussion is held separately, item 5 becomes a short status report."),
-  ...table("Agenda", ["Time", "Item", "Lead", "Reference"], [1100, 4700, 1800, 2146], [
-    ["0:00–0:10", "1. Welcome, purpose and agreement of the agenda", "GIZ", ""],
-    ["0:10–0:25", "2. Status of deliverables F1-D4 to F6-D12, change logs and validation (diagnostics, F6-D9, second roundtable)", "Consultant", "Readiness Pack §1, §6"],
-    ["0:25–0:55", "3. Readiness by component: 1.2.1, 1.2.2, 1.2.3, RTFF, M&E, governance, partnerships", "Consultant", "Readiness Pack §1"],
-    ["0:55–1:10", "4. The five decisions pending at the Oversight Committee; what is already decided (Chobe–Maun corridor) and what sits outside the assignment (extension)", "GIZ", "F6-D11; Readiness Pack §2"],
-    ["1:10–1:20", "Break", "", ""],
-    ["1:20–1:50", "5. RTFF: minimum entry criteria and screening; pipeline split (funding only vs capacity building plus funding); key indicators for the project and the RTFF (outputs vs impact, youth and gender lens)", "GIZ with TUI Care Foundation and SIGMA", "RTFF indicators; Readiness Pack §2, §6"],
-    ["1:50–2:05", "6. Partners handed to GIZ: state BSOs, tourism authorities and district councils; strategic partners (KAZA Conservation Trust Fund, funders active in KAZA); SADC-DFRC, OKACOM, ITC", "Consultant", "Readiness Pack §3"],
-    ["2:05–2:15", "7. Document register, templates to develop and file transfer", "Consultant", "Readiness Pack §6"],
-    ["2:15–2:30", "8. First 100-day actions, outstanding risks, roles after handover, action log and sign-off", "GIZ", "Readiness Pack §4–6; Sections 5–7 below"],
-  ]),
+  P("The agenda combines the handover with the joint TUI Care Foundation, GIZ and SIGMA discussion on RTFF selection criteria, pipeline and indicators, which the close-out discussion identified as the most urgent open item. If that discussion is held separately, item 5 becomes a short status report. In Figure 2 the length of each bar shows the time given to each item."),
+  ...figure("agenda", "Agenda"),
 
   H1("3. Participants"),
-  P("Table 3 lists the proposed participants by organisation and role. Names are completed when invitations are confirmed."),
-  ...table("Participant list", ["Organisation", "Role in the meeting", "Name", "Attendance (in person / online / apologies)"], [2500, 3346, 2000, 1900], [
-    ["GIZ KAZA R-NBT", "Chair; Output 1.2 lead; receives the handover", "", ""],
-    ["GIZ KAZA R-NBT", "Project management and contracts", "", ""],
-    ["GIZ KAZA R-NBT", "M&E", "", ""],
-    ["GIZ (regional partnerships)", "Receives partnership leads (SADC-DFRC and others)", "", ""],
-    ["MNZ Consult", "Consultant; presents and hands over", "Modesta Nyirenda", ""],
-    ["SIGMA International", "Diagnostics and inception phase; pipeline and indicators", "", ""],
-    ["TUI Care Foundation", "RTFF administrator (agenda item 5)", "", ""],
-    ["KAZA Secretariat", "Receives the regional layer and the RTFF future arrangements", "", ""],
-    ["SADC Secretariat (FANR)", "Policy link to the SADC TFCA programme; regional replication", "", ""],
-    ["Output 1.2 implementing officers", "Receive the 100-day actions and templates", "", ""],
-  ], { h: 420 }),
+  P("Figure 3 shows the proposed participants by organisation and role. Names and attendance are completed when invitations are confirmed."),
+  ...figure("participants", "Participant list"),
 
   H1("4. Before the meeting"),
-  ...table("Pre-meeting checklist", ["#", "Task", "Owner", "Done"], [500, 6346, 1900, 1000], [
-    ["1", "Confirm date, venue and online link; send invitations with pre-reads", "GIZ", ""],
-    ["2", "Confirm KAZA Secretariat and SADC Secretariat attendance, and TUI Care Foundation and SIGMA participation for agenda item 5", "GIZ", ""],
-    ["3", "Prepare the GIZ project folder and access rights for the file transfer", "GIZ", ""],
-    ["4", "Bring all documents in the register to final file names and versions", "Consultant", ""],
-    ["5", "Update the readiness ratings if any decision or partner response has arrived", "Consultant", ""],
-    ["6", "Print the handover checklist (Section 5) for signature", "GIZ", ""],
-  ]),
+  P("Figure 4 lists the tasks to complete before the meeting, with the owner of each; tick each box when done."),
+  ...figure("prep", "Pre-meeting checklist"),
 
   pageBreak(),
   H1("5. Handover checklist and sign-off"),
@@ -132,9 +195,9 @@ const children = [
     ...blank(3, 6),
   ], { h: 360 }),
   SRC("Status: Open, In progress, Done, Dropped (with reason)."),
-];
+  ];
 
-buildDoc({
+  await buildDoc({
   out: process.argv[2],
   header: "KAZA R-NBT Output 1.2 · F6-D12 Handover Meeting Documentation",
   cover: {
@@ -148,3 +211,5 @@ buildDoc({
   children,
   toc: false,
 });
+}
+main().catch((e) => { console.error(e); process.exit(1); });
