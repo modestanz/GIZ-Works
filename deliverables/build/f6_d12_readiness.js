@@ -68,15 +68,17 @@ const partners = {
     ["District councils: Chobe District Council; Zimbabwe's rural district councils", "Trading licences, market space, outreach to wards and villages", "Not yet engaged on Output 1.2", "Brief on the platforms and local outreach", "Lead BSOs"],
   ],
   strategic: [
-    ["KAZA Conservation Trust Fund (SFC, KAZA Secretariat, WWF-US)", "Possible home for the RTFF as a programme account after 2028–2029", "Fund being designed; GBFF funding expected late 2027", "Co-learning letter of intent with the TUI Care Foundation", "GIZ"],
+    ["KAZA Conservation Trust Fund (SFC, KAZA Secretariat, WWF-US)", "Possible home for the RTFF as a programme account under its catalytic nature finance window, after 2028–2029", "Task team since July 2026; GBFF funding expected late 2027; structure early 2028; domicile open (SFC, 26 Nov 2026)", "SFC to propose a working direction and bring the RTFF into task-team talks; letter of intent on joint learning, with the TUI Care Foundation; regular catch-ups", "GIZ; SFC"],
     ["TUI Care Foundation (RTFF)", "Collateral-free buyer-linked loans; carries the RTFF until it is anchored", "GIZ produces the pipeline; criteria open", "Joint meeting with GIZ and SIGMA", "GIZ"],
     ["Funders in KAZA (EU, KfW, IKI, GEF, World Bank, AfDB); verifiers (GreenLoop)", "Co-finance one layer each (grants, first loss, counter-guarantees, recapitalisation); verify milestones", "Not yet approached for Output 1.2", "Co-financing for season two; IKI 2027 call for a joint RTFF–CTF concept", "GIZ"],
   ],
   conversations: [
     ["SADC-DFRC", "Regional resource mobilisation", "Official position awaited", "Follow up; then a concrete proposal", "Consultant, then GIZ"],
     ["OKACOM (CORB Fund)", "Complementary layer in shared communities (~40% overlap)", "MoU with KAZA; synergy note prepared", "Discuss with GIZ Transboundary Water Management project", "GIZ"],
-    ["ITC Green Value Chain programme", "Farmer readiness and community tourism in Maun; no lending", "Convergence note (Oct 2026)", "Confirm Maun coverage; agree division of labour", "GIZ"],
-    ["KAZA Secretariat; SADC FANR", "Regional layer; RTFF future decision; policy link", "Reviewing the diagnostics", "Agree regional roles at validation", "GIZ"],
+    ["ITC Green Value Chain programme (Botswana)", "Grants (about €2 million; some 142 grants of €10,000–35,000) that could de-risk RTFF loans as planned with CEDA and NDB; pipeline referrals; capacity building, including BTO eco-certification", "Technical agreement (27 Oct 2026); grant framework awaiting approval, early 2027", "Meet ITC’s grant office, with the TUI Care Foundation; align indicators for matched grants and loans; share pipelines and work plans; joint statement", "GIZ"],
+    ["WWF KAZA Bankable Nature Solutions", "Green pipeline and de-risking capital; wholesale green funding through banks (Namibia, Botswana, a Standard Bank group facility across five states); EU first loss or guarantees", "Engaged (Nov 2026); bank structures in progress", "Follow up the bank structures, pricing and currency; WWF to suggest alternative homes for the RTFF; keep as a sounding board", "GIZ"],
+    ["EU Delegation", "One joint space for EU-funded projects in KAZA (WWF, ITC, R-NBT)", "Raised by GIZ (Nov 2026)", "Agree a functional joint space that private-sector partners find worth attending", "GIZ"],
+    ["KAZA Secretariat; SADC FANR", "Regional layer; RTFF future decision; policy link", "Reviewing the diagnostics", "Agree regional roles at validation; discuss a regional home for the RTFF (Trust Fund, a KAZA Secretariat vehicle or a lead country) and a KAZA finance task force with Partner State representatives", "GIZ"],
     ["SIGMA International", "Pipeline, supplier directory, indicators", "Inception phase", "Joint indicator document; intake baseline", "GIZ"],
   ],
 };
@@ -135,7 +137,7 @@ const roles = [
 const supportingDocs = [
   ["Change logs for F6-D9 and the F6-D11 deck; figure source files", "Nov 2026", "Version history"],
   ["GM1-D5 indicator extract; RTFF indicators; decision-gate criteria", "Nov 2026", "M&E and gates"],
-  ["KAZA–OKACOM synergy note; ITC convergence note; GIZ–SFC minutes", "Oct–Nov 2026", "Coordination; partnerships"],
+  ["KAZA–OKACOM synergy note; ITC convergence note and meeting minutes; GIZ–SFC minutes; WWF KAZA Bankable Nature Solutions minutes", "Oct–Nov 2026", "Coordination; partnerships"],
 ];
 
 // ---------------------------------------------------------------- figure styling
@@ -238,7 +240,7 @@ async function main() {
     P("Four tools still need drafting; their outlines are in F6-D9 (Sections 5.1–5.3 and Annex C):"),
     ...figure("fig7", "Four tools still to draft"),
     ...figure("fig8", "Roles after handover (proposed)"),
-    SRC("Sources: F6-D9 and its sources; F6-D10; F6-D11; GIZ–consultant close-out discussion; ITC, OKACOM and SFC notes (Oct–Nov 2026)."),
+    SRC("Sources: F6-D9 and its sources; F6-D10; F6-D11; GIZ–consultant close-out discussion; GIZ–ITC technical meeting minutes (27 Oct 2026); WWF KAZA Bankable Nature Solutions engagement minutes (Nov 2026, draft); GIZ–SFC meeting minutes (26 Nov 2026); OKACOM note."),
   ];
 
   await buildDoc({
