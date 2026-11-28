@@ -116,7 +116,7 @@ const risks = [
   ["Thin cohort 1 pipeline, or RTFF criteria that do not match it", "Agree RTFF entry criteria early; open call through associations; Lot 2 grantees as a second round", "3", "GIZ; TUI; SIGMA"],
   ["Inconsistent targeting across instruments", "One youth band (18–35) and one women-led test across grants, the RTFF and M&E", "2", "GIZ; TUI; SIGMA"],
   ["Project ends before two seasons are observed", "Extension decided by GIZ and the funders; front-load cohort 1", "Noted", "GIZ"],
-  ["The RTFF and other mechanisms have no home after the pilot", "Co-learning with the KAZA Conservation Trust Fund from 2027; host agreed by Q4 2028", "—", "GIZ; KAZA Sec.; TUI"],
+  ["The RTFF and other mechanisms have no home after the pilot", "Co-learning with the KAZA Conservation Trust Fund from 2027; alternative homes explored in parallel (a KAZA Secretariat vehicle, a lead country, or testing in one market first); host agreed by Q4 2028", "—", "GIZ; KAZA Sec.; TUI"],
   ["Duplication with ITC, OKACOM, World Bank programmes", "Share criteria and beneficiary lists; align contribution ratios", "—", "GIZ"],
 ];
 const tools = [
