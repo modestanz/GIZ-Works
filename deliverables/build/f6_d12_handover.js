@@ -175,7 +175,7 @@ async function main() {
   P("The log is pre-filled with the actions known at close-out (November 2026). Owners and dates are proposals to be confirmed in the meeting; rows are added for new actions."),
   ...table("Action log", ["No.", "Action", "Owner", "Due", "Status", "Notes"], [500, 3946, 1500, 1100, 1000, 1700], [
     ["1", "Hold the TUI Care Foundation, GIZ and SIGMA meeting on selection criteria and screening, pipeline split and key indicators", "GIZ", "Dec 2026", "Open", "Invitation sent before contract close"],
-    ["2", "Agree ownership of the key indicators as one shared live document (project and RTFF; outputs vs impact; youth, gender and environment)", "GIZ / SIGMA", "Dec 2026", "Open", ""],
+    ["2", "Agree ownership of the key indicators as one shared live document (project and RTFF; outputs vs impact; youth, gender and environment)", "GIZ; TUI Care Foundation", "Dec 2026", "Open", "SIGMA contributes"],
     ["3", "Incorporate KAZA Secretariat feedback into F1-D4 Financial Landscape Analysis", "Consultant", "On receipt", "Open", "Feedback awaited"],
     ["4", "Incorporate GIZ feedback into F4-D7, presenting the RTFF as one option among several", "Consultant", "Dec 2026", "Open", "Reflected in F6-D9 to F6-D11"],
     ["5", "Follow up SADC-DFRC for its official position; then take GIZ a concrete proposal", "Consultant, then GIZ", "Dec 2026", "Open", ""],

@@ -50,7 +50,7 @@ const decisions = {
     ["RTFF pilot: include Chobe (Kasane) as a market through which products from Maun–Chobe are channelled", "Proposed", "KAZA Secretariat, with GIZ support", "A proposal, not yet decided; not before the Oversight Committee"],
     ["Project extension to mid-2029", "Pending", "GIZ; funders", "Outside this assignment; needed to observe a second low season"],
     ["TUI Care Foundation minimum entry criteria beyond formal registration", "Open", "TUI Care Foundation", "Risk of a pipeline rejected on first sight"],
-    ["Ownership of the key indicators as one shared live document", "Open", "GIZ; SIGMA; TUI", "Outputs separate from impact; youth and gender lens"],
+    ["Ownership of the key indicators as one shared live document", "Open", "GIZ; TUI Care Foundation", "Outputs separate from impact; youth and gender lens; SIGMA contributes"],
     ["Route of the studies to member states after KAZA Secretariat review", "Open", "KAZA Secretariat", "Member-state comments may come as a second round"],
   ],
 };
