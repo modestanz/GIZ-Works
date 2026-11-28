@@ -8,21 +8,7 @@ const { makeKit, buildDoc } = require("./doc_lib");
 const K = makeKit();
 const { P, H1, B, SRC } = K;
 
-const { esc, tone, pill, chip, split, W, page, makeFigures } = require("./fig_lib");
-// Blue palette: the olive and forest greens are swapped for blues of similar depth; gold and terracotta stay
-const BLUES = {
-  "#1F3B2C": "#0F2F4F", // forest -> deep navy
-  "#3D5A44": "#1D5C73", // olive -> teal-blue
-  "#5E7A63": "#4E8FA0", // sage -> steel blue
-  "#3D7A4F": "#2B6F9E", // ready accent
-  "#1F5135": "#0F4C75", // ready text
-  "#DCEBDD": "#DCEAF4", // ready tint
-  "#F3F8F1": "#EEF5FA", // in-place tint
-  "#DDE3DA": "#D6E0E8", // card border
-  "#9AA79E": "#9AAAB8", // muted grey-green
-  "#1b2620": "#1B2430", // body text
-  "#5a6660": "#56636F", // muted text
-};
+const { esc, tone, pill, chip, split, W, page, makeFigures, BLUES } = require("./fig_lib");
 const { render, figure } = makeFigures(path.join(__dirname, "f6d12_figs"), { recolor: BLUES, captionColor: "0F4C75" });
 
 // ---------------------------------------------------------------- content (unchanged from the table version)

@@ -4,11 +4,11 @@
 // Usage: node deliverables/build/f6_d12_handover.js out.docx
 const path = require("path");
 const { makeKit, buildDoc } = require("./doc_lib");
-const { esc, chip, page, makeFigures } = require("./fig_lib");
-const K = makeKit();
+const { esc, chip, page, makeFigures, BLUES } = require("./fig_lib");
+const K = makeKit({ head: "0F2F4F", band: "DCEAF4" });
 const { P, H1, H2, B, N, table, SRC, field, pageBreak } = K;
 const blank = (n, cols) => Array.from({ length: n }, () => Array(cols).fill(""));
-const { render, figure } = makeFigures(path.join(__dirname, "f6d12h_figs"));
+const { render, figure } = makeFigures(path.join(__dirname, "f6d12h_figs"), { recolor: BLUES, captionColor: "0F4C75" });
 
 // ---------------------------------------------------------------- content (unchanged from the table version)
 const details = {

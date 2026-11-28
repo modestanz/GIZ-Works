@@ -60,4 +60,22 @@ function makeFigures(FIGDIR, { recolor = {}, captionColor = "1F5135" } = {}) {
   return { render, figure };
 }
 
-module.exports = { esc, tone, pill, chip, split, W, CSS, page, makeFigures };
+// Blue palette: the olive and forest greens are swapped for blues of similar depth; gold and terracotta stay
+const BLUES = {
+  "#1F3B2C": "#0F2F4F", // forest -> deep navy
+  "#3D5A44": "#1D5C73", // olive -> teal-blue
+  "#5E7A63": "#4E8FA0", // sage -> steel blue
+  "#3D7A4F": "#2B6F9E", // ready accent
+  "#1F5135": "#0F4C75", // ready text
+  "#DCEBDD": "#DCEAF4", // ready tint
+  "#F3F8F1": "#EEF5FA", // in-place tint
+  "#DDE3DA": "#D6E0E8", // card border
+  "#9AA79E": "#9AAAB8", // muted grey-green
+  "#1b2620": "#1B2430", // body text
+  "#5a6660": "#56636F", // muted text
+  "#BFD6C3": "#BFD3E3", // light label on dark band
+  "#F7F9F6": "#F4F8FB", // pale panel
+  "#D6DBD4": "#D3DCE3", // break bar
+};
+
+module.exports = { esc, tone, pill, chip, split, W, CSS, page, makeFigures, BLUES };

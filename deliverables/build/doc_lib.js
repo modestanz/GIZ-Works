@@ -14,7 +14,7 @@ const FIGP = (f) => path.join(__dirname, "..", "..", "synthesis", "figures", "ba
 const runs = (t, o = {}) => String(t).split(/(\*\*[^*]+\*\*)/).filter(Boolean).map((s) => s.startsWith("**")
   ? new TextRun({ text: s.slice(2, -2), bold: true, ...o }) : new TextRun({ text: s, ...o }));
 
-function makeKit() {
+function makeKit({ head: HEADC = HEAD, band: BANDC = BAND } = {}) {
   let tn = 0, fn = 0;
   const P = (t, o = {}) => new Paragraph({ alignment: o.align || AlignmentType.JUSTIFIED, keepNext: o.keepNext, spacing: o.spacing, children: runs(t, o.run || {}) });
   const H1 = (t, o = {}) => new Paragraph({ heading: HeadingLevel.HEADING_1, keepNext: true, pageBreakBefore: !!o.newPage, children: [new TextRun(t)] });
@@ -34,9 +34,9 @@ function makeKit() {
     const out = [];
     if (cap) out.push(new Paragraph({ keepNext: true, keepLines: true, spacing: { before: 160, after: 80 }, children: [new TextRun({ text: `Table ${tn}: `, bold: true, color: TEAL, size: 20 }), new TextRun({ text: cap, italics: true, size: 20 })] }));
     out.push(new Table({ width: { size: W, type: WidthType.DXA }, columnWidths: c, rows: [
-      new TableRow({ tableHeader: true, children: head.map((h, i) => cell(h, c[i], { fill: HEAD, bold: true, color: "FFFFFF" })) }),
+      new TableRow({ tableHeader: true, children: head.map((h, i) => cell(h, c[i], { fill: HEADC, bold: true, color: "FFFFFF" })) }),
       ...rows.map((r) => {
-        if (r.band) return new TableRow({ children: [cell(r.band, W, { span: c.length, fill: BAND, bold: true })] });
+        if (r.band) return new TableRow({ children: [cell(r.band, W, { span: c.length, fill: BANDC, bold: true })] });
         const vals = r.cells || r;
         return new TableRow({ cantSplit: true, height: opts.h ? { value: opts.h, rule: HeightRule.ATLEAST } : undefined,
           children: vals.map((v, i) => cell(v, c[i], { bold: i === 0 && !opts.plainFirst, fill: (r.cells && r.fills && r.fills[i]) || (r.cells && r.fill) || undefined })) });
